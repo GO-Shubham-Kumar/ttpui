@@ -29,12 +29,12 @@ function App() {
 
   return (
     <AuthProvider>
-      <Provider>
+      {/* <Provider> */}
         <BrowserRouter>
           <Header/>
           <Router />
         </BrowserRouter>
-      </Provider>  
+      {/* </Provider>   */}
     </AuthProvider>
   
   );

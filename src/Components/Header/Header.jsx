@@ -4,8 +4,7 @@ const logo  = require('./../../assets/images/GO_Orange_Black_Horizontal.svg');
 function Header(){
     return (
         <div>
-            <BrandHeader goLogo={require('./../../assets/images/GO_Orange_Black_Horizontal.svg')} mode="Put Back"/>
-           This is header
+            <BrandHeader goLogo={logo} mode="Put Back"/>
         </div>
     )
 }
