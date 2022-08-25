@@ -1,23 +1,15 @@
 import React from 'react';
-import logo from './../../logo.svg'
-
-// class Layout extends React.Component{
-
-//     render(){
-//         return (
-//             <div className='layout'>
-//                 {this.props.children}
-//             </div>
-//         )
-//     }
-// }
-
+import logo from './../../assets/images/GO_Orange_Black_Horizontal.svg'
+import { BrandHeader, Container } from 'operational-component-lib';
 const Layout = ({children}) => {
 
     return (
-        <div className="layout">
-            {children}
-        </div>
+        <Container fullWidth={true} >
+            <BrandHeader goLogo={logo} mode="Put" isLoggedin={true} />
+                <main>
+                    {children}
+                </main>
+        </Container>
     )
 
 }

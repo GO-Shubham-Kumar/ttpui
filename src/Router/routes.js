@@ -7,7 +7,7 @@ const Routes = () => {
     return [
         {
             path : "/",
-            comp : Layout,
+            comp : MainPageContainer,
             authRoute : true,
             exact : true
         },
