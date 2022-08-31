@@ -5,7 +5,8 @@ import Header from './Containers/Header/Header';
 import AuthContext from './Context/AuthContext';
 import Router from './Router';
 import { Provider } from 'react-redux';
-import 'operational-component-lib/dist/app.css';
+import 'operational-component-lib/dist/assets/css/app.css';
+import './assets/css/app.css'
 
 function AuthProvider({ children } ) {
   let [isLoggedin, setUser] = React.useState(true);
