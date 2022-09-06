@@ -2,6 +2,7 @@ import Layout from './../Containers/Layout/Layout.jsx';
 import LoginContainer from './../Containers/Login/Login';
 import HeaderContainer from './../Containers/Header/Header';
 import MainPageContainer from './../Containers/MainPage/MainPage';
+import ScanToteContainer from './../Containers/ScanTote/ScanTote';
 
 const Routes = () => {
     return [
@@ -13,7 +14,7 @@ const Routes = () => {
         },
         {
             path : "/scan-tote",
-            comp : MainPageContainer,
+            comp : ScanToteContainer,
             authRoute : true,
             exact : true
 
