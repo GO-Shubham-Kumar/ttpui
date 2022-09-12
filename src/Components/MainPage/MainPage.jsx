@@ -5,7 +5,7 @@ import { Grid, Box } from '@mui/material';
 function MainPage(){
     return (
         <>
-        <Header heading ="Scan Put" />
+        <Header heading ="Scan Pallet" />
         {/* <Container> */}
             <Grid container  alignItems="stretch">
                 <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >

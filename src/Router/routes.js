@@ -13,7 +13,34 @@ const Routes = () => {
             exact : true
         },
         {
-            path : "/scan-tote",
+            path : "/login",
+            comp : MainPageContainer,
+            authRoute : true,
+            exact : true
+        },
+        {
+            path : "/put-front",
+            comp : ScanToteContainer,
+            authRoute : true,
+            exact : true
+
+        },
+        {
+            path : "/put-back",
+            comp : ScanToteContainer,
+            authRoute : true,
+            exact : true
+
+        },
+        {
+            path : "/pick-front",
+            comp : ScanToteContainer,
+            authRoute : true,
+            exact : true
+
+        },
+        {
+            path : "/pick-back",
             comp : ScanToteContainer,
             authRoute : true,
             exact : true

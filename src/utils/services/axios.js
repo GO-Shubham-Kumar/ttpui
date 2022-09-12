@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {AUTHORIZATION_HEADER} from './../constants'
 const fetchClient = () => {
   let instance = axios.create({
     validateStatus: function (status) {
