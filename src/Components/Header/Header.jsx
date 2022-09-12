@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrandHeader } from 'operational-component-lib';
-const logo  = require('./../../assets/images/GO_Orange_Black_Horizontal.svg');
+import { Header as ScanHeader, BrandHeader, Container } from 'operational-component-lib';
+// const logo  = require('/assets/images/GO_Orange_Black_Horizontal.svg');
 function Header(){
     return (
         <div>
-            <BrandHeader goLogo={require('./../../assets/images/GO_Orange_Black_Horizontal.svg')} mode="Put Back"/>
-           This is header
+            <Container header={ <ScanHeader /> }>
+                <ScanHeader goLogo={'assets/images/GO_Orange_Black_Horizontal.svg'} mode="Put Back"/>
+            </Container>
         </div>
     )
 }

@@ -1,0 +1,8 @@
+// action types for auth 
+export const LOGINSUCCESS = 'LOGINSUCCESS';
+export const LOGINREQUEST = 'LOGINREQUEST';
+export const LOGINERROR = 'LOGINERROR';
+export const LOGINCHECKFAILURE = 'LOGINCHECKFAILURE';
+export const LOGOUTSUCCESS = 'LOGOUTSUCCESS';
+export const LOGOUTREQUEST = 'LOGOUTREQUEST';
+export const LOGOUTERROR = 'LOGOUTERROR';

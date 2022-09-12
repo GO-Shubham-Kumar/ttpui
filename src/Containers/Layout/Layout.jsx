@@ -1,23 +1,16 @@
 import React from 'react';
-import logo from './../../logo.svg'
-
-// class Layout extends React.Component{
-
-//     render(){
-//         return (
-//             <div className='layout'>
-//                 {this.props.children}
-//             </div>
-//         )
-//     }
-// }
-
+import logo from './../../assets/images/GO_Orange_Black_Horizontal.svg'
+import { AppBar, Container, Footer } from 'operational-component-lib';
 const Layout = ({children}) => {
 
     return (
-        <div className="layout">
-            {children}
-        </div>
+        <Container fullWidth={true} height="100%" >
+            <AppBar goLogo={logo} mode="Put" isLoggedin={true} />
+                <main>
+                    {children}
+                </main>
+            <Footer footerText="Butler Operator Interface - BOI 2.0. All right resirved Greyorange 2019."/>
+        </Container>
     )
 
 }
