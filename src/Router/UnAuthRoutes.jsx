@@ -6,12 +6,12 @@ function useAuth() {
     return React.useContext(AuthContext);
   }
 
-const UnAuthRoutes = ({ isLoggedin, user, comp, path, children}) => {
-    // console.log('----', )
-    let auth = React.useContext(AuthContext)
-    console.log('auth', auth);
+const UnAuthRoutes = ({ isLoggedIn, user, comp, path, children}) => {
+
+    // let auth = React.useContext(AuthContext)
+    // console.log('auth', auth);
     const location = useLocation()
-    if(auth.isLoggedin) return <Navigate to="/scan-tote" state={{ from: location }} replace />
+    if(isLoggedIn) return <Navigate to="/" state={{ from: location }} replace />
     return children
 
 }

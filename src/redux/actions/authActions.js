@@ -1,9 +1,11 @@
-import { loginUser } from './../../utils/services/authServices';
+import { emptyLoginSessionData, fetchMode, loginUser, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
 import { LOGINSUCCESS, LOGINCHECKFAILURE, LOGINERROR, LOGINREQUEST, LOGOUTERROR, LOGOUTREQUEST,LOGOUTSUCCESS } from './actionTypes';
-import { AUTHTOKEN } from './../../inc/config';
+import { removeSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
+import { AUTH_TOKEN, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
+
 
 export let handleLoginSuccess = (res) => {
-  console.log('res from loginactions', res)
   return {
     type: LOGINSUCCESS,
     payload: res,
@@ -25,7 +27,7 @@ export function handleLoginError(err) {
   return {
     type: LOGINERROR,
     payload: {
-      message: err,
+      message: err || SERVER_ERROR_TEXT,
     },
   };
 }
@@ -65,104 +67,93 @@ export function handleLogOutError(err) {
   };
 }
 
-export let handleResetPasswordSuccess = (res) => {
-  return {
-    type: RESETPASSWORDSUCCESS,
-    payload: { 
-      message: res.message
-    } 
-  };
-}
-
-export function handleResetPasswordRequest() {
-  return {
-    type: RESETPASSWORDREQUEST,
-    payload: {
-      message: 'loading'
-    }
-  };
-}
-
-// to handle error
-export function handleResetPasswordError(err) {
-  return {
-    type: RESETPASSWORDERROR,
-    payload: {
-      message: err
-    }
-  };
-}
-
-export function loginAction(username, password) {
-  console.log('test')
-  return dispatch => {
+export function loginAction(username, password, seat_name) {
+  return async dispatch => {
     dispatch(handleLoginRequest());
-    loginUser(username, password).then((res)=>{
-      console.log('res in login', res);
+    const mode = await fetchMode(seat_name)
+    loginUser(username, password, seat_name, 'ROLE_PUT').then((res)=>{
+      console.log('login res', seat_name);
       if(res.status === 200){
-        let { data } = res;
-        if(data.status){
-          // localStorage.setItem('authtoken', data.token)
-          return dispatch(handleLoginSuccess(data));
-        }else{        
-          return dispatch(handleLoginError(data.message));
+        let { data : { access_token, refresh_token, user_name } } = res;
+        const webSocketData = {
+          data_type: "auth",
+          data: {
+            [AUTH_TOKEN]: access_token,
+            [SEAT_NAME]: seat_name,
+          },
         }
+        storeLoginSessionData(access_token, refresh_token, seat_name, user_name || username, webSocketData);
+        // webSocket.onopen= () => {
+        //   console.log('connecteddd')
+        //   webSocket.send(JSON.stringify(webSocketData))
+        //   webSocket.onmessage = (event) =>{
+        //     console.log('event', event)
+        //   }
+        // }
+        // sendDataToWebSocket(webSocketData)
+        sendDataToWebSocket(webSocketData)
+        return dispatch(handleLoginSuccess(access_token));
       }else{
-        return dispatch(handleLoginError(res.data.message));
+        return dispatch(handleLoginError(res));
       }
     }).catch((err)=>{
-      console.log('err',err)
-      if(err.message){
-        return dispatch(handleLoginError(err.message));
-      }else{        
+        console.log('err',err)
+        emptyLoginSessionData()       
         return dispatch(handleLoginError(err));
-      }
     })
       
     }
 }
 
-export function checkLoginAction(token) {
+//verify is a user have a valid auth_token
+export function verifyLoginAction() {
   return (dispatch) => {
     dispatch(handleLoginRequest());
-    checkLogin(token).then((res)=>{
-      console.log('res', res);
-      let {data} =res;
-      if(data.status){
-        return dispatch(handleLoginSuccess(data));
-      }else if(!data.status){
-        localStorage.removeItem(AUTHTOKEN);
-        return dispatch(handleLoginError(res.message));
+    verifyLogin().then((data)=>{
+      // console.log('res', data);
+      let { auth_token, refresh_token, username, seat_name } = data;
+      const webSocketData = {
+        data_type: "auth",
+        data: {
+          [AUTH_TOKEN]: auth_token,
+          [SEAT_NAME]: seat_name,
+        },
       }
-    }).catch((err)=>{
-      console.log('err',err)
-      // if(err){
-        return dispatch(handleLoginError(err.message));
-      // }else{        
-      //   return dispatch(handleLoginError(err));
+      // webSocket.onopen= () => {
+      //   webSocket.send(JSON.stringify(webSocketData))
+      //   webSocket.onmessage = (event) =>{
+      //     console.log('event1', event)
+      //   }
       // }
+      // debugger
+      sendDataToWebSocket(webSocketData)
+      return dispatch(handleLoginSuccess(data));
+    }).catch((err)=>{
+        console.log('err---',err);
+        emptyLoginSessionData()
+        return dispatch(handleLoginError(err.message));
     })
   }
 }
 
-export function logOutAction() {
-  console.log('logout clicked here')
-  return (dispatch) => {
-    dispatch(handleLogOutRequest());
-    return logout().then((res)=>{
-      console.log('response', res);
-      if(res.status && res.status === 204){
-          localStorage.removeItem(AUTHTOKEN)
-          return dispatch(handleLogOutSuccess(res));
-      }
-      return dispatch(handleLogOutError('Something Went Wrong!'));
-    }).catch((err)=>{
-      console.log('err',err)
-      if(err.message){
-        return dispatch(handleLogOutError(err.message));
-      }else{        
-        return dispatch(handleLogOutError(err));
-      }
-    })
-  }
-}
+// export function logOutAction() {
+//   console.log('logout clicked here')
+//   return (dispatch) => {
+//     dispatch(handleLogOutRequest());
+//     return logout().then((res)=>{
+//       console.log('response', res);
+//       if(res.status && res.status === 204){
+//           localStorage.removeItem(AUTH_TOKEN)
+//           return dispatch(handleLogOutSuccess(res));
+//       }
+//       return dispatch(handleLogOutError('Something Went Wrong!'));
+//     }).catch((err)=>{
+//       console.log('err',err)
+//       if(err.message){
+//         return dispatch(handleLogOutError(err.message));
+//       }else{        
+//         return dispatch(handleLogOutError(err));
+//       }
+//     })
+//   }
+// }

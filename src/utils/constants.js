@@ -1,1 +1,10 @@
-export const AUTHORIZATION_HEADER = 'auth_token';
+export const AUTHORIZATION_HEADER = 'Authentication-Token';
+export const AUTH_TOKEN_REQUEST = 'Authorization';
+export const AUTH_TOKEN = 'auth-token';
+export const REFRESH_TOKEN = 'refresh_token';
+export const USER_NAME = 'username';
+export const VALID_URLS = ['/' , '/login', '/put-back', '/put-front', '/pick-back', '/pick-back'];
+export const SEAT_NAME="seat_name";
+export const PPS_SEATS = "pps_seats";
+export const SESSION_DATA = "session_data";
+export const SERVER_ERROR_TEXT = "Server Error";

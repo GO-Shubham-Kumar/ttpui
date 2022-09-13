@@ -1,24 +1,27 @@
 import axios from 'axios'
-import {AUTHORIZATION_HEADER} from './../constants'
+import { retreiveSessionData } from '../helpers/sessionHelpers';
+import {AUTHORIZATION_HEADER, AUTH_TOKEN, AUTH_TOKEN_REQUEST} from './../constants';
+
 const fetchClient = () => {
   let instance = axios.create({
     validateStatus: function (status) {
-        return (status >= 200 && status <= 204) || status === 401 || status === 400 || status === 409;
+        return (status >= 200 && status <= 204) || status === 400 || status === 409;
     },
 })
   instance.interceptors.request.use((config) => {
-    console.log('config', config);
-    const token = localStorage.getItem(AUTHTOKEN)
-    console.log('localStorage.getItem(AUTHORIZATION)', token)
-    if (!_.isEmpty(token)) {
+    // console.log('config', config);
+    const token = JSON.parse(retreiveSessionData(AUTH_TOKEN))
+    // console.log('retreiveSessionData(AUTHORIZATION)', token)
+    if (token) {
       config.headers[AUTHORIZATION_HEADER] = token
+      config.headers[AUTH_TOKEN_REQUEST] = token
     }
     return config
   })
 
   instance.interceptors.response.use((response) => {
     try{
-      console.log('response in axios config', response.data[AUTHTOKEN])
+      // console.log('response in axios config', response.data[AUTH_TOKEN])
       return response
     }catch(err){
       console.log('error in axios config', err )

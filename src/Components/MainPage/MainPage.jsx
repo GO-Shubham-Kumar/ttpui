@@ -15,7 +15,7 @@ function MainPage(){
                 <Grid  item xs={12} md={9} p={3} pb={0}>
                     <Card title="Pallet ID" p={0} bodySeperator={true}>
                         <Box sx={{p:4,pt:0, textAlign : 'center'}}>
-                            <img alt="pallet" src="/pallet.svg" style={{ "marginBottom":"10%" }}/>
+                            <img alt="pallet" src="/pallet.svg" style={{ "marginBottom":"7.5em" }}/>
                         </Box>
                     </Card>
                 </Grid>

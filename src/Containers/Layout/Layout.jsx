@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './../../assets/images/GO_Orange_Black_Horizontal.svg'
 import { AppBar, Container, Footer } from 'operational-component-lib';
-const Layout = ({children}) => {
 
+const Layout = ({isLoggedIn, children}) => {
     return (
         <Container fullWidth={true} height="100%" >
-            <AppBar goLogo={logo} mode="Put" isLoggedin={true} />
+            <AppBar goLogo={logo} mode="Put" isLoggedIn={isLoggedIn} />
                 <main>
                     {children}
                 </main>

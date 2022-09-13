@@ -1,6 +1,7 @@
-import axios, { CancelToken } from './services/axios';
-const source = CancelToken.source();
+import axios from './services/axios';
+// const source = CancelToken.source();
 let cancel;
+
 export async function wrappedFetch(input, method, body, headers) {
   console.log('input, method, body', input, method, body);
   let config = {
@@ -17,10 +18,10 @@ export async function wrappedGet(resource, method) {
     return await axios({
       method: method,
       url: resource,
-      cancelToken :   new CancelToken(function executor(c) {
-        // An executor function receives a cancel function as a parameter
-        cancel = c;
-      })
+      // cancelToken :   new CancelToken(function executor(c) {
+      //   // An executor function receives a cancel function as a parameter
+      //   cancel = c;
+      // })
     })
   }
   

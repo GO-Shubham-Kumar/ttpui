@@ -1,5 +1,5 @@
 import { LOGINSUCCESS, LOGINCHECKFAILURE, LOGINERROR, LOGINREQUEST, LOGOUTERROR, LOGOUTREQUEST, LOGOUTSUCCESS } from './../actions/actionTypes'
-const insitialState = {
+const initialState = {
     isLoggedin : false,
     isFetching : false,
     authdone : false,
