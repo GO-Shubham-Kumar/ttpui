@@ -18,7 +18,7 @@ const appWrapper = (App) =>{
 
   useEffect(()=>{
     dispatch(fetchInitialConfigsAction());
-    if(isLoggedIn) dispatch(verifyLoginAction());
+    if(!isLoggedIn) dispatch(verifyLoginAction());
   } ,[])
 
     return { isLoggedIn, validRoute }

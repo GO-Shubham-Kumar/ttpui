@@ -1,11 +1,13 @@
 import authReducer from "./authReducer";
-import initialConfigsReducers from "./initialConfigsReducers";
+import intialConfigs from "./initialConfigsReducers";
+import updateMainStateReducer from "./updateMainStateReducer";
 
 const rootReducers = {
     authReducer,
-    intialConfigs : initialConfigsReducers
+    // intialConfigs : initialConfigsReducers,
 }
 export {
     authReducer,
-    initialConfigsReducers
+    intialConfigs,
+    updateMainStateReducer
 }

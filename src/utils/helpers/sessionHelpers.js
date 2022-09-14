@@ -4,7 +4,7 @@ export const saveSessionData = (key, data) => {
 }
 //retreive data from sessoion storage
 export const retreiveSessionData = (key) => {
-    return sessionStorage.getItem(key)
+    return JSON.parse(sessionStorage.getItem(key))
 }
 //remove data from session storage
 export const removeSessionData = (key) => {

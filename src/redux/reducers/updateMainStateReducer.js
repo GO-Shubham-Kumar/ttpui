@@ -1,10 +1,9 @@
-import { INITIALCONFIGERROR, INITIALCONFIGREQUEST, INITIALCONFIGSUCCESS, INITIALMODECONFIGERROR, INITIALMODECONFIGSUCCESS } from './../actions/actionTypes'
+import { SERVER_ERROR_TEXT } from '../../utils/constants';
+import { INITIALCONFIGERROR, INITIALCONFIGREQUEST, INITIALCONFIGSUCCESS, UPDATESTATEDATAERROR, UPDATESTATEDATASUCCESS } from './../actions/actionTypes'
 const initialState = {
     success : false,
     isFetching : false,
-    configs : {},
-    pps_seats : [],
-    mode : '',
+    data : {},
     err : ''
 }
 
@@ -16,40 +15,32 @@ const initialState = {
       console.log(payload,'payload');
     
     switch (type) {
-        case INITIALCONFIGSUCCESS:
+        case UPDATESTATEDATASUCCESS:
             console.log('---')
         return { 
                 ...state,
                 isFetching: false,
                 success : true,
-                configs : payload.configs,
-                pps_seats : payload.pps_seats,
+                data : payload.data,
             };
             break;
     
-        case INITIALCONFIGERROR:
+        case UPDATESTATEDATAERROR:
             return { 
                 ...state,
                 isFetching: false,
                 success : false,
-                err : 'Error Fetching Data',
+                err : payload.err || SERVER_ERROR_TEXT,
             };
         break;
     
-        case INITIALCONFIGREQUEST:
+        case UPDATESTATEDATAERROR:
             return { 
                 ...state,
                 isFetching : true,
             };
         break;  
-        case INITIALMODECONFIGSUCCESS:
-            console.log('--- mode', payload)
-        return { 
-                ...state,
-                isFetching: false,
-                success : true,
-                mode : payload.mode
-            };
+
         default:
             return state;
         }

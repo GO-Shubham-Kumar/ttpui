@@ -95,14 +95,14 @@ export const verifyLogin = () => {
   return new Promise(async (resolve, reject) => {
     try{
         const {REACT_APP_PLATFORM_IP} = process.env
-        const url = `${REACT_APP_PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
-        const data = await wrappedGet(url);
-        console.log('data valid', data);
         const auth_token = retreiveSessionData(AUTH_TOKEN)
         const username = retreiveSessionData(USER_NAME)
         const refresh_token = retreiveSessionData(REFRESH_TOKEN)
         const seat_name = retreiveSessionData(SEAT_NAME)
         if(auth_token === null || username === null || refresh_token === null) throw new Error()
+        const url = `${REACT_APP_PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
+        const data = await wrappedGet(url);
+        console.log('data valid', data);
         resolve({ auth_token, username, refresh_token, seat_name });
     }catch(err){
       reject(err)

@@ -1,7 +1,8 @@
-import { loginUser, storeLoginSessionData } from './../../utils/helpers/authHelpers';
-import { INITIALCONFIGSUCCESS, INITIALCONFIGREQUEST, INITIALCONFIGERROR } from './actionTypes';
+import { fetchMode, loginUser, storeLoginSessionData } from './../../utils/helpers/authHelpers';
+import { INITIALCONFIGSUCCESS, INITIALCONFIGREQUEST, INITIALCONFIGERROR, INITIALMODECONFIGERROR, INITIALMODECONFIGSUCCESS } from './actionTypes';
 import { saveSessionData } from '../../utils/helpers/sessionHelpers';
 import { fetchConfigs, fetchLanguage, fetchSeatTypes } from '../../utils/helpers/initialConfigshelpers';
+import { SERVER_ERROR_TEXT } from '../../utils/constants';
 
 
 export let handleConfigSuccess = (data) => {
@@ -35,6 +36,17 @@ export function handleConfigError(err) {
   };
 }
 
+export let handleModeConfigSuccess = (data) => {
+    console.log('res from config actions', data)
+    return {
+      type: INITIALMODECONFIGSUCCESS,
+      payload: {
+         mode : data.mode
+      },
+      // message: res.message,
+    };
+  }
+
 //function to fetch initial configs 
 export function fetchInitialConfigsAction() {
 
@@ -58,3 +70,27 @@ export function fetchInitialConfigsAction() {
         
     }
 }
+
+
+
+//function to fetch initial configs 
+export function fetchSeatModeAction(seat) {
+
+    return async (dispatch) => {
+        try{
+            dispatch(handleConfigRequest());
+            const res = await fetchMode(seat);
+            if(res.status === 200){
+                console.log('mode', res);
+                return dispatch(handleModeConfigSuccess(res.data))
+            }else throw new Error(SERVER_ERROR_TEXT)
+
+        }catch(err){
+            console.log('err', err);
+            return dispatch(handleConfigError(err))
+        }  
+
+          
+      }
+  }
+  

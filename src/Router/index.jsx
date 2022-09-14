@@ -17,34 +17,35 @@ function App() {
   const dispatch = useDispatch();
   const loginData = useSelector( state => state.authReducer );
   const configs = useSelector( state => state.initialConfigsReducers );
-  const { isLoggedIn } = loginData;
+  const { isLoggedIn, isFetching } = loginData;
   const { pathname } = useLocation();
-  console.log('pathname',pathname, pathname.indexOf(VALID_URLS));
   let validRoute = true;
-  console.log('configs----', configs);
   if(VALID_URLS.indexOf(pathname) < 0) validRoute = false;
   
   useEffect(()=>{
     dispatch(fetchInitialConfigsAction());
-    if(isLoggedIn)dispatch(verifyLoginAction());
+    if(!isLoggedIn)dispatch(verifyLoginAction());
   },[])
 
   const renderRoutes = () => {
     const routes = routesData();
     return routes.map((data, i) => {
-      // console.log(data)
-        return <Route key={i} {...data} path={data.path} element={ 
-                <AuthRoutes isLoggedIn={isLoggedIn}>
-                    <AuthLayout isLoggedIn={isLoggedIn}>
-                        <data.comp />
-                    </AuthLayout>
-                </AuthRoutes>
+      return <Route key={i} {...data} path={data.path} element={ 
+          <AuthRoutes isFetching={isFetching} isLoggedIn={isLoggedIn}>
+                <AuthLayout isLoggedIn={isLoggedIn}>
+                    <data.comp />
+                </AuthLayout>
+            </AuthRoutes>
          } 
       />
     })
   }
+  
   return (
-    <Layout isLoggedIn={isLoggedIn}>
+    <Layout isLoggedIn={isLoggedIn} isFetching={isFetching}>
+      {(isFetching && !isLoggedIn) ? (
+        <div>loading...</div>
+      ):(
         <Routes>
           <Route path="/login" element={ 
             <UnAuthRoutes isLoggedIn={isLoggedIn}>
@@ -53,7 +54,8 @@ function App() {
           } />
             {renderRoutes() }
         </Routes>  
-          {!validRoute && <Navigate to="/" />}
+      )}
+      {!validRoute && <Navigate to="/" />}
     </Layout>
   );
 }

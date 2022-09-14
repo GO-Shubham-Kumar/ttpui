@@ -67,11 +67,11 @@ export function handleLogOutError(err) {
   };
 }
 
-export function loginAction(username, password, seat_name) {
+export function loginAction(username, password, seat_name, role) {
   return async dispatch => {
     dispatch(handleLoginRequest());
     const mode = await fetchMode(seat_name)
-    loginUser(username, password, seat_name, 'ROLE_PUT').then((res)=>{
+    loginUser(username, password, seat_name, role).then((res)=>{
       console.log('login res', seat_name);
       if(res.status === 200){
         let { data : { access_token, refresh_token, user_name } } = res;
@@ -83,14 +83,6 @@ export function loginAction(username, password, seat_name) {
           },
         }
         storeLoginSessionData(access_token, refresh_token, seat_name, user_name || username, webSocketData);
-        // webSocket.onopen= () => {
-        //   console.log('connecteddd')
-        //   webSocket.send(JSON.stringify(webSocketData))
-        //   webSocket.onmessage = (event) =>{
-        //     console.log('event', event)
-        //   }
-        // }
-        // sendDataToWebSocket(webSocketData)
         sendDataToWebSocket(webSocketData)
         return dispatch(handleLoginSuccess(access_token));
       }else{
@@ -110,7 +102,7 @@ export function verifyLoginAction() {
   return (dispatch) => {
     dispatch(handleLoginRequest());
     verifyLogin().then((data)=>{
-      // console.log('res', data);
+      // console.log('session data', JSON.parse(data.auth_token));
       let { auth_token, refresh_token, username, seat_name } = data;
       const webSocketData = {
         data_type: "auth",

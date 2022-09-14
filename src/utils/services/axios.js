@@ -10,7 +10,7 @@ const fetchClient = () => {
 })
   instance.interceptors.request.use((config) => {
     // console.log('config', config);
-    const token = JSON.parse(retreiveSessionData(AUTH_TOKEN))
+    const token = retreiveSessionData(AUTH_TOKEN)
     // console.log('retreiveSessionData(AUTHORIZATION)', token)
     if (token) {
       config.headers[AUTHORIZATION_HEADER] = token

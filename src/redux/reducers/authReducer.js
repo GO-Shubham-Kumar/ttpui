@@ -32,9 +32,8 @@ const initialState = {
   
     case LOGINREQUEST:
         return { 
-          loginRequest: true,
-          authDone:false,
-          err:''
+          ...state,
+          isFetching : true
          };
     break;  
     case LOGOUTREQUEST:
