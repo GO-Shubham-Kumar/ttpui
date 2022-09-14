@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { LoginForm } from 'operational-component-lib';
 import { fetchSeatModeAction } from '../../redux/actions/initialActions';
 
 function Login({ login }){
@@ -11,9 +13,13 @@ function Login({ login }){
     const [seatMode, setSeatMode] = useState('');
     const [isLoggedin, setIsLoggedin] = useState(false);
     const { pps_seats, mode, success } = useSelector( state => state.intialConfigs );
-    console.log('configs', mode);
+    
     useEffect(()=>{
-        setPpsSeats(pps_seats);
+        let listForDropdown = []
+        if(pps_seats.length > 0){
+            pps_seats?.map(i => listForDropdown.push({key: i, value: i}))
+        }
+        setPpsSeats(listForDropdown);
         if(success) setSeatMode(mode)
     }, [ pps_seats, mode ])
 
@@ -25,9 +31,13 @@ function Login({ login }){
         const { target : { value } } = e;
         dispatch(fetchSeatModeAction(value))
     }
+    const onLoginHandler = (event,username,password) => {
+        console.log(e,a,b)
+    }
+
     return (
         <div>
-            <form method="post">
+            {/* <form method="post">
                 <select onChange={(e) => {onChangeHandler(e)}} value={seatMode}>
                     {ppsSeats && ppsSeats.length>0 && ppsSeats.map((seat, i)=>{
                         return <option key={seat} value={seat}>{seat}</option>
@@ -36,7 +46,8 @@ function Login({ login }){
                 <input name="username" type="text" onChange={ (e) => { setUsername(e.target.value) } }/>
                 <input name="password" type="password" onChange={ (e) => { setPassword(e.target.value) } }/>
                 <button type="login" onClick={(e) => { handleLogin(e) }}>Login</button>
-            </form>
+            </form> */}
+            <LoginForm title={'Login'} ppsList={ppsSeats} onLoginHandler={onLoginHandler}/>
         </div>
     )
 }
