@@ -17,18 +17,21 @@ import { updateStateData } from '../redux/actions/updateMainStateDataActions';
             console.log('here')
             // if ("WebSocket" in window) {
             //     WebSocketConn.onopen = function (event) {
-            //         console.log('connected using websocket')
-            //     }
-            //     WebSocketConn.onmessage = function (event) {
-            //         console.log('message on web socket', event);
-            //         dispatch(updateStateData(event));
+            //         console.log('connected using websocket', event )
+            //         WebSocketConn.onmessage = function (event) {
+            //             console.log('message on web socket', event);
+            //             // dispatch(updateStateData(event));
+            //         }
             //     }
             // }
         }
     })
     const location = useLocation()
+    console.log('isLoggedIn, isFetching', isLoggedIn, isFetching)
+    if(!isLoggedIn && isFetching) return <div>loading...</div>
     if(!isLoggedIn && !isFetching) return <Navigate to="/login" state={{ from: location }} replace />
     return children
+
 
 }
 

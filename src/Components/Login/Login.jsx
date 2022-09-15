@@ -10,7 +10,11 @@ function Login({ login }){
     const [ppsSeats, setPpsSeats] = useState([]);
     const [seatMode, setSeatMode] = useState('');
     const [isLoggedin, setIsLoggedin] = useState(false);
-    const { pps_seats, mode, success } = useSelector( state => state.intialConfigs );
+    const { pps_seats, mode, success, configs } = useSelector( state => {
+        console.log('state.initialConfigs,', state.initialConfigs);
+        return state.initialConfigs
+    } );
+    console.log()
     console.log('configs', mode);
     useEffect(()=>{
         setPpsSeats(pps_seats);
@@ -23,7 +27,7 @@ function Login({ login }){
     }
     const onChangeHandler = (e) => {
         const { target : { value } } = e;
-        dispatch(fetchSeatModeAction(value))
+        dispatch(fetchSeatModeAction(value, configs, pps_seats))
     }
     return (
         <div>

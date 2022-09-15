@@ -1,21 +1,23 @@
 import { emptyLoginSessionData, fetchMode, loginUser, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
-import { LOGINSUCCESS, LOGINCHECKFAILURE, LOGINERROR, LOGINREQUEST, LOGOUTERROR, LOGOUTREQUEST,LOGOUTSUCCESS } from './actionTypes';
+import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './actionTypes';
 import { removeSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
-import { AUTH_TOKEN, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import { AUTH, AUTH_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
 import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
 
 
-export let handleLoginSuccess = (res) => {
+export let handleLoginSuccess = (data) => {
   return {
-    type: LOGINSUCCESS,
-    payload: res,
-    // message: res.message,
+    type: LOGIN_SUCCESS,
+    payload: {
+      data,
+      message: data.message || FETCH_SUCCESS_TEXT,
+    },
   };
 }
 
 export function handleLoginRequest() {
   return {
-    type: LOGINREQUEST,
+    type: LOGIN_REQUEST,
     payload : {
         message: 'loading',
     }
@@ -25,7 +27,7 @@ export function handleLoginRequest() {
 // to handle error
 export function handleLoginError(err) {
   return {
-    type: LOGINERROR,
+    type: LOGIN_ERROR,
     payload: {
       message: err || SERVER_ERROR_TEXT,
     },
@@ -33,24 +35,24 @@ export function handleLoginError(err) {
 }
 export function handleCheckLoginFailure() {
   return {
-    type: LOGINCHECKFAILURE,
+    type: LOGIN_CHECK_FAILURE,
     payload : {}
   };
 }
 
-export let handleLogOutSuccess = (res) => {
+export let handleLogOutSuccess = (data) => {
   return {
-    type: LOGOUTSUCCESS,
+    type: LOGOUT_SUCCESS,
     payload: {
-      message: res.message,
-      data : res
+      message: data.message,
+      data : data
     },
   };
 }
 
 export function handleLogOutRequest() {
   return {
-    type: LOGOUTREQUEST,
+    type: LOGOUT_REQUEST,
     payload : {
         message: 'loading',
     }
@@ -60,7 +62,7 @@ export function handleLogOutRequest() {
 // to handle error
 export function handleLogOutError(err) {
   return {
-    type: LOGOUTERROR,
+    type: LOGOUT_ERROR,
     payload: {
       message: err,
     },
@@ -76,7 +78,7 @@ export function loginAction(username, password, seat_name, role) {
       if(res.status === 200){
         let { data : { access_token, refresh_token, user_name } } = res;
         const webSocketData = {
-          data_type: "auth",
+          data_type: AUTH,
           data: {
             [AUTH_TOKEN]: access_token,
             [SEAT_NAME]: seat_name,
@@ -90,7 +92,9 @@ export function loginAction(username, password, seat_name, role) {
       }
     }).catch((err)=>{
         console.log('err',err)
-        emptyLoginSessionData()       
+        emptyLoginSessionData()   
+        let message = '';
+        if(err.res && err.res.data.message) message = err.res.data.message
         return dispatch(handleLoginError(err));
     })
       
@@ -111,13 +115,6 @@ export function verifyLoginAction() {
           [SEAT_NAME]: seat_name,
         },
       }
-      // webSocket.onopen= () => {
-      //   webSocket.send(JSON.stringify(webSocketData))
-      //   webSocket.onmessage = (event) =>{
-      //     console.log('event1', event)
-      //   }
-      // }
-      // debugger
       sendDataToWebSocket(webSocketData)
       return dispatch(handleLoginSuccess(data));
     }).catch((err)=>{

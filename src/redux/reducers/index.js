@@ -1,5 +1,5 @@
 import authReducer from "./authReducer";
-import intialConfigs from "./initialConfigsReducers";
+import initialConfigs from "./initialConfigsReducers";
 import updateMainStateReducer from "./updateMainStateReducer";
 
 const rootReducers = {
@@ -8,6 +8,6 @@ const rootReducers = {
 }
 export {
     authReducer,
-    intialConfigs,
+    initialConfigs,
     updateMainStateReducer
 }

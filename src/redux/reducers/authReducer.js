@@ -1,65 +1,63 @@
-import { LOGINSUCCESS, LOGINCHECKFAILURE, LOGINERROR, LOGINREQUEST, LOGOUTERROR, LOGOUTREQUEST, LOGOUTSUCCESS } from './../actions/actionTypes'
+import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './../actions/actionTypes'
 const initialState = {
-    isLoggedin : false,
-    isFetching : false,
-    authdone : false,
-    user : {},
-    err : ''
+    isLoggedIn : false,
+    isFetching : true,
+    success : false,
+    data : {},
+    err : false,
+    message : ''
 }
 
 
   // receiving response sent by action according to type of action
   export default function authReducer(state = initialState, action) {
+    const { payload, type } = action
     console.log(action,'action');
-    const { payload } = action
-    switch (action.type) {
-    case LOGINSUCCESS:
-    return { 
+    switch (type) {
+    case LOGIN_SUCCESS:
+    return {
+          ...state, 
           isLoggedIn: true,
-          isFetching: true,
-          user : payload.user
+          isFetching: false,
+          success: true,
+          data : payload.data.user
         };
         break;
   
-    case LOGINERROR:
+    case LOGIN_ERROR:
         return { 
-          isLoggedIn: false,
-          isFetching: false,
-          authDone : false,
-          err: payload.message
+          ...state,
+          success : false,
+          error: true,
+          message: payload.message,
+          isFetching : false
         };
     break;
   
-    case LOGINREQUEST:
+    case LOGIN_REQUEST:
         return { 
           ...state,
           isFetching : true
          };
     break;  
-    case LOGOUTREQUEST:
+    case LOGOUT_REQUEST:
         return { 
           ...state,
           isFetching : true,
-          err:''
-
         };
         break;
         
-    case LOGOUTSUCCESS:
-        return { 
-          isLoggedIn: false,
-          isFetching : false,
-          authDone: true,
-          user : '',
-          err:action.message
-        };
-        break;
-        
-    case LOGOUTERROR:
+    case LOGOUT_SUCCESS:
         return { 
           ...state,
-          isFetching : false,
-          authDone:true,
+          err:''
+        };
+        break;
+        
+    case LOGOUT_ERROR:
+        return { 
+          ...state,
+          success:false,
           err:action.message
         };
         break;

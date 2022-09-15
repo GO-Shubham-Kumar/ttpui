@@ -1,11 +1,12 @@
-import { INITIALCONFIGERROR, INITIALCONFIGREQUEST, INITIALCONFIGSUCCESS, INITIALMODECONFIGERROR, INITIALMODECONFIGSUCCESS } from './../actions/actionTypes'
+import { INITIAL_CONFIG_SUCCESS, INITIAL_CONFIG_REQUEST, INITIAL_CONFIG_ERROR, INITIAL_MODE_CONFIG_ERROR, INITIAL_MODE_CONFIG_SUCCESS } from './../actions/actionTypes'
 const initialState = {
     success : false,
+    error : false,
     isFetching : false,
     configs : {},
     pps_seats : [],
     mode : '',
-    err : ''
+    message : ''
 }
 
 
@@ -13,11 +14,9 @@ const initialState = {
   export default function initialConfigsReducers(state = initialState, action) {
       const { payload, type } = action;
       console.log(action,'action');
-      console.log(payload,'payload');
-    
     switch (type) {
-        case INITIALCONFIGSUCCESS:
-            console.log('---')
+        case INITIAL_CONFIG_SUCCESS:
+            console.log('config ---', payload)
         return { 
                 ...state,
                 isFetching: false,
@@ -27,28 +26,27 @@ const initialState = {
             };
             break;
     
-        case INITIALCONFIGERROR:
+        case INITIAL_CONFIG_ERROR:
             return { 
                 ...state,
-                isFetching: false,
-                success : false,
-                err : 'Error Fetching Data',
+                error : true,
+                message : 'Error Fetching Data',
             };
         break;
     
-        case INITIALCONFIGREQUEST:
+        case INITIAL_CONFIG_REQUEST:
             return { 
                 ...state,
                 isFetching : true,
             };
         break;  
-        case INITIALMODECONFIGSUCCESS:
+        case INITIAL_MODE_CONFIG_SUCCESS:
             console.log('--- mode', payload)
         return { 
-                ...state,
-                isFetching: false,
                 success : true,
-                mode : payload.mode
+                mode : payload.data,
+                configs : payload.configs,
+                pps_seats : payload.pps_seats,
             };
         default:
             return state;

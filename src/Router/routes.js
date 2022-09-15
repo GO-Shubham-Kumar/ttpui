@@ -3,12 +3,13 @@ import LoginContainer from './../Containers/Login/Login';
 import HeaderContainer from './../Containers/Header/Header';
 import MainPageContainer from './../Containers/MainPage/MainPage';
 import ScanToteContainer from './../Containers/ScanTote/ScanTote';
+import PutBackContainer from '../Containers/Put/PutBack.jsx';
 
 const Routes = () => {
     return [
         {
             path : "/",
-            comp : MainPageContainer,
+            comp : PutBackContainer,
             authRoute : true,
             exact : true
         },
@@ -19,8 +20,8 @@ const Routes = () => {
             exact : true
         },
         {
-            path : "/put-front",
-            comp : ScanToteContainer,
+            path : "/put",
+            comp : PutBackContainer,
             authRoute : true,
             exact : true
 

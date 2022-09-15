@@ -1,5 +1,5 @@
 import { SERVER_ERROR_TEXT } from '../../utils/constants';
-import { INITIALCONFIGERROR, INITIALCONFIGREQUEST, INITIALCONFIGSUCCESS, UPDATESTATEDATAERROR, UPDATESTATEDATASUCCESS } from './../actions/actionTypes'
+import { UPDATE_STATE_DATA_ERROR, UPDATE_STATE_DATA_REQUEST, UPDATE_STATE_DATA_SUCCESS } from './../actions/actionTypes'
 const initialState = {
     success : false,
     isFetching : false,
@@ -11,11 +11,9 @@ const initialState = {
   // receiving response sent by action according to type of action
   export default function initialConfigsReducers(state = initialState, action) {
       const { payload, type } = action;
-      console.log(action,'action');
-      console.log(payload,'payload');
-    
+      console.log(action,'action');    
     switch (type) {
-        case UPDATESTATEDATASUCCESS:
+        case UPDATE_STATE_DATA_SUCCESS:
             console.log('---')
         return { 
                 ...state,
@@ -25,7 +23,7 @@ const initialState = {
             };
             break;
     
-        case UPDATESTATEDATAERROR:
+        case UPDATE_STATE_DATA_ERROR:
             return { 
                 ...state,
                 isFetching: false,
@@ -34,7 +32,7 @@ const initialState = {
             };
         break;
     
-        case UPDATESTATEDATAERROR:
+        case UPDATE_STATE_DATA_REQUEST:
             return { 
                 ...state,
                 isFetching : true,
