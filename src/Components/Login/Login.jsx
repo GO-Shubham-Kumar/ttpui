@@ -32,7 +32,7 @@ function Login({ login }){
         dispatch(fetchSeatModeAction(value))
     }
     const onLoginHandler = (event,username,password) => {
-        console.log(e,a,b)
+        console.log(event,username,password)
     }
 
     return (
