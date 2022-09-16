@@ -8,7 +8,7 @@ function Login({ login }){
     const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [seatName, setSeatName] = useState('front_1');
+    const [seatName, setSeatName] = useState('');
     const [ppsSeats, setPpsSeats] = useState([]);
     const [seatMode, setSeatMode] = useState('');
     const [isLoggedin, setIsLoggedin] = useState(false);
@@ -32,7 +32,11 @@ function Login({ login }){
         login(username, password, seatName, seatMode);
     }
     const onChangeHandler = (e) => {
-        const { target : { value } } = e;
+        const { target : { name, value } } = e;
+        console.log('name, value', name, value);
+        if(name ==='username') setUsername(value)
+        if(name ==='password') setPassword(value)
+        if(name ==='pps_seats') setSeatName(value)
         dispatch(fetchSeatModeAction(value, configs, pps_seats))
     }
     const onLoginHandler = (event,username,password) => {
@@ -40,7 +44,7 @@ function Login({ login }){
     }
 
     return (
-        <div>
+        <div style={{ paddingBottom: '100px' }}>
             {/* <form method="post">
                 <select onChange={(e) => {onChangeHandler(e)}} value={seatMode}>
                     {ppsSeats && ppsSeats.length>0 && ppsSeats.map((seat, i)=>{
@@ -51,7 +55,7 @@ function Login({ login }){
                 <input name="password" type="password" onChange={ (e) => { setPassword(e.target.value) } }/>
                 <button type="login" onClick={(e) => { handleLogin(e) }}>Login</button>
             </form> */}
-            <LoginForm title={'Login'} ppsList={ppsSeats} onLoginHandler={onLoginHandler}/>
+            <LoginForm title={'Login'} ppsList={ppsSeats} selectedPPS={seatName} username={username} password={password} onChangeHandler={onChangeHandler} onLoginHandler={handleLogin}/>
         </div>
     )
 }
