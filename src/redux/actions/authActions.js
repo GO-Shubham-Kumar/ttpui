@@ -1,5 +1,13 @@
+import { 
+  LOGIN_SUCCESS, 
+  LOGIN_CHECK_FAILURE, 
+  LOGIN_ERROR, 
+  LOGIN_REQUEST, 
+  LOGOUT_ERROR, 
+  LOGOUT_REQUEST, 
+  LOGOUT_SUCCESS 
+} from './actionTypes';
 import { emptyLoginSessionData, fetchMode, loginUser, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
-import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './actionTypes';
 import { removeSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
 import { AUTH, AUTH_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
 import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
