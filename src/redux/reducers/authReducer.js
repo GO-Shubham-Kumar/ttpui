@@ -12,7 +12,7 @@ const initialState = {
   // receiving response sent by action according to type of action
   export default function authReducer(state = initialState, action) {
     const { payload, type } = action
-    console.log(action,'action');
+    console.log(action,'action login');
     switch (type) {
     case LOGIN_SUCCESS:
     return {
@@ -20,7 +20,7 @@ const initialState = {
           isLoggedIn: true,
           isFetching: false,
           success: true,
-          data : payload.data.user
+          data : payload.data
         };
         break;
   

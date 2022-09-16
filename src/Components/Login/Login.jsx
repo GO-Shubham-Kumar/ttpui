@@ -36,8 +36,10 @@ function Login({ login }){
         console.log('name, value', name, value);
         if(name ==='username') setUsername(value)
         if(name ==='password') setPassword(value)
-        if(name ==='pps_seats') setSeatName(value)
-        dispatch(fetchSeatModeAction(value, configs, pps_seats))
+        if(name ==='pps_seats') {
+            setSeatName(value)
+            dispatch(fetchSeatModeAction(value, configs, pps_seats))
+        }
     }
     const onLoginHandler = (event,username,password) => {
         console.log(event,username,password)
@@ -55,7 +57,7 @@ function Login({ login }){
                 <input name="password" type="password" onChange={ (e) => { setPassword(e.target.value) } }/>
                 <button type="login" onClick={(e) => { handleLogin(e) }}>Login</button>
             </form> */}
-            <LoginForm title={'Login'} ppsList={ppsSeats} selectedPPS={seatName} username={username} password={password} onChangeHandler={onChangeHandler} onLoginHandler={handleLogin}/>
+            <LoginForm title={'Login'} ppsList={ppsSeats} selectedPps={seatName} username={username} password={password} onChangeHandler={onChangeHandler} onLoginHandler={handleLogin}/>
         </div>
     )
 }

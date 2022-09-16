@@ -6,6 +6,7 @@ import Layout from '../Containers/Layout/Layout';
 import WebSocketConn from './../utils/helpers/webSocketHelpers';
 import { useDispatch } from 'react-redux';
 import { updateStateData } from '../redux/actions/updateMainStateDataActions';
+import GoLoader from './../Components/Common/Loader';
 // function useAuth() {
 //     return React.useContext(AuthContext);
 //   }
@@ -28,7 +29,7 @@ import { updateStateData } from '../redux/actions/updateMainStateDataActions';
     })
     const location = useLocation()
     console.log('isLoggedIn, isFetching', isLoggedIn, isFetching)
-    if(!isLoggedIn && isFetching) return <div>loading...</div>
+    if(!isLoggedIn && isFetching) return <div><GoLoader /></div>
     if(!isLoggedIn && !isFetching) return <Navigate to="/login" state={{ from: location }} replace />
     return children
 

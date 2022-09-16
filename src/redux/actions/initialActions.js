@@ -36,7 +36,7 @@ export function handleConfigError(err) {
   };
 }
 
-export let handleModeConfigSuccess = (data, configs, pps_seats) => {
+export const handleModeConfigSuccess = (data, configs, pps_seats) => {
     console.log('res from config actions', data)
     return {
       type: INITIAL_MODE_CONFIG_SUCCESS,
@@ -50,7 +50,7 @@ export let handleModeConfigSuccess = (data, configs, pps_seats) => {
   }
 
 //function to fetch initial configs 
-export function fetchInitialConfigsAction() {
+export const fetchInitialConfigsAction = () => {
 
   return async (dispatch) => {
         dispatch(handleConfigRequest());
@@ -76,7 +76,7 @@ export function fetchInitialConfigsAction() {
 
 
 //function to fetch initial configs 
-export function fetchSeatModeAction(seat, configs, pps_seats ) {
+export const fetchSeatModeAction = (seat, configs, pps_seats ) => {
 
     return async (dispatch) => {
         try{

@@ -9,7 +9,7 @@ import {
 } from './actionTypes';
 import { emptyLoginSessionData, fetchMode, loginUser, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
 import { removeSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
-import { AUTH, AUTH_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import { AUTH, AUTH_TOKEN, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
 import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
 
 
@@ -37,7 +37,7 @@ export function handleLoginError(err) {
   return {
     type: LOGIN_ERROR,
     payload: {
-      message: err || SERVER_ERROR_TEXT,
+      message: err.message || SERVER_ERROR_TEXT,
     },
   };
 }
@@ -77,7 +77,7 @@ export function handleLogOutError(err) {
   };
 }
 
-export function loginAction(username, password, seat_name, role) {
+export const loginAction = (username, password, seat_name, role) => {
   return async dispatch => {
     dispatch(handleLoginRequest());
     const mode = await fetchMode(seat_name)
@@ -99,22 +99,22 @@ export function loginAction(username, password, seat_name, role) {
         return dispatch(handleLoginError(res));
       }
     }).catch((err)=>{
-        console.log('err',err)
+        console.log('err loggin in user',err.response)
         emptyLoginSessionData()   
-        let message = '';
-        if(err.res && err.res.data.message) message = err.res.data.message
-        return dispatch(handleLoginError(err));
+        let message = err.response.status === 401 ? 'Invalid Username/Password' : SERVER_ERROR_TEXT
+        err.message = message
+        return dispatch(handleLoginError({message}));
     })
       
     }
 }
 
 //verify is a user have a valid auth_token
-export function verifyLoginAction() {
-  return (dispatch) => {
-    dispatch(handleLoginRequest());
-    verifyLogin().then((data)=>{
-      // console.log('session data', JSON.parse(data.auth_token));
+export const verifyLoginAction = () => {
+  return async (dispatch) => {
+    try{
+      dispatch(handleLoginRequest());
+      const data = await verifyLogin();
       let { auth_token, refresh_token, username, seat_name } = data;
       const webSocketData = {
         data_type: "auth",
@@ -125,11 +125,10 @@ export function verifyLoginAction() {
       }
       sendDataToWebSocket(webSocketData)
       return dispatch(handleLoginSuccess(data));
-    }).catch((err)=>{
-        console.log('err---',err);
-        emptyLoginSessionData()
-        return dispatch(handleLoginError(err.message));
-    })
+    }catch(err){
+        const message = ERROR_INVALID_TOKEN
+        return dispatch(handleLoginError({message}))
+    }
   }
 }
 

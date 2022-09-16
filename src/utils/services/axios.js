@@ -5,7 +5,7 @@ import {AUTHORIZATION_HEADER, AUTH_TOKEN, AUTH_TOKEN_REQUEST} from './../constan
 const fetchClient = () => {
   let instance = axios.create({
     validateStatus: function (status) {
-        return (status >= 200 && status <= 204) || status === 400 || status === 409;
+        return (status >= 200 && status <= 204) || status === 409;
     },
 })
   instance.interceptors.request.use((config) => {

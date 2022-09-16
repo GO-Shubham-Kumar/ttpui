@@ -1,3 +1,14 @@
 .grid-seperator{
     border-right: 2px solid #CBCBCB;
 }
+.go-loader{
+    text-align: center;
+    min-height: 92vh;
+}
+.go-loader img{
+    margin: auto;
+    margin-top: calc( 30% - 300px );
+}
+.img-responsive{
+    max-width: 100%;
+}
