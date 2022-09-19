@@ -11,8 +11,8 @@ import {
   CarouselComp
 } from "operational-component-lib";
 import { Grid, Box,Typography } from "@mui/material";
-import ToteImg from "./../../assets/images/tote_2.svg";
-import Arrow from "./../../assets/images/arrow_2.svg";
+import ToteImg from "./../../../assets/images/tote_2.svg";
+import Arrow from "./../../../assets/images/arrow_2.svg";
 
 function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdtinfo,actualqty}) {
     
@@ -40,7 +40,7 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
           <BinDetails details={details} title="Previous Pick" />
         </Grid>
         <Grid item xs={12} md={6} p={3} pb={0}>
-          <Card title="Tote" p={0} mt={0} bodySeperator={false}>
+          <Card title="Tote" p={0} mt={0} height={'43em'}>
             <Box  className="totequantity" sx={{ p: 5, pt:10, pb:0, textAlign: "center" }}>
               <Typography variant="h1">{actualqty}</Typography>
               <img alt="pallet" src={Arrow} />
@@ -49,20 +49,20 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
               <img alt="pallet" src={ToteImg} style={{ margin: "10%", marginTop:0 }} />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ m: 2 }}>
+            <Box sx={{ m: 0 }}>
               <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={cancelScan} />
             </Box>
           </Card>
         </Grid>
 
         <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >
-          <Card  p={0} m={0} title="Item Details" bodySeperator={false} >
+          <Card  p={0} m={0} title="Item Details" height={'43em'} bodySeperator={false} >
             <CarouselComp prdtinfo={prdtinfo} />
             <div className="seprator"></div>
             <KQ qty={qty} totalEntities={totalEntities}  />
             <div className="seprator"></div>
-            <Box sx={{ m: 2 }}>
-            <Button size="large" type="neutral"  label="Exception" onClickHandler={exceptionhandler}  />
+            <Box sx={{ m: 0, p:0 }}>
+              <Button size="large" type="neutral"  label="Exception" onClickHandler={exceptionhandler}  />
             </Box>
           </Card>
         </Grid>

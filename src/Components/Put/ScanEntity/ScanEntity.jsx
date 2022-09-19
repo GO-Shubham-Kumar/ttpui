@@ -12,7 +12,7 @@ import { Grid, Box } from "@mui/material";
 import PalletImg from "./../../../assets/images/pallet.svg";
 import Arrow from "./../../../assets/images/arrow.svg";
 
-function ScanTote({ header, details, palletId, toteId }) {
+function ScanTote({ header, details, palletId, toteId, ...props }) {
 
   const  cancelScan = () =>{
     alert("scan cancel request sent")
@@ -27,7 +27,6 @@ function ScanTote({ header, details, palletId, toteId }) {
             toteId={toteId}
             title="Scan Active"
             palletId={palletId}
-            title="Scan Active"
           />
           <BinDetails details={details} title="Previous Pick" />
         </Grid>

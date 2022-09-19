@@ -1,6 +1,6 @@
-import PlaceEntity from "./../../Components/PlaceEntity/PlaceEntity"
+import PlaceEntity from "./../../../Components/Put/PlaceEntity/PlaceEntity"
 
-function PlaceEntityContainer(){
+const PlaceEntityContainer = () => {
 
     let header = [
         {

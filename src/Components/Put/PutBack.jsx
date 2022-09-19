@@ -1,6 +1,6 @@
-import ScanPallet from "./PutBack/ScanPallet";
+import ScanPalletContainer from "../../Containers/Put/PutBack/ScanPallet";
 
 const PutBack  =() => {
-    return <ScanPallet />
+    return <ScanPalletContainer />
 }
 export default PutBack

@@ -1,6 +1,6 @@
 import ScanEntity from './../../../Components/Put/ScanEntity/ScanEntity';
 
-function ScanEntityContainer(){
+const ScanEntityContainer = () => {
 
     let header = [
         {
