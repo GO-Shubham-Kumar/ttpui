@@ -6,7 +6,6 @@ import { loginAction } from './../../redux/actions/authActions';
 function LoginContainer(){
     const dispatch = useDispatch();
     const auth = useSelector((state) => {
-        console.log('state.authReducer --', state.authReducer);
         return state.authReducer
     })
     const loginUser = (username, password, seat_name, mode) => {

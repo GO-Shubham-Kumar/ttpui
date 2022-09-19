@@ -1,4 +1,4 @@
-import ScanTote from './../../Components/ScanTote/ScanTote';
+import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 
 function ScanToteContainer(){
     return <ScanTote />
