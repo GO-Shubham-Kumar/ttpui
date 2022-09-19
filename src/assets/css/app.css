@@ -1,15 +1,18 @@
-.grid-seperator{
+.grid-seperator {
     border-right: 2px solid #CBCBCB;
 }
-.go-loader{
+
+.go-loader {
     text-align: center;
     min-height: 92vh;
 }
-.go-loader img{
+
+.go-loader img {
     margin: auto;
-    margin-top: calc( 30% - 300px );
+    margin-top: calc(30% - 300px);
 }
-.img-responsive{
+
+.img-responsive {
     max-width: 100%;
 }
 
@@ -21,4 +24,17 @@
 .totequantity{
     display: flex;
     justify-content: center;
+}
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(2px);
 }
