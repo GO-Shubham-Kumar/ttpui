@@ -1,11 +1,11 @@
+import HeaderContainer from './../Containers/Header/Header';
 import Layout from './../Containers/Layout/Layout.jsx';
 import LoginContainer from './../Containers/Login/Login';
-import HeaderContainer from './../Containers/Header/Header';
 import MainPageContainer from './../Containers/MainPage/MainPage';
-import ScanToteContainer from '../Containers/Put/ScanTote/ScanTote';
+import PlaceEntity from  '../Containers/PlaceEntity/PlaceEntity';
 import PutBackContainer from '../Containers/Put/PutBack.jsx';
-import ScanEntity from "../Containers/Put/ScanEntity/ScanEntity"
-import PlaceEntity from  '../Containers/PlaceEntity/PlaceEntity'
+import ScanEntity from "../Containers/Put/ScanEntity/ScanEntity";
+import ScanToteContainer from '../Containers/Put/PutBack/ScanTote';
 
 const Routes = () => {
     return [
