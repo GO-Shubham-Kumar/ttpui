@@ -14,6 +14,7 @@ function ScanTote({ headerMsg,
         modalLabels, 
         tableColumns, 
         tableItemList, 
+        seatMode,
         ...props 
     }) {
     const [showPalletModal, setShowPalletModal] = useState(false)
@@ -35,7 +36,7 @@ function ScanTote({ headerMsg,
             <Grid container alignItems="stretch">
                 <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >
                     <BinMapDetails title="Currently Active" details={currentDetails} palletId="7834784378" toteId="--" />
-                    <BinDetails title="Previous Put" details={previousDetails} height="18.5em" />
+                    <BinDetails title={`Previous ${seatMode}`} details={previousDetails} height="18.5em" />
                 </Grid>
                 <Grid item xs={12} md={9} p={3} pb={0}>
                     <Card title="Scan Tote" sx={{ pt: 0 }}>

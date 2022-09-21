@@ -33,7 +33,7 @@ export const sendDataToWebSocket =  (data) => {
                 console.log('event in 1',  event.data)
                 if(event.data){
                     const stateData = JSON.parse(event.data);
-                    console.log('event in 1', stateData);
+                    console.log('event in 21', stateData);
                     if(stateData.state_data) store.dispatch(updateStateData(stateData))
                 }
             }

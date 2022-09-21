@@ -13,7 +13,7 @@ import { Grid, Box,Typography } from "@mui/material";
 import ToteImg from "./../../../assets/images/tote_2.svg";
 import Arrow from "./../../../assets/images/arrow_2.svg";
 
-function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdtinfo,actualqty}) {
+function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdtinfo,actualqty, seatMode}) {
     
     const  cancelScan = () =>{
         alert("scan cancel request sent")
@@ -36,7 +36,7 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
             title="Scan Active"
             palletId={palletId}
           />
-          <BinDetails details={details} title="Previous Pick" />
+          <BinDetails details={details} title={`Previous ${seatMode}`} />
         </Grid>
         <Grid item xs={12} md={6} p={3} pb={0}>
           <Card title="Tote" p={0} mt={0} height={'43em'}>

@@ -71,7 +71,7 @@ function App() {
       const { state_data : { notification_list, seat_name } } = stateData;
       setSeatName(seat_name)
       console.log('notification_list', notification_list);
-      if(notification_list.lenght > 0)dispatch(triggerNotificationction(notification_list[0]))
+      if(notification_list.length > 0)dispatch(triggerNotificationction(notification_list[0]))
     }
   },[stateData, stateSuccess])
 

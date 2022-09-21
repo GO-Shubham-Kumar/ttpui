@@ -12,7 +12,7 @@ import Arrow from "./../../../assets/images/arrow.svg";
 import PalletImg from "./../../../assets/images/pallet.svg";
 import React from "react";
 
-function ScanTote({ headerMsg, previousDetails, currentDetails, details, ...props }) {
+function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMode, ...props }) {
 
   const  cancelScan = () =>{
     alert("scan cancel request sent")
@@ -27,7 +27,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, ...prop
             details ={currentDetails}
             title="Scan Active"
           />
-          <BinDetails details={previousDetails} title="Previous Pick" />
+          <BinDetails details={previousDetails} title={`Previous ${seatMode}`} />
         </Grid>
         <Grid item xs={12} md={9} p={3} pb={0}>
           <Card

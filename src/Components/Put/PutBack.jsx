@@ -15,15 +15,17 @@ const PutBack  =({ data, isFetching, success, error }) => {
     const [ screenId, setScreenId ] = useState('');
     const [ previousDetails, setPreviousDetails ] = useState({});
     const [ currentDetails, setCurrentDetails ] = useState({});
+    const [ seatMode, setSeatMode ] = useState('');
     useEffect(()=>{
         if(!isFetching && success && data.state_data){
             const { state_data : { header_msge_list, screen_id, previous_put_details, current_put_details, mode } } = data;
             setScreenId(screen_id)
+            setSeatMode(mode)
             const previousDetailsData = getPreviousDetailsData(previous_put_details);
             const currentDetailsData = getCurrentDetailsData(current_put_details);
             let msgObj = ''
             msgObj = getNavConfig(header_msge_list, mode, screen_id)
-            console.log('msgObj -- tote', msgObj)
+            console.log('msgObj -- tote', screenId)
             if(msgObj.length ===1 ) msgObj=msgObj[0].description
             setHeaderMsg(msgObj)
             // }else{
@@ -43,6 +45,7 @@ const PutBack  =({ data, isFetching, success, error }) => {
             previousDetails={previousDetails} 
             data={data}
             currentDetails={currentDetails}
+            seatMode={seatMode}
         />
     )
     if(screenId === UD_PUT_TOTE_INDUCTION) return (
@@ -51,6 +54,7 @@ const PutBack  =({ data, isFetching, success, error }) => {
             previousDetails={previousDetails} 
             data={data}
             currentDetails={currentDetails}
+            seatMode={seatMode}
         />
     )
     if(screenId === UD_PUT_FRONT_ENTITY_SCAN) return (
@@ -59,6 +63,7 @@ const PutBack  =({ data, isFetching, success, error }) => {
             previousDetails={previousDetails} 
             data={data}
             currentDetails={currentDetails}
+            seatMode={seatMode}
         />
     )
     if(screenId && VALID_SCREEN_ID.indexOf(screenId) < 0) return <InvalidScreen />
