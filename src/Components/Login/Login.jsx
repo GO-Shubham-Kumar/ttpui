@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Grid } from "@mui/material";
 import { LoginForm } from "operational-component-lib";
+import WelcomeDetails from "./WelcomeDetails";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
-import videoSrc from "./videoHome.m4v";
+import videoSrc from "../../assets/images/videoHome.m4v";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -12,6 +14,7 @@ const Login = ({ login }) => {
   const [seatName, setSeatName] = useState("");
   const [ppsSeats, setPpsSeats] = useState([]);
   const [seatMode, setSeatMode] = useState("");
+  const [showKeyboard, setShowKeyboard] = useState(false);
 
   const { pps_seats, mode, success, configs } = useSelector((state) => {
     return state.initialConfigs;
@@ -42,13 +45,13 @@ const Login = ({ login }) => {
       dispatch(fetchSeatModeAction(value, configs, pps_seats));
     }
   };
-
+  console.log(showKeyboard);
   return (
-    <>
-      <div style={{ margin: "6em 0 0 14em", height: "56em", position: "relative" }}>
-        <video id="background-video" autoPlay muted loop>
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+    <Grid container spacing={0} margin="4em" width="90vw">
+      <video id="background-video" autoPlay muted loop>
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+      <Grid item xs={showKeyboard ? 12 : 4}>
         <LoginForm
           title={"Login"}
           ppsList={ppsSeats}
@@ -58,9 +61,16 @@ const Login = ({ login }) => {
           onChangeHandler={onChangeHandler}
           onLoginHandler={handleLogin}
           height={"600px"}
+          showKeyboard={showKeyboard}
+          onKeyboardHideHandler={setShowKeyboard}
         />
-      </div>
-    </>
+      </Grid>
+      {!showKeyboard && (
+        <Grid item xs={8}>
+          <WelcomeDetails seatMode={"Put"} ppsNo={"01"} />
+        </Grid>
+      )}
+    </Grid>
   );
 };
 

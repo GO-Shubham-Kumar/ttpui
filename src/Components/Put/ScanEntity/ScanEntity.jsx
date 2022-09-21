@@ -1,16 +1,17 @@
-import React from "react";
 import {
-  Header,
-  Card,
-  BinMapDetails,
   BinDetails,
+  BinMapDetails,
   Button,
-  StepperHeader,
+  Card,
+  Header,
   NotificationBar,
+  StepperHeader,
 } from "operational-component-lib";
-import { Grid, Box } from "@mui/material";
-import PalletImg from "./../../../assets/images/pallet.svg";
+import { Box, Grid } from "@mui/material";
+
 import Arrow from "./../../../assets/images/arrow.svg";
+import PalletImg from "./../../../assets/images/pallet.svg";
+import React from "react";
 
 function ScanTote({ header, details, palletId, toteId, ...props }) {
 
