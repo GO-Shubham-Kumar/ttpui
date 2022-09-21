@@ -24,7 +24,7 @@ const Routes = () => {
         },
         {
             path : "/put",
-            comp : PutBackContainer,
+            comp : ScanPalletContainer,
             authRoute : true,
             exact : true
 
