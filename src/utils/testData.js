@@ -1521,3 +1521,111 @@ export const TEST_DATA = {
         "event": "initialise"
     }
 }
+
+export const TEST_DATA_2={
+    state_data : {
+        "entity_location_after_crash": [],
+        "empty_popup_msg": [],
+        "pps_blocked": false,
+        "show_inv_count_popup": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-09-21T13:07:41Z",
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [],
+        "is_zerowalk_flow": false,
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [],
+        "show_bin_full_default_zero": false,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.012",
+                "description": "Scan a Tote to Induct",
+                "details": [],
+                "level": "info"
+            }
+        ],
+        "seat_name": "front_3",
+        "event": "process_barcode",
+        "show_bin_view": true,
+        "operator_orientation": "0",
+        "show_current_put_widget": true,
+        "notification_list": [
+            {
+                "code": "UdpF.I.001",
+                "description": "Tote scan successful",
+                "details": [
+                    "Pallet"
+                ],
+                "level": "info"
+            }
+        ],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "bin_coordinate_plotting": true,
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "current_put_details": {
+            "rack_details": {
+                "display_data": [
+                    {
+                        "display_name": "TOTE ID",
+                        "locale": "en-US"
+                    }
+                ]
+            },
+            "sku_qty": {
+                "put_qty": 0,
+                "total_qty": 1
+            },
+            "sku_type": "Single SKU",
+            "tote_details": {
+                "display_data": [
+                    {
+                        "display_name": "Pallet ID",
+                        "locale": "en-US"
+                    }
+                ],
+                "value": "LP2313"
+            },
+            "tote_id": "LP2313",
+            "uom_qty": {
+                "put_qty": 0,
+                "total_qty": 1
+            }
+        },
+        "selected_seat_for_release_bins_filter": "undefined",
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "put",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": false,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "put_tote_induction",
+        "group_info": {
+            "1": "center"
+        },
+        "product_info_for_inv_count_check": [],
+        "sub_header_msge_list": [],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "",
+        "current_bin_id": "1",
+        "scan_allowed": true,
+        "entity_location_type_after_crash": "undefined",
+        "tote_induction": true,
+        "pps_requested_mode": "undefined",
+        "user_loggedin": "admin",
+        "split_pps_info": [],
+        "inventory_count_check_limit": 5
+    }
+}

@@ -598,6 +598,12 @@ export const serverMessages = {
     load_unit_id: "Load_Unit_Id",
     load_unit_label: "Load_Unit_Label",
     service_request_id: "Service_Request_Id",
+    "UdpF.H.012" : "Scan a Tote to Induct",
+    "UdpF.H.015" : "Unable to Induct Tote",
+    "UdpF.H.016" : "Rack already exists in system",
+    "UdpF.H.017" : "Pps not supported for induction",
+    "UdpF.H.018" : "Tote not supported for induction",
+    "UdpF.H.019" : "Resource not found",
   }
   
   

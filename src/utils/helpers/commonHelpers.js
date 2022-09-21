@@ -16,10 +16,14 @@ export const manupulateServerMessges = (data) => {
     let msgData = { value: '', key: " "  }
     if(!code || !details) return msgData
     let msg = serverMessages[code];
-    msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
-        placeHolder = everyPlaceholder.match(/\d+/g)
-        return details[placeHolder]
-    })
+    console.log('code, details', code, details );
+    if( code && details && details.length > 0 ){
+        msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
+            placeHolder = everyPlaceholder.match(/\d+/g)
+            return details[placeHolder]
+        })
+    } 
+    
     msgData = { value: msg, key: " "  }
     return msgData
 }

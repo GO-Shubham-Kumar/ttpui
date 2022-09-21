@@ -22,7 +22,7 @@ let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
 // }
 
 export const sendDataToWebSocket =  (data) => {
-    webSocket = new WebSocket('wss://2144-117-208-73-36.ngrok.io:901/wssresui')
+    webSocket = new WebSocket('wss://192.168.9.159/wssresui')
         console.log('websocket conn', webSocket)
         console.log('store -- ', store)
         webSocket.onopen = () => {
