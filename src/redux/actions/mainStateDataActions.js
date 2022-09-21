@@ -35,7 +35,7 @@ export const updateStateData = (data) => {
     return (dispatch)=>{
         if(data){
             console.log('state data --', data);
-            const dummyData = UD_PUT_FRONT_ENTITY_SCAN
+            const dummyData = SCAN_PALLET_ID_DATA
             return dispatch(handleUpdateStateDataSuccess(dummyData));
 
         }
