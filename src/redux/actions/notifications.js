@@ -1,15 +1,13 @@
-import { TRIGGER_EVENTS_SUCCESS, 
-    TRIGGER_EVENTS_REQUEST, 
-    TRIGGER_EVENTS_ERROR, 
+import { TRIGGER_NOTIFICATION_SUCCESS, 
+    TRIGGER_NOTIFICATION_REQUEST, 
+    TRIGGER_NOTIFICATION_ERROR, 
 } from './actionTypes';
-import { SERVER_ERROR_TEXT } from '../../utils/constants';
-import { triggerEvent } from '../../utils/helpers/eventsHelpers';
 
 
 export let handleEventSuccess = (data) => {
   console.log('res from config actions', data)
   return {
-    type: TRIGGER_EVENTS_SUCCESS,
+    type: TRIGGER_NOTIFICATION_SUCCESS,
     payload: {
         data : data
     },
@@ -19,7 +17,7 @@ export let handleEventSuccess = (data) => {
 
 export function handleEventRequest() {
   return {
-    type: TRIGGER_EVENTS_REQUEST,
+    type: TRIGGER_NOTIFICATION_REQUEST,
     payload : {
         message: 'loading',
     }
@@ -29,7 +27,7 @@ export function handleEventRequest() {
 // to handle error
 export function handleEventError(err) {
   return {
-    type: TRIGGER_EVENTS_ERROR,
+    type: TRIGGER_NOTIFICATION_ERROR,
     payload: {
       message: err,
     },
@@ -37,15 +35,13 @@ export function handleEventError(err) {
 }
 
 //function to fetch initial configs 
-export const triggerEventAction = (data, seatName) => {
+export const triggerNotificationction = (data) => {
     return async (dispatch) => {
         try{
             dispatch(handleEventRequest());
-            const res = await triggerEvent(data, seatName);
-            console.log('trigger response', res);
-            return dispatch(handleEventSuccess(res))
+            return dispatch(handleEventSuccess(data))
         }catch(err){
-            console.log('err in triggering data', err);
+            console.log('err in triggering notifications', err);
             return dispatch(handleEventError(err))
         }   
     }

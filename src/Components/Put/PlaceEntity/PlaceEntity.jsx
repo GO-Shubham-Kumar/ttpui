@@ -6,7 +6,6 @@ import {
   BinDetails,
   Button,
   StepperHeader,
-  NotificationBar,
   KQ,
   CarouselComp
 } from "operational-component-lib";
@@ -67,12 +66,6 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
           </Card>
         </Grid>
       </Grid>
-      <NotificationBar
-            autoHideDuration={6000}
-            msg="Entity scan successful"
-            severity="success"
-            open={false}
-            />
     </>
   );
 }

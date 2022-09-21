@@ -1,6 +1,6 @@
 import ScanEntity from './../../../Components/Put/ScanEntity/ScanEntity';
 
-const ScanEntityContainer = () => {
+const ScanEntityContainer = ({...props}) => {
 
     let header = [
         {
@@ -33,7 +33,7 @@ const ScanEntityContainer = () => {
       let toteId="dummyToteID"
 
 
-    return <ScanEntity header = {header} details ={binDetails} palletId={palletId}  toteId={toteId}   />
+    return <ScanEntity {...props} header = {header} details ={binDetails} palletId={palletId}  toteId={toteId}   />
 }
 
 export default ScanEntityContainer;

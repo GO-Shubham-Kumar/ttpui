@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import ScanPalletContainer from "../../Containers/Put/PutBack/ScanPallet";
 import ScanToteContainer from "../../Containers/Put/PutBack/ScanTote";
-import { getCurrentDetailsData, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
-import { SCREEN_ID_MAPPING, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "../../utils/screenIds";
+import ScanEntityContainer from "../../Containers/Put/PutBack/ScanEntity";
+import { getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
+import { SCREEN_ID_MAPPING, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION, UD_PUT_FRONT_ENTITY_SCAN } from "../../utils/screenIds";
 import Loader from "../Common/Loader";
 
 const PutBack  =({ data, isFetching, success, error }) => {
@@ -14,13 +15,21 @@ const PutBack  =({ data, isFetching, success, error }) => {
     const [ currentDetails, setCurrentDetails ] = useState({});
     useEffect(()=>{
         if(!isFetching && success && data.state_data){
-            const { state_data : { header_msge_list, screen_id, previous_put_details, current_put_details } } = data;
+            const { state_data : { header_msge_list, screen_id, previous_put_details, current_put_details, mode } } = data;
             setScreenId(screen_id)
-            const msgObj = manupulateServerMessges(header_msge_list);
             const previousDetailsData = getPreviousDetailsData(previous_put_details);
             const currentDetailsData = getCurrentDetailsData(current_put_details);
-            console.log('currentDetailsData', currentDetailsData);
-            setHeaderMsg(msgObj.value)
+            let msgObj = ''
+            msgObj = getNavConfig(header_msge_list, mode, screen_id)
+            console.log('msgObj -- tote', msgObj)
+            if(msgObj.length ===1 ) msgObj=msgObj[0].description
+            setHeaderMsg(msgObj)
+            // }else{
+
+            //     msgObj = manupulateServerMessges(header_msge_list);
+            //     console.log('currentDetailsData', currentDetailsData);
+            //     setHeaderMsg(msgObj.value)
+            // }
             setCurrentDetails(currentDetailsData)
             setPreviousDetails(previousDetailsData)
         }
@@ -36,6 +45,14 @@ const PutBack  =({ data, isFetching, success, error }) => {
     )
     if(screenId === UD_PUT_TOTE_INDUCTION) return (
         <ScanToteContainer 
+            headerMsg={headerMsg} 
+            previousDetails={previousDetails} 
+            data={data}
+            currentDetails={currentDetails}
+        />
+    )
+    if(screenId === UD_PUT_FRONT_ENTITY_SCAN) return (
+        <ScanEntityContainer 
             headerMsg={headerMsg} 
             previousDetails={previousDetails} 
             data={data}

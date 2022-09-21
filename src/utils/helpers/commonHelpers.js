@@ -1,3 +1,4 @@
+import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 
 export const getMsgObject = (data) => {
@@ -62,4 +63,17 @@ export const getCurrentDetailsData = (data) => {
         }
     })
     return currentData
+}
+
+export const getNavConfig = (headerMsgs, mode, screenId) => {
+    const getServerMsg = manupulateServerMessges(headerMsgs);
+    let data = SCREEN_NAVGATIONS[mode];
+    console.log('data nav', getServerMsg, screenId)
+    data = data[screenId]
+    data = data.map((obj, i) => {
+        console.log('nav msgs', obj )
+        if(obj.active) return {...obj, description : getServerMsg.value }
+        return obj
+    })
+    return data
 }

@@ -26,10 +26,11 @@ function ScanTote({ headerMsg,
     const handleConfirm = () => {
         console.log("Confirm Clicked!")
     }
+    console.log('headerMsg', headerMsg)
 
     return (
         <>
-            <StepperHeader stepperObj={headerMsg} subHeaderText={'subHeader'} />
+            <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
             {/* <Container> */}
             <Grid container alignItems="stretch">
                 <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >
