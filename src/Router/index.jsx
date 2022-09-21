@@ -31,6 +31,7 @@ function App() {
   const {  data : notificationData } = useSelector( state => state.notifications );
   const { isLoggedIn, isFetching } = loginData;
 
+  
   const onScannerButtonHandler = (event) => {
     const { target: { name, value } } = event;
     console.log(event)
