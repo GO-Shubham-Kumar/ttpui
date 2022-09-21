@@ -1,6 +1,6 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 
-function ScanToteContainer() {
+function ScanToteContainer({...props}) {
 
     const header = [
         { step: 1, active: true, label: 'Scan Tote', description: 'Scan a Tote to Induct' },
@@ -52,7 +52,7 @@ function ScanToteContainer() {
         }
     ]
 
-    return <ScanTote header={header} subHeader={subHeader} binDetails={binDetails}
+    return <ScanTote {...props} headerMsg={header} subHeader={subHeader} binDetails={binDetails}
         modalLabels={modalLabels} tableColumns={tableColumns} tableItemList={tableItemList} />
 }
 

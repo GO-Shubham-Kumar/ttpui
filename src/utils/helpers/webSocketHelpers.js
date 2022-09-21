@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { updateStateData } from '../../redux/actions/mainStateDataActions';
+import store from './../../redux/store';
 
 let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
 // const dispatch = useDispatch();
@@ -22,12 +24,18 @@ let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
 export const sendDataToWebSocket =  (data) => {
     webSocket = new WebSocket('wss://192.168.9.159/wssresui')
         console.log('websocket conn', webSocket)
+        console.log('store -- ', store)
         webSocket.onopen = () => {
             console.log('connected2 -- ', webSocket)
             webSocket.send(JSON.stringify(data))
 
             webSocket.onmessage = (event) => {
-                console.log('event in 1', event)
+                console.log('event in 1',  event.data)
+                if(event.data){
+                    const stateData = JSON.parse(event.data);
+                    console.log('event in 1', stateData)
+                    store.dispatch(updateStateData(stateData))
+                }
             }
             webSocket.onclose = (event) => {
                 console.log('socket closed', event)

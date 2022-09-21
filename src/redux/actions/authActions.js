@@ -7,9 +7,9 @@ import {
   LOGOUT_REQUEST, 
   LOGOUT_SUCCESS 
 } from './actionTypes';
-import { emptyLoginSessionData, fetchMode, loginUser, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
-import { removeSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
-import { AUTH, AUTH_TOKEN, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import { emptyLoginSessionData, fetchMode, loginUser, logout, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
+import { removeSessionData, retreiveSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
+import { AUTH, AUTH_TOKEN, BOI_UI, CLIENT_ID, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, REFRESH_TOKEN, SEAT_NAME, SERVER_ERROR_TEXT, USER_NAME } from '../../utils/constants';
 import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
 
 
@@ -82,7 +82,6 @@ export const loginAction = (username, password, seat_name, role) => {
     dispatch(handleLoginRequest());
     const mode = await fetchMode(seat_name)
     loginUser(username, password, seat_name, role).then((res)=>{
-      console.log('login res', seat_name);
       if(res.status === 200){
         let { data : { access_token, refresh_token, user_name } } = res;
         const webSocketData = {
@@ -117,39 +116,55 @@ export const verifyLoginAction = () => {
       const data = await verifyLogin();
       let { auth_token, refresh_token, username, seat_name } = data;
       const webSocketData = {
-        data_type: "auth",
+        data_type: AUTH,
         data: {
           [AUTH_TOKEN]: auth_token,
           [SEAT_NAME]: seat_name,
         },
       }
+      storeLoginSessionData(auth_token, refresh_token, seat_name, username)
       sendDataToWebSocket(webSocketData)
       return dispatch(handleLoginSuccess(data));
     }catch(err){
-        const message = ERROR_INVALID_TOKEN
+        emptyLoginSessionData() 
+        const message = ERROR_INVALID_TOKEN;
         return dispatch(handleLoginError({message}))
     }
   }
 }
 
-// export function logOutAction() {
-//   console.log('logout clicked here')
-//   return (dispatch) => {
-//     dispatch(handleLogOutRequest());
-//     return logout().then((res)=>{
-//       console.log('response', res);
-//       if(res.status && res.status === 204){
-//           localStorage.removeItem(AUTH_TOKEN)
-//           return dispatch(handleLogOutSuccess(res));
-//       }
-//       return dispatch(handleLogOutError('Something Went Wrong!'));
-//     }).catch((err)=>{
-//       console.log('err',err)
-//       if(err.message){
-//         return dispatch(handleLogOutError(err.message));
-//       }else{        
-//         return dispatch(handleLogOutError(err));
-//       }
-//     })
-//   }
-// }
+export function logOutAction() {
+  return (dispatch) => {
+    dispatch(handleLogOutRequest());
+    const REFRESH_TOKEN = retreiveSessionData(REFRESH_TOKEN);
+    const SEAT_NAME = retreiveSessionData(SEAT_NAME);
+    const USER_NAME = retreiveSessionData(USER_NAME);
+    const logoutData = {
+      "token": JSON.parse(sessionStorage.getItem("sessionData"))["data"]["auth-token"],
+      "context": {
+        "username": USER_NAME,
+        "packStationId": SEAT_NAME,
+        "entity_id": SEAT_NAME,
+        "app_name": BOI_UI,
+        "client_id":  CLIENT_ID,
+        "refresh_token": REFRESH_TOKEN,
+        "logout_reason": 'logoutReason'
+      }
+    }
+    return logout(logoutData).then((res)=>{
+      console.log('response', res);
+      if(res.status && res.status === 204){
+          emptyLoginSessionData() 
+          return dispatch(handleLogOutSuccess(res));
+      }
+      return dispatch(handleLogOutError('Something Went Wrong!'));
+    }).catch((err)=>{
+      console.log('err',err)
+      if(err.message){
+        return dispatch(handleLogOutError(err.message));
+      }else{        
+        return dispatch(handleLogOutError(err));
+      }
+    })
+  }
+}

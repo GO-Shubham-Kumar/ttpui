@@ -5,9 +5,7 @@ import { loginAction } from './../../redux/actions/authActions';
 
 function LoginContainer(){
     const dispatch = useDispatch();
-    const auth = useSelector((state) => {
-        return state.authReducer
-    })
+    const auth = useSelector(state => state.authReducer)
     const loginUser = (username, password, seat_name, mode) => {
         const role = `ROLE_${mode.toUpperCase()}`
         dispatch(loginAction(username, password, seat_name, role))

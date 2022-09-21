@@ -4,7 +4,9 @@ const initialState = {
     success : false,
     isFetching : false,
     data : {},
-    err : ''
+    success : false,
+    error : false,
+    message : ''
 }
 
 
@@ -19,7 +21,7 @@ const initialState = {
                 ...state,
                 isFetching: false,
                 success : true,
-                data : payload.data,
+                data : payload.data
             };
             break;
     
@@ -28,7 +30,8 @@ const initialState = {
                 ...state,
                 isFetching: false,
                 success : false,
-                err : payload.err || SERVER_ERROR_TEXT,
+                error : true,
+                message : payload.err || SERVER_ERROR_TEXT
             };
         break;
     

@@ -43,6 +43,7 @@ const initialState = {
         case INITIAL_MODE_CONFIG_SUCCESS:
             console.log('--- mode', payload)
         return { 
+            ...state,
                 success : true,
                 mode : payload.data,
                 configs : payload.configs,

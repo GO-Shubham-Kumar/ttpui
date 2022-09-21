@@ -3,10 +3,10 @@ import { AppBar, Container, Footer, NotificationBar } from 'operational-componen
 import React from 'react';
 import logo from './../../assets/images/GO_Orange_Black_Horizontal.svg'
 
-const Layout = ({isLoggedIn, children}) => {
+const Layout = ({isLoggedIn, mode, children}) => {
     return (
         <Container fullWidth={true} height="100%" >
-            <AppBar goLogo={logo} mode="Put" isLoggedIn={isLoggedIn} />
+            <AppBar goLogo={logo} mode={mode} isLoggedIn={isLoggedIn} />
             <NotificationBar autoHideDuration={3000} msg="Notification message to display" severity={'info'}/>
                 <main>
                     {children}

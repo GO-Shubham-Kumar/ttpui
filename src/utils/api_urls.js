@@ -8,3 +8,4 @@ export const PPS_URL = "/pps/";
 export const API_URL ='/api';
 export const SEATS_URL ='/seats';
 export const CALLBACK_URL ='/callback';
+export const PLATFORM_LOGOUT_URL="/auth-service/platform-auth/action/oauth/logout"

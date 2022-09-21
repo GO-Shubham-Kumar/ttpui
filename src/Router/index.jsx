@@ -8,22 +8,18 @@ import Login from './../Containers/Login/Login';
 import Layout from './../Containers/Layout/Layout';
 import AuthLayout from './../Containers/Layout/AuthLayout';
 import './../App.css'; 
-import { VALID_URLS } from '../utils/constants';
-import { fetchInitialConfigsAction } from '../redux/actions/initialActions';
+import { SEAT_NAME, VALID_URLS } from '../utils/constants';
+import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
 import { verifyLoginAction } from '../redux/actions/authActions';
+import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
 
 function App() {
   
   const dispatch = useDispatch();
   const loginData = useSelector( state => state.authReducer );
-  const initialConfigs = useSelector( (state) => {
-    console.log('state in intital ', state)
-    return state.initialConfigs} );
-  console.log('initialConfigs', initialConfigs);
-  const { mode } = initialConfigs;
+  const { pps_seats, mode, success, configs } = useSelector( state => state.initialConfigs );
   const { isLoggedIn, isFetching } = loginData;
   const { pathname } = useLocation();
-  console.log('pathnem', pathname);
   let validRoute = true;
   if(VALID_URLS.indexOf(pathname) < 0) validRoute = false;
   
@@ -31,23 +27,29 @@ function App() {
     if(!isLoggedIn)dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
   },[])
+  useEffect(()=>{
+    if(pps_seats.length > 0 && success && mode===''){
+      const seat_name = retreiveSessionData(SEAT_NAME);
+      seat_name && dispatch(fetchSeatModeAction(seat_name, configs, pps_seats));
+    }
+  },[pps_seats, success, configs])
 
   const renderRoutes = () => {
     const routes = routesData();
     return routes.map((data, i) => {
       return <Route exact key={i} {...data} path={data.path} element={ 
-          <AuthRoutes isFetching={isFetching} isLoggedIn={isLoggedIn}>
-                <AuthLayout isLoggedIn={isLoggedIn}>
-                    <data.comp />
-                </AuthLayout>
-            </AuthRoutes>
+              <AuthRoutes isFetching={isFetching} isLoggedIn={isLoggedIn}>
+                    <AuthLayout isLoggedIn={isLoggedIn}>
+                        <data.comp />
+                    </AuthLayout>
+                </AuthRoutes>
          } 
       />
     })
   }
   
   return (
-    <Layout isLoggedIn={isLoggedIn} isFetching={isFetching}>
+    <Layout isLoggedIn={isLoggedIn} isFetching={isFetching} mode={mode}>
       {/* {((isFetching && !isLoggedIn) ) ? (
         <div>loading...</div>
       ):( */}

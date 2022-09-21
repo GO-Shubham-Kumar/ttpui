@@ -12,7 +12,7 @@ const Routes = () => {
     return [
         {
             path : "/",
-            comp : PlaceEntityContainer,
+            comp : PutBackContainer,
             authRoute : true,
             exact : true
         },

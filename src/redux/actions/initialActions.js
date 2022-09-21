@@ -6,7 +6,6 @@ import { SERVER_ERROR_TEXT } from '../../utils/constants';
 
 
 export let handleConfigSuccess = (data) => {
-  console.log('res from config actions', data)
   return {
     type: INITIAL_CONFIG_SUCCESS,
     payload: {
@@ -37,7 +36,6 @@ export function handleConfigError(err) {
 }
 
 export const handleModeConfigSuccess = (data, configs, pps_seats) => {
-    console.log('res from config actions', data)
     return {
       type: INITIAL_MODE_CONFIG_SUCCESS,
       payload: {
@@ -58,13 +56,10 @@ export const fetchInitialConfigsAction = () => {
         const getSeatTypes = fetchSeatTypes();
         const getLanguage = fetchLanguage();
         const allPromises = [ getConfigs, getSeatTypes, getLanguage ];
-        await Promise.all(allPromises).then((values)=>{
-            console.log('configs', values[0]);
-            console.log('pps_seats', values[1]);
+        Promise.all(allPromises).then((values)=>{
             const configs = values[0].data;
             const pps_seats = values[1].data.pps_seats;
             return dispatch(handleConfigSuccess({ configs, pps_seats }))
-
         }).catch((err) => {
             console.log('err', err);
             return dispatch(handleConfigError(err))
@@ -83,7 +78,6 @@ export const fetchSeatModeAction = (seat, configs, pps_seats ) => {
             dispatch(handleConfigRequest());
             const res = await fetchMode(seat);
             if(res.status === 200){
-                console.log('mode', res);
                 return dispatch(handleModeConfigSuccess(res.data, configs, pps_seats, ))
             }else throw new Error(SERVER_ERROR_TEXT)
 

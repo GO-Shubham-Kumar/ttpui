@@ -85,7 +85,6 @@ export const emptyLoginSessionData = () => {
   removeSessionData(REFRESH_TOKEN)
   removeSessionData(USER_NAME)
   removeSessionData(AUTH_TOKEN )
-  removeSessionData(SEAT_NAME )
   removeSessionData(SESSION_DATA )
   return
 }
@@ -118,7 +117,7 @@ export const validateLogin = () =>{
         const refresh_token = retreiveSessionData(REFRESH_TOKEN)
         const seat_name = retreiveSessionData(SEAT_NAME)
         console.log('refresh_token', refresh_token)
-        if(auth_token === null || username === null || refresh_token === null) throw new Error()
+        if(auth_token === null || username === null || refresh_token === null) throw new Error({error : true, message : 'Invalid Token'})
         const url = `${REACT_APP_PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
         const data = await wrappedGet(url);
         console.log('data valid', data);
@@ -152,7 +151,8 @@ export const fetchNewToken = () =>{
         refresh_token: refresh_token,
       }
       const data = await wrappedFetch(URL, METHOD_POST, reqestBody);
-      console.log('data new token', data)
+      console.log('data new token', data);
+      data = data.data || {}
       const new_auth_token = data.access_token
       const new_refresh_token = data.refresh_token;
       // sessionData.data["auth-token"] = new_auth_token;
@@ -165,4 +165,10 @@ export const fetchNewToken = () =>{
       reject(err)
     }
   })
+}
+
+export const logout = async (logoutData) => {
+  const { REACT_APP_PLATFORM_IP } = process.env;
+  const URL = `${REACT_APP_PLATFORM_IP} ${API_URLS.PLATFORM_LOGOUT_URL}`
+  const res = await wrappedFetch(METHOD_POST, URL, logoutData);
 }

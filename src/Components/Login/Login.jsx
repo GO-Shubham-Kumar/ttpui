@@ -6,6 +6,8 @@ import { LoginForm } from "operational-component-lib";
 import WelcomeDetails from "./WelcomeDetails";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
 import videoSrc from "../../assets/images/videoHome.m4v";
+import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
+import { SEAT_NAME } from "../../utils/constants";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -26,7 +28,13 @@ const Login = ({ login }) => {
       pps_seats?.map((i) => listForDropdown.push({ key: i, value: i }));
     }
     setPpsSeats(listForDropdown);
-    if (success) setSeatMode(mode);
+    if (success) {
+        if(!mode || mode ===""){
+            const seat_name = retreiveSessionData(SEAT_NAME);
+            setSeatName(seat_name)
+        }
+        setSeatMode(mode);
+    }
   }, [pps_seats, mode]);
 
   const handleLogin = (e) => {
@@ -34,24 +42,25 @@ const Login = ({ login }) => {
     login(username, password, seatName, seatMode);
   };
 
-  const onChangeHandler = (e) => {
+const onChangeHandler = (e) => {
     const {
-      target: { name, value },
+        target: { name, value },
     } = e;
     if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
     if (name === "pps_seats") {
-      setSeatName(value);
-      dispatch(fetchSeatModeAction(value, configs, pps_seats));
+        setSeatName(value);
+        dispatch(fetchSeatModeAction(value, configs, pps_seats));
     }
   };
   console.log(showKeyboard);
   return (
-    <Grid container spacing={0} margin="4em" width="90vw">
+    <Grid container spacing={0} sx={{ mt: '4em' }} >
+    <Grid item lg={1} md={1} sm={0}/>
       <video id="background-video" autoPlay muted loop>
         <source src={videoSrc} type="video/mp4" />
       </video>
-      <Grid item xs={showKeyboard ? 12 : 4}>
+      <Grid item xs={showKeyboard ? 10 : 3}>
         <LoginForm
           title={"Login"}
           ppsList={ppsSeats}
@@ -66,8 +75,8 @@ const Login = ({ login }) => {
         />
       </Grid>
       {!showKeyboard && (
-        <Grid item xs={8}>
-          <WelcomeDetails seatMode={"Put"} ppsNo={"01"} />
+        <Grid item xs={7}>
+          <WelcomeDetails seatMode={mode} ppsNo={"01"} />
         </Grid>
       )}
     </Grid>

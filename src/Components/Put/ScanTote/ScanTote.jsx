@@ -5,8 +5,17 @@ import React, { useState } from 'react';
 import Arrow from './../../../assets/images/arrow.svg';
 import ToteImg from './../../../assets/images/tote.svg';
 
-function ScanTote({ header, subHeader, binDetails, modalLabels, tableColumns, tableItemList, ...props }) {
-
+function ScanTote({ headerMsg, 
+        previousDetails, 
+        data, 
+        subHeader, 
+        currentDetails, 
+        binDetails, 
+        modalLabels, 
+        tableColumns, 
+        tableItemList, 
+        ...props 
+    }) {
     const [showPalletModal, setShowPalletModal] = useState(false)
     const handleShowPallet = () => {
         setShowPalletModal(true)
@@ -20,12 +29,12 @@ function ScanTote({ header, subHeader, binDetails, modalLabels, tableColumns, ta
 
     return (
         <>
-            <StepperHeader stepperObj={header} subHeaderText={subHeader} />
+            <StepperHeader stepperObj={headerMsg} subHeaderText={'subHeader'} />
             {/* <Container> */}
             <Grid container alignItems="stretch">
                 <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >
-                    <BinMapDetails title="Currently Active" palletId="7834784378" toteId="--" />
-                    <BinDetails title="Previous Put" details={binDetails} height="18.5em" />
+                    <BinMapDetails title="Currently Active" details={currentDetails} palletId="7834784378" toteId="--" />
+                    <BinDetails title="Previous Put" details={previousDetails} height="18.5em" />
                 </Grid>
                 <Grid item xs={12} md={9} p={3} pb={0}>
                     <Card title="Scan Tote" sx={{ pt: 0 }}>
