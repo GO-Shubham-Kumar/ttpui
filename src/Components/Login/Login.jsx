@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Grid } from "@mui/material";
 import { LoginForm } from "operational-component-lib";
+import { SEAT_NAME } from "../../utils/constants";
 import WelcomeDetails from "./WelcomeDetails";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
-import videoSrc from "../../assets/images/videoHome.m4v";
 import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
-import { SEAT_NAME } from "../../utils/constants";
+import videoSrc from "../../assets/images/videoHome.m4v";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const onChangeHandler = (e) => {
         dispatch(fetchSeatModeAction(value, configs, pps_seats));
     }
   };
-  console.log(showKeyboard);
+
   return (
     <Grid container spacing={0} sx={{ mt: '4em' }} >
     <Grid item lg={1} md={1} sm={0}/>
