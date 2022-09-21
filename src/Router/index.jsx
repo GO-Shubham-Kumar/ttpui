@@ -31,7 +31,7 @@ function App() {
   const {  data : notificationData } = useSelector( state => state.notifications );
   const { isLoggedIn, isFetching } = loginData;
 
-  
+
   const onScannerButtonHandler = (event) => {
     const { target: { name, value } } = event;
     console.log(event)
@@ -71,7 +71,7 @@ function App() {
       const { state_data : { notification_list, seat_name } } = stateData;
       setSeatName(seat_name)
       console.log('notification_list', notification_list);
-      dispatch(triggerNotificationction(notification_list[0]))
+      if(notification_list.lenght > 0)dispatch(triggerNotificationction(notification_list[0]))
     }
   },[stateData, stateSuccess])
 
