@@ -21,7 +21,7 @@ function ScanPallet({
                 <Grid  item xs={12} md={9} p={3} pb={0}>
                     <Card title="Pallet ID" sx={{ p:0 }} bodySeperator={true}>
                         <Box sx={{p:4,pt:0, textAlign : 'center', height : '38em'}}>
-                            <img alt="pallet" src={PalletImg} className="img-responsive"  />
+                            <img alt="pallet" src="/pallet_barcode.svg" className="img-responsive"  />
                         </Box>
                     </Card>
                 </Grid>
