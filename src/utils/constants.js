@@ -1,3 +1,5 @@
+import { UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "./screenIds";
+
 export const AUTHORIZATION_HEADER = 'Authentication-Token';
 export const AUTH_TOKEN_REQUEST = 'Authorization';
 export const AUTH_TOKEN = 'auth-token';
@@ -16,3 +18,9 @@ export const BOI_UI = "boi_ui";
 export const METHOD_POST ='POST';
 export const METHOD_PUT ='PUT';
 export const ERROR_INVALID_TOKEN ='Invalid Token';
+export const SOMETHING_WENT_WRONG = 'Something went wrong!';
+export const EVENT_TYPE_PROCESS_BARCODE = 'process_barcode';
+export const APP_SOURCE = 'ui';
+export const SEATS = 'seats';
+export const CALLBACK = 'callback';
+export const VALID_SCREEN_ID=[UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION]

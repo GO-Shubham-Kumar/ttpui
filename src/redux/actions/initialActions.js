@@ -2,7 +2,7 @@ import { fetchMode, loginUser, storeLoginSessionData } from './../../utils/helpe
 import { INITIAL_CONFIG_SUCCESS, INITIAL_CONFIG_REQUEST, INITIAL_CONFIG_ERROR, INITIAL_MODE_CONFIG_ERROR, INITIAL_MODE_CONFIG_SUCCESS } from './actionTypes';
 import { saveSessionData } from '../../utils/helpers/sessionHelpers';
 import { fetchConfigs, fetchLanguage, fetchSeatTypes } from '../../utils/helpers/initialConfigshelpers';
-import { SERVER_ERROR_TEXT } from '../../utils/constants';
+import { ERROR_INVALID_TOKEN, SERVER_ERROR_TEXT } from '../../utils/constants';
 
 
 export let handleConfigSuccess = (data) => {
@@ -30,7 +30,7 @@ export function handleConfigError(err) {
   return {
     type: INITIAL_CONFIG_ERROR,
     payload: {
-      message: err,
+      message: err.message,
     },
   };
 }
@@ -61,7 +61,7 @@ export const fetchInitialConfigsAction = () => {
             const pps_seats = values[1].data.pps_seats;
             return dispatch(handleConfigSuccess({ configs, pps_seats }))
         }).catch((err) => {
-            console.log('err', err);
+            console.log('err in config', err);
             return dispatch(handleConfigError(err))
         })
         

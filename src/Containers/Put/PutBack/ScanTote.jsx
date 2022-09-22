@@ -7,7 +7,7 @@ function ScanToteContainer({...props}) {
         { step: 2, active: false, label: 'Scan Entity', description: 'Scan Entity' },
         { step: 3, active: false, label: 'Close Tote', description: 'Close Tote' },
     ]
-    const subHeader = "Tote should be empty";
+    const subHeader = "";
     const binDetails = {
         'SKU ID': '--',
         'SKU Qty': '--',
@@ -52,7 +52,7 @@ function ScanToteContainer({...props}) {
         }
     ]
 
-    return <ScanTote {...props} headerMsg={header} subHeader={subHeader} binDetails={binDetails}
+    return <ScanTote {...props}  subHeader={subHeader} binDetails={binDetails}
         modalLabels={modalLabels} tableColumns={tableColumns} tableItemList={tableItemList} />
 }
 

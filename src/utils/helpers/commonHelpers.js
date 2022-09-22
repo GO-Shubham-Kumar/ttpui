@@ -1,3 +1,5 @@
+import { wrappedFetch } from "../fetchFuncs"
+import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 
 export const getMsgObject = (data) => {
@@ -14,10 +16,14 @@ export const manupulateServerMessges = (data) => {
     let msgData = { value: '', key: " "  }
     if(!code || !details) return msgData
     let msg = serverMessages[code];
-    msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
-        placeHolder = everyPlaceholder.match(/\d+/g)
-        return details[placeHolder]
-    })
+    console.log('code, details', code, details );
+    if( code && details && details.length > 0 ){
+        msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
+            placeHolder = everyPlaceholder.match(/\d+/g)
+            return details[placeHolder]
+        })
+    } 
+    
     msgData = { value: msg, key: " "  }
     return msgData
 }
@@ -56,10 +62,24 @@ export const getCurrentDetailsData = (data) => {
             //     currentData[d] = displayData[d] = `${displayData[d]['put_qty']}/${displayData[d]['total_qty']}`
             }else{
                 val = displayData[d]['display_data'][0]['display_name']
-                currentData[val]= displayData[d]['value']
+                currentData[val]= displayData[d]['value'] || "---"
 
             }
         }
     })
     return currentData
 }
+
+export const getNavConfig = (headerMsgs, mode, screenId) => {
+    const getServerMsg = manupulateServerMessges(headerMsgs);
+    let data = SCREEN_NAVGATIONS[mode];
+    console.log('data nav', data, screenId)
+    data = data[screenId] || []
+    data = data.length > 0 && data.map((obj, i) => {
+        console.log('nav msgs', obj )
+        if(obj.active) return {...obj, description : getServerMsg.value }
+        return obj
+    })
+    return data
+}
+

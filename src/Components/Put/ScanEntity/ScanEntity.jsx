@@ -4,7 +4,6 @@ import {
   Button,
   Card,
   Header,
-  NotificationBar,
   StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid } from "@mui/material";
@@ -13,7 +12,7 @@ import Arrow from "./../../../assets/images/arrow.svg";
 import PalletImg from "./../../../assets/images/pallet.svg";
 import React from "react";
 
-function ScanTote({ header, details, palletId, toteId, ...props }) {
+function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMode, ...props }) {
 
   const  cancelScan = () =>{
     alert("scan cancel request sent")
@@ -21,15 +20,14 @@ function ScanTote({ header, details, palletId, toteId, ...props }) {
 
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} />
       <Grid container alignItems="stretch">
         <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator">
           <BinMapDetails
-            toteId={toteId}
+            details ={currentDetails}
             title="Scan Active"
-            palletId={palletId}
           />
-          <BinDetails details={details} title="Previous Pick" />
+          <BinDetails details={previousDetails} title={`Previous ${seatMode}`} />
         </Grid>
         <Grid item xs={12} md={9} p={3} pb={0}>
           <Card
@@ -38,6 +36,7 @@ function ScanTote({ header, details, palletId, toteId, ...props }) {
             pt={0}
             mt={0}
             bodySeperator={false}
+            
           >
             <Box sx={{ p: 2, pt: 0, pb: 0, textAlign: "center" }}>
               <img alt="pallet" src={Arrow} />
@@ -46,17 +45,17 @@ function ScanTote({ header, details, palletId, toteId, ...props }) {
               <img alt="pallet" src={PalletImg} />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ m: 2 }}>
+            <Box sx={{ m:2, mt:1, mb:1  }}>
               <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={cancelScan}  />
             </Box>
           </Card>
         </Grid>
-        <NotificationBar
+        {/* <NotificationBar
           autoHideDuration={6000}
           msg="Entity scan successful"
           severity="success"
           open={false}
-        />
+        /> */}
       </Grid>
     </>
   );
