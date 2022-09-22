@@ -1,3 +1,4 @@
+import { DEFAULT_LANGUAGE } from "../constants"
 import { wrappedFetch } from "../fetchFuncs"
 import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
@@ -94,3 +95,45 @@ export const getNavConfig = (headerMsgs, mode, screenId) => {
     return data
 }
 
+
+// simplify details comming from server
+export const fetchDetailsFromData = (data) => {
+    const displayData = data || [];
+    console.log('displayData', displayData)
+    let i=0;
+    let previousData = {};
+    let dataObj = {}
+    for(i;i<displayData.length;i++){
+        console.log('i--',i, displayData[i][0]);
+        let val = ''
+        if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
+            const dispData=displayData[i][0];  //array always contains one record as an object
+            Object.keys(dispData).map((key, j) =>{  //loop through the object
+                console.log('key, i', key, i, dispData[key])
+                if(key === 'display_data'){ //display_data consist of the key details
+                    dataObj = dispData[key];
+                    dataObj = dataObj.filter((d, i) => {
+                        return d['locale'] === DEFAULT_LANGUAGE
+                    })
+                    dataObj = dataObj[0];
+                    val = dataObj['display_name']
+                    previousData[val] = ''
+                }else{ //get value from the other key
+                    let dataVal= ''
+                    if(typeof dispData[key] === 'string' ) dataVal = dispData[key]
+                    else if(Array.isArray(dispData[key])){
+                        if(Array.isArray(dispData[key][0])) dataVal = dispData[key][0].toString()
+                        else dataVal = dispData[key][0]
+                    } 
+                    previousData[val] = dataVal
+                }
+            })
+        }
+    }
+    return previousData
+}
+
+export const capitalizeFirstLetter = (string)  => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  

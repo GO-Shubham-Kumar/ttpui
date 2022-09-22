@@ -1,37 +1,16 @@
+import { useSelector } from "react-redux"
+import { fetchDetailsFromData } from "../../../utils/helpers/commonHelpers";
 import PlaceEntity from "./../../../Components/Put/PlaceEntity/PlaceEntity"
 
 const PlaceEntityContainer = ({...props}) => {
-
-    let header = [
-        {
-          active: false,
-          description: "Scan the tote to continue",
-          label: "Scan Tote",
-          step: 1,
-        },
-        {
-          active: true,
-          description: "Place Entity into the Tote and Scan Tote to close",
-          label: "Scan Entity",
-          step: 2,
-        },
-        {
-          active: false,
-          description: "Finished",
-          label: "Finish",
-          step: 3,
-        },
-      ]
-
-      let binDetails = {
-        'sku qty': 43,
-        skuId: 123,
-        'tote ID': 99
-      }
-
-      let palletId="dummypalletID"
-      let toteId="dummyToteID"
-
+    const { data } = useSelector(state => state.mainStateReducer) ;
+    let productInfo = {}
+    if(data.state_data){
+      const { state_data : { product_info } } = data;
+      console.log('product_info', product_info);
+      productInfo = fetchDetailsFromData(product_info || [])
+      console.log('productInfo --', productInfo);
+    }
       let KQenteyqty=3
       let KQtotalEntities=20 
       let actualqty = KQtotalEntities-KQenteyqty
@@ -42,7 +21,7 @@ const PlaceEntityContainer = ({...props}) => {
       ]
 
 
-    return <PlaceEntity {...props} palletId={palletId} actualqty={actualqty}  toteId={toteId}  qty={KQenteyqty} totalEntities={KQtotalEntities}  prdtinfo={prdtinfo} />
+    return <PlaceEntity {...props} actualqty={actualqty}  qty={KQenteyqty} totalEntities={KQtotalEntities}  prdtinfo={prdtinfo} />
 }
 
 export default PlaceEntityContainer;

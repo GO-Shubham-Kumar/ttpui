@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { updateStateData } from '../../redux/actions/mainStateDataActions';
 import store from './../../redux/store';
 
-let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
+const { REACT_APP_WEBSOCKET_IP } = process.env;
+let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
 // const dispatch = useDispatch();
 // export const initialseWSConn = () => {
 //     webSocket = new WebSocket('wss://192.168.9.159/wssresui');
@@ -22,7 +23,7 @@ let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
 // }
 
 export const sendDataToWebSocket =  (data) => {
-    webSocket = new WebSocket('wss://192.168.9.159/wssresui')
+    webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP)
         console.log('websocket conn', webSocket)
         console.log('store -- ', store)
         webSocket.onopen = () => {

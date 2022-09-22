@@ -330,7 +330,7 @@ export const PUT_TOTE_INDUCTION = {
 
 export const UD_PUT_FRONT_ENTITY_SCAN ={
     state_data : {
-
+        "item_uid": "69",
         "entity_location_after_crash": [],
         "empty_popup_msg": [],
         "pps_blocked": false,
@@ -1399,9 +1399,7 @@ export const PLACE_ENTITY_DATA = {
                         }
                     ],
                     "slot_barcode": [
-                        [
-                            "test22"
-                        ]
+                        "aa"
                     ]
                 }
             ],

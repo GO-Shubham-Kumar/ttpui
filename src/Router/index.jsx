@@ -8,19 +8,23 @@ import Login from './../Containers/Login/Login';
 import Layout from './../Containers/Layout/Layout';
 import AuthLayout from './../Containers/Layout/AuthLayout';
 import './../App.css'; 
-import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, SEAT_NAME, VALID_URLS } from '../utils/constants';
+import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
 import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
 import { verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
 import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { triggerEventAction } from '../redux/actions/eventActions';
+import { capitalizeFirstLetter } from '../utils/helpers/commonHelpers';
 
 function App() {
+  
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const [showNotification, setNotification] = useState(false)
   const [noitificationData, setNotificationData] = useState({})
   const [seatname, setSeatName] = useState('')
+  const [ logoutAllowed, setLogoutAllowed ] = useState(true);
+  const [ scanAllowed, setScanAllowed ] = useState(true);
 
   const loginData = useSelector( state => {
     console.log('--states in index', state)
@@ -51,9 +55,10 @@ function App() {
     }
   };
   useEffect(()=>{
-    if(!isLoggedIn)dispatch(verifyLoginAction());
+    if(!isLoggedIn && pathname !== `/login`)dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
   }, []);
+
   useEffect(() => {
     if (pps_seats.length > 0 && success && mode === "") {
       const seat_name = retreiveSessionData(SEAT_NAME);
@@ -64,8 +69,10 @@ function App() {
 
   useEffect(()=>{
     if(stateData && stateData.state_data && stateSuccess){
-      const { state_data : { notification_list, seat_name } } = stateData;
+      const { state_data : { notification_list, seat_name, logout_allowed, scan_allowed } } = stateData;
       setSeatName(seat_name)
+      setLogoutAllowed(logout_allowed||true)
+      setScanAllowed(scan_allowed || true)
       if(notification_list.length > 0)dispatch(triggerNotificationction(notification_list[0]))
     }
   },[stateData, stateSuccess])
@@ -113,12 +120,14 @@ function App() {
     <Layout
       isLoggedIn={isLoggedIn}
       isFetching={isFetching}
-      mode={mode}
+      mode={capitalizeFirstLetter(mode) }
       onScannerButtonHandler={onScannerButtonHandler}
       notification={showNotification} 
       notificationData={notificationData}
       handleClose={handleClose}
       handleExited={handleExited}
+      logoutAllowed = {logoutAllowed}
+      scanAllowed = {scanAllowed}
     >
       {/* {((isFetching && !isLoggedIn) ) ? (
         <div>loading...</div>

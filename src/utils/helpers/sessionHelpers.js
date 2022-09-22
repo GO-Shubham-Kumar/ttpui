@@ -6,7 +6,7 @@ export const saveSessionData = (key, data) => {
 export const retreiveSessionData = (key) => {
     const value = sessionStorage.getItem(key);
     console.log('-- sessiond data --', key, value)
-    return (value !== null && value !== undefined) ? JSON.parse(value) : null
+    return (value !== null && value !== "undefined") ? JSON.parse(value) : null
 }
 //remove data from session storage
 export const removeSessionData = (key) => {
