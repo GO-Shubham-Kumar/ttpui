@@ -36,6 +36,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
             pt={0}
             mt={0}
             bodySeperator={false}
+            
           >
             <Box sx={{ p: 2, pt: 0, pb: 0, textAlign: "center" }}>
               <img alt="pallet" src={Arrow} />
@@ -44,7 +45,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
               <img alt="pallet" src={PalletImg} />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ m: 2 }}>
+            <Box sx={{ m:2, mt:1, mb:1  }}>
               <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={cancelScan}  />
             </Box>
           </Card>

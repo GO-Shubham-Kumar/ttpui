@@ -36,7 +36,7 @@ export const updateStateData = (data) => {
         if(data){
             console.log('state data --', data);
             const dummyData = UD_PUT_FRONT_ENTITY_SCAN
-            if(data.state_data) return dispatch(handleUpdateStateDataSuccess(dummyData));
+            if(data.state_data) return dispatch(handleUpdateStateDataSuccess(data));
 
         }
     }

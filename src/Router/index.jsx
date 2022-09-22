@@ -32,6 +32,10 @@ function App() {
   const { isLoggedIn, isFetching } = loginData;
 
 
+  let validRoute = true;
+  if(VALID_URLS.indexOf(pathname) < 0) validRoute = false;
+  
+
   const onScannerButtonHandler = (event) => {
     const { target: { name, value } } = event;
     console.log(event)
@@ -53,8 +57,6 @@ function App() {
 
     }
   };
-  let validRoute = true;
-  if(VALID_URLS.indexOf(pathname) < 0) validRoute = false;
   useEffect(()=>{
     if(!isLoggedIn)dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
@@ -65,6 +67,7 @@ function App() {
       seat_name && dispatch(fetchSeatModeAction(seat_name, configs, pps_seats));
     }
   }, [pps_seats, success, configs]);
+
 
   useEffect(()=>{
     if(stateData && stateData.state_data && stateSuccess){
