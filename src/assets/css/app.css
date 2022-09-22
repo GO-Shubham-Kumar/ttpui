@@ -38,3 +38,7 @@
     z-index: -1;
     filter: blur(2px);
 }
+.welcome-text{
+    color: white;
+    font-weight: bold !important;
+}

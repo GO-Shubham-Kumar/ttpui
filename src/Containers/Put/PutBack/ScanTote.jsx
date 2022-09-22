@@ -2,12 +2,7 @@ import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 
 function ScanToteContainer({...props}) {
 
-    const header = [
-        { step: 1, active: true, label: 'Scan Tote', description: 'Scan a Tote to Induct' },
-        { step: 2, active: false, label: 'Scan Entity', description: 'Scan Entity' },
-        { step: 3, active: false, label: 'Close Tote', description: 'Close Tote' },
-    ]
-    const subHeader = "";
+    const subHeader = "Tote Should Be Empty";
     const binDetails = {
         'SKU ID': '--',
         'SKU Qty': '--',

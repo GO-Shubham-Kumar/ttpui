@@ -8,6 +8,7 @@ import WelcomeDetails from "./WelcomeDetails";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
 import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
 import videoSrc from "../../assets/images/videoHome.m4v";
+import { triggerNotificationction } from "../../redux/actions/notifications";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -18,9 +19,8 @@ const Login = ({ login }) => {
   const [seatMode, setSeatMode] = useState("");
   const [showKeyboard, setShowKeyboard] = useState(false);
 
-  const { pps_seats, mode, success, configs } = useSelector((state) => {
-    return state.initialConfigs;
-  });
+  const { pps_seats, mode, success, configs } = useSelector(state => state.initialConfigs )
+  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, error : authError } = useSelector(state => state.authReducer )
 
   useEffect(() => {
     let listForDropdown = [];
@@ -42,6 +42,14 @@ const Login = ({ login }) => {
     login(username, password, seatName, seatMode);
   };
 
+
+  useEffect(() => {
+    if(!authIsFetching && authError){
+        dispatch(triggerNotificationction({description : authMessage}))
+    }
+  }, [authSuccess, authIsFetching, authError, authMessage]);
+
+
 const onChangeHandler = (e) => {
     const {
         target: { name, value },
@@ -52,10 +60,10 @@ const onChangeHandler = (e) => {
         setSeatName(value);
         dispatch(fetchSeatModeAction(value, configs, pps_seats));
     }
-  };
+};
 
   return (
-    <Grid container spacing={0} sx={{ mt: '4em' }} >
+    <Grid container spacing={0} sx={{ mt: '4em' }} className="login" >
     <Grid item lg={1} md={1} sm={0}/>
       <video id="background-video" autoPlay muted loop>
         <source src={videoSrc} type="video/mp4" />

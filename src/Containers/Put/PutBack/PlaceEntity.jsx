@@ -1,6 +1,6 @@
 import PlaceEntity from "./../../../Components/Put/PlaceEntity/PlaceEntity"
 
-const PlaceEntityContainer = () => {
+const PlaceEntityContainer = ({...props}) => {
 
     let header = [
         {
@@ -42,7 +42,7 @@ const PlaceEntityContainer = () => {
       ]
 
 
-    return <PlaceEntity header = {header} details ={binDetails} palletId={palletId} actualqty={actualqty}  toteId={toteId}  qty={KQenteyqty} totalEntities={KQtotalEntities}  prdtinfo={prdtinfo} />
+    return <PlaceEntity {...props} palletId={palletId} actualqty={actualqty}  toteId={toteId}  qty={KQenteyqty} totalEntities={KQtotalEntities}  prdtinfo={prdtinfo} />
 }
 
 export default PlaceEntityContainer;

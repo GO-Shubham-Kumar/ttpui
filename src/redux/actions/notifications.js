@@ -1,6 +1,7 @@
 import { TRIGGER_NOTIFICATION_SUCCESS, 
     TRIGGER_NOTIFICATION_REQUEST, 
-    TRIGGER_NOTIFICATION_ERROR, 
+    TRIGGER_NOTIFICATION_ERROR,
+    CLEAR_NOTIFICATION, 
 } from './actionTypes';
 
 
@@ -32,6 +33,15 @@ export function handleEventError(err) {
       message: err,
     },
   };
+}
+
+export function handleNotificationClear(){
+    return {
+        type: CLEAR_NOTIFICATION,
+        payload: {
+          message: '',
+        },
+      };
 }
 
 //function to fetch initial configs 

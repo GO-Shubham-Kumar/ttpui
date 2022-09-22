@@ -9,8 +9,11 @@ const Layout = ({
     children, 
     onScannerButtonHandler,
     notification,
-    notificationData
+    notificationData,
+    handleClose,
+    handleExited
  }) => {
+   
   return (
     <Container fullWidth={true} height="100%">
       <AppBar
@@ -19,13 +22,17 @@ const Layout = ({
         isLoggedIn={isLoggedIn}
         onScannerButtonHandler={onScannerButtonHandler}
       />
-        {notification && notificationData.description && (
+        {/* {notification && notificationData.description && ( */}
             <NotificationBar 
-                autoHideDuration={3000} 
-                msg={notificationData.description} 
-                severity={notificationData.level}
+                key={notificationData ? notificationData.key : undefined}
+                open={notification}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                TransitionProps={{ onExited: handleExited }}
+                severity={notificationData.level || 'error'}
+                message={notificationData ? notificationData.description : undefined}
             />
-        )}
+        {/* )} */}
       <main>{children}</main>
       <Footer footerText="Butler Operator Interface - BOI 2.0. All right resirved Greyorange 2019." />
     </Container>

@@ -13,7 +13,8 @@ import { Grid, Box,Typography } from "@mui/material";
 import ToteImg from "./../../../assets/images/tote_2.svg";
 import Arrow from "./../../../assets/images/arrow_2.svg";
 
-function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdtinfo,actualqty, seatMode}) {
+function PlaceEntity({ headerMsg, 
+  previousDetails, currentDetails, palletId, toteId ,qty, totalEntities, prdtinfo, actualqty, seatMode}) {
     
     const  cancelScan = () =>{
         alert("scan cancel request sent")
@@ -27,7 +28,7 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
 
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} />
 
       <Grid container alignItems="stretch">
         <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator">
@@ -35,8 +36,9 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
             toteId={toteId}
             title="Scan Active"
             palletId={palletId}
+            details={currentDetails}
           />
-          <BinDetails details={details} title={`Previous ${seatMode}`} />
+          <BinDetails details={previousDetails} title={`Previous ${seatMode}`} />
         </Grid>
         <Grid item xs={12} md={6} p={3} pb={0}>
           <Card title="Tote" p={0} mt={0} height={'43em'}>

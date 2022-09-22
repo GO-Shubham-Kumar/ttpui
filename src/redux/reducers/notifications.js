@@ -2,7 +2,8 @@ import { SERVER_ERROR_TEXT } from '../../utils/constants';
 import { 
     TRIGGER_NOTIFICATION_SUCCESS, 
     TRIGGER_NOTIFICATION_REQUEST, 
-    TRIGGER_NOTIFICATION_ERROR,  
+    TRIGGER_NOTIFICATION_ERROR,
+    CLEAR_NOTIFICATION,  
 } from './../actions/actionTypes'
 const initialState = {
     data : {},
@@ -24,7 +25,7 @@ const initialState = {
                 ...state,
                 isFetching: false,
                 success : true,
-                data : payload.data
+                data : payload.data,
             };
             break;
     
@@ -44,6 +45,12 @@ const initialState = {
                 isFetching : true,
             };
         break;  
+
+        case CLEAR_NOTIFICATION:
+            return { 
+                ...state,
+            };
+        break;
 
         default:
             return state;

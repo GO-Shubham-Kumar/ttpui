@@ -12,7 +12,7 @@ import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, SEAT_NAME, VALID_URLS } from '.
 import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
 import { verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
-import { triggerNotificationction } from '../redux/actions/notifications';
+import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { triggerEventAction } from '../redux/actions/eventActions';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
   } );
   const { data : stateData,  error : stateError, success : stateSuccess } = useSelector( state => state.mainStateReducer );
   const { pps_seats, mode, success, configs } = useSelector( state => state.initialConfigs );
-  const {  data : notificationData } = useSelector( state => state.notifications );
+  const {  data : notificationData, success : NotificationSuccess } = useSelector( state => state.notifications );
   const { isLoggedIn, isFetching } = loginData;
 
 
@@ -38,7 +38,6 @@ function App() {
 
   const onScannerButtonHandler = (event) => {
     const { target: { name, value } } = event;
-    console.log(event)
     //based on button handle scenario
     if (name === 'scanner-submit'){
       const eventData = {
@@ -49,12 +48,6 @@ function App() {
         source : APP_SOURCE
       }
       dispatch(triggerEventAction(eventData, seatname))
-    }
-
-    if (name === 'scanner-cancel'){
-      //do something
-      console.log(value)
-
     }
   };
   useEffect(()=>{
@@ -73,16 +66,27 @@ function App() {
     if(stateData && stateData.state_data && stateSuccess){
       const { state_data : { notification_list, seat_name } } = stateData;
       setSeatName(seat_name)
-      console.log('notification_list', notification_list);
       if(notification_list.length > 0)dispatch(triggerNotificationction(notification_list[0]))
     }
   },[stateData, stateSuccess])
 
   useEffect(()=>{
-   console.log('--- here in notification', notificationData)
-   setNotification(true);
+   console.log('--- here in notification', NotificationSuccess, notificationData)
+   if(NotificationSuccess)setNotification(true)
+   else setNotification(false)
    setNotificationData(notificationData)
-  },[notificationData])
+  },[notificationData, NotificationSuccess])
+
+  const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+      }
+      setNotification(false);
+  };
+
+  const handleExited = () => {
+    dispatch(handleNotificationClear())
+  }
 
   const renderRoutes = () => {
     const routes = routesData();
@@ -113,6 +117,8 @@ function App() {
       onScannerButtonHandler={onScannerButtonHandler}
       notification={showNotification} 
       notificationData={notificationData}
+      handleClose={handleClose}
+      handleExited={handleExited}
     >
       {/* {((isFetching && !isLoggedIn) ) ? (
         <div>loading...</div>

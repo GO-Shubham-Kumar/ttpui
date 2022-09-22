@@ -24,3 +24,4 @@ export const APP_SOURCE = 'ui';
 export const SEATS = 'seats';
 export const CALLBACK = 'callback';
 export const VALID_SCREEN_ID=[UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION]
+export const EVENT_TYPE_CANCEL_SCAN = 'cancel_barcode_scan';

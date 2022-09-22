@@ -38,10 +38,21 @@ export const getPreviousDetailsData = (data) => {
     let dataObj = {}
     for(i;i<displayData.length;i++){
         console.log('i--',i, displayData[i][0]);
+        let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
-            dataObj = displayData[i][0]['display_data'][0];
-            console.log('dataObj', dataObj)
-            previousData[dataObj['display_name']] = ''
+            const dispData=displayData[i][0]; 
+            Object.keys(dispData).map((key, j) =>{
+                console.log('key, i', key, i, dispData[key])
+                if(key === 'display_data'){
+                    dataObj = dispData[key][0];
+                    console.log('dataObj', dataObj)
+                    val = dataObj['display_name']
+                    previousData[val] = ''
+                }else{
+                    console.log('--previous',previousData, val, dispData[key])
+                    previousData[val] = dispData[key]
+                }
+            })
         }
     }
     return previousData
