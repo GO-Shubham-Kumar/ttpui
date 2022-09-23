@@ -1,5 +1,5 @@
 FROM node:18 AS BUILDENV
-WORKDIR /app/
+WORKDIR /app/ttp-ui/
 COPY . .
 RUN rm -rf node_modules package-lock.json
 RUN npm cache clean --force && npm prune && npm install && ln -s /usr/bin/nodejs /usr/bin/node && npm run build && rm .npmrc
