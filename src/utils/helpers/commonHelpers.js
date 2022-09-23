@@ -84,7 +84,7 @@ export const getCurrentDetailsData = (data) => {
 
 export const getNavConfig = (headerMsgs, mode, screenId) => {
     const getServerMsg = manupulateServerMessges(headerMsgs);
-    let data = SCREEN_NAVGATIONS[mode];
+    let data = SCREEN_NAVGATIONS[mode] || [];
     console.log('data nav', data, screenId)
     data = data[screenId] || []
     data = data.length > 0 && data.map((obj, i) => {

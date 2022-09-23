@@ -21,6 +21,7 @@ const Layout = ({
         mode={mode}
         isLoggedIn={isLoggedIn}
         onScannerButtonHandler={onScannerButtonHandler}
+        menuWithHandler={[]}
       />
         {/* {notification && notificationData.description && ( */}
             <NotificationBar 

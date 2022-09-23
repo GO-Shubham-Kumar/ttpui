@@ -1,7 +1,8 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
-
+import {Modal, Typography, Table} from 'operational-component-lib';
+import { useState } from 'react';
 function ScanToteContainer({...props}) {
-
+    const [showModal, setShowModal] = useState(false)
     const subHeader = "Tote Should Be Empty";
     const binDetails = {
         'SKU ID': '--',
@@ -47,8 +48,33 @@ function ScanToteContainer({...props}) {
         }
     ]
 
-    return <ScanTote {...props}  subHeader={subHeader} binDetails={binDetails}
-        modalLabels={modalLabels} tableColumns={tableColumns} tableItemList={tableItemList} />
+    const onConfirmHandler = () => {
+        alert('ss')
+        setShowModal(true)
+    }
+
+    return (
+        <>
+        <ScanTote {...props}  subHeader={subHeader} binDetails={binDetails}
+            modalLabels={modalLabels} tableColumns={tableColumns} 
+            tableItemList={tableItemList} 
+            handleShowModal={() => setShowModal(true)} />
+        <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
+            onCloseHandler={() => setShowModal(false)} onConfirmHandler={onConfirmHandler} >
+            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
+                {modalLabels[0]}
+            </Typography>
+            <Typography type='info' variant='h3' style={{ mb: '0.6em', fontWeight: 'bold' }} >
+                {modalLabels[1]}
+            </Typography>
+            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
+                {modalLabels[2]}
+            </Typography>
+            <Table columns={tableColumns} itemList={tableItemList} />
+        </Modal>
+        </>
+            
+    )
 }
 
 export default ScanToteContainer;

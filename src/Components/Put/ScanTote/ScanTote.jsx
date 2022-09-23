@@ -15,6 +15,7 @@ function ScanTote({ headerMsg,
         tableColumns, 
         tableItemList, 
         seatMode,
+        handleShowModal,
         ...props 
     }) {
     const [showPalletModal, setShowPalletModal] = useState(false)
@@ -43,25 +44,12 @@ function ScanTote({ headerMsg,
                         <Box sx={{ p: 4, pt: 0, pb: 0, textAlign: 'center' }}>
                             <img alt="arrow" src={Arrow} className="img-responsive" />
                         </Box>
-                        <Box sx={{ p: 4, pt: 0, pb: 0, height: "28.46em", textAlign: 'center' }}>
+                        <Box sx={{ p: 4, pt: 0, pb: 0, height: "27.6em", textAlign: 'center' }}>
                             <img alt="tote" src={ToteImg} className="img-responsive" style={{ marginTop: '-0.4em' }} />
                         </Box>
-                        <Button label="Close Pallet" variant="outlined" onClickHandler={handleShowPallet}
+                        <Button label="Close Pallet" variant="outlined" onClickHandler={handleShowModal}
                             sx={{ ml: '1em', mb: '1em' }} />
 
-                        <Modal showModal={showPalletModal} modalType='info' title='Close Pallet' buttonText='Confirm'
-                            onCloseHandler={handleClosePallet} onConfirmHandler={handleConfirm} >
-                            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
-                                {modalLabels[0]}
-                            </Typography>
-                            <Typography type='info' variant='h3' style={{ mb: '0.6em', fontWeight: 'bold' }} >
-                                {modalLabels[1]}
-                            </Typography>
-                            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
-                                {modalLabels[2]}
-                            </Typography>
-                            <Table columns={tableColumns} itemList={tableItemList} />
-                        </Modal>
                     </Card>
                 </Grid>
             </Grid>

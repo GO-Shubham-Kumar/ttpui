@@ -37,6 +37,7 @@ function PlaceEntity({ headerMsg,
             title="Scan Active"
             palletId={palletId}
             details={currentDetails}
+            height="18.3em"
           />
           <BinDetails 
             details={previousDetails} 
