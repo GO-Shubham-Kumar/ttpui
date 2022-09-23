@@ -262,7 +262,7 @@ export const PUT_TOTE_INDUCTION = {
                                 "locale": "en-US"
                             }
                         ],
-                        "ql_code": ""
+                        "ql_code": "dasdasd"
                     }
                 ],
                 [
@@ -275,7 +275,37 @@ export const PUT_TOTE_INDUCTION = {
                         ],
                         "slot_barcode": [
                             [
-                                ""
+                                "dasdas"
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "display_data": [
+                            {
+                                "display_name": "Slosst ID",
+                                "locale": "en-US"
+                            }
+                        ],
+                        "slot_barcode": [
+                            [
+                                "dasdadas"
+                            ]
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "display_data": [
+                            {
+                                "display_name": "Slsssot ID",
+                                "locale": "en-US"
+                            }
+                        ],
+                        "slot_barcode": [
+                            [
+                                "dasdas"
                             ]
                         ]
                     }
@@ -2056,7 +2086,7 @@ export const PLACE_ENTITY_DATA = {
                             "locale": "en-US"
                         }
                     ],
-                    "product_local_image_url": null
+                    "product_local_image_url": "https://i.pinimg.com/originals/c9/af/8e/c9af8efe164f75b2d3aaebf5534892b0.png"
                 }
             ],
             [
@@ -2184,3 +2214,1069 @@ export const PLACE_ENTITY_DATA = {
         "event": "initialise"
     }
 }
+
+export const PLACE_TOTE_AND_CONFIRM = {
+    "state_data": {
+        "entity_location_after_crash": [],
+        "empty_popup_msg": [],
+        "pps_blocked": false,
+        "show_inv_count_popup": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [],
+        "ppsbin_list": [
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    2,
+                    4
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    0,
+                    200
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "5",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [
+                    {
+                        "load_unit_id": [
+                            "1"
+                        ],
+                        "load_unit_label": "Bin",
+                        "product_sku": "Item1",
+                        "quantity": 2,
+                        "serial": [],
+                        "service_request_id": [
+                            "sid0141"
+                        ],
+                        "type": "Item"
+                    }
+                ],
+                "breadth": "100",
+                "coordinate": [
+                    1,
+                    4
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    0,
+                    0
+                ],
+                "ppsbin_count": "1",
+                "ppsbin_id": "1",
+                "ppsbin_state": "staged",
+                "selected_state": true,
+                "totes_associated": "true"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    2,
+                    3
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    200,
+                    200
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "6",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    1,
+                    3
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    200,
+                    0
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "2",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    2,
+                    2
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    400,
+                    200
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "7",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    1,
+                    2
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    400,
+                    0
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "3",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    2,
+                    1
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    600,
+                    200
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "8",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            },
+            {
+                "back_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "bin_info": [],
+                "breadth": "100",
+                "coordinate": [
+                    1,
+                    1
+                ],
+                "direction": "center",
+                "front_drawing_start": "left",
+                "group_id": "1",
+                "height": "100",
+                "length": "200",
+                "orig_coordinate": [
+                    600,
+                    0
+                ],
+                "ppsbin_count": "0",
+                "ppsbin_id": "4",
+                "ppsbin_state": "empty",
+                "selected_state": false,
+                "totes_associated": "false"
+            }
+        ],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-09-19T10:18:40Z",
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [],
+        "is_zerowalk_flow": false,
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [],
+        "show_bin_full_default_zero": false,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.003",
+                "description": "Scan {0} or tote",
+                "details": [
+                    "tote"
+                ],
+                "level": "info"
+            }
+        ],
+        "seat_name": "front_1",
+        "event": "missing_items",
+        "show_bin_view": true,
+        "operator_orientation": "0",
+        "is_ud_without_staging": false,
+        "show_current_put_widget": false,
+        "notification_list": [],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "bin_coordinate_plotting": true,
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "selected_seat_for_release_bins_filter": "undefined",
+        "rack_details": {
+            "rack_type": "msu",
+            "rack_type_rec": [
+                {
+                    "barcodes": [
+                        "F.05",
+                        "F.06"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        56,
+                        165
+                    ],
+                    "prefixed_barcodes": [
+                        "F.06",
+                        "F.05"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            70,
+                            46,
+                            48,
+                            53,
+                            45,
+                            70,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "F.03",
+                        "F.04"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        28,
+                        165
+                    ],
+                    "prefixed_barcodes": [
+                        "F.04",
+                        "F.03"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            70,
+                            46,
+                            48,
+                            51,
+                            45,
+                            70,
+                            46,
+                            48,
+                            52
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "F.01",
+                        "F.02"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        165
+                    ],
+                    "prefixed_barcodes": [
+                        "F.02",
+                        "F.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            70,
+                            46,
+                            48,
+                            49,
+                            45,
+                            70,
+                            46,
+                            48,
+                            50
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "E.05",
+                        "E.06"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        56,
+                        125
+                    ],
+                    "prefixed_barcodes": [
+                        "E.06",
+                        "E.05"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            69,
+                            46,
+                            48,
+                            53,
+                            45,
+                            69,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "E.03",
+                        "E.04"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        28,
+                        125
+                    ],
+                    "prefixed_barcodes": [
+                        "E.04",
+                        "E.03"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            69,
+                            46,
+                            48,
+                            51,
+                            45,
+                            69,
+                            46,
+                            48,
+                            52
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "E.01",
+                        "E.02"
+                    ],
+                    "free_space": 30380,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        125
+                    ],
+                    "prefixed_barcodes": [
+                        "E.02",
+                        "E.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            69,
+                            46,
+                            48,
+                            49,
+                            45,
+                            69,
+                            46,
+                            48,
+                            50
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "D.05",
+                        "D.06"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        60,
+                        105
+                    ],
+                    "prefixed_barcodes": [
+                        "D.06",
+                        "D.05"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            68,
+                            46,
+                            48,
+                            53,
+                            45,
+                            68,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "D.04"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        40,
+                        105
+                    ],
+                    "prefixed_barcodes": [
+                        "D.04"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            68,
+                            46,
+                            48,
+                            52
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "D.03"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        20,
+                        105
+                    ],
+                    "prefixed_barcodes": [
+                        "D.03"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            68,
+                            46,
+                            48,
+                            51
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "D.01",
+                        "D.02"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        105
+                    ],
+                    "prefixed_barcodes": [
+                        "D.02",
+                        "D.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            68,
+                            46,
+                            48,
+                            49,
+                            45,
+                            68,
+                            46,
+                            48,
+                            50
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "C.05",
+                        "C.06"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        60,
+                        85
+                    ],
+                    "prefixed_barcodes": [
+                        "C.06",
+                        "C.05"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            67,
+                            46,
+                            48,
+                            53,
+                            45,
+                            67,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "C.04"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        40,
+                        85
+                    ],
+                    "prefixed_barcodes": [
+                        "C.04"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            67,
+                            46,
+                            48,
+                            52
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "C.03"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        20,
+                        85
+                    ],
+                    "prefixed_barcodes": [
+                        "C.03"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            67,
+                            46,
+                            48,
+                            51
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "C.01",
+                        "C.02"
+                    ],
+                    "free_space": 18900,
+                    "height": 15,
+                    "length": 20,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        85
+                    ],
+                    "prefixed_barcodes": [
+                        "C.02",
+                        "C.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            67,
+                            46,
+                            48,
+                            49,
+                            45,
+                            67,
+                            46,
+                            48,
+                            50
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "B.05",
+                        "B.06"
+                    ],
+                    "free_space": 61740,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        56,
+                        45
+                    ],
+                    "prefixed_barcodes": [
+                        "B.06",
+                        "B.05"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            66,
+                            46,
+                            48,
+                            53,
+                            45,
+                            66,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "B.03",
+                        "B.04"
+                    ],
+                    "free_space": 61740,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        28,
+                        45
+                    ],
+                    "prefixed_barcodes": [
+                        "B.04",
+                        "B.03"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            66,
+                            46,
+                            48,
+                            51,
+                            45,
+                            66,
+                            46,
+                            48,
+                            52
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "B.01",
+                        "B.02"
+                    ],
+                    "free_space": 61740,
+                    "height": 35,
+                    "length": 28,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        45
+                    ],
+                    "prefixed_barcodes": [
+                        "B.02",
+                        "B.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            66,
+                            46,
+                            48,
+                            49,
+                            45,
+                            66,
+                            46,
+                            48,
+                            50
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "A.04",
+                        "A.05",
+                        "A.06"
+                    ],
+                    "free_space": 97020,
+                    "height": 35,
+                    "length": 44,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        44,
+                        5
+                    ],
+                    "prefixed_barcodes": [
+                        "A.06",
+                        "A.05",
+                        "A.04"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            65,
+                            46,
+                            48,
+                            52,
+                            45,
+                            65,
+                            46,
+                            48,
+                            53,
+                            45,
+                            65,
+                            46,
+                            48,
+                            54
+                        ]
+                    ],
+                    "type": "slot"
+                },
+                {
+                    "barcodes": [
+                        "A.01",
+                        "A.02",
+                        "A.03"
+                    ],
+                    "free_space": 97020,
+                    "height": 35,
+                    "length": 44,
+                    "occupancy_color": "",
+                    "orig_coordinates": [
+                        0,
+                        5
+                    ],
+                    "prefixed_barcodes": [
+                        "A.03",
+                        "A.02",
+                        "A.01"
+                    ],
+                    "slot_ref": [
+                        [
+                            48,
+                            53,
+                            56,
+                            46,
+                            48,
+                            46,
+                            65,
+                            46,
+                            48,
+                            49,
+                            45,
+                            65,
+                            46,
+                            48,
+                            50,
+                            45,
+                            65,
+                            46,
+                            48,
+                            51
+                        ]
+                    ],
+                    "type": "slot"
+                }
+            ],
+            "rack_width": 96,
+            "slot_type": "slot"
+        },
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "put",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": false,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "ud_put_front_missing",
+        "previous_put_details": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "ql_code": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Slot ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "slot_barcode": [
+                        [
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "bin_station": "",
+                    "display_data": []
+                }
+            ]
+        ],
+        "group_info": {
+            "1": "center"
+        },
+        "product_info_for_inv_count_check": [],
+        "sub_header_msge_list": [],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "",
+        "current_bin_id": "1",
+        "product_info": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        },
+                        {
+                            "display_name": "Código de barras del producto",
+                            "locale": "es-ES"
+                        }
+                    ],
+                    "product_barcode": []
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "product_local_image_url",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_local_image_url": null
+                }
+            ]
+        ],
+        "scan_allowed": true,
+        "entity_location_type_after_crash": "undefined",
+        "pps_requested_mode": "undefined",
+        "tote_id": "sid0141",
+        "user_loggedin": "default_user_name",
+        "split_pps_info": [],
+        "inventory_count_check_limit": 5,
+        "missing_items": [
+            {
+                "product_barcode": "Item1Barcode2",
+                "product_sku": "Item1",
+                "quantity": 1
+            }
+        ]
+    }
+}
+

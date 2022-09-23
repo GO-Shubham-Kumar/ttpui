@@ -18,6 +18,7 @@ const Layout = ({
     <Container fullWidth={true} height="100%">
       <AppBar
         goLogo={logo}
+        customerLogo={logo}
         mode={mode}
         isLoggedIn={isLoggedIn}
         onScannerButtonHandler={onScannerButtonHandler}

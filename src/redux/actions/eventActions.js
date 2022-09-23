@@ -43,7 +43,7 @@ export const triggerEventAction = (data, seatName) => {
             dispatch(handleEventRequest());
             const res = await triggerEvent(data, seatName);
             console.log('trigger response', res);
-            return dispatch(handleEventSuccess(res))
+            return dispatch(handleEventSuccess(res.data))
         }catch(err){
             console.log('err in triggering data', err);
             return dispatch(handleEventError(err))

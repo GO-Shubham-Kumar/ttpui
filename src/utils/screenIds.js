@@ -9,3 +9,4 @@ export const SCREEN_ID_MAPPING = {
     [UD_PUT_FRONT_ENTITY_SCAN] : SCAN_TOTE
 
 }
+export const UD_PUT_FRONT_MISSIN = 'ud_put_front_missing';

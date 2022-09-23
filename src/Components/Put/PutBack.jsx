@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import ScanPalletContainer from "../../Containers/Put/PutBack/ScanPallet";
 import ScanToteContainer from "../../Containers/Put/PutBack/ScanTote";
 import ScanEntityContainer from "../../Containers/Put/PutBack/ScanEntity";
+import PlaceToteContainer from "../../Containers/Put/PutBack/PlaceTote";
 import { capitalizeFirstLetter, fetchDetailsFromData, getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
-import { SCREEN_ID_MAPPING, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK } from "../../utils/screenIds";
+import { SCREEN_ID_MAPPING, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_MISSIN } from "../../utils/screenIds";
 import Loader from "../Common/Loader";
 import { VALID_SCREEN_ID } from "../../utils/constants";
 import InvalidScreen from "../Common/InvalidScreen";
@@ -28,7 +29,7 @@ const PutBack  =({ data, isFetching, success, error }) => {
                 mode, 
             } } = data;
             setScreenId(screen_id);
-            setSeatMode(capitalizeFirstLetter('mode'));
+            setSeatMode(capitalizeFirstLetter(mode));
             const previousDetailsData = fetchDetailsFromData(previous_put_details);
             console.log('msgObj -- tote', header_msge_list)
             const currentDetailsData = getCurrentDetailsData(current_put_details);
@@ -70,6 +71,15 @@ const PutBack  =({ data, isFetching, success, error }) => {
     )
     if(screenId === UD_PUT_FRONT_PLACE_ITEMS_IN_RACK) return (
         <PlaceEntityContainer 
+            headerMsg={headerMsg} 
+            previousDetails={previousDetails} 
+            data={data}
+            currentDetails={currentDetails}
+            seatMode={seatMode}
+        />
+    )
+    if(screenId === UD_PUT_FRONT_MISSIN) return (
+        <PlaceToteContainer 
             headerMsg={headerMsg} 
             previousDetails={previousDetails} 
             data={data}

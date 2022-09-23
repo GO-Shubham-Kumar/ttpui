@@ -16,6 +16,10 @@
     max-width: 100%;
 }
 
+.m-auto{
+    margin: auto;
+}
+
 .seprator{
     margin: 1em -1em;
     border: 1px solid #E8E8E8;

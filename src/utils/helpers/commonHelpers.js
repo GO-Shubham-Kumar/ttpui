@@ -4,7 +4,6 @@ import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 
 export const getMsgObject = (data) => {
-    console.log('msg server', data)
     return data ? data[0] : {}
 }
 
@@ -17,7 +16,6 @@ export const manupulateServerMessges = (data) => {
     let msgData = { value: '', key: " "  }
     if(!code || !details) return msgData
     let msg = serverMessages[code];
-    console.log('code, details', code, details );
     if( code && details && details.length > 0 ){
         msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
             placeHolder = everyPlaceholder.match(/\d+/g)
@@ -33,17 +31,14 @@ export const manupulateServerMessges = (data) => {
 //simplify previous put details
 export const getPreviousDetailsData = (data) => {
     const displayData = data || [];
-    console.log('displayData', displayData)
     let i=0;
     let previousData = {};
     let dataObj = {}
     for(i;i<displayData.length;i++){
-        console.log('i--',i, displayData[i][0]);
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
             const dispData=displayData[i][0]; 
             Object.keys(dispData).map((key, j) =>{
-                console.log('key, i', key, i, dispData[key])
                 if(key === 'display_data'){
                     dataObj = dispData[key][0];
                     console.log('dataObj', dataObj)
@@ -67,7 +62,6 @@ export const getCurrentDetailsData = (data) => {
     let dataObj = {};
     let val = ''
     Object.keys(displayData).map((d,i)=>{
-        console.log('displayData', typeof displayData[d])
         // if(typeof displayData[d] === "string") currentData[d] = displayData[d]
         if(typeof displayData[d] === "object" ) {
             if(displayData[d].hasOwnProperty('total_qty')) {
@@ -85,13 +79,11 @@ export const getCurrentDetailsData = (data) => {
 export const getNavConfig = (headerMsgs, mode, screenId) => {
     const getServerMsg = manupulateServerMessges(headerMsgs);
     let data = SCREEN_NAVGATIONS[mode] || [];
-    console.log('data nav', data, screenId)
-    data = data[screenId] || []
-    data = data.length > 0 && data.map((obj, i) => {
-        console.log('nav msgs', obj )
+    data = data[screenId] || [];
+    data = data.length > 0 ? data.map((obj, i) => {
         if(obj.active) return {...obj, description : getServerMsg.value }
         return obj
-    })
+    }) : data
     return data
 }
 
@@ -99,17 +91,14 @@ export const getNavConfig = (headerMsgs, mode, screenId) => {
 // simplify details comming from server
 export const fetchDetailsFromData = (data) => {
     const displayData = data || [];
-    console.log('displayData', displayData)
     let i=0;
     let previousData = {};
     let dataObj = {}
     for(i;i<displayData.length;i++){
-        console.log('i--',i, displayData[i][0]);
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
             const dispData=displayData[i][0];  //array always contains one record as an object
             Object.keys(dispData).map((key, j) =>{  //loop through the object
-                console.log('key, i', key, i, dispData[key])
                 if(key === 'display_data'){ //display_data consist of the key details
                     dataObj = dispData[key];
                     dataObj = dataObj.filter((d, i) => {

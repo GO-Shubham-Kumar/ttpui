@@ -4,12 +4,6 @@ import { useState } from 'react';
 function ScanToteContainer({...props}) {
     const [showModal, setShowModal] = useState(false)
     const subHeader = "Tote Should Be Empty";
-    const binDetails = {
-        'SKU ID': '--',
-        'SKU Qty': '--',
-        'TOTE ID': '--',
-        'Product Barcode': '--',
-    }
     const modalLabels = [
         "The pallet is not empty yet. Please make sure all the entity(ies) are put away before closing the pallet.",
         "By confirming system will mark remaining entity(ies) as missing.",
@@ -55,9 +49,7 @@ function ScanToteContainer({...props}) {
 
     return (
         <>
-        <ScanTote {...props}  subHeader={subHeader} binDetails={binDetails}
-            modalLabels={modalLabels} tableColumns={tableColumns} 
-            tableItemList={tableItemList} 
+        <ScanTote {...props}  subHeader={subHeader}
             handleShowModal={() => setShowModal(true)} />
         <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
             onCloseHandler={() => setShowModal(false)} onConfirmHandler={onConfirmHandler} >
