@@ -23,6 +23,9 @@
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
   },
+  "resolutions": {
+    "operational-component-lib": "npm:@go/operational-component-lib@0.2.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
