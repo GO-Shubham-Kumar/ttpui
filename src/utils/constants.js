@@ -27,3 +27,5 @@ export const VALID_SCREEN_ID=[UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS
 export const EVENT_TYPE_CANCEL_SCAN = 'cancel_barcode_scan';
 export const DEFAULT_LANGUAGE = 'en-US'
 export const EVENT_TYPE_SEND_TOTE = 'send_tote';
+export const STANDARD_CARD_HEIGHT = '42em';
+export const STANDARD_CARD_HEIGHT_WITH_SEPERATOR = '37.3em';

@@ -10,6 +10,7 @@ const PlaceEntityContainer = ({...props}) => {
     const [ skuQty, setSkuQty ] = useState('');
     const [ productDetails, setProductDetails ] = useState({});
     const [ productImages, setProductImages ] = useState([]);
+    const [quantity, setQuantity] = useState(0)
     const { data : mainData } = useSelector(state => state.mainStateReducer) ;
     
     
@@ -49,7 +50,14 @@ const PlaceEntityContainer = ({...props}) => {
         dispatch(triggerEventAction(eventData))
     }
 
-    let KQenteyqty=3
+    const quantityChangeHandler = (qty) =>{
+      setQuantity(qty)
+    }
+
+    const exceptionhandler =() =>{
+      console.log('exception called')
+    }
+
     let KQtotalEntities=20 
 
     let prdtinfo=[
@@ -59,13 +67,15 @@ const PlaceEntityContainer = ({...props}) => {
 
 
     return <PlaceEntity 
-      qty={KQenteyqty} 
+      qty={quantity} 
       totalEntities={KQtotalEntities} 
       prdtinfo={prdtinfo} 
       handleCancelScan={handleCancelScan}
       actualqty={skuQty}
       productDetails={productDetails}
       productImages={productImages}
+      quantityChangeHandler={quantityChangeHandler}
+      exceptionhandler={exceptionhandler}
       {...props} 
     />
 }

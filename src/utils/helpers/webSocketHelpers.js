@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { updateStateData } from '../../redux/actions/mainStateDataActions';
 import store from './../../redux/store';
 
@@ -27,7 +25,7 @@ export const sendDataToWebSocket =  (data) => {
         console.log('websocket conn', webSocket)
         console.log('store -- ', store)
         webSocket.onopen = () => {
-            console.log('connected2 -- ', webSocket)
+            console.log('connected2 -- ', data)
             webSocket.send(JSON.stringify(data))
 
             webSocket.onmessage = (event) => {

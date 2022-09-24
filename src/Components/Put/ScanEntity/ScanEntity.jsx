@@ -3,7 +3,6 @@ import {
   BinMapDetails,
   Button,
   Card,
-  Header,
   StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid } from "@mui/material";
@@ -24,7 +23,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
             details ={currentDetails}
             title="Scan Active"
           />
-          <BinDetails details={previousDetails} title={`Previous ${seatMode}`} height="18.3em"/>
+          <BinDetails details={previousDetails} title={`Previous ${seatMode}`} height="17.2em"/>
         </Grid>
         <Grid item xs={12} md={9} p={3} pb={0}>
           <Card
@@ -38,7 +37,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
             <Box sx={{ p: 2, pt: 0, pb: 0, textAlign: "center" }}>
               <img alt="pallet" src={Arrow} />
             </Box>
-            <Box sx={{ textAlign: "center", mb: '7.4em'  }}>
+            <Box sx={{ textAlign: "center", mb: '6.7em'  }}>
               <img alt="pallet" src={PalletImg} />
             </Box>
             <div className="seprator"></div>

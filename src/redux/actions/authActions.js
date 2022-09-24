@@ -8,9 +8,9 @@ import {
   LOGOUT_SUCCESS 
 } from './actionTypes';
 import { emptyLoginSessionData, fetchMode, loginUser, logout, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
-import { removeSessionData, retreiveSessionData, saveSessionData } from '../../utils/helpers/sessionHelpers';
-import { AUTH, AUTH_TOKEN, BOI_UI, CLIENT_ID, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, REFRESH_TOKEN, SEAT_NAME, SERVER_ERROR_TEXT, USER_NAME } from '../../utils/constants';
-import webSocket, { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
+import { retreiveSessionData } from '../../utils/helpers/sessionHelpers';
+import { AUTH, AUTH_TOKEN, BOI_UI, CLIENT_ID, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
 
 
 export let handleLoginSuccess = (data) => {
@@ -115,6 +115,7 @@ export const verifyLoginAction = () => {
       dispatch(handleLoginRequest());
       const data = await verifyLogin();
       let { auth_token, refresh_token, username, seat_name } = data;
+      console.log('auth_token, refresh_token, username, seat_name', auth_token, refresh_token, username, seat_name)
       const webSocketData = {
         data_type: AUTH,
         data: {
