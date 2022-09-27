@@ -16,6 +16,10 @@
     max-width: 100%;
 }
 
+.m-auto{
+    margin: auto;
+}
+
 .seprator{
     margin: 1em -1em;
     border: 1px solid #E8E8E8;
@@ -37,4 +41,8 @@
     bottom: 0;
     z-index: -1;
     filter: blur(2px);
+}
+.welcome-text{
+    color: white;
+    font-weight: bold !important;
 }

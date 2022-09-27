@@ -1,4 +1,3 @@
-import HeaderContainer from './../Containers/Header/Header';
 import Layout from './../Containers/Layout/Layout.jsx';
 import LoginContainer from './../Containers/Login/Login';
 import MainPageContainer from './../Containers/MainPage/MainPage';
@@ -46,13 +45,6 @@ const Routes = () => {
         {
             path : "/place-entity",
             comp : PlaceEntityContainer,
-            authRoute : true,
-            exact : true
-
-        },
-        {
-            path : "/header",
-            comp : HeaderContainer,
             authRoute : true,
             exact : true
 

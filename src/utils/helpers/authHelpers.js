@@ -1,4 +1,15 @@
-import { AUTH_TOKEN, BOI_UI, CLIENT_ID, LOGIN, METHOD_POST, PPS_SEATS, REFRESH_TOKEN, SEAT_NAME, SESSION_DATA, USER_NAME } from "../constants";
+import { 
+  AUTH_TOKEN, 
+  BOI_UI, 
+  CLIENT_ID, 
+  ERROR_INVALID_TOKEN, 
+  LOGIN, 
+  METHOD_POST, 
+  REFRESH_TOKEN, 
+  SEAT_NAME, 
+  SESSION_DATA, 
+  USER_NAME 
+} from "../constants";
 import { wrappedGet, wrappedFetch } from "../fetchFuncs"
 import * as API_URLS from './../api_urls';
 import { removeSessionData, retreiveSessionData, saveSessionData } from "./sessionHelpers";
@@ -93,17 +104,16 @@ export const emptyLoginSessionData = () => {
 export const verifyLogin = () => {
   return new Promise(async (resolve, reject) => {
     try{
-      const data = await validateLogin();
+      let data = await validateLogin();
+      if(!data){
+        console.log('---- verify login err',)
+        data = await fetchNewToken();
+        resolve(data)
+      }
       resolve(data)
     }catch(err){
-      try{
-        console.log('-------err', err)
-        const data = await fetchNewToken();
-        resolve(data)
-      }catch(err){
-        console.log('err generating token', err)
-        reject(err)
-      }
+      console.log('err generating token', err)
+      reject(err)
     }
   })
 }
@@ -123,8 +133,8 @@ export const validateLogin = () =>{
         console.log('data valid', data);
         resolve({ auth_token, username, refresh_token, seat_name });
     }catch(err){
-      console.log('error validating token');
-      reject(err)
+      console.log('error validating token',err);
+      resolve(false)
     }
   })
 }
@@ -133,8 +143,8 @@ export const fetchNewToken = () =>{
   return new Promise(async (resolve, reject) => {
     try{
       const {REACT_APP_PLATFORM_IP} = process.env;
-      const refresh_token = retreiveSessionData(REFRESH_TOKEN);
-      if(refresh_token === null) return reject()
+      const refreshToken = retreiveSessionData(REFRESH_TOKEN);
+      if(refreshToken === null) return reject({message: ERROR_INVALID_TOKEN})
       const key_cloak_login = retreiveSessionData('keyCloakLogin');
       const seat_name = retreiveSessionData(SEAT_NAME);
       const username = retreiveSessionData(USER_NAME);
@@ -148,18 +158,13 @@ export const fetchNewToken = () =>{
           app_name: BOI_UI,
           entity_id: seat_name,
         },
-        refresh_token: refresh_token,
+        refresh_token: refreshToken,
       }
-      const data = await wrappedFetch(URL, METHOD_POST, reqestBody);
+      let data = await wrappedFetch(URL, METHOD_POST, reqestBody);
       console.log('data new token', data);
       data = data.data || {}
-      const new_auth_token = data.access_token
-      const new_refresh_token = data.refresh_token;
-      // sessionData.data["auth-token"] = new_auth_token;
-      // saveSessionData(AUTH_TOKEN, new_auth_token)
-      // saveSessionData(REFRESH_TOKEN, new_refresh_token);
-      // saveSessionData(SESSION_DATA, session_data);
-      resolve({ new_auth_token, username, new_refresh_token, seat_name });
+      const {access_token : auth_token, refresh_token } = data
+      resolve({ auth_token, username, refresh_token, seat_name });
     }catch(err){
       console.log('err in fetchin new token', err);
       reject(err)

@@ -1,12 +1,10 @@
 import React from "react";
 import {
-  Header,
   Card,
   BinMapDetails,
   BinDetails,
   Button,
   StepperHeader,
-  NotificationBar,
   KQ,
   CarouselComp
 } from "operational-component-lib";
@@ -14,52 +12,69 @@ import { Grid, Box,Typography } from "@mui/material";
 import ToteImg from "./../../../assets/images/tote_2.svg";
 import Arrow from "./../../../assets/images/arrow_2.svg";
 
-function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdtinfo,actualqty}) {
-    
-    const  cancelScan = () =>{
-        alert("scan cancel request sent")
-    }
-
-    const exceptionhandler = () => {
-        alert("Showing exception")
-
-    }
-
+const PlaceEntity = ({ headerMsg, 
+    previousDetails, 
+    currentDetails, 
+    palletId, 
+    toteId ,
+    qty, 
+    totalEntities, 
+    prdtinfo, 
+    actualqty, 
+    seatMode,
+    handleCancelScan,
+    productDetails,
+    productImages,
+    quantityChangeHandler,
+    exceptionhandler
+  }) => {
+  
 
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} />
 
       <Grid container alignItems="stretch">
-        <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator">
+        <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator">
           <BinMapDetails
             toteId={toteId}
             title="Scan Active"
             palletId={palletId}
+            details={currentDetails}
           />
-          <BinDetails details={details} title="Previous Pick" />
+          <BinDetails 
+            details={previousDetails} 
+            title={`Previous ${seatMode}`}
+            height="17.2em" />
         </Grid>
-        <Grid item xs={12} md={6} p={3} pb={0}>
-          <Card title="Tote" p={0} mt={0} height={'43em'}>
+        <Grid item xs={12} xl={6} md={6} sm={12} p={3} pb={0}>
+          <Card title="Tote" p={0} mt={0} height={'42em'}>
             <Box  className="totequantity" sx={{ p: 5, pt:10, pb:0, textAlign: "center" }}>
               <Typography variant="h1">{actualqty}</Typography>
               <img alt="pallet" src={Arrow} />
             </Box>
-            <Box sx={{ m:10, mt:0,mb:26,textAlign: "center" }}>
-              <img alt="pallet" src={ToteImg} style={{ margin: "10%", marginTop:0 }} />
+            <Box sx={{ m:10, mt:0,mb:'18.5em',textAlign: "center" }}>
+              <img alt="tote image" src={ToteImg} style={{  marginTop:0 }} />
             </Box>
             <div className="seprator"></div>
             <Box sx={{ m: 0 }}>
-              <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={cancelScan} />
+              <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={handleCancelScan} />
             </Box>
           </Card>
         </Grid>
 
-        <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator" >
-          <Card  p={0} m={0} title="Item Details" height={'43em'} bodySeperator={false} >
-            <CarouselComp prdtinfo={prdtinfo} />
+        <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator" >
+          <Card  p={0} m={0} title="Item Details"  height={'42em'} bodySeperator={false} >
+            <Box sx={{mb:'2.8em'}}>
+              <CarouselComp prdtImages={productImages} productDetails={productDetails} prdtinfo={prdtinfo} />
+            </Box>
             <div className="seprator"></div>
-            <KQ qty={qty} totalEntities={totalEntities}  />
+            <Box sx={{ mb:'5em' }} className="kq">
+              <p>Key in quantity</p>
+              <KQ quantity={qty} label={"Scan Entity"} 
+                totalEntities={totalEntities}  
+              />
+            </Box>
             <div className="seprator"></div>
             <Box sx={{ m: 0, p:0 }}>
               <Button size="large" type="neutral"  label="Exception" onClickHandler={exceptionhandler}  />
@@ -67,12 +82,6 @@ function PlaceEntity({ header, details, palletId, toteId ,qty,totalEntities,prdt
           </Card>
         </Grid>
       </Grid>
-      <NotificationBar
-            autoHideDuration={6000}
-            msg="Entity scan successful"
-            severity="success"
-            open={false}
-            />
     </>
   );
 }

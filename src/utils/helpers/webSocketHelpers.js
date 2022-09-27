@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { updateStateData } from '../../redux/actions/mainStateDataActions';
 import store from './../../redux/store';
 
-let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
+const { REACT_APP_WEBSOCKET_IP } = process.env;
+let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
 // const dispatch = useDispatch();
 // export const initialseWSConn = () => {
 //     webSocket = new WebSocket('wss://192.168.9.159/wssresui');
@@ -22,19 +21,19 @@ let webSocket = new WebSocket('wss://192.168.9.159/wssresui');
 // }
 
 export const sendDataToWebSocket =  (data) => {
-    webSocket = new WebSocket('wss://192.168.9.159/wssresui')
+    webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP)
         console.log('websocket conn', webSocket)
         console.log('store -- ', store)
         webSocket.onopen = () => {
-            console.log('connected2 -- ', webSocket)
+            console.log('connected2 -- ', data)
             webSocket.send(JSON.stringify(data))
 
             webSocket.onmessage = (event) => {
                 console.log('event in 1',  event.data)
                 if(event.data){
                     const stateData = JSON.parse(event.data);
-                    console.log('event in 1', stateData)
-                    store.dispatch(updateStateData(stateData))
+                    console.log('event in 21', stateData);
+                    if(stateData.state_data) store.dispatch(updateStateData(stateData))
                 }
             }
             webSocket.onclose = (event) => {

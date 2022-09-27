@@ -1,19 +1,9 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
-
+import {Modal, Typography, Table} from 'operational-component-lib';
+import { useState } from 'react';
 function ScanToteContainer({...props}) {
-
-    const header = [
-        { step: 1, active: true, label: 'Scan Tote', description: 'Scan a Tote to Induct' },
-        { step: 2, active: false, label: 'Scan Entity', description: 'Scan Entity' },
-        { step: 3, active: false, label: 'Close Tote', description: 'Close Tote' },
-    ]
-    const subHeader = "Tote should be empty";
-    const binDetails = {
-        'SKU ID': '--',
-        'SKU Qty': '--',
-        'TOTE ID': '--',
-        'Product Barcode': '--',
-    }
+    const [showModal, setShowModal] = useState(false)
+    const subHeader = "Tote Should Be Empty";
     const modalLabels = [
         "The pallet is not empty yet. Please make sure all the entity(ies) are put away before closing the pallet.",
         "By confirming system will mark remaining entity(ies) as missing.",
@@ -52,8 +42,31 @@ function ScanToteContainer({...props}) {
         }
     ]
 
-    return <ScanTote {...props} headerMsg={header} subHeader={subHeader} binDetails={binDetails}
-        modalLabels={modalLabels} tableColumns={tableColumns} tableItemList={tableItemList} />
+    const onConfirmHandler = () => {
+        alert('ss')
+        setShowModal(true)
+    }
+
+    return (
+        <>
+        <ScanTote {...props}  subHeader={subHeader}
+            handleShowModal={() => setShowModal(true)} />
+        <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
+            onCloseHandler={() => setShowModal(false)} onConfirmHandler={onConfirmHandler} >
+            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
+                {modalLabels[0]}
+            </Typography>
+            <Typography type='info' variant='h3' style={{ mb: '0.6em', fontWeight: 'bold' }} >
+                {modalLabels[1]}
+            </Typography>
+            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
+                {modalLabels[2]}
+            </Typography>
+            <Table columns={tableColumns} itemList={tableItemList} />
+        </Modal>
+        </>
+            
+    )
 }
 
 export default ScanToteContainer;
