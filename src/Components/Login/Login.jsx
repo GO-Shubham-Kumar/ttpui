@@ -73,8 +73,9 @@ const Login = ({ login }) => {
       if( Object.keys(data).length > 0 ) {
         const notificationData = {
           description : authMessage,
-          level : NOTIFICATION_TYPE_INFO
+          level : NOTIFICATION_TYPE_ERROR
         }
+        if( Object.keys(data).length > 0) notificationData['level'] = NOTIFICATION_TYPE_INFO
         dispatch(triggerNotificationction(notificationData))
       }else{
         setIsLoginError(true)
