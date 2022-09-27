@@ -71,13 +71,7 @@ const initialState = {
           data : createNotificationObject(payload.message, payload.data.level),
           isValidationError : false
         };
-        break;
-        
-    case LOGOUT_ERROR:
         return { 
-          ...state,
-          success:false,
-          err:action.message
         };
         break;
       default:
