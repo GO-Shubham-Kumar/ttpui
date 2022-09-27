@@ -9,7 +9,19 @@ import {
 } from './actionTypes';
 import { emptyLoginSessionData, fetchMode, loginUser, logout, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
 import { retreiveSessionData } from '../../utils/helpers/sessionHelpers';
-import { AUTH, AUTH_TOKEN, BOI_UI, CLIENT_ID, ERROR_INVALID_TOKEN, FETCH_SUCCESS_TEXT, SEAT_NAME, SERVER_ERROR_TEXT } from '../../utils/constants';
+import { 
+  AUTH, 
+  AUTH_TOKEN, 
+  BOI_UI, CLIENT_ID, 
+  ERROR_INVALID_TOKEN, 
+  FETCH_SUCCESS_TEXT, 
+  NOTIFICATION_TYPE_ERROR, 
+  REFRESH_TOKEN, 
+  SEAT_NAME, 
+  SERVER_ERROR_TEXT, 
+  SOMETHING_WENT_WRONG, 
+  USER_NAME 
+} from '../../utils/constants';
 import { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
 
 
@@ -72,7 +84,8 @@ export function handleLogOutError(err) {
   return {
     type: LOGOUT_ERROR,
     payload: {
-      message: err,
+      message: err.message,
+      data : err
     },
   };
 }
@@ -134,38 +147,48 @@ export const verifyLoginAction = () => {
   }
 }
 
-export function logOutAction() {
+export function logOutAction(websocketError) {
   return (dispatch) => {
     dispatch(handleLogOutRequest());
-    const REFRESH_TOKEN = retreiveSessionData(REFRESH_TOKEN);
-    const SEAT_NAME = retreiveSessionData(SEAT_NAME);
-    const USER_NAME = retreiveSessionData(USER_NAME);
+    const AUTHTOKEN = retreiveSessionData(AUTH_TOKEN);
+    const REFRESHTOKEN = retreiveSessionData(REFRESH_TOKEN);
+    const SEATNAME = retreiveSessionData(SEAT_NAME);
+    const USERNAME = retreiveSessionData(USER_NAME);
     const logoutData = {
-      "token": JSON.parse(sessionStorage.getItem("sessionData"))["data"]["auth-token"],
+      "token": AUTHTOKEN,
       "context": {
-        "username": USER_NAME,
-        "packStationId": SEAT_NAME,
-        "entity_id": SEAT_NAME,
+        "username": USERNAME,
+        "packStationId": SEATNAME,
+        "entity_id": SEATNAME,
         "app_name": BOI_UI,
         "client_id":  CLIENT_ID,
-        "refresh_token": REFRESH_TOKEN,
+        "refresh_token": REFRESHTOKEN,
         "logout_reason": 'logoutReason'
       }
     }
     return logout(logoutData).then((res)=>{
       console.log('response', res);
-      if(res.status && res.status === 204){
-          emptyLoginSessionData() 
-          return dispatch(handleLogOutSuccess(res));
+      const data = res.data
+      if(websocketError){
+        console.log('websocketError', websocketError)
+        data['message'] = websocketError.message
+        data['level'] = NOTIFICATION_TYPE_ERROR
       }
-      return dispatch(handleLogOutError('Something Went Wrong!'));
+      if(res.status && res.status === 200){
+          emptyLoginSessionData();
+          return dispatch(handleLogOutSuccess(data));
+      }
+      data['message'] = SOMETHING_WENT_WRONG
+      data['level'] = NOTIFICATION_TYPE_ERROR
+      console.log('websocketError',websocketError);
+      return dispatch(handleLogOutError(data));
     }).catch((err)=>{
-      console.log('err',err)
-      if(err.message){
-        return dispatch(handleLogOutError(err.message));
-      }else{        
-        return dispatch(handleLogOutError(err));
+      console.log('err',err);
+      const data  ={
+        message : err.message ? err.message : SERVER_ERROR_TEXT,
+        level  : NOTIFICATION_TYPE_ERROR
       }
+      return dispatch(handleLogOutError(data));
     })
   }
 }

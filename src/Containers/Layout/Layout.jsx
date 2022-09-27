@@ -11,8 +11,32 @@ const Layout = ({
     notification,
     notificationData,
     handleClose,
-    handleExited
+    handleExited,
+    handleLogout
  }) => {
+
+  const menuWidget = [
+    // {
+    //   "key": 0,
+    //   "label": "Peripheral Management",
+    //   "isDisable": false
+    // },
+    // {
+    //   "key": 1,
+    //   "label": "Item search",
+    //   "isDisable": false
+    // },
+    {
+      "key": 2,
+      "label": "Logout",
+      "isDisable": false
+    }
+  ]
+
+  const handleMenuClick = (e, key) => {
+    console.log('key', key)
+    if(key===2) handleLogout()
+  }
    
   return (
     <Container fullWidth={true} height="100%">
@@ -22,7 +46,8 @@ const Layout = ({
         mode={mode}
         isLoggedIn={isLoggedIn}
         onScannerButtonHandler={onScannerButtonHandler}
-        menuWithHandler={[]}
+        menuItems={menuWidget}
+        onMenuClickHandler={handleMenuClick}
       />
         {/* {notification && notificationData.description && ( */}
             <NotificationBar 

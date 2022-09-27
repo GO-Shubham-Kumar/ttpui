@@ -10,7 +10,7 @@ import AuthLayout from './../Containers/Layout/AuthLayout';
 import './../App.css'; 
 import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
 import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
-import { verifyLoginAction } from '../redux/actions/authActions';
+import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
 import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { triggerEventAction } from '../redux/actions/eventActions';
@@ -33,7 +33,7 @@ function App() {
   const { data : stateData,  error : stateError, success : stateSuccess } = useSelector( state => state.mainStateReducer );
   const { pps_seats, mode, success, configs } = useSelector( state => state.initialConfigs );
   const {  data : notificationData, success : NotificationSuccess } = useSelector( state => state.notifications );
-  const { isLoggedIn, isFetching } = loginData;
+  const { isLoggedIn, isFetching, err, success : loginSuccess } = loginData;
 
 
   let validRoute = true;
@@ -78,6 +78,14 @@ function App() {
   },[stateData, stateSuccess])
 
   useEffect(()=>{
+    if(!isLoggedIn && !isFetching ){
+      const { success, err, data } = loginData;
+      console.log('loginData', loginData);
+      if(success && !err)dispatch(triggerNotificationction(data))
+    }
+  },[isLoggedIn, isFetching])
+
+  useEffect(()=>{
    console.log('--- here in notification', NotificationSuccess, notificationData)
    if(NotificationSuccess)setNotification(true)
    else setNotification(false)
@@ -93,6 +101,10 @@ function App() {
 
   const handleExited = () => {
     dispatch(handleNotificationClear())
+  }
+
+  const handleLogout = () => {
+    dispatch(logOutAction())
   }
 
   const renderRoutes = () => {
@@ -128,6 +140,7 @@ function App() {
       handleExited={handleExited}
       logoutAllowed = {logoutAllowed}
       scanAllowed = {scanAllowed}
+      handleLogout={handleLogout}
     >
       {/* {((isFetching && !isLoggedIn) ) ? (
         <div>loading...</div>

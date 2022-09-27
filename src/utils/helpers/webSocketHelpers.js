@@ -1,4 +1,6 @@
+import { handleLoginError, logOutAction } from '../../redux/actions/authActions';
 import { updateStateData } from '../../redux/actions/mainStateDataActions';
+import { WEBSOCKET_ERROR } from '../constants';
 import store from './../../redux/store';
 
 const { REACT_APP_WEBSOCKET_IP } = process.env;
@@ -39,6 +41,11 @@ export const sendDataToWebSocket =  (data) => {
             webSocket.onclose = (event) => {
                 console.log('socket closed', event)
             }
+
+        }
+        webSocket.onerror = (event) => {
+            console.log('socket error', event)
+            // store.dispatch(logOutAction({message : WEBSOCKET_ERROR }))
         }
 }
 

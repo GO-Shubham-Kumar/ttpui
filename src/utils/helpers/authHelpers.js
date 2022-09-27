@@ -174,6 +174,7 @@ export const fetchNewToken = () =>{
 
 export const logout = async (logoutData) => {
   const { REACT_APP_PLATFORM_IP } = process.env;
-  const URL = `${REACT_APP_PLATFORM_IP} ${API_URLS.PLATFORM_LOGOUT_URL}`
-  const res = await wrappedFetch(METHOD_POST, URL, logoutData);
+  const URL = `${REACT_APP_PLATFORM_IP}${API_URLS.PLATFORM_LOGOUT_URL}`
+  console.log('URL', URL)
+  return await wrappedFetch(URL, METHOD_POST, logoutData);
 }

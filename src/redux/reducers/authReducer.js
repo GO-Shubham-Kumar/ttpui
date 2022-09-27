@@ -50,7 +50,13 @@ const initialState = {
     case LOGOUT_SUCCESS:
         return { 
           ...state,
-          err:''
+          message: payload.message,
+          isFetching : false,
+          isLoggedIn : false,
+          data : {
+            description : payload.message,
+            level : 'info'
+          }
         };
         break;
         

@@ -17,10 +17,11 @@ const Login = ({ login }) => {
   const [seatName, setSeatName] = useState("");
   const [ppsSeats, setPpsSeats] = useState([]);
   const [seatMode, setSeatMode] = useState("");
+  const [ppsSelected, setPpsSelected] = useState(false);
   const [showKeyboard, setShowKeyboard] = useState(false);
 
   const { pps_seats, mode, success, configs } = useSelector(state => state.initialConfigs )
-  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, error : authError } = useSelector(state => state.authReducer )
+  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError } = useSelector(state => state.authReducer )
 
   useEffect(() => {
     let listForDropdown = [];
@@ -44,6 +45,7 @@ const Login = ({ login }) => {
 
 
   useEffect(() => {
+    console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage)
     if(!authIsFetching && authError){
         dispatch(triggerNotificationction({description : authMessage}))
     }
@@ -51,9 +53,10 @@ const Login = ({ login }) => {
 
 
 const onChangeHandler = (e) => {
-    const {
-        target: { name, value },
-    } = e;
+  const {
+    target: { name, value },
+  } = e;
+  console.log('name, value', name, value)
     if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
     if (name === "pps_seats") {
@@ -63,12 +66,12 @@ const onChangeHandler = (e) => {
 };
 
   return (
-    <Grid container spacing={0} sx={{ mt: '4em' }} className="login" >
-    <Grid item lg={1} md={1} sm={0}/>
+    <Grid container spacing={0} sx={{ mt: '8em', minHeight : '54em' }} className="login" >
+    <Grid item lg={1} md={1} sm={0} sx={{ pr: 1 }}/>
       <video id="background-video" autoPlay muted loop>
         <source src={videoSrc} type="video/mp4" />
       </video>
-      <Grid item xs={showKeyboard ? 10 : 3}>
+      <Grid item xs={showKeyboard ? 10 : 3} md={showKeyboard ? 10 : 3}>
         <LoginForm
           title={"Login"}
           ppsList={ppsSeats}
@@ -77,7 +80,7 @@ const onChangeHandler = (e) => {
           password={password}
           onChangeHandler={onChangeHandler}
           onLoginHandler={handleLogin}
-          height={"600px"}
+          height={"652px"}
           showKeyboard={showKeyboard}
           onKeyboardHideHandler={setShowKeyboard}
         />

@@ -6,7 +6,7 @@ import { TRIGGER_NOTIFICATION_SUCCESS,
 
 
 export let handleEventSuccess = (data) => {
-  console.log('res from config actions', data)
+  console.log('res from notification actions', data)
   return {
     type: TRIGGER_NOTIFICATION_SUCCESS,
     payload: {
