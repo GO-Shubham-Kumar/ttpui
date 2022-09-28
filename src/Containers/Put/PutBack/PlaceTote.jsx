@@ -1,7 +1,7 @@
 import PlaceTote from '../../../Components/Put/PlaceTote/PlaceTote';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { EVENT_TYPE_CANCEL_SCAN, EVENT_TYPE_PROCESS_BARCODE, EVENT_TYPE_SEND_TOTE } from '../../../utils/constants';
+import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN, EVENT_TYPE_PROCESS_BARCODE, EVENT_TYPE_SEND_TOTE } from '../../../utils/constants';
 import { triggerEventAction } from '../../../redux/actions/eventActions';
 function PlaceToteContainer({...props}) {
     const subHeader = "";
@@ -11,10 +11,11 @@ function PlaceToteContainer({...props}) {
         const {state_data : { item_uid } } = data;
         console.log('itemuid', item_uid)
         const eventData = {
-              event_name : EVENT_TYPE_CANCEL_SCAN,
-              event_data : {
+            event_name : EVENT_TYPE_CANCEL_SCAN,
+            event_data : {
                 barcode: item_uid
-          }
+            },
+            source : APP_SOURCE
         }
         console.log('eventData', eventData);
         dispatch(triggerEventAction(eventData))
@@ -24,10 +25,11 @@ function PlaceToteContainer({...props}) {
     const {state_data : { item_uid } } = data;
     console.log('itemuid', item_uid)
     const eventData = {
-            event_name : EVENT_TYPE_SEND_TOTE,
-            event_data : {
+        event_name : EVENT_TYPE_SEND_TOTE,
+        event_data : {
             barcode: item_uid
-        }
+        },
+        source : APP_SOURCE
     }
     console.log('eventData', eventData);
     // dispatch(triggerEventAction(eventData))

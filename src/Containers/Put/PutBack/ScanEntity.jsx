@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerEventAction } from '../../../redux/actions/eventActions';
-import { EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
+import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
 import ScanEntity from './../../../Components/Put/ScanEntity/ScanEntity';
 
 const ScanEntityContainer = ({...props}) => {
@@ -11,10 +11,11 @@ const ScanEntityContainer = ({...props}) => {
         const {state_data : { rack_id } } = data;
         console.log('rack_id', rack_id)
         const eventData = {
-              event_name : EVENT_TYPE_CANCEL_SCAN,
-              event_data : {
-                barcode: rack_id
-          }
+            event_name : EVENT_TYPE_CANCEL_SCAN,
+            event_data : {
+              barcode: rack_id
+            },
+            source : APP_SOURCE
         }
         console.log('eventData', eventData);
         dispatch(triggerEventAction(eventData))

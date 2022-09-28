@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { triggerEventAction } from "../../../redux/actions/eventActions";
-import { EVENT_TYPE_CANCEL_SCAN } from "../../../utils/constants";
+import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN } from "../../../utils/constants";
 import { fetchDetailsFromData } from "../../../utils/helpers/commonHelpers";
 import PlaceEntity from "./../../../Components/Put/PlaceEntity/PlaceEntity"
 
@@ -59,7 +59,8 @@ const PlaceEntityContainer = ({...props}) => {
               event_name : EVENT_TYPE_CANCEL_SCAN,
               event_data : {
                 barcode: item_uid
-          }
+          },
+          source : APP_SOURCE
         }
         console.log('eventData', eventData);
         dispatch(triggerEventAction(eventData))
@@ -86,7 +87,7 @@ const PlaceEntityContainer = ({...props}) => {
             "item_uid": item_uid,
             "quantity_updated": qty
         },
-        "source" : "ui"
+        source : APP_SOURCE
       };
       dispatch(triggerEventAction(eventData))
     }
