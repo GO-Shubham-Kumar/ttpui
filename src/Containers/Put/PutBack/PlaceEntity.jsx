@@ -34,7 +34,10 @@ const PlaceEntityContainer = ({...props}) => {
           console.log('productimage', productimage)
           setProductImages(productimage);
         }
-        if(productInfo['product_local_image_url'] ) delete productInfo['product_local_image_url']
+        if(productInfo.hasOwnProperty('product_local_image_url')){
+          delete productInfo.product_local_image_url;
+          console.log('productDetails', productInfo)
+        } 
         setProductDetails(productInfo)
 
         if(scan_details && Object.keys(scan_details).length > 0){
@@ -99,6 +102,7 @@ const PlaceEntityContainer = ({...props}) => {
       productImages={productImages}
       exceptionhandler={exceptionhandler}
       onChangeQuantityHandler={onChangeQuantityHandler}
+      allowedKqDirection={kqDirection}
       {...props} 
     />
 }

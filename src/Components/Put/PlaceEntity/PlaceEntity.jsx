@@ -26,7 +26,8 @@ const PlaceEntity = ({ headerMsg,
     productDetails,
     productImages,
     exceptionhandler,
-    onChangeQuantityHandler
+    onChangeQuantityHandler,
+    allowedKqDirection
   }) => {
   
 
@@ -76,6 +77,7 @@ const PlaceEntity = ({ headerMsg,
                 label={"Scan Entity"} 
                 totalQuantities={totalEntities}  
                 onQuantityChangeHandler={onChangeQuantityHandler}
+                operationalMode={allowedKqDirection}
               />
             </Box>
             <div className="seprator"></div>

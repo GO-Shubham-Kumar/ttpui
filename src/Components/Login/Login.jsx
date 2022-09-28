@@ -49,8 +49,9 @@ const Login = ({ login }) => {
 
 
   useEffect(() => {
-    console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage)
-    if(!authIsFetching && authError  ){
+    console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage, isValidationError)
+    if(!authIsFetching  ){
+      console.log('-notification')
       if(isValidationError){
         setIsLoginError(true)
         setErrorText(authMessage)
