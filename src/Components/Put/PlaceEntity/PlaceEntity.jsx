@@ -25,8 +25,8 @@ const PlaceEntity = ({ headerMsg,
     handleCancelScan,
     productDetails,
     productImages,
-    quantityChangeHandler,
-    exceptionhandler
+    exceptionhandler,
+    onChangeQuantityHandler
   }) => {
   
 
@@ -71,8 +71,11 @@ const PlaceEntity = ({ headerMsg,
             <div className="seprator"></div>
             <Box sx={{ mb:'5em' }} className="kq">
               <p>Key in quantity</p>
-              <KQ quantity={qty} label={"Scan Entity"} 
-                totalEntities={totalEntities}  
+              <KQ 
+                quantity={qty} 
+                label={"Scan Entity"} 
+                totalQuantities={totalEntities}  
+                onQuantityChangeHandler={onChangeQuantityHandler}
               />
             </Box>
             <div className="seprator"></div>

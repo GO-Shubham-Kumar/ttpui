@@ -1,6 +1,7 @@
 import { AppBar, Container, Footer, NotificationBar } from "operational-component-lib";
 
 import React from "react";
+import { NOTIFICATION_TYPE_ERROR } from "../../utils/constants";
 import logo from "./../../assets/images/GO_Orange_Black_Horizontal.svg";
 
 const Layout = ({ 
@@ -56,7 +57,7 @@ const Layout = ({
                 autoHideDuration={6000}
                 onClose={handleClose}
                 TransitionProps={{ onExited: handleExited }}
-                severity={notificationData.level || 'error'}
+                severity={notificationData.level || NOTIFICATION_TYPE_ERROR}
                 message={notificationData ? notificationData.description : undefined}
             />
         {/* )} */}

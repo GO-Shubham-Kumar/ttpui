@@ -55,6 +55,7 @@ function App() {
     }
   };
   useEffect(()=>{
+  
     if(!isLoggedIn && pathname !== `/login`)dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
   }, []);
@@ -68,6 +69,7 @@ function App() {
 
 
   useEffect(()=>{
+    console.log('-- state data and notifiaction')
     if(stateData && stateData.state_data && stateSuccess){
       const { state_data : { notification_list, seat_name, logout_allowed, scan_allowed } } = stateData;
       setSeatName(seat_name)
@@ -77,13 +79,13 @@ function App() {
     }
   },[stateData, stateSuccess])
 
-  useEffect(()=>{
-    if(!isLoggedIn && !isFetching ){
-      const { success, err, data } = loginData;
-      console.log('loginData', loginData);
-      if(success && !err)dispatch(triggerNotificationction(data))
-    }
-  },[isLoggedIn, isFetching])
+  // useEffect(()=>{
+  //   if(!isLoggedIn && !isFetching ){
+  //     const { success, err, data } = loginData;
+  //     console.log('loginData', loginData);
+  //     if(success && !err)dispatch(triggerNotificationction(data))
+  //   }
+  // },[isLoggedIn, isFetching])
 
   useEffect(()=>{
    console.log('--- here in notification', NotificationSuccess, notificationData)

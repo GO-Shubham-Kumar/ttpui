@@ -1,5 +1,5 @@
 import { SERVER_ERROR_TEXT } from '../../utils/constants';
-import { UPDATE_STATE_DATA_ERROR, UPDATE_STATE_DATA_REQUEST, UPDATE_STATE_DATA_SUCCESS } from './../actions/actionTypes'
+import { UPDATE_STATE_DATA_CLEAR, UPDATE_STATE_DATA_ERROR, UPDATE_STATE_DATA_REQUEST, UPDATE_STATE_DATA_SUCCESS } from './../actions/actionTypes'
 const initialState = {
     success : false,
     isFetching : false,
@@ -40,7 +40,19 @@ const initialState = {
                 ...state,
                 isFetching : true,
             };
-        break;  
+        break; 
+        
+        case UPDATE_STATE_DATA_CLEAR:
+            return { 
+                success : false,
+                isFetching : false,
+                data : {},
+                success : false,
+                error : false,
+                message : ''
+            };
+        break; 
+        
 
         default:
             return state;

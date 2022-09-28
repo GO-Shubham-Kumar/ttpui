@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Grid } from "@mui/material";
 import { LoginForm } from "operational-component-lib";
-import { SEAT_NAME } from "../../utils/constants";
+import { NOTIFICATION_TYPE_ERROR, NOTIFICATION_TYPE_INFO, SEAT_NAME } from "../../utils/constants";
 import WelcomeDetails from "./WelcomeDetails";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
 import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
@@ -17,11 +17,14 @@ const Login = ({ login }) => {
   const [seatName, setSeatName] = useState("");
   const [ppsSeats, setPpsSeats] = useState([]);
   const [seatMode, setSeatMode] = useState("");
+  const [ppsNumber, setPpsNum] = useState("02");
+  const [isLoginError, setIsLoginError] = useState(false);
+  const [errorText, setErrorText] = useState("");
   const [ppsSelected, setPpsSelected] = useState(false);
   const [showKeyboard, setShowKeyboard] = useState(false);
 
   const { pps_seats, mode, success, configs } = useSelector(state => state.initialConfigs )
-  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError } = useSelector(state => state.authReducer )
+  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError, data, isValidationError } = useSelector(state => state.authReducer )
 
   useEffect(() => {
     let listForDropdown = [];
@@ -32,7 +35,8 @@ const Login = ({ login }) => {
     if (success) {
         if(!mode || mode ===""){
             const seat_name = retreiveSessionData(SEAT_NAME);
-            setSeatName(seat_name)
+            setSeatName(seat_name);
+            setPpsSelected(true)
         }
         setSeatMode(mode);
     }
@@ -46,9 +50,23 @@ const Login = ({ login }) => {
 
   useEffect(() => {
     console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage)
-    if(!authIsFetching && authError){
-        dispatch(triggerNotificationction({description : authMessage}))
+    if(!authIsFetching && authError  ){
+      if(isValidationError){
+        setIsLoginError(true)
+        setErrorText(authMessage)
+      }
+      else{
+        const notificationData = {
+          description : authMessage,
+          level : NOTIFICATION_TYPE_ERROR
+        }
+        if( Object.keys(data).length > 0) notificationData['level'] = NOTIFICATION_TYPE_INFO
+        dispatch(triggerNotificationction(notificationData))
+        
+      }
     }
+    const seat_name = retreiveSessionData(SEAT_NAME);
+    if(seat_name)setSeatName(seat_name)
   }, [authSuccess, authIsFetching, authError, authMessage]);
 
 
@@ -83,6 +101,9 @@ const onChangeHandler = (e) => {
           height={"652px"}
           showKeyboard={showKeyboard}
           onKeyboardHideHandler={setShowKeyboard}
+          selectedPpsNum={ppsNumber}
+          isError={isLoginError}
+          errorTexts={errorText}
         />
       </Grid>
       {!showKeyboard && (

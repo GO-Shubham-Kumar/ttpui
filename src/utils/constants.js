@@ -31,3 +31,4 @@ export const STANDARD_CARD_HEIGHT = '42em';
 export const STANDARD_CARD_HEIGHT_WITH_SEPERATOR = '37.3em';
 export const NOTIFICATION_TYPE_ERROR= 'error';
 export const WEBSOCKET_ERROR = 'Not able to connect to the WebSockets!, please try again !'
+export const NOTIFICATION_TYPE_INFO= 'info';

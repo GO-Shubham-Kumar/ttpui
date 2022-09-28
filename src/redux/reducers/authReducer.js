@@ -1,11 +1,13 @@
-import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './../actions/actionTypes'
+import { createNotificationObject } from '../../utils/helpers/commonHelpers';
+import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_VALIDATION_ERROR, LOGIN_VALIDATION_ERROR } from './../actions/actionTypes'
 const initialState = {
     isLoggedIn : false,
     isFetching : true,
     success : false,
     data : {},
     err : false,
-    message : ''
+    message : '',
+    isValidationError : false
 }
 
 
@@ -28,12 +30,25 @@ const initialState = {
         return { 
           ...state,
           success : false,
-          error: true,
+          err: true,
           message: payload.message,
-          isFetching : false
+          isFetching : false,
+          data : {},
+          isValidationError : false
         };
     break;
-  
+        
+    case LOGIN_VALIDATION_ERROR:
+      return { 
+        ...state,
+        success : false,
+        err: true,
+        message: payload.message,
+        isFetching : false,
+        data : {},
+        isValidationError : true
+      };
+    
     case LOGIN_REQUEST:
         return { 
           ...state,
@@ -53,10 +68,8 @@ const initialState = {
           message: payload.message,
           isFetching : false,
           isLoggedIn : false,
-          data : {
-            description : payload.message,
-            level : 'info'
-          }
+          data : createNotificationObject(payload.message, payload.data.level),
+          isValidationError : false
         };
         break;
         

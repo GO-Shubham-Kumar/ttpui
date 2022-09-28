@@ -5,7 +5,8 @@ import {
   LOGIN_REQUEST, 
   LOGOUT_ERROR, 
   LOGOUT_REQUEST, 
-  LOGOUT_SUCCESS 
+  LOGOUT_SUCCESS, 
+  LOGIN_VALIDATION_ERROR
 } from './actionTypes';
 import { emptyLoginSessionData, fetchMode, loginUser, logout, storeLoginSessionData, verifyLogin } from './../../utils/helpers/authHelpers';
 import { retreiveSessionData } from '../../utils/helpers/sessionHelpers';
@@ -16,6 +17,7 @@ import {
   ERROR_INVALID_TOKEN, 
   FETCH_SUCCESS_TEXT, 
   NOTIFICATION_TYPE_ERROR, 
+  NOTIFICATION_TYPE_INFO, 
   REFRESH_TOKEN, 
   SEAT_NAME, 
   SERVER_ERROR_TEXT, 
@@ -23,6 +25,7 @@ import {
   USER_NAME 
 } from '../../utils/constants';
 import { sendDataToWebSocket } from '../../utils/helpers/webSocketHelpers';
+import { handleUpdateStateDataClear } from './mainStateDataActions';
 
 
 export let handleLoginSuccess = (data) => {
@@ -53,6 +56,17 @@ export function handleLoginError(err) {
     },
   };
 }
+
+export function handleLoginValidationError(err) {
+  return {
+    type: LOGIN_VALIDATION_ERROR,
+    payload: {
+      message: err.message || SERVER_ERROR_TEXT,
+    },
+  };
+}
+
+
 export function handleCheckLoginFailure() {
   return {
     type: LOGIN_CHECK_FAILURE,
@@ -112,9 +126,12 @@ export const loginAction = (username, password, seat_name, role) => {
       }
     }).catch((err)=>{
         console.log('err loggin in user',err.response)
-        emptyLoginSessionData()   
-        let message = err.response.status === 401 ? 'Invalid Username/Password' : SERVER_ERROR_TEXT
-        err.message = message
+        emptyLoginSessionData();
+        let message =SERVER_ERROR_TEXT
+        if(err.response.status === 401){
+          message =  err.response.data.reason
+          return dispatch(handleLoginValidationError({message}))
+        }
         return dispatch(handleLoginError({message}));
     })
       
@@ -168,7 +185,10 @@ export function logOutAction(websocketError) {
     }
     return logout(logoutData).then((res)=>{
       console.log('response', res);
-      const data = res.data
+      const data = {
+        message : res.data.message,
+        level : NOTIFICATION_TYPE_INFO
+      }
       if(websocketError){
         console.log('websocketError', websocketError)
         data['message'] = websocketError.message
@@ -176,6 +196,7 @@ export function logOutAction(websocketError) {
       }
       if(res.status && res.status === 200){
           emptyLoginSessionData();
+          dispatch(handleUpdateStateDataClear())
           return dispatch(handleLogOutSuccess(data));
       }
       data['message'] = SOMETHING_WENT_WRONG
