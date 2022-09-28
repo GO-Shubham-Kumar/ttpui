@@ -53,12 +53,12 @@ const PlaceEntityContainer = ({...props}) => {
       }
     },[mainData])
     const handleCancelScan = () => {
-        const {state_data : { rack_id } } = mainData;
-        console.log('rack_id', rack_id)
+        const {state_data : { item_uid } } = mainData;
+        console.log('itemuid', item_uid)
         const eventData = {
               event_name : EVENT_TYPE_CANCEL_SCAN,
               event_data : {
-                barcode: rack_id
+                barcode: item_uid
           }
         }
         console.log('eventData', eventData);
