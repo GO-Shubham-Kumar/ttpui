@@ -8,12 +8,12 @@ const ScanEntityContainer = ({...props}) => {
     const dispatch = useDispatch()
     const { data } = useSelector( state => state.mainStateReducer)
     const handleCancelScan = () => {
-        const {state_data : { item_uid } } = data;
-        console.log('itemuid', item_uid)
+        const {state_data : { rack_id } } = data;
+        console.log('rack_id', rack_id)
         const eventData = {
               event_name : EVENT_TYPE_CANCEL_SCAN,
               event_data : {
-                barcode: item_uid
+                barcode: rack_id
           }
         }
         console.log('eventData', eventData);
