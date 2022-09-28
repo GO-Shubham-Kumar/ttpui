@@ -1,9 +1,5 @@
 import { createNotificationObject } from '../../utils/helpers/commonHelpers';
-<<<<<<< HEAD
 import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_VALIDATION_ERROR, LOGIN_VALIDATION_ERROR } from './../actions/actionTypes'
-=======
-import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './../actions/actionTypes'
->>>>>>> 6544016 (feature/GM-52894 - Working on Place Entity Screen)
 const initialState = {
     isLoggedIn : false,
     isFetching : true,
@@ -37,12 +33,8 @@ const initialState = {
           err: true,
           message: payload.message,
           isFetching : false,
-<<<<<<< HEAD
           data : {},
           isValidationError : false
-=======
-          data : {}
->>>>>>> 6544016 (feature/GM-52894 - Working on Place Entity Screen)
         };
     break;
         
@@ -76,18 +68,11 @@ const initialState = {
           message: payload.message,
           isFetching : false,
           isLoggedIn : false,
-<<<<<<< HEAD
           data : createNotificationObject(payload.message, payload.data.level),
           isValidationError : false
-=======
-          data : createNotificationObject(payload.message, payload.data.level)
->>>>>>> 6544016 (feature/GM-52894 - Working on Place Entity Screen)
         };
-        return { 
-        };
-        break;
       default:
         return state;
-    }
   }
+}
   

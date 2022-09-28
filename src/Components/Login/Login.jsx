@@ -24,11 +24,7 @@ const Login = ({ login }) => {
   const [showKeyboard, setShowKeyboard] = useState(false);
 
   const { pps_seats, mode, success, configs } = useSelector(state => state.initialConfigs )
-<<<<<<< HEAD
   const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError, data, isValidationError } = useSelector(state => state.authReducer )
-=======
-  const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError, data } = useSelector(state => state.authReducer )
->>>>>>> 6544016 (feature/GM-52894 - Working on Place Entity Screen)
 
   useEffect(() => {
     let listForDropdown = [];
@@ -54,7 +50,6 @@ const Login = ({ login }) => {
 
   useEffect(() => {
     console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage)
-<<<<<<< HEAD
     if(!authIsFetching && authError  ){
       if(isValidationError){
         setIsLoginError(true)
@@ -68,19 +63,6 @@ const Login = ({ login }) => {
         if( Object.keys(data).length > 0) notificationData['level'] = NOTIFICATION_TYPE_INFO
         dispatch(triggerNotificationction(notificationData))
         
-=======
-    if(!authIsFetching && authError ){
-      if( Object.keys(data).length > 0 ) {
-        const notificationData = {
-          description : authMessage,
-          level : NOTIFICATION_TYPE_ERROR
-        }
-        if( Object.keys(data).length > 0) notificationData['level'] = NOTIFICATION_TYPE_INFO
-        dispatch(triggerNotificationction(notificationData))
-      }else{
-        setIsLoginError(true)
-        setErrorText(authMessage)
->>>>>>> 6544016 (feature/GM-52894 - Working on Place Entity Screen)
       }
     }
     const seat_name = retreiveSessionData(SEAT_NAME);

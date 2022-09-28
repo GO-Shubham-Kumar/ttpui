@@ -53,7 +53,7 @@ const PlaceEntity = ({ headerMsg,
               <Typography variant="h1">{actualqty}</Typography>
               <img alt="pallet" src={Arrow} />
             </Box>
-            <Box sx={{ m:10, mt:0,mb:'18.5em',textAlign: "center" }}>
+            <Box sx={{ m:10, mt:0,mb:'19.4em',textAlign: "center" }}>
               <img alt="tote image" src={ToteImg} style={{  marginTop:0 }} />
             </Box>
             <div className="seprator"></div>
