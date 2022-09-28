@@ -8,7 +8,7 @@ import Login from './../Containers/Login/Login';
 import Layout from './../Containers/Layout/Layout';
 import AuthLayout from './../Containers/Layout/AuthLayout';
 import './../App.css'; 
-import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
+import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, INTIAL_FETCH_ERROR, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
 import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
 import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
@@ -31,7 +31,7 @@ function App() {
     return state.authReducer
   } );
   const { data : stateData,  error : stateError, success : stateSuccess } = useSelector( state => state.mainStateReducer );
-  const { pps_seats, mode, success, configs } = useSelector( state => state.initialConfigs );
+  const { pps_seats, mode, success, configs, error } = useSelector( state => state.initialConfigs );
   const {  data : notificationData, success : NotificationSuccess } = useSelector( state => state.notifications );
   const { isLoggedIn, isFetching, err, success : loginSuccess } = loginData;
 
@@ -54,6 +54,7 @@ function App() {
       dispatch(triggerEventAction(eventData, seatname))
     }
   };
+
   useEffect(()=>{
   
     if(!isLoggedIn && pathname !== `/login`)dispatch(verifyLoginAction());
@@ -61,11 +62,13 @@ function App() {
   }, []);
 
   useEffect(() => {
+    console.log('cconfigs')
     if (pps_seats.length > 0 && success && mode === "") {
       const seat_name = retreiveSessionData(SEAT_NAME);
       seat_name && dispatch(fetchSeatModeAction(seat_name, configs, pps_seats));
     }
-  }, [pps_seats, success, configs]);
+    if(error) dispatch(triggerNotificationction({ description : INTIAL_FETCH_ERROR}))
+  }, [pps_seats, success, configs, error]);
 
 
   useEffect(()=>{

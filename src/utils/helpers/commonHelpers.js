@@ -112,7 +112,9 @@ export const fetchDetailsFromData = (data) => {
                     if(typeof dispData[key] === 'string' ) dataVal = dispData[key]
                     else if(Array.isArray(dispData[key])){
                         if(Array.isArray(dispData[key][0])) dataVal = dispData[key][0].toString()
-                        else dataVal = dispData[key][0]
+                        else {
+                            dataVal = key.toLowerCase().includes('dimension') ? dispData[key].join(' x ') : dispData[key].toString()
+                        }
                     } 
                     previousData[val] = dataVal
                 }

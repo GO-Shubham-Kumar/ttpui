@@ -31,6 +31,7 @@ const initialState = {
                 ...state,
                 error : true,
                 message : 'Error Fetching Data',
+                isFetching : false
             };
         break;
     

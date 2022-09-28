@@ -1,8 +1,13 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 import {Modal, Typography, Table} from 'operational-component-lib';
 import { useState } from 'react';
+import { EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { triggerEventAction } from '../../../redux/actions/eventActions';
 function ScanToteContainer({...props}) {
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+    const { data } = useSelector( state => state.mainStateReducer);
+    const dispatch = useDispatch()
     const subHeader = "Tote Should Be Empty";
     const modalLabels = [
         "The pallet is not empty yet. Please make sure all the entity(ies) are put away before closing the pallet.",
@@ -47,10 +52,24 @@ function ScanToteContainer({...props}) {
         setShowModal(true)
     }
 
+    const handleCloseTote = () => {
+        const {state_data : { item_uid } } = data;
+        console.log('itemuid', item_uid)
+        const eventData = {
+              event_name : EVENT_TYPE_CANCEL_SCAN,
+              event_data : {
+                barcode: item_uid
+          }
+        }
+        console.log('eventData', eventData);
+        // dispatch(triggerEventAction(eventData))
+      }
+
     return (
         <>
         <ScanTote {...props}  subHeader={subHeader}
-            handleShowModal={() => setShowModal(true)} />
+            handleShowModal={() => setShowModal(true)} 
+            handleCloseTote={handleCloseTote}/>
         <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
             onCloseHandler={() => setShowModal(false)} onConfirmHandler={onConfirmHandler} >
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >

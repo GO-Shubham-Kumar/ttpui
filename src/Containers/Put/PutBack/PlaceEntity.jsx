@@ -34,7 +34,10 @@ const PlaceEntityContainer = ({...props}) => {
           console.log('productimage', productimage)
           setProductImages(productimage);
         }
-        if(productInfo['product_local_image_url'] ) delete productInfo['product_local_image_url']
+        if(productInfo.hasOwnProperty('product_local_image_url')){
+          delete productInfo.product_local_image_url;
+          console.log('productDetails', productInfo)
+        } 
         setProductDetails(productInfo)
 
         if(scan_details && Object.keys(scan_details).length > 0){
@@ -50,12 +53,12 @@ const PlaceEntityContainer = ({...props}) => {
       }
     },[mainData])
     const handleCancelScan = () => {
-        const {state_data : { item_uid } } = mainData;
-        console.log('itemuid', item_uid)
+        const {state_data : { rack_id } } = mainData;
+        console.log('rack_id', rack_id)
         const eventData = {
               event_name : EVENT_TYPE_CANCEL_SCAN,
               event_data : {
-                barcode: item_uid
+                barcode: rack_id
           }
         }
         console.log('eventData', eventData);
@@ -99,6 +102,7 @@ const PlaceEntityContainer = ({...props}) => {
       productImages={productImages}
       exceptionhandler={exceptionhandler}
       onChangeQuantityHandler={onChangeQuantityHandler}
+      allowedKqDirection={kqDirection}
       {...props} 
     />
 }
