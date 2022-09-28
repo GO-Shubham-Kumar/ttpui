@@ -47,6 +47,19 @@ function ScanToteContainer({...props}) {
         setShowModal(true)
     }
 
+    const handleCloseTote = () => {
+        const {state_data : { item_uid } } = data;
+        console.log('itemuid', item_uid)
+        const eventData = {
+              event_name : EVENT_TYPE_CANCEL_SCAN,
+              event_data : {
+                barcode: item_uid
+          }
+        }
+        console.log('eventData', eventData);
+        dispatch(triggerEventAction(eventData))
+      }
+
     return (
         <>
         <ScanTote {...props}  subHeader={subHeader}
