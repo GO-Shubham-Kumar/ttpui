@@ -6,12 +6,14 @@ import ScanToteContainer from '../Containers/Put/PutBack/ScanTote';
 import ScanEntityContainer from '../Containers/Put/PutBack/ScanEntity';
 import PlaceEntityContainer from '../Containers/Put/PutBack/PlaceEntity';
 import ScanPalletContainer from '../Containers/Put/PutBack/ScanPallet';
+import ScanPickToteContainer from "../Containers/Pick/ScanTote";
+import PlaceBinContainer from "../Containers/Pick/PlaceBin"
 
 const Routes = () => {
     return [
         {
             path : "/",
-            comp : PutBackContainer,
+            comp : PlaceBinContainer,
             authRoute : true,
             exact : true
         },
@@ -52,6 +54,18 @@ const Routes = () => {
         {
             path : "/scan-entity",
             comp : ScanEntityContainer,
+            authRoute : true,
+            exact : true
+        },
+        {
+            path : "/scan-tote-pick",
+            comp : ScanPickToteContainer,
+            authRoute : true,
+            exact : true
+        },
+        {
+            path : "/place-bin-pick",
+            comp : PlaceBinContainer,
             authRoute : true,
             exact : true
         }
