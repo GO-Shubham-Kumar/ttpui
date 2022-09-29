@@ -83,7 +83,7 @@ function ScanToteContainer({currentDetails, ...props}) {
             currentDetails = {currentDetails}
         />
         <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
-            onCloseHandler={() => handleCancelException(true)} onConfirmHandler={ () => {handleCancelException(false)} } >
+            onCloseHandler={() => handleCancelException(false)} onConfirmHandler={ () => {handleCancelException(true)} } >
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
                 {modalLabels[0]}
             </Typography>
