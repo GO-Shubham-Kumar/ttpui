@@ -59,7 +59,8 @@ const PlaceEntityContainer = ({...props}) => {
               event_name : EVENT_TYPE_CANCEL_SCAN,
               event_data : {
                 barcode: rack_id
-          }
+          },
+          source : APP_SOURCE
         }
         console.log('eventData', eventData);
         dispatch(triggerEventAction(eventData))
