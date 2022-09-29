@@ -1,12 +1,18 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 import {Modal, Typography, Table} from 'operational-component-lib';
-import { useState } from 'react';
-import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
+import { useEffect, useState } from 'react';
+import { APP_SOURCE, EVENT_CLOSE_PALLET_MODAL, EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerEventAction } from '../../../redux/actions/eventActions';
-function ScanToteContainer({...props}) {
+import { UD_PUT_FRONT_MISSIN } from '../../../utils/screenIds';
+function ScanToteContainer({currentDetails, ...props}) {
     const [showModal, setShowModal] = useState(false);
-    const { data } = useSelector( state => state.mainStateReducer);
+    const [missingItems, setMissingItemsList] = useState([]);
+    const { data } = useSelector( (state) => {
+        console.log('new redux state',state )
+        return state.mainStateReducer
+    });
+    const { success, error, isFetching } = useSelector( state => state.serverEvents )
     const dispatch = useDispatch()
     const subHeader = "Tote Should Be Empty";
     const modalLabels = [
@@ -20,59 +26,64 @@ function ScanToteContainer({...props}) {
         { id: 'product_barcode', label: 'Barcode' },
         { id: 'quantity', label: 'Quantity' },
     ];
-    const tableItemList = [
-        {
-            "type": "Items",
-            "product_barcode": "DI112K001-O11",
-            "product_sku": "MLKJ8771",
-            "quantity": 2
-        },
-        {
-            "type": "Items",
-            "product_barcode": "JFK178O01-O29",
-            "product_sku": "MLKJ8772",
-            "quantity": 1
-        },
-        {
-            "type": "Items",
-            "product_barcode": "MLK178PI8-347",
-            "product_sku": "MLKJ8773",
-            "quantity": 2
-        },
-        {
-            "type": "Items",
-            "product_barcode": "JFK178O01-O30",
-            "product_sku": "MLKJ8774",
-            "quantity": 1
-        }
-    ]
 
-    const onConfirmHandler = () => {
-        alert('ss')
-        setShowModal(true)
-    }
+    useEffect(()=>{
+        if(success && !error && !isFetching && showModal) setShowModal(false)
+    },[success, error, isFetching])
+
+    useEffect(()=>{
+        if(data.state_data){
+            const { state_data : { missing_items, screen_id } } = data;
+            if(missing_items) setMissingItemsList(missing_items)
+            if(screen_id === UD_PUT_FRONT_MISSIN) setShowModal(true)
+        }
+    },[data])
 
     const handleCloseTote = () => {
-        const {state_data : { item_uid } } = data;
-        console.log('itemuid', item_uid)
+        const {state_data : { tote_id, missing_items } } = data;
+        console.log('tote_id', tote_id);
+        let toteId = tote_id;
+        console.log('tote id', currentDetails);
+        if(!toteId || toteId === undefined) toteId = currentDetails['TOTE ID']
         const eventData = {
             event_name : EVENT_TYPE_CANCEL_SCAN,
             event_data : {
-                barcode: item_uid
+                barcode: toteId
             },
             source : APP_SOURCE
         }
         console.log('eventData', eventData);
-        // dispatch(triggerEventAction(eventData))
-      }
+        setMissingItemsList(missing_items)
+        dispatch(triggerEventAction(eventData))
+    }
+
+    const handleCancelException = (close_value) => {
+        const {state_data : { tote_id } } = data;
+        console.log('tote_id', tote_id);
+        const eventData = {
+            event_name : EVENT_CLOSE_PALLET_MODAL,
+            event_data : {
+                close_value : close_value || false,
+                barcode: tote_id
+            },
+            source : APP_SOURCE
+        }
+        console.log('eventData', eventData);
+        dispatch(triggerEventAction(eventData));
+    }
 
     return (
         <>
-        <ScanTote {...props}  subHeader={subHeader}
+        <ScanTote 
+            {...props}  
+            subHeader={subHeader}
             handleShowModal={() => setShowModal(true)} 
-            handleCloseTote={handleCloseTote}/>
+            handleCloseTote={handleCloseTote}
+            missingItems={missingItems}
+            currentDetails = {currentDetails}
+        />
         <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
-            onCloseHandler={() => setShowModal(false)} onConfirmHandler={onConfirmHandler} >
+            onCloseHandler={() => handleCancelException(false)} onConfirmHandler={ () => {handleCancelException(true)} } >
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
                 {modalLabels[0]}
             </Typography>
@@ -82,7 +93,7 @@ function ScanToteContainer({...props}) {
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
                 {modalLabels[2]}
             </Typography>
-            <Table columns={tableColumns} itemList={tableItemList} />
+            <Table columns={tableColumns} itemList={missingItems} />
         </Modal>
         </>
             

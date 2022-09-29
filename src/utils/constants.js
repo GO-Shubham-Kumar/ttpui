@@ -32,4 +32,5 @@ export const STANDARD_CARD_HEIGHT_WITH_SEPERATOR = '37.3em';
 export const NOTIFICATION_TYPE_ERROR= 'error';
 export const WEBSOCKET_ERROR = 'Not able to connect to the WebSockets!, please try again !'
 export const NOTIFICATION_TYPE_INFO= 'info';
-export const INTIAL_FETCH_ERROR ="Not able to fetch Initial configs , please try again !" 
+export const INTIAL_FETCH_ERROR ="Not able to fetch Initial configs , please try again !"
+export const EVENT_CLOSE_PALLET_MODAL ="confirm_close_tote"

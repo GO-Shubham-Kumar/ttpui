@@ -49,9 +49,7 @@ const Login = ({ login }) => {
 
 
   useEffect(() => {
-    console.log('authSuccess, authIsFetching, authError, authMessage', authSuccess, authIsFetching, authError, authMessage, isValidationError)
     if(!authIsFetching  ){
-      console.log('-notification')
       if(isValidationError){
         setIsLoginError(true)
         setErrorText(authMessage)
@@ -75,7 +73,6 @@ const onChangeHandler = (e) => {
   const {
     target: { name, value },
   } = e;
-  console.log('name, value', name, value)
     if (name === "username") setUsername(value);
     if (name === "password") setPassword(value);
     if (name === "pps_seats") {

@@ -9,7 +9,6 @@ function ScanTote({ headerMsg,
         subHeader, 
         currentDetails, 
         seatMode,
-        handleCancelScan,
         handleSendTote,
         ...props 
     }) {
@@ -30,12 +29,6 @@ function ScanTote({ headerMsg,
                             <img alt="tote" src={ToteImg} className="img-responsive m-auto" />
                         </Box>
                         <Box className="seprator" sx={{mr:0, ml:0}}></Box>
-                        <Button 
-                            label="Cancel Scan" 
-                            variant="outlined" 
-                            onClickHandler={handleCancelScan}
-                            sx={{ ml: '1em', mb: '1em' }} 
-                        />
                         <Button 
                             label="Send Tote" 
                             variant="contained" 

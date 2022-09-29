@@ -62,7 +62,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log('cconfigs')
     if (pps_seats.length > 0 && success && mode === "") {
       const seat_name = retreiveSessionData(SEAT_NAME);
       seat_name && dispatch(fetchSeatModeAction(seat_name, configs, pps_seats));
@@ -72,7 +71,7 @@ function App() {
 
 
   useEffect(()=>{
-    console.log('-- state data and notifiaction')
+    console.log('-- state data', stateData)
     if(stateData && stateData.state_data && stateSuccess){
       const { state_data : { notification_list, seat_name, logout_allowed, scan_allowed } } = stateData;
       setSeatName(seat_name)
@@ -91,7 +90,6 @@ function App() {
   // },[isLoggedIn, isFetching])
 
   useEffect(()=>{
-   console.log('--- here in notification', NotificationSuccess, notificationData)
    if(NotificationSuccess)setNotification(true)
    else setNotification(false)
    setNotificationData(notificationData)

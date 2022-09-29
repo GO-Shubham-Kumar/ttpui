@@ -51,7 +51,7 @@ const PutBack  =({ data, isFetching, success, error }) => {
             seatMode={seatMode}
         />
     )
-    if(screenId === UD_PUT_TOTE_INDUCTION) return (
+    if(screenId === UD_PUT_TOTE_INDUCTION || screenId === UD_PUT_FRONT_MISSIN) return (
         <ScanToteContainer 
             headerMsg={headerMsg} 
             previousDetails={previousDetails} 
@@ -78,15 +78,15 @@ const PutBack  =({ data, isFetching, success, error }) => {
             seatMode={seatMode}
         />
     )
-    if(screenId === UD_PUT_FRONT_MISSIN) return (
-        <PlaceToteContainer 
-            headerMsg={headerMsg} 
-            previousDetails={previousDetails} 
-            data={data}
-            currentDetails={currentDetails}
-            seatMode={seatMode}
-        />
-    )
+    // if(screenId === UD_PUT_FRONT_MISSIN) return (
+    //     <PlaceToteContainer 
+    //         headerMsg={headerMsg} 
+    //         previousDetails={previousDetails} 
+    //         data={data}
+    //         currentDetails={currentDetails}
+    //         seatMode={seatMode}
+    //     />
+    // )
     if(screenId && VALID_SCREEN_ID.indexOf(screenId) < 0) return <InvalidScreen />
    return <Loader />
     
