@@ -44,8 +44,9 @@ const PlaceEntityContainer = ({...props}) => {
           if(scan_details.hasOwnProperty('total_qty')){
             const { kq_allowed, current_qty, total_qty, kq_direction  } = scan_details;
             console.log('scan_details', scan_details)
+            console.log('scan_details', parseInt(current_qty))
             setIsKqAllowed(kq_allowed)
-            setQuantity(current_qty)
+            setQuantity( parseInt(current_qty))
             setTotalQty(total_qty)
             setKqDirection(kq_direction)
           }
