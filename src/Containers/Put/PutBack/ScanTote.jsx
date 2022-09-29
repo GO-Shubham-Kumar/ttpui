@@ -40,16 +40,20 @@ function ScanToteContainer({currentDetails, ...props}) {
     },[data])
 
     const handleCloseTote = () => {
-        const {state_data : { tote_id } } = data;
+        const {state_data : { tote_id, missing_items } } = data;
         console.log('tote_id', tote_id);
+        let toteId = tote_id;
+        console.log('tote id', currentDetails);
+        if(!toteId || toteId === undefined) toteId = currentDetails['TOTE ID']
         const eventData = {
             event_name : EVENT_TYPE_CANCEL_SCAN,
             event_data : {
-                barcode: tote_id
+                barcode: toteId
             },
             source : APP_SOURCE
         }
         console.log('eventData', eventData);
+        setMissingItemsList(missing_items)
         dispatch(triggerEventAction(eventData))
     }
 
@@ -76,6 +80,7 @@ function ScanToteContainer({currentDetails, ...props}) {
             handleShowModal={() => setShowModal(true)} 
             handleCloseTote={handleCloseTote}
             missingItems={missingItems}
+            currentDetails = {currentDetails}
         />
         <Modal showModal={showModal} modalType='info' title='Close Pallet' buttonText='Confirm'
             onCloseHandler={() => handleCancelException(true)} onConfirmHandler={ () => {handleCancelException(false)} } >
