@@ -1519,7 +1519,7 @@ export const PLACE_ENTITY_DATA ={
             "allow_mark_full": false,
             "current_qty": "4",
             "kq_allowed": true,
-            "kq_direction": "up",
+            "kq_direction": "down",
             "total_qty": "4"
         },
         "is_only_exception_button_pressed": false,
@@ -2748,6 +2748,266 @@ export const PLACE_TOTE_AND_CONFIRM = {
                 "quantity": 1
             }
         ]
+    }
+}
+
+export const PUT_FRONT_MISSING_SCREEN = {
+    state_data : {
+        "user_loggedin": "default_user_name",
+        "logout_allowed": false,
+        "time_stamp": "2022-09-29T08:39:02Z",
+        "screen_id": "ud_put_front_missing",
+        "screen_version": "1",
+        "exception_allowed": [],
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.012",
+                "level": "info",
+                "description": "Scan a Tote to Induct",
+                "details": []
+            }
+        ],
+        "sub_header_msge_list": [],
+        "notification_list": [
+            {
+                "code": "UdpF.I.001",
+                "level": "info",
+                "description": "Tote scan successful",
+                "details": [
+                    "Pallet"
+                ]
+            }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_1",
+        "mode": "put",
+        "pps_profile": "",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "1",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": false,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [],
+        "inventory_count_check_limit": 5,
+        "product_info_for_inv_count_check": [],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [],
+        "is_zerowalk_flow": false,
+        "tote_induction": true,
+        "tote_id": "TOT0000446",
+        "scan_allowed": true,
+        "previous_put_details": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "ql_code": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Tote ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "slot_barcode": [
+                        [
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU Qty",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ]
+        ],
+        "product_info": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        },
+                        {
+                            "display_name": "Código de barras del producto",
+                            "locale": "es-ES"
+                        }
+                    ],
+                    "product_barcode": []
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product SKU",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_sku": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Dimensions",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_dimension": []
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "product_local_image_url",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_local_image_url": null
+                }
+            ]
+        ],
+        "rack_details": [],
+        "rack_id": "12345",
+        "missing_items": [
+            {
+                "product_sku": "item_s5",
+                "product_barcode": "item_s5",
+                "quantity": 5,
+                "type": "Item"
+            }
+        ],
+        "ppsbin_list": [
+            {
+                "orig_coordinate": [
+                    0,
+                    0
+                ],
+                "ppsbin_id": "1",
+                "ppsbin_count": "5",
+                "bin_info": [
+                    {
+                        "type": "Item",
+                        "product_sku": "item_s5",
+                        "serial": [],
+                        "quantity": 5,
+                        "service_request_id": [
+                            "TOT0000446"
+                        ],
+                        "load_unit_label": "Bin",
+                        "load_unit_id": [
+                            "1"
+                        ]
+                    }
+                ],
+                "coordinate": [
+                    1,
+                    1
+                ],
+                "group_id": "1",
+                "direction": "center",
+                "length": "200",
+                "breadth": "100",
+                "height": "100",
+                "ppsbin_state": "staged",
+                "selected_state": true,
+                "back_drawing_start": "left",
+                "front_drawing_start": "left",
+                "back_seat_name": "back_1",
+                "totes_associated": "true"
+            }
+        ],
+        "is_ud_without_staging": false,
+        "current_put_details": {
+            "tote_details": {
+                "value": "TOT0000446",
+                "display_data": [
+                    {
+                        "display_name": "Tote",
+                        "locale": "en-US"
+                    }
+                ]
+            },
+            "rack_details": {
+                "display_data": [
+                    {
+                        "display_name": "TOTE ID",
+                        "locale": "en-US"
+                    }
+                ]
+            },
+            "sku_type": "Single SKU",
+            "sku_qty": {
+                "total_qty": 1,
+                "put_qty": 0
+            },
+            "uom_qty": {
+                "total_qty": 5,
+                "put_qty": 0
+            },
+            "tote_id": "TOT0000446"
+        },
+        "show_current_put_widget": true,
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+            "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [],
+        "event": "missing_items"
     }
 }
 

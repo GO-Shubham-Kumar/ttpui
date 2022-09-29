@@ -67,7 +67,7 @@ const PlaceEntity = ({ headerMsg,
         <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator" >
           <Card  p={0} m={0} title="Item Details"  height={'42.5em'} bodySeperator={false} >
             <Box sx={{mb:'2.8em', minHeight : '20em'}}>
-              <CarouselComp prdtImages={productImages} productDetails={productDetails} prdtinfo={prdtinfo} />
+              <CarouselComp prdtImages={productImages} productDetails={productDetails} />
             </Box>
             <div className="seprator"></div>
             <Box sx={{ mb:'5em' }} className="kq">

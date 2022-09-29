@@ -12,9 +12,11 @@ function ScanTote({ headerMsg,
         currentDetails, 
         seatMode,
         handleShowModal,
+        handleCloseTote,
+        missingItems,
         ...props 
     }) {
-    console.log('headerMsg', headerMsg)
+    console.log('missingItems', missingItems)
 
     return (
         <>
@@ -33,7 +35,7 @@ function ScanTote({ headerMsg,
                         <Box sx={{ p: 4, pt: 0, pb: 0, minHeight: "27em", textAlign: 'center' }}>
                             <img alt="tote" src={ToteImg} className="img-responsive" style={{ marginTop: '-0.4em' }} />
                         </Box>
-                        <Button label="Close Pallet" variant="outlined" onClickHandler={handleShowModal}
+                        <Button label="Close Pallet" variant="outlined" onClickHandler={handleCloseTote}
                             sx={{ ml: '1em', mb: '1em' }} />
 
                     </Card>
