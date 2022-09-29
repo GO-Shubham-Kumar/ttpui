@@ -1,7 +1,7 @@
 import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 import {Modal, Typography, Table} from 'operational-component-lib';
 import { useState } from 'react';
-import { EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
+import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { triggerEventAction } from '../../../redux/actions/eventActions';
 function ScanToteContainer({...props}) {
@@ -56,10 +56,11 @@ function ScanToteContainer({...props}) {
         const {state_data : { item_uid } } = data;
         console.log('itemuid', item_uid)
         const eventData = {
-              event_name : EVENT_TYPE_CANCEL_SCAN,
-              event_data : {
+            event_name : EVENT_TYPE_CANCEL_SCAN,
+            event_data : {
                 barcode: item_uid
-          }
+            },
+            source : APP_SOURCE
         }
         console.log('eventData', eventData);
         // dispatch(triggerEventAction(eventData))

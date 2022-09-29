@@ -9,7 +9,7 @@ export const triggerEvent  = (data, seatName) => {
             const seat_name = retreiveSessionData(SEAT_NAME);
             const PPS_ID = seat_name.split("_")[1];
             const { REACT_APP_CORE_IP } = process.env;
-            const URL =`${REACT_APP_CORE_IP}${PPS_URL}${PPS_ID}${API_URL}${SEATS_URL}/${seatName}${CALLBACK_URL}`;
+            const URL =`${REACT_APP_CORE_IP}${PPS_URL}${PPS_ID}${API_URL}${SEATS_URL}/${seat_name}${CALLBACK_URL}`;
             const response = await wrappedFetch(URL, METHOD_POST, data );
             console.log('response', response)
             resolve(response)

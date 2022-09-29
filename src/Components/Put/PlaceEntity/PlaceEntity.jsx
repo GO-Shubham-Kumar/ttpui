@@ -30,7 +30,7 @@ const PlaceEntity = ({ headerMsg,
     allowedKqDirection
   }) => {
   
-
+    console.log('qty--', typeof qty, qty)
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
