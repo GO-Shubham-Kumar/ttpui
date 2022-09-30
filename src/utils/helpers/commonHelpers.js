@@ -13,19 +13,26 @@ export const manupulateServerMessges = (data) => {
     let placeHolder;
     const msgObj = getMsgObject(data);
     const { code, details } = msgObj;
+    console.log('code', code)
     let msgData = { value: '', key: " "  }
-    if(!code || !details) return msgData
+    if(!code || !details) return { msgData }
     let msg = serverMessages[code];
+    if(!msg){
+        msgData['value'] = msgObj['description']
+        return { msgData, msgObj }
+    } 
     if( code && details && details.length > 0 ){
+        console.log('1', msg)
         msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
             placeHolder = everyPlaceholder.match(/\d+/g)
+            console.log('details placeHolder', details, placeHolder, details[placeHolder] )
             return details[placeHolder]
         })
     } 
-    
     msgData = { value: msg, key: " "  }
-    return msgData
+    return { msgData, msgObj }
 }
+
 
 
 //simplify previous put details
@@ -77,11 +84,11 @@ export const getCurrentDetailsData = (data) => {
 }
 
 export const getNavConfig = (headerMsgs, mode, screenId) => {
-    const getServerMsg = manupulateServerMessges(headerMsgs);
+    const { msgData } = manupulateServerMessges(headerMsgs);
     let data = SCREEN_NAVGATIONS[mode] || [];
     data = data[screenId] || [];
     data = data.length > 0 ? data.map((obj, i) => {
-        if(obj.active) return {...obj, description : getServerMsg.value }
+        if(obj.active) return {...obj, description : msgData.value }
         return obj
     }) : data
     return data
@@ -135,3 +142,11 @@ export const createNotificationObject = (text, level) =>{
         level
      }
 }
+
+export const fetchClientLogo = () => {
+    const { REACT_APP_CUSTOMER_LOGO } = process.env;
+    return REACT_APP_CUSTOMER_LOGO || ''
+}
+// export const parseNotificationsList () => {
+
+// }

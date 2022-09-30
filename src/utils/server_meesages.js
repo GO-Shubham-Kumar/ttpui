@@ -529,7 +529,7 @@ export const serverMessages = {
     "UdpF.H.001": "Dock {0}",
     "UdpF.H.002": "Scan PPS bin barcode",
     "UdpF.H.003": "Scan item or {0}",
-    "UdpF.H.004": "Put entity in {0} and scan {1} to confirm",
+    "UdpF.H.004": "Put Entity in {0} and scan {1} to confirm",
     "UdpF.H.005": "Wait for MSU",
     "UdpF.H.006": "Scan item",
     "UdpF.H.007": "Scan same entity or slot to confirm",
@@ -604,6 +604,7 @@ export const serverMessages = {
     "UdpF.H.017" : "Pps not supported for induction",
     "UdpF.H.018" : "Tote not supported for induction",
     "UdpF.H.019" : "Resource not found",
+    "UdpF.I.011" : "{0} close successfully"
   }
   
   

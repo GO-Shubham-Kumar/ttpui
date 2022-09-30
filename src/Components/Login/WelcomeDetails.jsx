@@ -23,12 +23,12 @@ const WelcomeDetails = ({ seatMode, ppsNo }) => {
         <Grid container xs={6}>
           <Grid item xs={12}>
             <Typography variant="h3" color={"white"}>
-              {"PPS No."}
+              { ppsNo && "PPS No." }
             </Typography>
           </Grid>
           <Grid item xs={12} marginLeft="4em">
             <Typography color={"white"} sx={{ fontSize: "14em", fontWeight: 600, lineHeight: 0.7 }}>
-              {ppsNo}
+              {ppsNo && ppsNo.split("_")[1]}
             </Typography>
           </Grid>
         </Grid>

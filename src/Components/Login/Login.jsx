@@ -9,6 +9,7 @@ import { fetchSeatModeAction } from "../../redux/actions/initialActions";
 import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
 import videoSrc from "../../assets/images/videoHome.m4v";
 import { triggerNotificationction } from "../../redux/actions/notifications";
+import { capitalizeFirstLetter } from "../../utils/helpers/commonHelpers";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Login = ({ login }) => {
             setSeatName(seat_name);
             setPpsSelected(true)
         }
-        setSeatMode(mode);
+        setSeatMode(capitalizeFirstLetter(mode));
     }
   }, [pps_seats, mode]);
 
@@ -70,6 +71,7 @@ const Login = ({ login }) => {
 
 
 const onChangeHandler = (e) => {
+  console.log('changehandler')
   const {
     target: { name, value },
   } = e;
@@ -106,7 +108,7 @@ const onChangeHandler = (e) => {
       </Grid>
       {!showKeyboard && (
         <Grid item xs={7}>
-          <WelcomeDetails seatMode={mode} ppsNo={"01"} />
+          <WelcomeDetails seatMode={seatMode} ppsNo={seatName} />
         </Grid>
       )}
     </Grid>

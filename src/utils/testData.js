@@ -182,7 +182,16 @@ export const PUT_TOTE_INDUCTION = {
                 }
             ],
             "sub_header_msge_list": [],
-            "notification_list": [],
+            "notification_list": [
+                {
+                    "code": "UdpF.I.011",
+                    "description": "~p close successfully",
+                    "details": [
+                        "Pallet"
+                    ],
+                    "level": "info"
+                }
+            ],
             "seat_type": "front",
             "seat_name": "front_1",
             "mode": "put",

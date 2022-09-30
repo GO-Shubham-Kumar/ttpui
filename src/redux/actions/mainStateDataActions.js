@@ -45,7 +45,7 @@ export const updateStateData = (data) => {
     return (dispatch)=>{
         if(data){
             console.log('state data --', data);
-            const dummyData = PUT_TOTE_INDUCTION
+            const dummyData = PLACE_ENTITY_DATA
             if(data.state_data) return dispatch(handleUpdateStateDataSuccess(dummyData));
 
         }
