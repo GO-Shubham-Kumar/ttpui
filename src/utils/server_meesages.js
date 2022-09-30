@@ -604,7 +604,8 @@ export const serverMessages = {
     "UdpF.H.017" : "Pps not supported for induction",
     "UdpF.H.018" : "Tote not supported for induction",
     "UdpF.H.019" : "Resource not found",
-    "UdpF.I.011" : "{0} close successfully"
+    "UdpF.I.011" : "{0} close successfully",
+    "UdpF.I.010" : "{0} close cancelled"
   }
   
   
