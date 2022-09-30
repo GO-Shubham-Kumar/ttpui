@@ -15,7 +15,7 @@ const PlaceEntityContainer = ({...props}) => {
     const [totalQty, setTotalQty] = useState(0)
     const [isKqAllowed, setIsKqAllowed] = useState(false)
     const [kqDirection, setKqDirection] = useState(false)
-    const { data : mainData } = useSelector(state => state.mainStateReducer) ;
+    const { data : mainData, success, error } = useSelector(state => state.mainStateReducer) ;
     
     useEffect(()=>{
       if(mainData.state_data){
