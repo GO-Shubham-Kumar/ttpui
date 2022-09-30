@@ -66,7 +66,7 @@ const Login = ({ login }) => {
       }
     }
     const seat_name = retreiveSessionData(SEAT_NAME);
-    if(seat_name)setSeatName(seat_name)
+    if(!seatName && seat_name)setSeatName(seat_name)
   }, [authSuccess, authIsFetching, authError, authMessage]);
 
 

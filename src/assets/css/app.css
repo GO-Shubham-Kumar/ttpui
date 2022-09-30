@@ -4,12 +4,20 @@
 
 .go-loader {
     text-align: center;
-    min-height: 92vh;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background: #9a9a9a;  /* fallback for old browsers */
+    background: linear-gradient(rgb(233,233,233), rgb(147,149,152));
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 980px;
 }
 
 .go-loader img {
     margin: auto;
-    margin-top: calc(30% - 300px);
 }
 
 .img-responsive {

@@ -40,8 +40,8 @@ const PutBack  =({ data, isFetching, success, error }) => {
             setCurrentDetails(currentDetailsData)
             setPreviousDetails(previousDetailsData)
         }
-    }, [isFetching, success, error, data])
-
+    }, [isFetching, success, error, data]);
+    
     if(screenId === UD_PUT_FRONT_TOTE_SCAN) return (
         <ScanPalletContainer 
             headerMsg={headerMsg} 

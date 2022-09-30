@@ -15,14 +15,16 @@ export const manupulateServerMessges = (data) => {
     const { code, details } = msgObj;
     console.log('code', code)
     let msgData = { value: '', key: " "  }
-    if(!code || !details) return { msgData }
+    if(!code) return { msgData }
     let msg = serverMessages[code];
-    if(!msg){
+    console.log('server msg', msg)
+    if(!msg || details.length === 0){
         msgData['value'] = msgObj['description']
         return { msgData, msgObj }
     } 
+    console.log('server msg 2', msg, details, code )
     if( code && details && details.length > 0 ){
-        console.log('1', msg)
+        console.log('1--', msg)
         msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
             placeHolder = everyPlaceholder.match(/\d+/g)
             console.log('details placeHolder', details, placeHolder, details[placeHolder] )
@@ -150,3 +152,12 @@ export const fetchClientLogo = () => {
 // export const parseNotificationsList () => {
 
 // }
+
+
+export const getSeatNumber = (seatName) => {
+    let seat_name = seatName || '';
+    console.log('seat_name', seat_name)
+    seat_name = seat_name ? seat_name.split("_")[1] : seat_name
+    seatName = seat_name.length === 1 ? `0${seat_name}` : seat_name
+    return seatName
+}
