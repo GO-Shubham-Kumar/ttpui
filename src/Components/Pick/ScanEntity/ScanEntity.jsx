@@ -11,19 +11,24 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 
 function ScanEntityPick({
-  header,
-  legends,
+  headerMsg,
+  previousDetails,
+  currentDetails,
+  subHeader,
   seatMode,
+  legends,
   prdtinfo,
   productDetails,
+  ...props
 }) {
   const exceptionhandler = () => {
     alert("Exception Screen");
   };
 
+  console.log(props)
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -37,18 +42,10 @@ function ScanEntityPick({
         >
           <BinMapDetails
             title="Scan Active"
-            details={{
-              "IC Slot": "IC Slot",
-              "IC Bin": "IC Bin",
-            }}
+            details={currentDetails}
           />
           <BinDetails
-            details={{
-              "BIN ID": "BIN ID",
-              "SKU ID": "SKU ID",
-              "SKU Qty": "SKU Qty",
-              "TOTE ID": "TOTE ID",
-            }}
+            details={previousDetails}
             title={`Previous ${seatMode}`}
             height="17.2em"
           />

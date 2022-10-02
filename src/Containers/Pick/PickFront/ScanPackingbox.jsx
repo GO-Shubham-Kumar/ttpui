@@ -1,5 +1,4 @@
-import ScanPackingBox from "../../Components/Pick/ScanPackingBox/ScanPackingBox";
-import ScanTote from "../../Components/Pick/ScanTote/ScanTote";
+import ScanPackingBox from "../../../Components/Pick/ScanPackingBox/ScanPackingBox";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

@@ -1,29 +1,13 @@
-import ScanEntityPick from "../../Components/Pick/ScanEntity/ScanEntity";
-import ScanTote from "../../Components/Pick/ScanTote/ScanTote";
+import ScanEntityPick from "../../../Components/Pick/ScanEntity/ScanEntity";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-function ScanEntityPickContainer({ ...props }) {
+function ScanEntityPickContainer({...props }) {
   const [showModal, setShowModal] = useState(false);
-  const [seatMode, setSeatMode] = useState("Pick");
   const { data } = useSelector((state) => state.mainStateReducer);
   const dispatch = useDispatch();
 
-  let header = [
-    {
-      active: false,
-      description: "Scan a Packing box",
-      label: "Dock Packing Box",
-      step: 1,
-    },
-    {
-      active: true,
-      description: "Scan Entities fron tote and place in Bin",
-      label: "Scan Entity and confirm",
-      step: 2,
-    },
-  ];
 
   const onConfirmHandler = () => {
     alert("ss");
@@ -54,14 +38,9 @@ function ScanEntityPickContainer({ ...props }) {
     "static/media/src/assets/images/bg3.png",
   ];
 
+
   return (
-    <ScanEntityPick
-      header={header}
-      legends={legends}
-      seatMode={seatMode}
-      productDetails={prdtdetails}
-      prdtinfo={prdtinfo}
-    />
+    <ScanEntityPick productDetails={prdtdetails} {...props}  prdtinfo={prdtinfo} legends={legends}/>
   );
 }
 

@@ -9,23 +9,22 @@ import {
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
-import Arrow from "./../../../assets/images/arrow.svg";
-import ToteImg from "./../../../assets/images/tote.svg";
+function ScanTote({
+  headerMsg,
+  previousDetails,
+  currentDetails,
+  subHeader,
+  seatMode,
+  legends,
+  cancelButtonEnable,
+  cancelScanHandler,
+  ...props
+}) {
 
-function ScanTote({ header }) {
-  let legends = [
-    {
-      color: "blue",
-      text: "Inventory Totes",
-    },
-    {
-      color: "#7BAABA",
-      text: "Order Totes",
-    },
-  ];
+
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -39,19 +38,11 @@ function ScanTote({ header }) {
         >
           <BinMapDetails
             title="Scan Active"
-            details={{
-              "IC Slot": "IC Slot",
-              "IC Bin": "IC Bin",
-            }}
+            details={currentDetails}
           />
           <BinDetails
-            details={{
-              "BIN ID": "BIN ID",
-              "SKU ID": "SKU ID",
-              "SKU Qty": "SKU Qty",
-              "TOTE ID": "TOTE ID",
-            }}
-            title={`Previous ${"seatMode"}`}
+            details={currentDetails}
+            title={`Previous ${seatMode}`}
             height="17.2em"
           />
         </Grid>
@@ -73,9 +64,13 @@ function ScanTote({ header }) {
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"37.5em"}></Box>
+            <Box height={"36em"}></Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
+            {cancelButtonEnable?
+             <Box sx={{ m: 0, p:0 }}>
+                <Button size="large"  variant="outlined" label="Cancel Scan" onClickHandler={cancelScanHandler}  />
+            </Box> : null}
           </Card>
         </Grid>
       </Grid>
