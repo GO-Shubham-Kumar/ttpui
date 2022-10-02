@@ -6,18 +6,18 @@ import ScanToteContainer from '../Containers/Put/PutBack/ScanTote';
 import ScanEntityContainer from '../Containers/Put/PutBack/ScanEntity';
 import PlaceEntityContainer from '../Containers/Put/PutBack/PlaceEntity';
 import ScanPalletContainer from '../Containers/Put/PutBack/ScanPallet';
-import ScanPickToteContainer from "../Containers/Pick/ScanTote";
-import PlaceBinContainer from "../Containers/Pick/PlaceBin"
-import ScanPackingBoxContainer from "../Containers/Pick/ScanPackingbox";
-import ScanEntityPickContainer from "./../Containers/Pick/ScanEntity";
-import PlaceEntityPickContainer from "./../Containers/Pick/PlaceEntity"
-
+import ScanPickToteContainer from "../Containers/Pick/PickFront/ScanTote";
+import PlaceBinContainer from "../Containers/Pick/PickFront/PlaceBin"
+import ScanPackingBoxContainer from "../Containers/Pick/PickFront/ScanPackingbox";
+import ScanEntityPickContainer from "./../Containers/Pick/PickFront/ScanEntity";
+import PlaceEntityPickContainer from "./../Containers/Pick/PickFront/PlaceEntity"
+import PickFrontContainer from '../Containers/Pick/PickFront.jsx';
 
 const Routes = () => {
     return [
         {
             path : "/",
-            comp : PlaceEntityPickContainer,
+            comp : PickFrontContainer,
             authRoute : true,
             exact : true
         },

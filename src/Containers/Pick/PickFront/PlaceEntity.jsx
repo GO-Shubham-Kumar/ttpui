@@ -1,5 +1,4 @@
-import PlaceEntityPick from "../../Components/Pick/PlaceEntity/PlaceEntity";
-import ScanTote from "../../Components/Pick/ScanTote/ScanTote";
+import PlaceEntityPick from "../../../Components/Pick/PlaceEntity/PlaceEntity";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,21 +11,7 @@ function PlaceEntityPickContainer({ ...props }) {
   const [isKqAllowed, setIsKqAllowed] = useState(false);
   const [kqDirection, setKqDirection] = useState(false);
   const [quantity, setQuantity] = useState(0);
-
-  let header = [
-    {
-      active: false,
-      description: "Scan a Packing box",
-      label: "Dock Packing Box",
-      step: 1,
-    },
-    {
-      active: true,
-      description: "Scan Entities fron tote and place in Bin",
-      label: "Scan Entity and confirm",
-      step: 2,
-    },
-  ];
+  const [subHeader, setsubHeader] = useState("");
 
   const onConfirmHandler = () => {
     alert("ss");
@@ -44,8 +29,6 @@ function PlaceEntityPickContainer({ ...props }) {
     },
   ];
 
-  let seatMode = "Pick";
-
   let prdtdetails = {
     "Item Serieal": "GHTSJIT67085",
     "Product Name": "Iphone",
@@ -61,17 +44,37 @@ function PlaceEntityPickContainer({ ...props }) {
 
   const onChangeQuantityHandler = () => {};
 
+  const onExceptionClickHandler = () => {
+    alert("Exception Screen");
+  };
+
+  const onMarkFullHandler= () => {
+    alert("marked full");
+  };
+
+  const onCancelScanHandler = () => {
+    alert("Scan cancel request sent");
+  };
+
+  const onToteFullHandler = () => {
+    alert("tote marked full");
+  };
+
+
   return (
     <PlaceEntityPick
-      header={header}
       legends={legends}
-      seatMode={seatMode}
       productDetails={prdtdetails}
       prdtinfo={prdtinfo}
       qty={quantity}
       totalEntities={totalQty}
       allowedKqDirection={kqDirection}
       onChangeQuantityHandler={onChangeQuantityHandler}
+      onExceptionClickHandler={onExceptionClickHandler}
+      onMarkFullHandler={onMarkFullHandler}
+      onCancelScanHandler={onCancelScanHandler}
+      onToteFullHandler={onToteFullHandler}
+      {...props}
     />
   );
 }

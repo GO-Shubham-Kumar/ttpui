@@ -12,3 +12,9 @@ export const SCREEN_ID_MAPPING = {
 export const UD_PUT_FRONT_MISSIN = 'ud_put_front_missing';
 export const UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR = 'ud_put_front_place_tote_on_conveyor';
 
+
+export const PICK_FRONT_DOCK_TOTE = "pick_front_dock_tote"
+export const PICK_FRONT_TTP_ITEM_SCAN ="pick_front_ttp_item_scan"
+export const PICK_FRONT_MORE_ITEM_SCAN = "pick_front_more_item_scan"
+export const PICK_FRONT_PPTL_PRESS = "pick_front_pptl_press"
+export const PICK_FRONT_UNDOCK_TOTE = "pick_front_undock_tote"

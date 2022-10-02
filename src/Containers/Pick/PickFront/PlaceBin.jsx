@@ -1,5 +1,4 @@
-import PlaceBin from "../../Components/Pick/PlaceBin/PlaceBin";
-import ScanTote from "../../Components/Pick/ScanTote/ScanTote";
+import PlaceBin from "../../../Components/Pick/PlaceBin/PlaceBin";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

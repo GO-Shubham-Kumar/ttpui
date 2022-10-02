@@ -2789,3 +2789,2485 @@ export const PUT_FRONT_MISSING_SCREEN = {
     }
 }
 
+
+export const PICK_FRONT_DOCK_TOTE_SCREEN ={
+    state_data:{
+        "entity_location_after_crash": [
+           
+        ],
+        "empty_popup_msg": [
+           
+        ],
+        "pps_blocked": false,
+        "dock_index": 0,
+        "show_inv_count_popup": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [
+           
+        ],
+        "ppsbin_list": [
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              4
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              0,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "5",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              4
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              0,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "1",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              3
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              200,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "6",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              3
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              200,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "2",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              2
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              400,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "7",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              2
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              400,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "3",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              1
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              600,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "8",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              1
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              600,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "4",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          }
+        ],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-09-28T05:22:23Z",
+        "cancel_scan_enabled": false,
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [
+           
+        ],
+        "is_zerowalk_flow": false,
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [
+           
+        ],
+        "show_bin_full_default_zero": false,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+          {
+            "code": "PkF.H.048",
+            "description": "Waiting for Tote to be associated in Bin-5 from front",
+            "details": [
+              5
+            ],
+            "level": "info"
+          }
+        ],
+        "seat_name": "front_1",
+        "event": "empty",
+        "show_bin_view": true,
+        "operator_orientation": "0",
+        "notification_list": [
+           
+        ],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "dock_actions": [
+          {
+            "code": "Common.A.001",
+            "description": "Scan Tote",
+            "details": [
+              "tote"
+            ],
+            "level": "info"
+          },
+          {
+            "code": "Common.A.004",
+            "description": "Put Tote in Bin-5 and scan bin",
+            "details": [
+              5
+            ],
+            "level": "info"
+          }
+        ],
+        "bin_coordinate_plotting": true,
+        "structure": [
+          2,
+          4
+        ],
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "selected_seat_for_release_bins_filter": "undefined",
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "pick",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": true,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "pick_front_dock_tote",
+        "group_info": {
+          "1": "center"
+        },
+        "product_info_for_inv_count_check": [
+           
+        ],
+        "sub_header_msge_list": [
+           
+        ],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "default1",
+        "current_bin_id": "undefined",
+        "scan_allowed": true,
+        "entity_location_type_after_crash": "undefined",
+        "pps_requested_mode": "undefined",
+        "user_loggedin": "admin",
+        "split_pps_info": [
+           
+        ],
+        "inventory_count_check_limit": 0
+      }
+}
+
+
+export const PICK_FRONT_DOCK_TOTE_BIN_SCREEN={
+    state_data:{
+        "user_loggedin": "admin",
+        "logout_allowed": true,
+        "time_stamp": "2022-09-28T05:44:38Z",
+        "screen_id": "pick_front_dock_tote",
+        "screen_version": "1",
+        "exception_allowed": [
+          
+        ],
+        "header_msge_list": [
+          {
+            "code": "PkF.H.049",
+            "level": "info",
+            "description": "Dock Tote in Bin-5",
+            "details": [
+              5
+            ]
+          }
+        ],
+        "sub_header_msge_list": [
+          
+        ],
+        "notification_list": [
+          {
+            "code": "PkB.I.008",
+            "level": "info",
+            "description": "Tote scan successful.",
+            "details": [
+              "Tote"
+            ]
+          }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_1",
+        "mode": "pick",
+        "pps_profile": "default1",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [
+          
+        ],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "undefined",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": false,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [
+          
+        ],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [
+          
+        ],
+        "inventory_count_check_limit": 0,
+        "product_info_for_inv_count_check": [
+          
+        ],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [
+          
+        ],
+        "is_zerowalk_flow": false,
+        "ppsbin_list": [
+          {
+            "orig_coordinate": [
+              0,
+              200
+            ],
+            "ppsbin_id": "5",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              0,
+              0
+            ],
+            "ppsbin_id": "1",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              200
+            ],
+            "ppsbin_id": "6",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              0
+            ],
+            "ppsbin_id": "2",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              200
+            ],
+            "ppsbin_id": "7",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              0
+            ],
+            "ppsbin_id": "3",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              200
+            ],
+            "ppsbin_id": "8",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              0
+            ],
+            "ppsbin_id": "4",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          }
+        ],
+        "structure": [
+          2,
+          4
+        ],
+        "scan_allowed": true,
+        "dock_actions": [
+          {
+            "code": "Common.A.001",
+            "level": "info",
+            "description": "Scan Tote",
+            "details": [
+              "tote"
+            ]
+          },
+          {
+            "code": "Common.A.004",
+            "level": "info",
+            "description": "Put Tote in Bin-5 and scan bin",
+            "details": [
+              5
+            ]
+          }
+        ],
+        "dock_index": 1,
+        "cancel_scan_enabled": true,
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+          "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [
+          
+        ],
+        "event": "empty"
+      }
+}
+
+
+export const PICK_FRONT_TTP_ITEM_SCAN_SCREEN={
+    state_data: {
+        "user_loggedin": "admin",
+        "logout_allowed": true,
+        "time_stamp": "2022-09-28T06:37:53Z",
+        "screen_id": "pick_front_ttp_item_scan",
+        "screen_version": "1",
+        "exception_allowed": [
+          {
+            "exception_id": "PkF001",
+            "exception_name": "Item Missing/Bad Barcode",
+            "event": "missing_or_unscannable_damaged_item",
+            "details": [
+              "Item"
+            ]
+          }
+        ],
+        "header_msge_list": [
+          {
+            "code": "PkF.H.029",
+            "level": "info",
+            "description": "Scan item or dock Tote",
+            "details": [
+              1,
+              "Item",
+              "tote"
+            ]
+          }
+        ],
+        "sub_header_msge_list": [
+          
+        ],
+        "notification_list": [
+          {
+            "code": "PkB.I.005",
+            "level": "info",
+            "description": "Tote docked successfully ",
+            "details": [
+              "Tote"
+            ]
+          }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_1",
+        "mode": "pick",
+        "pps_profile": "default1",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [
+          
+        ],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "5",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": true,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [
+          
+        ],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [
+          
+        ],
+        "inventory_count_check_limit": 0,
+        "product_info_for_inv_count_check": [
+          
+        ],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [
+          
+        ],
+        "is_zerowalk_flow": false,
+        "product_info": [
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "製品SKU",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product SKU",
+                  "locale": "en-US"
+                }
+              ],
+              "product_sku": "yash1"
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "product_local_image_url",
+                  "locale": "en-US"
+                }
+              ],
+              "product_local_image_url": null
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "製品バーコード",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product Barcodes",
+                  "locale": "en-US"
+                }
+              ],
+              "product_barcodes": [
+                "yash1"
+              ]
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "UOM",
+                  "locale": "en-US"
+                }
+              ],
+              "uom": "Item"
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "商品の寸法",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product Dimensions",
+                  "locale": "en-US"
+                }
+              ],
+              "product_dimensions": [
+                4,
+                3,
+                4
+              ]
+            }
+          ]
+        ],
+        "item_uid": "1",
+        "scan_allowed": true,
+        "special_handling": [
+          
+        ],
+        "is_heavy": false,
+        "temp_sku_reprint_enabled": false,
+        "pre_pick_list_present": false,
+        "header_steps": [
+          "PkF.S.003",
+          "PkF.S.005"
+        ],
+        "direction_widget_details": [
+          {
+            "direction": "right",
+            "entity": "tote",
+            "selected": true
+          },
+          {
+            "direction": "left",
+            "entity": "rack",
+            "selected": false
+          }
+        ],
+        "pps_tote_list": [
+          {
+            "position": 2,
+            "selected": true,
+            "tote_id": "1"
+          }
+        ],
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+          "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [
+          
+        ],
+        "event": "first_item_pick"
+      }
+}
+
+
+
+export const PICK_FRONT_MORE_ITEM_SCAN_SCREEN = {
+    state_data:{
+        "user_loggedin": "admin",
+        "logout_allowed": false,
+        "time_stamp": "2022-09-29T12:24:36Z",
+        "screen_id": "pick_front_more_item_scan",
+        "screen_version": "1",
+        "exception_allowed": [
+          {
+            "exception_id": "PkF001",
+            "exception_name": "Item Missing/Bad Barcode",
+            "event": "missing_or_unscannable_damaged_item",
+            "details": [
+              "Item"
+            ]
+          }
+        ],
+        "header_msge_list": [
+          {
+            "code": "PkF.H.018",
+            "level": "info",
+            "description": "Scan Label and Place in Bin",
+            "details": [
+              "Scan",
+              2,
+              "Item",
+              "5"
+            ]
+          }
+        ],
+        "sub_header_msge_list": [
+          
+        ],
+        "notification_list": [
+          {
+            "code": "PkF.I.004",
+            "level": "info",
+            "description": "Item Scan successful",
+            "details": [
+              "Item"
+            ]
+          }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_1",
+        "mode": "pick",
+        "pps_profile": "default1",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [
+          
+        ],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "5",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": false,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [
+          
+        ],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [
+          
+        ],
+        "inventory_count_check_limit": 0,
+        "product_info_for_inv_count_check": [
+          
+        ],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [
+          
+        ],
+        "is_zerowalk_flow": false,
+        "ppsbin_list": [
+          {
+            "orig_coordinate": [
+              0,
+              200
+            ],
+            "ppsbin_id": "5",
+            "ppsbin_count": "1",
+            "bin_info": [
+              {
+                "type": "Item",
+                "product_sku": "yash1",
+                "serial": [
+                  
+                ],
+                "quantity": 1,
+                "service_request_id": [
+                  "93"
+                ],
+                "load_unit_label": "Tote",
+                "load_unit_id": [
+                  "totefive"
+                ]
+              }
+            ],
+            "coordinate": [
+              2,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "IN USE",
+            "selected_state": true,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "true",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "true",
+            "ppsbin_light_color": "blue"
+          },
+          {
+            "orig_coordinate": [
+              0,
+              0
+            ],
+            "ppsbin_id": "1",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              200
+            ],
+            "ppsbin_id": "6",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              0
+            ],
+            "ppsbin_id": "2",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "true",
+            "ppsbin_light_color": "blue"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              200
+            ],
+            "ppsbin_id": "7",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              0
+            ],
+            "ppsbin_id": "3",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              200
+            ],
+            "ppsbin_id": "8",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              2,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              0
+            ],
+            "ppsbin_id": "4",
+            "ppsbin_count": "0",
+            "bin_info": [
+              
+            ],
+            "coordinate": [
+              1,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          }
+        ],
+        "structure": [
+          2,
+          4
+        ],
+        "scan_details": {
+          "kq_allowed": true,
+          "current_qty": "1",
+          "total_qty": "3"
+        },
+        "product_info": [
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "製品SKU",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product SKU",
+                  "locale": "en-US"
+                }
+              ],
+              "product_sku": "yash1"
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "product_local_image_url",
+                  "locale": "en-US"
+                }
+              ],
+              "product_local_image_url": null
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "製品バーコード",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product Barcodes",
+                  "locale": "en-US"
+                }
+              ],
+              "product_barcodes": [
+                "yash1"
+              ]
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "UOM",
+                  "locale": "en-US"
+                }
+              ],
+              "uom": "Item"
+            }
+          ],
+          [
+            {
+              "display_data": [
+                {
+                  "display_name": "商品の寸法",
+                  "locale": "ja-JP"
+                },
+                {
+                  "display_name": "Product Dimensions",
+                  "locale": "en-US"
+                }
+              ],
+              "product_dimensions": [
+                4,
+                3,
+                4
+              ]
+            }
+          ]
+        ],
+        "rack_details": {
+          "rack_type_rec": [
+            {
+              "barcodes": [
+                "A.01 "
+              ],
+              "prefixed_barcodes": [
+                "#GOA.01 "
+              ],
+              "length": 40,
+              "height": 40,
+              "type": "slot",
+              "orig_coordinates": [
+                0,
+                0
+              ],
+              "slot_ref": "0.A.01 "
+            }
+          ],
+          "rack_width": 40,
+          "slot_barcodes": [
+            "1.0.A.01 "
+          ],
+          "slot_type": "slot",
+          "rack_type": [
+            48,
+            48,
+            49
+          ],
+          "current_slot": "none"
+        },
+        "item_uid": "1",
+        "scan_allowed": true,
+        "printer_info": {
+          "printer_visible": false,
+          "printer_border_color": "yellow"
+        },
+        "reprint_button_enabled": false,
+        "temp_sku_reprint_enabled": false,
+        "reprint_popup_enabled": false,
+        "levels": [
+          
+        ],
+        "header_steps": [
+          "PkF.S.003",
+          "PkF.S.005"
+        ],
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+          "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [
+          
+        ],
+        "event": "more_items"
+      }
+}
+
+
+export const PICK_FRONT_PPTL_PRESS_SCREEN = {
+    state_data:{
+        "entity_location_after_crash": [
+           
+        ],
+        "empty_popup_msg": [
+           
+        ],
+        "pps_blocked": false,
+        "temp_sku_reprint_enabled": false,
+        "reprint_popup_enabled": false,
+        "show_inv_count_popup": false,
+        "reprint_button_enabled": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [
+           
+        ],
+        "ppsbin_list": [
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+              {
+                "load_unit_id": [
+                  "toteone"
+                ],
+                "load_unit_label": "Tote",
+                "product_sku": "yash1",
+                "quantity": 1,
+                "serial": [
+                   
+                ],
+                "service_request_id": [
+                  "88"
+                ],
+                "type": "Item"
+              }
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              4
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              0,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "true",
+            "ppsbin_count": "1",
+            "ppsbin_id": "5",
+            "ppsbin_light_color": "blue",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "IN USE",
+            "selected_state": true,
+            "totes_associated": "true"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              4
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              0,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "1",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              3
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              200,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "6",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              3
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              200,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "2",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              2
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              400,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "7",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              2
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              400,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "3",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              2,
+              1
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              600,
+              200
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "8",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          },
+          {
+            "back_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "bin_info": [
+               
+            ],
+            "breadth": "100",
+            "coordinate": [
+              1,
+              1
+            ],
+            "direction": "center",
+            "front_drawing_start": "left",
+            "group_id": "1",
+            "height": "100",
+            "length": "200",
+            "orig_coordinate": [
+              600,
+              0
+            ],
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_count": "0",
+            "ppsbin_id": "4",
+            "ppsbin_light_color": "none",
+            "ppsbin_order_age_coloring": "none",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "totes_associated": "false"
+          }
+        ],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-09-28T05:54:05Z",
+        "cancel_scan_enabled": true,
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [
+          {
+            "details": [
+              "Item"
+            ],
+            "event": "missing_or_unscannable_damaged_item",
+            "exception_id": "PkF001",
+            "exception_name": "Item Missing/Bad Barcode"
+          }
+        ],
+        "is_zerowalk_flow": false,
+        "header_steps": [
+          "PkF.S.003",
+          "PkF.S.005"
+        ],
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [
+           
+        ],
+        "show_bin_full_default_zero": true,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+          {
+            "code": "PkF.H.007",
+            "description": "Press PPTL for Bin to confirm",
+            "details": [
+              "5"
+            ],
+            "level": "info"
+          }
+        ],
+        "seat_name": "front_1",
+        "event": "empty",
+        "show_bin_view": true,
+        "operator_orientation": "0",
+        "notification_list": [
+          {
+            "code": "PkF.I.004",
+            "description": "Item Scan successful",
+            "details": [
+              "Item"
+            ],
+            "level": "info"
+          }
+        ],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "bin_coordinate_plotting": true,
+        "structure": [
+          2,
+          4
+        ],
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "selected_seat_for_release_bins_filter": "undefined",
+        "rack_details": {
+          "current_slot": "none",
+          "rack_type": [
+            49,
+            49
+          ],
+          "rack_type_rec": [
+            {
+              "barcodes": [
+                "A.01",
+                "A.02"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                0,
+                5
+              ],
+              "prefixed_barcodes": [
+                "#GOA.02",
+                "#GOA.01"
+              ],
+              "slot_ref": "0.A.01-A.02",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "A.03",
+                "A.04"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                32,
+                5
+              ],
+              "prefixed_barcodes": [
+                "#GOA.04",
+                "#GOA.03"
+              ],
+              "slot_ref": "0.A.03-A.04",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "A.05",
+                "A.06"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                64,
+                5
+              ],
+              "prefixed_barcodes": [
+                "#GOA.06",
+                "#GOA.05"
+              ],
+              "slot_ref": "0.A.05-A.06",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "B.01",
+                "B.02"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                0,
+                43
+              ],
+              "prefixed_barcodes": [
+                "#GOB.02",
+                "#GOB.01"
+              ],
+              "slot_ref": "0.B.01-B.02",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "B.03",
+                "B.04"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                32,
+                43
+              ],
+              "prefixed_barcodes": [
+                "#GOB.04",
+                "#GOB.03"
+              ],
+              "slot_ref": "0.B.03-B.04",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "B.05",
+                "B.06"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                64,
+                43
+              ],
+              "prefixed_barcodes": [
+                "#GOB.06",
+                "#GOB.05"
+              ],
+              "slot_ref": "0.B.05-B.06",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "C.01",
+                "C.02"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                0,
+                81
+              ],
+              "prefixed_barcodes": [
+                "#GOC.02",
+                "#GOC.01"
+              ],
+              "slot_ref": "0.C.01-C.02",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "C.03",
+                "C.04"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                32,
+                81
+              ],
+              "prefixed_barcodes": [
+                "#GOC.04",
+                "#GOC.03"
+              ],
+              "slot_ref": "0.C.03-C.04",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "C.05",
+                "C.06"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                64,
+                81
+              ],
+              "prefixed_barcodes": [
+                "#GOC.06",
+                "#GOC.05"
+              ],
+              "slot_ref": "0.C.05-C.06",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "D.01",
+                "D.02"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                0,
+                119
+              ],
+              "prefixed_barcodes": [
+                "#GOD.02",
+                "#GOD.01"
+              ],
+              "slot_ref": "0.D.01-D.02",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "D.03",
+                "D.04"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                32,
+                119
+              ],
+              "prefixed_barcodes": [
+                "#GOD.04",
+                "#GOD.03"
+              ],
+              "slot_ref": "0.D.03-D.04",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "D.05",
+                "D.06"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                64,
+                119
+              ],
+              "prefixed_barcodes": [
+                "#GOD.06",
+                "#GOD.05"
+              ],
+              "slot_ref": "0.D.05-D.06",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "E.01",
+                "E.02"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                0,
+                157
+              ],
+              "prefixed_barcodes": [
+                "#GOE.02",
+                "#GOE.01"
+              ],
+              "slot_ref": "0.E.01-E.02",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "E.03",
+                "E.04"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                32,
+                157
+              ],
+              "prefixed_barcodes": [
+                "#GOE.04",
+                "#GOE.03"
+              ],
+              "slot_ref": "0.E.03-E.04",
+              "type": "slot"
+            },
+            {
+              "barcodes": [
+                "E.05",
+                "E.06"
+              ],
+              "height": 33,
+              "length": 32,
+              "orig_coordinates": [
+                64,
+                157
+              ],
+              "prefixed_barcodes": [
+                "#GOE.06",
+                "#GOE.05"
+              ],
+              "slot_ref": "0.E.05-E.06",
+              "type": "slot"
+            }
+          ],
+          "rack_width": 96,
+          "slot_barcodes": [
+            "031.0.C.05",
+            "031.0.C.06"
+          ],
+          "slot_type": "slot"
+        },
+        "scan_details": {
+          "current_qty": "1",
+          "kq_allowed": true,
+          "total_qty": "1"
+        },
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "pick",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": false,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "pick_front_pptl_press",
+        "printer_info": {
+          "printer_border_color": "yellow",
+          "printer_visible": false
+        },
+        "group_info": {
+          "1": "center"
+        },
+        "product_info_for_inv_count_check": [
+           
+        ],
+        "sub_header_msge_list": [
+           
+        ],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "default1",
+        "current_bin_id": "5",
+        "scan_allowed": false,
+        "entity_location_type_after_crash": "undefined",
+        "pps_requested_mode": "undefined",
+        "user_loggedin": "admin",
+        "split_pps_info": [
+           
+        ],
+        "inventory_count_check_limit": 0
+      }
+}
+
+export const PICK_FRONT_UNDOCK_TOTE_SCREEN = {
+    state_data:{
+        "user_loggedin": "admin",
+        "logout_allowed": true,
+        "time_stamp": "2022-09-28T06:09:37Z",
+        "screen_id": "pick_front_undock_tote",
+        "screen_version": "1",
+        "exception_allowed": [
+           
+        ],
+        "header_msge_list": [
+          {
+            "code": "PkF.H.030",
+            "level": "info",
+            "description": "Undock Tote",
+            "details": [
+              "tote"
+            ]
+          }
+        ],
+        "sub_header_msge_list": [
+           
+        ],
+        "notification_list": [
+          {
+            "code": "PkF.I.001",
+            "level": "info",
+            "description": "Pick Complete. Waiting for next pick.",
+            "details": [
+               
+            ]
+          }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_1",
+        "mode": "pick",
+        "pps_profile": "default1",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [
+           
+        ],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "5",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": true,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [
+           
+        ],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [
+           
+        ],
+        "inventory_count_check_limit": 0,
+        "product_info_for_inv_count_check": [
+           
+        ],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [
+           
+        ],
+        "is_zerowalk_flow": false,
+        "ppsbin_list": [
+          {
+            "orig_coordinate": [
+              0,
+              200
+            ],
+            "ppsbin_id": "5",
+            "ppsbin_count": "1",
+            "bin_info": [
+              {
+                "type": "Item",
+                "product_sku": "yash1",
+                "serial": [
+                   
+                ],
+                "quantity": 1,
+                "service_request_id": [
+                  "88"
+                ],
+                "load_unit_label": "Tote",
+                "load_unit_id": [
+                  "toteone"
+                ]
+              }
+            ],
+            "coordinate": [
+              2,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": true,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "true",
+            "packing_box": "false",
+            "ppsbin_blink_state": true,
+            "ppsbin_blue_state": "true",
+            "ppsbin_light_color": "green"
+          },
+          {
+            "orig_coordinate": [
+              0,
+              0
+            ],
+            "ppsbin_id": "1",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              1,
+              4
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              200
+            ],
+            "ppsbin_id": "6",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              2,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              200,
+              0
+            ],
+            "ppsbin_id": "2",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              1,
+              3
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              200
+            ],
+            "ppsbin_id": "7",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              2,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              400,
+              0
+            ],
+            "ppsbin_id": "3",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              1,
+              2
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              200
+            ],
+            "ppsbin_id": "8",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              2,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          },
+          {
+            "orig_coordinate": [
+              600,
+              0
+            ],
+            "ppsbin_id": "4",
+            "ppsbin_count": "0",
+            "bin_info": [
+               
+            ],
+            "coordinate": [
+              1,
+              1
+            ],
+            "group_id": "1",
+            "direction": "center",
+            "length": "200",
+            "breadth": "100",
+            "height": "100",
+            "ppsbin_state": "empty",
+            "selected_state": false,
+            "back_drawing_start": "left",
+            "front_drawing_start": "left",
+            "back_seat_name": "back_1",
+            "ppsbin_order_age_coloring": "none",
+            "totes_associated": "false",
+            "packing_box": "false",
+            "ppsbin_blink_state": false,
+            "ppsbin_blue_state": "false",
+            "ppsbin_light_color": "none"
+          }
+        ],
+        "structure": [
+          2,
+          4
+        ],
+        "scan_allowed": true,
+        "undock_awaited": {
+          "5": "center"
+        },
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+          "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [
+           
+        ],
+        "event": "empty"
+      }
+}

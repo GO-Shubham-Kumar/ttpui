@@ -12,7 +12,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 
 function PlaceEntityPick({
-  header,
+  headerMsg,
   legends,
   seatMode,
   prdtinfo,
@@ -21,26 +21,20 @@ function PlaceEntityPick({
   totalEntities,
   allowedKqDirection,
   onChangeQuantityHandler,
+  previousDetails,
+  currentDetails,
+  subHeader,
+  onExceptionClickHandler,
+  onMarkFullHandler,
+  onCancelScanHandler,
+  onToteFullHandler,
+  ...props
 }) {
-  const exceptionhandler = () => {
-    alert("Exception Screen");
-  };
 
-  const markfullhandlerhandler = () => {
-    alert("marked full");
-  };
-
-  const cancelscanhandler = () => {
-    alert("Scan cancel request sent");
-  };
-
-  const totefullhandler = () => {
-    alert("tote marked full");
-  };
 
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -54,18 +48,10 @@ function PlaceEntityPick({
         >
           <BinMapDetails
             title="Scan Active"
-            details={{
-              "IC Slot": "IC Slot",
-              "IC Bin": "IC Bin",
-            }}
+            details={currentDetails}
           />
           <BinDetails
-            details={{
-              "BIN ID": "BIN ID",
-              "SKU ID": "SKU ID",
-              "SKU Qty": "SKU Qty",
-              "TOTE ID": "TOTE ID",
-            }}
+            details={previousDetails}
             title={`Previous ${seatMode}`}
             height="17.2em"
           />
@@ -87,14 +73,14 @@ function PlaceEntityPick({
                 size="large"
                 label="Cancel Scan"
                 variant="outlined"
-                onClickHandler={cancelscanhandler}
+                onClickHandler={onCancelScanHandler}
                 sx={{ mr: 2 }}
               />
               <Button
                 size="large"
                 label="Tote Full"
                 type="neutral"
-                onClickHandler={totefullhandler}
+                onClickHandler={onToteFullHandler}
               />
             </Box>
           </Card>
@@ -147,12 +133,12 @@ function PlaceEntityPick({
                 size="medium"
                 type="neutral"
                 label="Exception"
-                onClickHandler={exceptionhandler}
+                onClickHandler={onExceptionClickHandler}
               />
               <Button
                 size="medium"
                 label="Mark Full"
-                onClickHandler={markfullhandlerhandler}
+                onClickHandler={onMarkFullHandler}
               />
             </Box>
           </Card>
