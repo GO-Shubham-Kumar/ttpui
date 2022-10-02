@@ -20,7 +20,7 @@ const PlaceEntity = ({ headerMsg,
     qty, 
     totalEntities, 
     prdtinfo, 
-    actualqty, 
+    actualQty, 
     seatMode,
     handleCancelScan,
     productDetails,
@@ -29,8 +29,6 @@ const PlaceEntity = ({ headerMsg,
     onChangeQuantityHandler,
     allowedKqDirection
   }) => {
-  
-    console.log('qty--', typeof qty, qty)
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
@@ -51,7 +49,7 @@ const PlaceEntity = ({ headerMsg,
         <Grid item xs={12} xl={6} md={6} sm={12} p={3} pb={0}>
           <Card title="Tote" p={0} mt={0} height={'42em'}>
             <Box  className="totequantity" sx={{ p: 5, pt:10, pb:0, textAlign: "center" }}>
-              <Typography variant="h1">{actualqty}</Typography>
+              <Typography variant="h1">{actualQty}</Typography>
               <img alt="pallet" src={Arrow} />
             </Box>
             <Box sx={{ m:10, mt:0,mb:'19.4em',textAlign: "center" }}>

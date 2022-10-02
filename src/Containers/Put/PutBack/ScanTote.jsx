@@ -14,7 +14,7 @@ function ScanToteContainer({currentDetails, ...props}) {
     });
     const { success, error, isFetching } = useSelector( state => state.serverEvents )
     const dispatch = useDispatch()
-    const subHeader = "Tote Should Be Empty";
+    const subHeader = "Tote should be empty";
     const modalLabels = [
         "The pallet is not empty yet. Please make sure all the entity(ies) are put away before closing the pallet.",
         "By confirming system will mark remaining entity(ies) as missing.",

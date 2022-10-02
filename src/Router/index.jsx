@@ -14,7 +14,7 @@ import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
 import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { triggerEventAction } from '../redux/actions/eventActions';
-import { capitalizeFirstLetter } from '../utils/helpers/commonHelpers';
+import { capitalizeFirstLetter, manupulateServerMessges } from '../utils/helpers/commonHelpers';
 
 function App() {
   
@@ -77,7 +77,12 @@ function App() {
       setSeatName(seat_name)
       setLogoutAllowed(logout_allowed||true)
       setScanAllowed(scan_allowed || true)
-      if(notification_list.length > 0)dispatch(triggerNotificationction(notification_list[0]))
+      if(notification_list.length > 0){
+        const { msgData, msgObj } = manupulateServerMessges(notification_list);
+        let notification = { ...msgData, ...msgObj }
+        notification['description'] = notification['value']
+        dispatch(triggerNotificationction(notification))
+      }
     }
   },[stateData, stateSuccess])
 

@@ -2,7 +2,8 @@ import { AppBar, Container, Footer, NotificationBar } from "operational-componen
 
 import React from "react";
 import { NOTIFICATION_TYPE_ERROR } from "../../utils/constants";
-import logo from "./../../assets/images/GO_Orange_Black_Horizontal.svg";
+import { fetchClientLogo } from "../../utils/helpers/commonHelpers";
+// import logo from "./../../assets/images/GO_Orange_Black_Horizontal.svg";
 
 const Layout = ({ 
     isLoggedIn, 
@@ -34,6 +35,7 @@ const Layout = ({
     }
   ]
 
+  const logo = fetchClientLogo();
   const handleMenuClick = (e, key) => {
     console.log('key', key)
     if(key===2) handleLogout()
