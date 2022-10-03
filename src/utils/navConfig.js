@@ -154,5 +154,97 @@ export const SCREEN_NAVGATIONS = {
                 "active" : true
             }
         ],
-    }
+    },
+    pick: {
+        [PICK_FRONT_DOCK_TOTE]: [
+          {
+            code: "Common.000",
+            active: true,
+            description: "Scan a tote",
+            label: "Dock Tote",
+            step: 1,
+            showImage: false,
+          },
+          {
+            code: "Common.000",
+            showImage: false,
+            active: false,
+            description: "Place Entity into the Tote and scan 11 more",
+            label: "Scan Entity and confirm",
+            step: 2,
+          },
+        ],
+        [PICK_FRONT_TTP_ITEM_SCAN]: [
+          {
+            code: "Common.000",
+            active: false,
+            showImage: false,
+            description: "Scan a Packing box",
+            label: "Dock Packing Box",
+            step: 1,
+          },
+          {
+            code: "Common.000",
+            active: true,
+            showImage: false,
+            description: "Scan Entities fron tote and place in Bin",
+            label: "Scan Entity and confirm",
+            step: 2,
+          },
+        ],
+        [PICK_FRONT_MORE_ITEM_SCAN]: [
+          {
+            code: "Common.000",
+            active: false,
+            showImage: false,
+            description: "Waiting for nventory tote",
+            label: "Dock Tote",
+            step: 1,
+          },
+          {
+            code: "Common.000",
+            active: true,
+            showImage: false,
+            description: "Place Entity in bin and scan more",
+            label: "Scan Entity and confirm",
+            step: 2,
+          },
+        ],
+        [PICK_FRONT_PPTL_PRESS]: [
+          {
+            code: "Common.000",
+            active: false,
+            showImage: false,
+            description: "Waiting for inventory tote",
+            label: "Dock Tote",
+            step: 1,
+          },
+          {
+            code: "Common.000",
+            active: true,
+            showImage: false,
+            description: "Press PPTL to confirm",
+            label: "Scan Entity and confirm",
+            step: 2,
+          },
+        ],
+        [PICK_FRONT_UNDOCK_TOTE]: [
+          {
+            code: "Common.000",
+            active: false,
+            showImage: false,
+            description: "Scan a Packing box",
+            label: "Dock Packing Box",
+            step: 1,
+          },
+          {
+            code: "Common.000",
+            active: true,
+            showImage: false,
+            description: "Scan Entities fron tote and place in Bin",
+            label: "Scan Entity and confirm",
+            step: 2,
+          },
+        ],
+      },
 }
