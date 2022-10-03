@@ -1,6 +1,6 @@
 import {
   BinDetails,
-  BinMapDetails,
+  CurrentlyActiveConveyer,
   Button,
   Card,
   StepperHeader,
@@ -32,7 +32,7 @@ function ScanPackingBox({ header, boxtype,legends,seatMode }) {
           pb={0}
           className="grid-seperator"
         >
-          <BinMapDetails
+          <CurrentlyActiveConveyer
             title="Scan Active"
             details={{
               "IC Slot": "IC Slot",

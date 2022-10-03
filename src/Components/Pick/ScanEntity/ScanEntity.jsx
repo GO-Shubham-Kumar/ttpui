@@ -6,6 +6,7 @@ import {
   StepperHeader,
   Legend,
   CarouselComp,
+  CurrentlyActiveConveyer
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
@@ -40,7 +41,7 @@ function ScanEntityPick({
           pb={0}
           className="grid-seperator"
         >
-          <BinMapDetails
+          <CurrentlyActiveConveyer
             title="Scan Active"
             details={currentDetails}
           />

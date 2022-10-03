@@ -1,10 +1,10 @@
 import {
     BinDetails,
-    BinMapDetails,
     Button,
     Card,
     StepperHeader,
     Legend,
+    CurrentlyActiveConveyer
   } from "operational-component-lib";
   import { Box, Grid } from "@mui/material";
   import React from "react";
@@ -42,7 +42,7 @@ import {
             pb={0}
             className="grid-seperator"
           >
-            <BinMapDetails
+            <CurrentlyActiveConveyer
               title="Scan Active"
               details={{
                 "IC Slot": "IC Slot",

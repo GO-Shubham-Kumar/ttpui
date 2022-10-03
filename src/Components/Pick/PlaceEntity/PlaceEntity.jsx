@@ -7,6 +7,7 @@ import {
   Legend,
   CarouselComp,
   KQ,
+  CurrentlyActiveConveyer
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
@@ -46,7 +47,7 @@ function PlaceEntityPick({
           pb={0}
           className="grid-seperator"
         >
-          <BinMapDetails
+          <CurrentlyActiveConveyer
             title="Scan Active"
             details={currentDetails}
           />
