@@ -1,6 +1,5 @@
 import {
   BinDetails,
-  BinMapDetails,
   Button,
   Card,
   StepperHeader,
