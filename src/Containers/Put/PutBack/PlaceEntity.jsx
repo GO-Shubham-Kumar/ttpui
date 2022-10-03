@@ -22,9 +22,9 @@ const PlaceEntityContainer = ({...props}) => {
         let productInfo = {}
         let productimage = []
         const { state_data } = mainData;
-        const { product_info, scan_details, rack_details : { rack_type_rec } } = state_data;
-        if(rack_type_rec && rack_type_rec[0]){
-          setSkuQty(rack_type_rec[0]['put_qty'])
+        const { product_info, scan_details, rack_details } = state_data;
+        if(rack_details && rack_details.rack_type_rec && rack_details.rack_type_rec[0]){
+          setSkuQty(rack_details.rack_type_rec[0]['put_qty'])
         }
       
         productInfo = fetchDetailsFromData(product_info || [])
