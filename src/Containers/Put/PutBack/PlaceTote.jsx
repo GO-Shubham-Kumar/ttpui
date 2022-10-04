@@ -18,7 +18,7 @@ function PlaceToteContainer({...props}) {
         source : APP_SOURCE
     }
     console.log('eventData', eventData);
-    // dispatch(triggerEventAction(eventData))
+    dispatch(triggerEventAction(eventData))
     }
     return (
         <>
