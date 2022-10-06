@@ -1,9 +1,9 @@
-import ScanEntityPick from "../../../Components/Pick/ScanEntity/ScanEntity";
+import PickFrontTtpItemScan from "../../../Components/Pick/ScanEntity/PickFront.TtpItemScan.UndockTote";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-function ScanEntityPickContainer({...props }) {
+function PickFrontTtpItemScanContainer({...props }) {
   const [showModal, setShowModal] = useState(false);
   const { data } = useSelector((state) => state.mainStateReducer);
   const dispatch = useDispatch();
@@ -40,8 +40,8 @@ function ScanEntityPickContainer({...props }) {
 
 
   return (
-    <ScanEntityPick productDetails={prdtdetails} {...props}  prdtinfo={prdtinfo} legends={legends}/>
+    <PickFrontTtpItemScan productDetails={prdtdetails} {...props}  prdtinfo={prdtinfo} legends={legends}/>
   );
 }
 
-export default ScanEntityPickContainer;
+export default PickFrontTtpItemScanContainer;

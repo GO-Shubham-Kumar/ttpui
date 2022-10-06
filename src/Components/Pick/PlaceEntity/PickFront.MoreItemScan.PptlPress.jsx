@@ -1,35 +1,40 @@
 import {
   BinDetails,
-  BinMapDetails,
   Button,
   Card,
   StepperHeader,
   Legend,
   CarouselComp,
+  KQ,
   CurrentlyActiveConveyer
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 
-function ScanEntityPick({
+function PickFrontMoreItemScan({
   headerMsg,
+  legends,
+  seatMode,
+  prdtinfo,
+  productDetails,
+  qty,
+  totalEntities,
+  allowedKqDirection,
+  onChangeQuantityHandler,
   previousDetails,
   currentDetails,
   subHeader,
-  seatMode,
-  legends,
-  prdtinfo,
-  productDetails,
+  onExceptionClickHandler,
+  onMarkFullHandler,
+  onCancelScanHandler,
+  onToteFullHandler,
   ...props
 }) {
-  const exceptionhandler = () => {
-    alert("Exception Screen");
-  };
 
-  console.log(props)
+
   return (
     <>
-      <StepperHeader stepperObj={headerMsg} />
+      <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -63,6 +68,21 @@ function ScanEntityPick({
             <Box height={"36em"}></Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
+            <Box>
+              <Button
+                size="large"
+                label="Cancel Scan"
+                variant="outlined"
+                onClickHandler={onCancelScanHandler}
+                sx={{ mr: 2 }}
+              />
+              <Button
+                size="large"
+                label="Tote Full"
+                type="neutral"
+                onClickHandler={onToteFullHandler}
+              />
+            </Box>
           </Card>
         </Grid>
 
@@ -83,19 +103,42 @@ function ScanEntityPick({
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"37em"}>
+            <Box height={"22em"}>
               <CarouselComp
                 prdtinfo={prdtinfo}
                 productDetails={productDetails}
               />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ m: 0, p: 0 }}>
+            <Box sx={{ mb: "5em" }} className="kq">
+              <p>Key in quantity</p>
+              <KQ
+                quantity={qty}
+                label={"Scan Entity"}
+                totalQuantities={totalEntities}
+                onQuantityChangeHandler={onChangeQuantityHandler}
+                operationalMode={allowedKqDirection}
+              />
+            </Box>
+            <div className="seprator"></div>
+            <Box
+              sx={{
+                m: 0,
+                p: 0,
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
               <Button
-                size="large"
+                size="medium"
                 type="neutral"
                 label="Exception"
-                onClickHandler={exceptionhandler}
+                onClickHandler={onExceptionClickHandler}
+              />
+              <Button
+                size="medium"
+                label="Mark Full"
+                onClickHandler={onMarkFullHandler}
               />
             </Box>
           </Card>
@@ -105,4 +148,4 @@ function ScanEntityPick({
   );
 }
 
-export default ScanEntityPick;
+export default PickFrontMoreItemScan;

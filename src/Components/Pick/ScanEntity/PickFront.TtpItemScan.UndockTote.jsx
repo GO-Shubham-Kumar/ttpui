@@ -1,40 +1,36 @@
 import {
   BinDetails,
+  BinMapDetails,
   Button,
   Card,
   StepperHeader,
   Legend,
   CarouselComp,
-  KQ,
   CurrentlyActiveConveyer
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
 
-function PlaceEntityPick({
+
+function PickFrontTtpItemScan ({
   headerMsg,
-  legends,
-  seatMode,
-  prdtinfo,
-  productDetails,
-  qty,
-  totalEntities,
-  allowedKqDirection,
-  onChangeQuantityHandler,
   previousDetails,
   currentDetails,
   subHeader,
-  onExceptionClickHandler,
-  onMarkFullHandler,
-  onCancelScanHandler,
-  onToteFullHandler,
+  seatMode,
+  legends,
+  prdtinfo,
+  productDetails,
   ...props
 }) {
+  const exceptionhandler = () => {
+    alert("Exception Screen");
+  };
 
-
+  console.log(props)
   return (
     <>
-      <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
+      <StepperHeader stepperObj={headerMsg} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -68,21 +64,6 @@ function PlaceEntityPick({
             <Box height={"36em"}></Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
-            <Box>
-              <Button
-                size="large"
-                label="Cancel Scan"
-                variant="outlined"
-                onClickHandler={onCancelScanHandler}
-                sx={{ mr: 2 }}
-              />
-              <Button
-                size="large"
-                label="Tote Full"
-                type="neutral"
-                onClickHandler={onToteFullHandler}
-              />
-            </Box>
           </Card>
         </Grid>
 
@@ -103,42 +84,19 @@ function PlaceEntityPick({
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"22em"}>
+            <Box height={"37em"}>
               <CarouselComp
                 prdtinfo={prdtinfo}
                 productDetails={productDetails}
               />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ mb: "5em" }} className="kq">
-              <p>Key in quantity</p>
-              <KQ
-                quantity={qty}
-                label={"Scan Entity"}
-                totalQuantities={totalEntities}
-                onQuantityChangeHandler={onChangeQuantityHandler}
-                operationalMode={allowedKqDirection}
-              />
-            </Box>
-            <div className="seprator"></div>
-            <Box
-              sx={{
-                m: 0,
-                p: 0,
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
+            <Box sx={{ m: 0, p: 0 }}>
               <Button
-                size="medium"
+                size="large"
                 type="neutral"
                 label="Exception"
-                onClickHandler={onExceptionClickHandler}
-              />
-              <Button
-                size="medium"
-                label="Mark Full"
-                onClickHandler={onMarkFullHandler}
+                onClickHandler={exceptionhandler}
               />
             </Box>
           </Card>
@@ -148,4 +106,4 @@ function PlaceEntityPick({
   );
 }
 
-export default PlaceEntityPick;
+export default PickFrontTtpItemScan;

@@ -6,11 +6,11 @@ import ScanToteContainer from '../Containers/Put/PutBack/ScanTote';
 import ScanEntityContainer from '../Containers/Put/PutBack/ScanEntity';
 import PlaceEntityContainer from '../Containers/Put/PutBack/PlaceEntity';
 import ScanPalletContainer from '../Containers/Put/PutBack/ScanPallet';
-import ScanPickToteContainer from "../Containers/Pick/PickFront/ScanTote";
+import PickFrontDockToteContainer from "../Containers/Pick/PickFront/PickFront.DockTote";
 import PlaceBinContainer from "../Containers/Pick/PickFront/PlaceBin"
 import ScanPackingBoxContainer from "../Containers/Pick/PickFront/ScanPackingbox";
-import ScanEntityPickContainer from "./../Containers/Pick/PickFront/ScanEntity";
-import PlaceEntityPickContainer from "./../Containers/Pick/PickFront/PlaceEntity"
+import PickFrontTtpItemScanContainer from "./../Containers/Pick/PickFront/PickFront.TtpItemScan.UndockTote";
+import PickFrontMoreItemScanContainer from "./../Containers/Pick/PickFront/PickFront.MoreItemScan.PptlPress"
 import PickFrontContainer from '../Containers/Pick/PickFront.jsx';
 
 const Routes = () => {
@@ -63,7 +63,7 @@ const Routes = () => {
         },
         {
             path : "/scan-tote-pick",
-            comp : ScanPickToteContainer,
+            comp : PickFrontDockToteContainer,
             authRoute : true,
             exact : true
         },
@@ -81,13 +81,13 @@ const Routes = () => {
         },
         {
             path : "/scan-entity-pick",
-            comp : ScanEntityPickContainer,
+            comp : PickFrontTtpItemScanContainer,
             authRoute : true,
             exact : true
         },
         {
             path : "/place-entity-pick",
-            comp : PlaceEntityPickContainer,
+            comp : PickFrontMoreItemScanContainer,
             authRoute : true,
             exact : true
         }

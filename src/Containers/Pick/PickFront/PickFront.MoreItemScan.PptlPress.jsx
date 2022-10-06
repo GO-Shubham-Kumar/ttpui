@@ -1,9 +1,9 @@
-import PlaceEntityPick from "../../../Components/Pick/PlaceEntity/PlaceEntity";
+import PickFrontMoreItemScan from "../../../Components/Pick/PlaceEntity/PickFront.MoreItemScan.PptlPress";
 import { Modal, Typography, Table } from "operational-component-lib";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-function PlaceEntityPickContainer({ ...props }) {
+function PickFrontMoreItemScanContainer({ ...props }) {
   const [showModal, setShowModal] = useState(false);
   const { data } = useSelector((state) => state.mainStateReducer);
   const dispatch = useDispatch();
@@ -62,7 +62,7 @@ function PlaceEntityPickContainer({ ...props }) {
 
 
   return (
-    <PlaceEntityPick
+    <PickFrontMoreItemScan
       legends={legends}
       productDetails={prdtdetails}
       prdtinfo={prdtinfo}
@@ -79,4 +79,4 @@ function PlaceEntityPickContainer({ ...props }) {
   );
 }
 
-export default PlaceEntityPickContainer;
+export default PickFrontMoreItemScanContainer;

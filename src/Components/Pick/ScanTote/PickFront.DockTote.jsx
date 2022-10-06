@@ -9,7 +9,7 @@ import {
 import { Box, Grid } from "@mui/material";
 import React from "react";
 
-function ScanTote({
+function PickFrontDockTote({
   headerMsg,
   previousDetails,
   currentDetails,
@@ -78,4 +78,4 @@ function ScanTote({
   );
 }
 
-export default ScanTote;
+export default PickFrontDockTote;
