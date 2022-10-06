@@ -153,11 +153,22 @@ export const fetchClientLogo = () => {
 
 // }
 
-
+//get seat number from seat name 
 export const getSeatNumber = (seatName) => {
     let seat_name = seatName || '';
     console.log('seat_name', seat_name)
     seat_name = seat_name ? seat_name.split("_")[1] : seat_name
     seatName = seat_name.length === 1 ? `0${seat_name}` : seat_name
     return seatName
+}
+
+export const setIdleLogoutEvent = (intervalRef) => {
+    if(intervalRef) return clearInterval(intervalRef);
+    const idleLogout  = setTimeout(()=>{
+    },3000)
+    return idleLogout;
+}
+
+export const clearTimeoutEvent = (intervalRef) => {
+    if(intervalRef.current) return clearInterval(intervalRef.current);
 }

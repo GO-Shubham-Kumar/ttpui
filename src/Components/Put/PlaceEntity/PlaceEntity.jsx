@@ -52,7 +52,7 @@ const PlaceEntity = ({ headerMsg,
               <Typography variant="h1">{actualQty}</Typography>
               <img alt="pallet" src={Arrow} />
             </Box>
-            <Box sx={{ m:10, mt:0,mb:'19.4em',textAlign: "center" }}>
+            <Box sx={{ m:10, mt:0,mb:'18.5em',textAlign: "center" }}>
               <img alt="tote image" src={ToteImg} style={{  marginTop:0 }} />
             </Box>
             <div className="seprator"></div>
@@ -63,12 +63,12 @@ const PlaceEntity = ({ headerMsg,
         </Grid>
 
         <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator" >
-          <Card  p={0} m={0} title="Item Details"  height={'42.5em'} bodySeperator={false} >
-            <Box sx={{mb:'2.8em', minHeight : '20em'}}>
+          <Card  p={0} m={0} title="Item Details"  height={'42em'} bodySeperator={false} >
+            <Box sx={{mb:'2.8em', minHeight : '18em'}}>
               <CarouselComp prdtImages={productImages} productDetails={productDetails} />
             </Box>
             <div className="seprator"></div>
-            <Box sx={{ mb:'5em' }} className="kq">
+            <Box sx={{ mb:'4.4em' }} className="kq">
               <p>Key in quantity</p>
               <KQ 
                 quantity={qty} 

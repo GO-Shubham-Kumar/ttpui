@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import routesData from './routes';
 import AuthRoutes from './AuthRoutes';
 import UnAuthRoutes from './UnAuthRoutes';
@@ -14,7 +14,7 @@ import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
 import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
 import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { triggerEventAction } from '../redux/actions/eventActions';
-import { capitalizeFirstLetter, manupulateServerMessges } from '../utils/helpers/commonHelpers';
+import { capitalizeFirstLetter, clearTimeoutEvent, manupulateServerMessges, setIdleLogoutEvent } from '../utils/helpers/commonHelpers';
 
 function App() {
   
@@ -25,7 +25,7 @@ function App() {
   const [seatname, setSeatName] = useState('')
   const [ logoutAllowed, setLogoutAllowed ] = useState(true);
   const [ scanAllowed, setScanAllowed ] = useState(true);
-
+  const idleLogoutRef = useRef();
   const loginData = useSelector( state => {
     console.log('--states in index', state)
     return state.authReducer
@@ -83,16 +83,9 @@ function App() {
         notification['description'] = notification['value']
         dispatch(triggerNotificationction(notification))
       }
+      handleIdleTimeoutEvents()
     }
   },[stateData, stateSuccess])
-
-  // useEffect(()=>{
-  //   if(!isLoggedIn && !isFetching ){
-  //     const { success, err, data } = loginData;
-  //     console.log('loginData', loginData);
-  //     if(success && !err)dispatch(triggerNotificationction(data))
-  //   }
-  // },[isLoggedIn, isFetching])
 
   useEffect(()=>{
    if(NotificationSuccess)setNotification(true)
@@ -113,6 +106,26 @@ function App() {
 
   const handleLogout = () => {
     dispatch(logOutAction())
+  }
+
+  useEffect(()=>{
+    if(!err && !isFetching && loginSuccess){
+      window.addEventListener('onkeydown', handleIdleTimeoutEvents);
+      handleIdleTimeoutEvents()
+    }
+    return () => {
+      idleLogoutRef.current && clearTimeoutEvent(idleLogoutRef)
+    }
+  },[ loginSuccess, isFetching ]);
+
+  const handleIdleTimeoutEvents = () => {
+    const { REACT_APP_IDLE_LOGOUT_TIME } = process.env;
+    console.log('events called')
+      clearTimeoutEvent(idleLogoutRef)
+      idleLogoutRef.current = setTimeout(
+        ()=>{
+          dispatch(logOutAction())
+        },REACT_APP_IDLE_LOGOUT_TIME)
   }
 
   const renderRoutes = () => {
