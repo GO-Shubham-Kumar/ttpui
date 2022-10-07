@@ -1,7 +1,7 @@
 import { DEFAULT_LANGUAGE } from "../constants"
-import { wrappedFetch } from "../fetchFuncs"
 import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
+import { wrappedFetch } from "../fetchFuncs"
 
 export const getMsgObject = (data) => {
     return data ? data[0] : {}

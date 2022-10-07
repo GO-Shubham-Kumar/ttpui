@@ -1,4 +1,4 @@
-import { UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "./screenIds";
+import { PICK_FRONT_UNDOCK_TOTE, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "./screenIds";
 
 export const AUTHORIZATION_HEADER = 'Authentication-Token';
 export const AUTH_TOKEN_REQUEST = 'Authorization';
@@ -23,7 +23,7 @@ export const EVENT_TYPE_PROCESS_BARCODE = 'process_barcode';
 export const APP_SOURCE = 'ui';
 export const SEATS = 'seats';
 export const CALLBACK = 'callback';
-export const VALID_SCREEN_ID=[UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION]
+export const VALID_SCREEN_ID=[UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION, PICK_FRONT_UNDOCK_TOTE]
 export const EVENT_TYPE_CANCEL_SCAN = 'cancel_barcode_scan';
 export const DEFAULT_LANGUAGE = 'en-US'
 export const EVENT_TYPE_SEND_TOTE = 'send_tote';
@@ -34,3 +34,12 @@ export const WEBSOCKET_ERROR = 'Not able to connect to the WebSockets!, please t
 export const NOTIFICATION_TYPE_INFO= 'info';
 export const INTIAL_FETCH_ERROR ="Not able to fetch Initial configs , please try again !"
 export const EVENT_CLOSE_PALLET_MODAL ="confirm_close_tote"
+export const TOTE = 'Tote'
+export const BIN = 'Bin'
+export const CONVEYOR_TYPE_ORDER_TOTE = 'order_tote';
+export const CONVEYOR_TYPE_INVENTORY_TOTE = 'inventory_tote';
+export const CONVEYOR_TYPE_PACKING_BOX = 'packing_box';
+export const COLORS = {
+    'green' : '#72B778',
+    'blue': '#0390FF'
+}

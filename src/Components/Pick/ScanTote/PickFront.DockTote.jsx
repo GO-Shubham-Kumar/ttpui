@@ -3,11 +3,16 @@ import {
   BinMapDetails,
   Button,
   Card,
-  StepperHeader,
+  Conveyor,
   Legend,
+  StepperHeader
 } from "operational-component-lib";
 import { Box, Grid } from "@mui/material";
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from "../../../utils/constants";
+
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function PickFrontDockTote({
   headerMsg,
@@ -18,9 +23,14 @@ function PickFrontDockTote({
   legends,
   cancelButtonEnable,
   cancelScanHandler,
+  conveyorToteData,
+  conveyorBinData,
+  conveyorIdle,
+  conveyorDisabled,
   ...props
 }) {
 
+ console.log('conveyorIdle', conveyorIdle)
 
   return (
     <>
@@ -36,10 +46,7 @@ function PickFrontDockTote({
           pb={0}
           className="grid-seperator"
         >
-          <BinMapDetails
-            title="Scan Active"
-            details={currentDetails}
-          />
+          <BinMapDetails title="Scan Active" details={currentDetails} />
           <BinDetails
             details={currentDetails}
             title={`Previous ${seatMode}`}
@@ -64,13 +71,22 @@ function PickFrontDockTote({
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"36em"}></Box>
+            <Box height={"36em"}>
+              <Conveyor conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE} conveyorDisabled={conveyorDisabled} conveyorIdle={conveyorIdle} conveyorData={conveyorToteData}/>
+              <Conveyor conveyorType={CONVEYOR_TYPE_ORDER_TOTE} conveyorDisabled={false} conveyorIdle={true} conveyorData={conveyorBinData}/>
+            </Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
-            {cancelButtonEnable?
-             <Box sx={{ m: 0, p:0 }}>
-                <Button size="large"  variant="outlined" label="Cancel Scan" onClickHandler={cancelScanHandler}  />
-            </Box> : null}
+            {cancelButtonEnable ? (
+              <Box sx={{ m: 0, p: 0 }}>
+                <Button
+                  size="large"
+                  variant="outlined"
+                  label="Cancel Scan"
+                  onClickHandler={cancelScanHandler}
+                />
+              </Box>
+            ) : null}
           </Card>
         </Grid>
       </Grid>
