@@ -4,6 +4,7 @@ import { TRIGGER_EVENTS_SUCCESS,
 } from './actionTypes';
 import { SERVER_ERROR_TEXT } from '../../utils/constants';
 import { triggerEvent } from '../../utils/helpers/eventsHelpers';
+import { verifyLoginAction } from './authActions';
 
 
 export let handleEventSuccess = (data) => {
@@ -41,6 +42,7 @@ export const triggerEventAction = (data, seatName) => {
     return async (dispatch) => {
         try{
             dispatch(handleEventRequest());
+            dispatch(verifyLoginAction())
             const res = await triggerEvent(data, seatName);
             console.log('trigger response', res);
             return dispatch(handleEventSuccess(res.data))
