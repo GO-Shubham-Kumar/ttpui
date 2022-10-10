@@ -1,20 +1,22 @@
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useRef, useState } from 'react';
-import routesData from './routes';
-import AuthRoutes from './AuthRoutes';
-import UnAuthRoutes from './UnAuthRoutes';
-import Login from './../Containers/Login/Login';
-import Layout from './../Containers/Layout/Layout';
-import AuthLayout from './../Containers/Layout/AuthLayout';
-import './../App.css'; 
+import './../App.css';
+
 import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, INTIAL_FETCH_ERROR, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
-import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
-import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
-import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
-import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
-import { triggerEventAction } from '../redux/actions/eventActions';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import { capitalizeFirstLetter, clearTimeoutEvent, manupulateServerMessges, setIdleLogoutEvent } from '../utils/helpers/commonHelpers';
+import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
+import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
+import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
+import { useDispatch, useSelector } from 'react-redux';
+
+import AuthLayout from './../Containers/Layout/AuthLayout';
+import AuthRoutes from './AuthRoutes';
+import Layout from './../Containers/Layout/Layout';
+import Login from './../Containers/Login/Login';
+import UnAuthRoutes from './UnAuthRoutes';
+import { retreiveSessionData } from '../utils/helpers/sessionHelpers';
+import routesData from './routes';
+import { triggerEventAction } from '../redux/actions/eventActions';
 
 function App() {
   
