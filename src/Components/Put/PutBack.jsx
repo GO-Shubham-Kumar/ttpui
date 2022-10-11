@@ -1,17 +1,17 @@
+import { SCREEN_ID_MAPPING, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "../../utils/screenIds";
+import { capitalizeFirstLetter, fetchDetailsFromData, getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
 import { useEffect, useState } from "react";
+
+import InvalidScreen from "../Common/InvalidScreen";
+import Loader from "../Common/Loader";
+import PlaceEntityContainer from "../../Containers/Put/PutBack/PlaceEntity";
+import PlaceToteContainer from "../../Containers/Put/PutBack/PlaceTote";
+import ScanEntityContainer from "../../Containers/Put/PutBack/ScanEntity";
 import ScanPalletContainer from "../../Containers/Put/PutBack/ScanPallet";
 import ScanToteContainer from "../../Containers/Put/PutBack/ScanTote";
-import ScanEntityContainer from "../../Containers/Put/PutBack/ScanEntity";
-import PlaceToteContainer from "../../Containers/Put/PutBack/PlaceTote";
-import { capitalizeFirstLetter, fetchDetailsFromData, getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
-import { SCREEN_ID_MAPPING, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR } from "../../utils/screenIds";
-import Loader from "../Common/Loader";
 import { VALID_SCREEN_ID } from "../../utils/constants";
-import InvalidScreen from "../Common/InvalidScreen";
-import PlaceEntityContainer from "../../Containers/Put/PutBack/PlaceEntity";
 
 const PutBack  =({ data, isFetching, success, error }) => {
-    console.log('-state data', isFetching, success, error, data);
     let headerMessage = '';
     const [ headerMsg, setHeaderMsg ] = useState('');
     const [ screenId, setScreenId ] = useState('');
@@ -31,7 +31,6 @@ const PutBack  =({ data, isFetching, success, error }) => {
             setScreenId(screen_id);
             setSeatMode(capitalizeFirstLetter(mode));
             const previousDetailsData = fetchDetailsFromData(previous_put_details);
-            console.log('msgObj -- tote', header_msge_list)
             const currentDetailsData = getCurrentDetailsData(current_put_details);
             let msgObj = ''
             msgObj = getNavConfig(header_msge_list, mode, screen_id)
