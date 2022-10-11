@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
+import { fetchInitialConfigs, fetchInitialConfigsAction } from "../redux/actions/initialActions";
 import { useDispatch, useSelector } from "react-redux";
+
+import { VALID_URLS } from "../utils/constants";
 import { useLocation } from "react-router-dom";
 import { verifyLoginAction } from "../redux/actions/authActions";
-import { fetchInitialConfigs, fetchInitialConfigsAction } from "../redux/actions/initialActions";
-import { VALID_URLS } from "../utils/constants";
 
 const appWrapper = (App) =>{
 
@@ -12,7 +13,6 @@ const appWrapper = (App) =>{
   const configs = useSelector( state => state.initialConfigsReducers );
   const { isLoggedIn } = loginData;
   const { pathname } = useLocation();
-  console.log('pathname',pathname, pathname.indexOf(VALID_URLS));
   let validRoute = true;
   if(VALID_URLS.indexOf(pathname) < 0) validRoute = false;
 

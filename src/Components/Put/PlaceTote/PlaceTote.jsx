@@ -1,5 +1,6 @@
 import { BinDetails, BinMapDetails, Button, Card, StepperHeader } from 'operational-component-lib';
 import { Box, Grid } from '@mui/material';
+
 import React from 'react';
 import ToteImg from './../../../assets/images/tote.svg';
 
@@ -12,7 +13,6 @@ function ScanTote({ headerMsg,
         handleSendTote,
         ...props 
     }) {
-    console.log('headerMsg', headerMsg)
 
     return (
         <>

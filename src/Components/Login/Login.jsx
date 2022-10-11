@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { NOTIFICATION_TYPE_ERROR, NOTIFICATION_TYPE_INFO, SEAT_NAME } from "../../utils/constants";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Grid } from "@mui/material";
 import { LoginForm } from "operational-component-lib";
-import { NOTIFICATION_TYPE_ERROR, NOTIFICATION_TYPE_INFO, SEAT_NAME } from "../../utils/constants";
 import WelcomeDetails from "./WelcomeDetails";
+import { capitalizeFirstLetter } from "../../utils/helpers/commonHelpers";
 import { fetchSeatModeAction } from "../../redux/actions/initialActions";
 import { retreiveSessionData } from "../../utils/helpers/sessionHelpers";
-import videoSrc from "../../assets/images/videoHome.m4v";
 import { triggerNotificationction } from "../../redux/actions/notifications";
-import { capitalizeFirstLetter } from "../../utils/helpers/commonHelpers";
+import videoSrc from "../../assets/images/videoHome.m4v";
 
 const Login = ({ login }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Login = ({ login }) => {
 
   const { pps_seats, mode, success, configs } = useSelector(state => state.initialConfigs )
   const { success : authSuccess, isFetching : authIsFetching, message : authMessage, err : authError, data, isValidationError } = useSelector(state => state.authReducer )
-
+  const keyboardReference = useRef()
   useEffect(() => {
     let listForDropdown = [];
     if (pps_seats.length > 0) {
@@ -71,12 +71,11 @@ const Login = ({ login }) => {
 
 
 const onChangeHandler = (e) => {
-  console.log('changehandler')
   const {
     target: { name, value },
   } = e;
-    if (name === "username") setUsername(value);
-    if (name === "password") setPassword(value);
+    if (name === "username") {setUsername(value); keyboardReference.current.setInput(value)}
+    if (name === "password") {setPassword(value); keyboardReference.current.setInput(value)}
     if (name === "pps_seats") {
         setSeatName(value);
         dispatch(fetchSeatModeAction(value, configs, pps_seats));
@@ -104,6 +103,7 @@ const onChangeHandler = (e) => {
           selectedPpsNum={ppsNumber}
           isError={isLoginError}
           errorTexts={errorText}
+          keyboardReference={keyboardReference}
         />
       </Grid>
       {!showKeyboard && (

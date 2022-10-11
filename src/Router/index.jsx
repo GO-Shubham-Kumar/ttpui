@@ -29,7 +29,6 @@ function App() {
   const [ scanAllowed, setScanAllowed ] = useState(true);
   const idleLogoutRef = useRef();
   const loginData = useSelector( state => {
-    console.log('--states in index', state)
     return state.authReducer
   } );
   const { data : stateData,  error : stateError, success : stateSuccess } = useSelector( state => state.mainStateReducer );
