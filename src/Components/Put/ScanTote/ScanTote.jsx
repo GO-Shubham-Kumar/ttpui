@@ -1,8 +1,8 @@
 import { BinDetails, BinMapDetails, Button, Card, StepperHeader } from 'operational-component-lib';
 import { Box, Grid } from '@mui/material';
-import React from 'react';
 
 import Arrow from './../../../assets/images/arrow.svg';
+import React from 'react';
 import ToteImg from './../../../assets/images/tote.svg';
 
 function ScanTote({ headerMsg, 
@@ -16,7 +16,6 @@ function ScanTote({ headerMsg,
         missingItems,
         ...props 
     }) {
-    console.log('missingItems', missingItems)
 
     return (
         <>

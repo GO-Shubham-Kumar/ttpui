@@ -1,15 +1,16 @@
-import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
-import {Modal, Typography, Table} from 'operational-component-lib';
-import { useEffect, useState } from 'react';
 import { APP_SOURCE, EVENT_CLOSE_PALLET_MODAL, EVENT_TYPE_CANCEL_SCAN } from '../../../utils/constants';
+import {Modal, Table, Typography} from 'operational-component-lib';
 import { useDispatch, useSelector } from 'react-redux';
-import { triggerEventAction } from '../../../redux/actions/eventActions';
+import { useEffect, useState } from 'react';
+
+import ScanTote from '../../../Components/Put/ScanTote/ScanTote';
 import { UD_PUT_FRONT_MISSIN } from '../../../utils/screenIds';
+import { triggerEventAction } from '../../../redux/actions/eventActions';
+
 function ScanToteContainer({currentDetails, ...props}) {
     const [showModal, setShowModal] = useState(false);
     const [missingItems, setMissingItemsList] = useState([]);
     const { data } = useSelector( (state) => {
-        console.log('new redux state',state )
         return state.mainStateReducer
     });
     const { success, error, isFetching } = useSelector( state => state.serverEvents )
@@ -41,9 +42,7 @@ function ScanToteContainer({currentDetails, ...props}) {
 
     const handleCloseTote = () => {
         const {state_data : { tote_id, missing_items } } = data;
-        console.log('tote_id', tote_id);
         let toteId = tote_id;
-        console.log('tote id', currentDetails);
         if(!toteId || toteId === undefined) toteId = currentDetails['TOTE ID']
         const eventData = {
             event_name : EVENT_TYPE_CANCEL_SCAN,
@@ -52,14 +51,12 @@ function ScanToteContainer({currentDetails, ...props}) {
             },
             source : APP_SOURCE
         }
-        console.log('eventData', eventData);
         setMissingItemsList(missing_items)
         dispatch(triggerEventAction(eventData))
     }
 
     const handleCancelException = (close_value) => {
         const {state_data : { tote_id } } = data;
-        console.log('tote_id', tote_id);
         const eventData = {
             event_name : EVENT_CLOSE_PALLET_MODAL,
             event_data : {
@@ -68,7 +65,6 @@ function ScanToteContainer({currentDetails, ...props}) {
             },
             source : APP_SOURCE
         }
-        console.log('eventData', eventData);
         dispatch(triggerEventAction(eventData));
     }
 

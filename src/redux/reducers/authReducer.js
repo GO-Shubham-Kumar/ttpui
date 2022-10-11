@@ -1,5 +1,6 @@
+import { LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_VALIDATION_ERROR, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_VALIDATION_ERROR } from './../actions/actionTypes'
+
 import { createNotificationObject } from '../../utils/helpers/commonHelpers';
-import { LOGIN_SUCCESS, LOGIN_CHECK_FAILURE, LOGIN_ERROR, LOGIN_REQUEST, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_VALIDATION_ERROR, LOGIN_VALIDATION_ERROR } from './../actions/actionTypes'
 const initialState = {
     isLoggedIn : false,
     isFetching : true,
@@ -14,7 +15,6 @@ const initialState = {
   // receiving response sent by action according to type of action
   export default function authReducer(state = initialState, action) {
     const { payload, type } = action
-    console.log(action,'action login');
     switch (type) {
     case LOGIN_SUCCESS:
     return {
