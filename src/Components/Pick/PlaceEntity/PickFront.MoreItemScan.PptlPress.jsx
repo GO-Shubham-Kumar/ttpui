@@ -2,13 +2,16 @@ import {
   BinDetails,
   Button,
   Card,
-  StepperHeader,
-  Legend,
   CarouselComp,
+  Conveyor,
+  CurrentlyActiveConveyer,
   KQ,
-  CurrentlyActiveConveyer
+  Legend,
+  StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from "../../../utils/constants";
+
 import React from "react";
 
 function PickFrontMoreItemScan({
@@ -28,10 +31,13 @@ function PickFrontMoreItemScan({
   onMarkFullHandler,
   onCancelScanHandler,
   onToteFullHandler,
+  conveyorToteData,
+  conveyorBinData,
+  conveyorIdle,
+  conveyorDisabled,
+  title,
   ...props
 }) {
-
-
   return (
     <>
       <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
@@ -61,11 +67,26 @@ function PickFrontMoreItemScan({
           <Card
             p={0}
             m={0}
-            title="Tote"
+            title={title}
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"36em"}></Box>
+            <Box height={"36em"}>
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
+                conveyorDisabled={conveyorDisabled}
+                conveyorIdle={conveyorIdle}
+                conveyorData={conveyorToteData}
+              />
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorDisabled={false}
+                converyorIdle={true}
+                conveyorData={conveyorBinData}
+              />
+            </Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
             <Box>
@@ -99,7 +120,7 @@ function PickFrontMoreItemScan({
           <Card
             p={0}
             m={0}
-            title="Entity Details"
+            title={title}
             height={"42.5em"}
             bodySeperator={false}
           >

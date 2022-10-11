@@ -14,10 +14,8 @@ import {
 } from "../../../utils/constants";
 
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 
-function PickFrontDockTote({
+function WaitingForMSU({
   headerMsg,
   previousDetails,
   currentDetails,
@@ -77,14 +75,12 @@ function PickFrontDockTote({
             <Box height={"36em"}>
               <Conveyor
                 conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
-                splitScreen
                 conveyorDisabled={conveyorDisabled}
                 conveyorIdle={conveyorIdle}
                 conveyorData={conveyorToteData}
               />
               <Conveyor
                 conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
-                splitScreen
                 conveyorDisabled={false}
                 conveyorIdle={true}
                 conveyorData={conveyorBinData}
@@ -109,4 +105,4 @@ function PickFrontDockTote({
   );
 }
 
-export default PickFrontDockTote;
+export default WaitingForMSU;

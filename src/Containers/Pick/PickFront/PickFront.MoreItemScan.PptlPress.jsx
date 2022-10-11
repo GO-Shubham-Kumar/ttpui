@@ -1,7 +1,9 @@
-import PickFrontMoreItemScan from "../../../Components/Pick/PlaceEntity/PickFront.MoreItemScan.PptlPress";
-import { Modal, Typography, Table } from "operational-component-lib";
-import { useState } from "react";
+import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN, EVENT_TYPE_TOTE_FULL } from "../../../utils/constants";
+import { Modal, Table, Typography } from "operational-component-lib";
 import { useDispatch, useSelector } from "react-redux";
+
+import PickFrontMoreItemScan from "../../../Components/Pick/PlaceEntity/PickFront.MoreItemScan.PptlPress";
+import { useState } from "react";
 
 function PickFrontMoreItemScanContainer({ ...props }) {
   const [showModal, setShowModal] = useState(false);
@@ -45,19 +47,54 @@ function PickFrontMoreItemScanContainer({ ...props }) {
   const onChangeQuantityHandler = () => {};
 
   const onExceptionClickHandler = () => {
-    alert("Exception Screen");
+    const {state_data : { rack_id } } = data;
+    const eventData = {
+        event_name : EVENT_TYPE_TOTE_FULL,
+        event_data : {
+          barcode: rack_id
+        },
+        source : APP_SOURCE
+    }
+    console.log('eventData', eventData);
   };
 
   const onMarkFullHandler= () => {
-    alert("marked full");
+    const {state_data : { rack_id } } = data;
+    const eventData = {
+        event_name : EVENT_TYPE_TOTE_FULL,
+        event_data : {
+          barcode: rack_id
+        },
+        source : APP_SOURCE
+    }
+    console.log('eventData', eventData);
   };
 
   const onCancelScanHandler = () => {
-    alert("Scan cancel request sent");
+    const {state_data : { rack_id } } = data;
+    console.log('rack_id', rack_id)
+    const eventData = {
+        event_name : EVENT_TYPE_CANCEL_SCAN,
+        event_data : {
+          barcode: rack_id
+        },
+        source : APP_SOURCE
+    }
+    console.log('eventData', eventData);
+    // dispatch(triggerEventAction(eventData))
   };
 
   const onToteFullHandler = () => {
-    alert("tote marked full");
+    const {state_data : { rack_id } } = data;
+    const eventData = {
+        event_name : EVENT_TYPE_TOTE_FULL,
+        event_data : {
+          barcode: rack_id
+        },
+        source : APP_SOURCE
+    }
+    console.log('eventData', eventData);
+    // dispatch(triggerEventAction(eventData))
   };
 
 

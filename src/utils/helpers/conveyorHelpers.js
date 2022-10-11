@@ -29,7 +29,7 @@ export const mapConveyorBinData = (data, cType) => {
         console.log('bindata', binData)
         labelText = `${cType}-${i+1}`
         if(binData){
-            console.log('bin data ava')
+            console.log('bin data ava', binData)
             labelText = `${cType}-${binData['ppsbin_id']}`
             conveyorData['isLoading'] = binData['is_loading'] && JSON.parse(binData['is_loading']) || false;
             conveyorData['selected'] = binData['selected_state'] && JSON.parse(binData['selected_state']) || false;

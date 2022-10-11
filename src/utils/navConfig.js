@@ -1,17 +1,20 @@
-import _ from "./helpers/transalations";
 import {
+  PICK_FRONT_DOCK_TOTE,
+  PICK_FRONT_MORE_ITEM_SCAN,
+  PICK_FRONT_PPTL_PRESS,
+  PICK_FRONT_TTP_ITEM_SCAN,
+  PICK_FRONT_UNDOCK_TOTE,
+  PICK_FRONT_WAITING_FOR_MSU,
   UD_PUT_FRONT_ENTITY_SCAN,
   UD_PUT_FRONT_MISSIN,
   UD_PUT_FRONT_PLACE_ITEMS_IN_RACK,
   UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR,
   UD_PUT_FRONT_TOTE_SCAN,
   UD_PUT_TOTE_INDUCTION,
-  PICK_FRONT_DOCK_TOTE,
-  PICK_FRONT_TTP_ITEM_SCAN,
-  PICK_FRONT_MORE_ITEM_SCAN,
-  PICK_FRONT_PPTL_PRESS,
-  PICK_FRONT_UNDOCK_TOTE,
 } from "./screenIds";
+
+import _ from "./helpers/transalations";
+
 export const SCREEN_NAVGATIONS = {
   put: {
     [UD_PUT_FRONT_TOTE_SCAN]: [
@@ -188,7 +191,7 @@ export const SCREEN_NAVGATIONS = {
         code: "Common.000",
         active: true,
         showImage: false,
-        description: "Scan Entities fron tote and place in Bin",
+        description: "Scan Entities from tote and place in Bin",
         label: "Scan Entity and confirm",
         step: 2,
       },
@@ -198,7 +201,7 @@ export const SCREEN_NAVGATIONS = {
         code: "Common.000",
         active: false,
         showImage: false,
-        description: "Waiting for nventory tote",
+        description: "Waiting for inventory tote",
         label: "Dock Tote",
         step: 1,
       },
@@ -242,10 +245,28 @@ export const SCREEN_NAVGATIONS = {
         code: "Common.000",
         active: true,
         showImage: false,
-        description: "Scan Entities fron tote and place in Bin",
+        description: "Scan Entities from tote and place in Bin",
         label: "Scan Entity and confirm",
         step: 2,
       },
     ],
+    [PICK_FRONT_WAITING_FOR_MSU] : [
+      {
+        code: "Common.000",
+        active: true,
+        description: "Dock Tote",
+        label: "Dock Tote",
+        step: 1,
+        showImage: false,
+      },
+      {
+        code: "Common.000",
+        showImage: false,
+        active: false,
+        description: "Place Entity into the Tote and scan 11 more",
+        label: "Scan Entity and confirm",
+        step: 2,
+      },
+    ]
   },
 };

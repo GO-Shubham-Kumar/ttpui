@@ -7,33 +7,37 @@ import {
   Conveyor,
   CurrentlyActiveConveyer,
   Legend,
-  StepperHeader
+  StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
-import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from "../../../utils/constants";
+import {
+  CONVEYOR_TYPE_INVENTORY_TOTE,
+  CONVEYOR_TYPE_ORDER_TOTE,
+} from "../../../utils/constants";
 
 import React from "react";
 
-function PickFrontTtpItemScan ({
+function PickFrontTtpItemScan({
   headerMsg,
   previousDetails,
   currentDetails,
   subHeader,
   seatMode,
   legends,
-  prdtinfo,
+  productInfo,
   productDetails,
   conveyorToteData,
   conveyorBinData,
   conveyorIdle,
   conveyorDisabled,
+  title,
+  onExceptionHandler,
   ...props
 }) {
-  const exceptionhandler = () => {
-    alert("Exception Screen");
-  };
 
-  console.log(props)
+
+
+  console.log(props);
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
@@ -63,13 +67,25 @@ function PickFrontTtpItemScan ({
           <Card
             p={0}
             m={0}
-            title="Tote"
+            title={title}
             height={"42.5em"}
             bodySeperator={false}
           >
             <Box height={"36em"}>
-              <Conveyor splitScreen={true} conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE} conveyorDisabled={conveyorDisabled} conveyorIdle={conveyorIdle} conveyorData={conveyorToteData}/>
-              <Conveyor splitScreen={true} conveyorType={CONVEYOR_TYPE_ORDER_TOTE} conveyorDisabled={false} converyorIdle={true} conveyorData={conveyorBinData}/>
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
+                conveyorDisabled={conveyorDisabled}
+                conveyorIdle={conveyorIdle}
+                conveyorData={conveyorToteData}
+              />
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorDisabled={false}
+                converyorIdle={true}
+                conveyorData={conveyorBinData}
+              />
             </Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
@@ -93,9 +109,9 @@ function PickFrontTtpItemScan ({
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"37em"} sx={{p:0}}>
+            <Box height={"37em"} sx={{ p: 0 }}>
               <CarouselComp
-                prdtinfo={prdtinfo}
+                prdtinfo={productInfo}
                 productDetails={productDetails}
               />
             </Box>
@@ -105,7 +121,7 @@ function PickFrontTtpItemScan ({
                 size="large"
                 type="neutral"
                 label="Exception"
-                onClickHandler={exceptionhandler}
+                onClickHandler={onExceptionHandler}
               />
             </Box>
           </Card>

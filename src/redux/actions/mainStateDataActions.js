@@ -5,6 +5,7 @@ import {
   PICK_FRONT_PPTL_PRESS_SCREEN,
   PICK_FRONT_TTP_ITEM_SCAN_SCREEN,
   PICK_FRONT_UNDOCK_TOTE_SCREEN,
+  PICK_FRONT_WAITING_FOR_MSU_SCREEN,
   PLACE_ENTITY_DATA,
   PLACE_TOTE_AND_CONFIRM,
   PUT_TOTE_INDUCTION,
@@ -56,7 +57,7 @@ export const updateStateData = (data) => {
   return (dispatch) => {
     if (data) {
       console.log("state data --", data);
-      const dummyData = PICK_FRONT_DOCK_TOTE_SCREEN;
+      const dummyData = PICK_FRONT_MORE_ITEM_SCAN_SCREEN;
       if (data.state_data)
         return dispatch(handleUpdateStateDataSuccess(dummyData));
     }
