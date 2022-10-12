@@ -1,7 +1,8 @@
-import ScanPackingBox from "../../../Components/Pick/ScanPackingBox/ScanPackingBox";
-import { Modal, Typography, Table } from "operational-component-lib";
-import { useState } from "react";
+import { Modal, Table, Typography } from "operational-component-lib";
 import { useDispatch, useSelector } from "react-redux";
+
+import ScanPackingBox from "../../../Components/Pick/ScanPackingBox/ScanPackingBox";
+import { useState } from "react";
 
 function ScanPackingBoxContainer({ ...props }) {
   const [showModal, setShowModal] = useState(false);
@@ -36,13 +37,20 @@ function ScanPackingBoxContainer({ ...props }) {
     },
   ];
 
-
   const onConfirmHandler = () => {
     alert("ss");
     setShowModal(true);
   };
 
-  return <ScanPackingBox header={header} boxtype={boxType}  legends={legends} seatMode={seatMode}/>;
+  return (
+    <ScanPackingBox
+      header={header}
+      boxtype={boxType}
+      legends={legends}
+      seatMode={seatMode}
+      {...props}
+    />
+  );
 }
 
 export default ScanPackingBoxContainer;

@@ -1,23 +1,35 @@
 import {
   BinDetails,
-  CurrentlyActiveConveyer,
   Button,
   Card,
-  StepperHeader,
+  Conveyor,
+  CurrentlyActiveConveyer,
   Legend,
+  StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from "../../../utils/constants";
 
 import PackingBox from "./../../../assets/images/packingbox.svg";
+import React from "react";
 import ToteImg from "./../../../assets/images/tote.svg";
 import { display } from "@mui/system";
 
-function ScanPackingBox({ header, boxtype,legends,seatMode }) {
+function ScanPackingBox({
+  header,
+  boxtype,
+  legends,
+  seatMode,
+  conveyorToteData,
+  conveyorBinData,
+  conveyorIdle,
+  conveyorDisabled,
+  title,
+}) {
   const cancelscanhandler = () => {
     alert("cancel scan request sent");
   };
-  
+
   return (
     <>
       <StepperHeader stepperObj={header} />
@@ -51,7 +63,7 @@ function ScanPackingBox({ header, boxtype,legends,seatMode }) {
           />
         </Grid>
 
-        <Grid item xs={12} xl={6} md={6} sm={12} p={3} pb={0}>
+        <Grid item xs={12} xl={6} md={6} sm={12} sx={{ p: 3, pb: 0, pr: 0 }}>
           <Card
             p={0}
             m={0}
@@ -59,7 +71,22 @@ function ScanPackingBox({ header, boxtype,legends,seatMode }) {
             height={"42.5em"}
             bodySeperator={false}
           >
-            <Box height={"36em"}></Box>
+            <Box height={"36em"}>
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
+                conveyorDisabled={conveyorDisabled}
+                conveyorIdle={conveyorIdle}
+                conveyorData={conveyorToteData}
+              />
+              <Conveyor
+                splitScreen={true}
+                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorDisabled={false}
+                converyorIdle={true}
+                conveyorData={conveyorBinData}
+              />
+            </Box>
             <Legend legendData={legends} />
             <div className="seprator"></div>
           </Card>

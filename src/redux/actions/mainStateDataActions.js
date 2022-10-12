@@ -1,4 +1,5 @@
 import {
+  PACKING_BOX_SCREEN,
   PICK_FRONT_DOCK_TOTE_BIN_SCREEN,
   PICK_FRONT_DOCK_TOTE_SCREEN,
   PICK_FRONT_MORE_ITEM_SCAN_SCREEN,
@@ -57,7 +58,7 @@ export const updateStateData = (data) => {
   return (dispatch) => {
     if (data) {
       console.log("state data --", data);
-      const dummyData = PICK_FRONT_MORE_ITEM_SCAN_SCREEN;
+      const dummyData = PACKING_BOX_SCREEN;
       if (data.state_data)
         return dispatch(handleUpdateStateDataSuccess(dummyData));
     }

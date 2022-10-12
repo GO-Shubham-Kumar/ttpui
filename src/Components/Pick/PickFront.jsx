@@ -1,8 +1,9 @@
-import { BIN, TOTE, VALID_SCREEN_ID } from "../../utils/constants";
+import { BIN, PICK_VALID_SCREEN_ID, TOTE, VALID_SCREEN_ID } from "../../utils/constants";
 import {
   PICK_FRONT_DOCK_TOTE,
   PICK_FRONT_MORE_ITEM_SCAN,
   PICK_FRONT_PPTL_PRESS,
+  PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER,
   PICK_FRONT_TTP_ITEM_SCAN,
   PICK_FRONT_UNDOCK_TOTE,
   PICK_FRONT_WAITING_FOR_MSU,
@@ -27,6 +28,7 @@ import PickFrontDockToteContainer from "./../../Containers/Pick/PickFront/PickFr
 import PickFrontMoreItemScanContainer from "../../Containers/Pick/PickFront/PickFront.MoreItemScan.PptlPress";
 import PickFrontTtpItemScanContainer from "../../Containers/Pick/PickFront/PickFront.TtpItemScan.UndockTote";
 import PickFrontWaitingForMSUContainer from "../../Containers/Pick/PickFront/PickFrontWaitingForMSU";
+import ScanPackingboxContainer from "../../Containers/Pick/PickFront/ScanPackingbox";
 
 const PickFront = ({ data, isFetching, success, error }) => {
   const [headerMsg, setHeaderMsg] = useState("");
@@ -167,8 +169,25 @@ const PickFront = ({ data, isFetching, success, error }) => {
         title={title}
       />
     );
-
-  if (screenId && VALID_SCREEN_ID.indexOf(screenId) < 0)
+    if (
+      screenId === PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER
+    )
+      return (
+        <ScanPackingboxContainer
+          headerMsg={headerMsg}
+          previousDetails={previousDetails}
+          data={data}
+          currentDetails={currentDetails}
+          seatMode={seatMode}
+          conveyorToteData={conveyorToteData}
+          conveyorBinData={conveyorBinData}
+          conveyorIdle={conveyorIdle}
+          conveyorDisabled={conveyorDisabled}
+          title={title}
+        />
+      );
+    
+  if (screenId && PICK_VALID_SCREEN_ID.indexOf(screenId) < 0)
     return <InvalidScreen />;
   return <Loader />;
 };
