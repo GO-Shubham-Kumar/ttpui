@@ -10,6 +10,7 @@ import { triggerEventAction } from '../../../redux/actions/eventActions';
 function ScanToteContainer({currentDetails, ...props}) {
     const [showModal, setShowModal] = useState(false);
     const [missingItems, setMissingItemsList] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0);
     const { data } = useSelector( (state) => {
         return state.mainStateReducer
     });
@@ -25,7 +26,7 @@ function ScanToteContainer({currentDetails, ...props}) {
         { id: 'type', label: 'Type' },
         { id: 'product_sku', label: 'Product SKU' },
         { id: 'product_barcode', label: 'Barcode' },
-        { id: 'quantity', label: 'Quantity' },
+        { id: 'quantity', label: `Quantity (${totalQuantity})` },
     ];
 
     useEffect(()=>{
@@ -35,7 +36,11 @@ function ScanToteContainer({currentDetails, ...props}) {
     useEffect(()=>{
         if(data.state_data){
             const { state_data : { missing_items, screen_id } } = data;
-            if(missing_items) setMissingItemsList(missing_items)
+            if(missing_items) {
+                setMissingItemsList(missing_items)
+                const totalQuantity = missing_items.reduce((prev, current)=> prev + (current.totalQuantity || 0), 0);
+                setTotalQuantity(totalQuantity);
+            }
             if(screen_id === UD_PUT_FRONT_MISSIN) setShowModal(true)
         }
     },[data])
@@ -83,7 +88,7 @@ function ScanToteContainer({currentDetails, ...props}) {
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
                 {modalLabels[0]}
             </Typography>
-            <Typography type='info' variant='h3' style={{ mb: '0.6em', fontWeight: 'bold' }} >
+            <Typography type='info' style={{ fontSize: '24px' ,mb: '0.6em', fontWeight: 'bold' }} >
                 {modalLabels[1]}
             </Typography>
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
