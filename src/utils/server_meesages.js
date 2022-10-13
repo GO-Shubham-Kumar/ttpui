@@ -528,7 +528,7 @@ export const serverMessages = {
     "UdpF.E.012": "Bin Inactive. Entity association not allowed.",
     "UdpF.H.001": "Scan {0} to dock",
     "UdpF.H.002": "Scan PPS bin barcode",
-    "UdpF.H.003": "Scan entity or {0}",
+    "UdpF.H.003": "Scan Entity from {0}",
     "UdpF.H.004": "Put Entity in {0} and scan {1} to confirm",
     "UdpF.H.005": "Wait for MSU",
     "UdpF.H.006": "Scan item",
