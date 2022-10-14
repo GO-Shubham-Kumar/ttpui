@@ -31,7 +31,7 @@ import PickFrontWaitingForMSUContainer from "../../Containers/Pick/PickFront/Pic
 import ScanPackingboxContainer from "../../Containers/Pick/PickFront/ScanPackingbox";
 
 const PickFront = ({ data, isFetching, success, error }) => {
-  const [headerMsg, setHeaderMsg] = useState("");
+  const [headerMsg, setHeaderMsg] = useState({});
   const [screenId, setScreenId] = useState("");
   const [previousDetails, setPreviousDetails] = useState({});
   const [currentDetails, setCurrentDetails] = useState({});
@@ -60,7 +60,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
       let msgObj = "";
       msgObj = getNavConfig(header_msge_list, mode, screen_id);
       if (msgObj.length === 1) msgObj = msgObj[0].description;
-      console.log(msgObj);
+      console.log('msgObj', header_msge_list);
       setHeaderMsg(msgObj);
       setCurrentDetails(currentDetailsData);
       setPreviousDetails(previousDetailsData);

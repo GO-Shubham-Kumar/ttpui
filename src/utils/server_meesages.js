@@ -608,6 +608,7 @@ export const serverMessages = {
     "UdpF.I.010" : "{0} close cancelled",
     "UdpF.E.016" : "Rack already exists in system",
     "PkF.H.055": "Wait for MSU/TOTE",
+    "PkF.H.056" : "Scan a {0} or Wait for inventory Tote"
   }
   
   

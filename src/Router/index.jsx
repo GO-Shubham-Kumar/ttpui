@@ -112,7 +112,7 @@ function App() {
   useEffect(()=>{
     if(!err && !isFetching && loginSuccess){
       window.addEventListener('onkeydown', handleIdleTimeoutEvents);
-      handleIdleTimeoutEvents()
+      // handleIdleTimeoutEvents()
     }
     return () => {
       idleLogoutRef.current && clearTimeoutEvent(idleLogoutRef)
@@ -123,12 +123,12 @@ function App() {
     const { REACT_APP_IDLE_LOGOUT_TIME } = process.env;
     console.log('events called')
       clearTimeoutEvent(idleLogoutRef)
-      idleLogoutRef.current = setTimeout(
+      let timeoutRef = setTimeout(
         ()=>{
           dispatch(logOutAction())
         },REACT_APP_IDLE_LOGOUT_TIME)
+      idleLogoutRef.current = timeoutRef
   }
-
   const renderRoutes = () => {
     const routes = routesData();
     return routes.map((data, i) => {

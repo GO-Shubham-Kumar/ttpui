@@ -2,17 +2,18 @@ import {
     BinDetails,
     Button,
     Card,
-    StepperHeader,
+    CurrentlyActiveConveyer,
     Legend,
-    CurrentlyActiveConveyer
-  } from "operational-component-lib";
-  import { Box, Grid } from "@mui/material";
-  import React from "react";
-  
-  import Arrow from "./../../../assets/images/arrow.svg";
-  import ToteImg from "./../../../assets/images/tote.svg";
-  
-  function PlaceBin({ header }) {
+    StepperHeader
+} from "operational-component-lib";
+import { Box, Grid } from "@mui/material";
+
+import React from "react";
+
+function PlaceBin({ 
+    headerMsg,
+    previousDetails, 
+    currentDetails,  }) {
 
     const cancelscanhandler = ()=>{
 
@@ -30,7 +31,7 @@ import {
     ];
     return (
       <>
-        <StepperHeader stepperObj={header} />
+        <StepperHeader stepperObj={headerMsg} />
         <Grid container alignItems="stretch">
           <Grid
             item
@@ -44,18 +45,10 @@ import {
           >
             <CurrentlyActiveConveyer
               title="Scan Active"
-              details={{
-                "IC Slot": "IC Slot",
-                "IC Bin": "IC Bin",
-              }}
+              details={previousDetails}
             />
             <BinDetails
-              details={{
-                "BIN ID": "BIN ID",
-                "SKU ID": "SKU ID",
-                "SKU Qty": "SKU Qty",
-                "TOTE ID": "TOTE ID",
-              }}
+              details={currentDetails}
               title={`Previous ${"seatMode"}`}
               height="17.2em"
             />

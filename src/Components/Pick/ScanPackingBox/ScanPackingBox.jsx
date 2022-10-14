@@ -8,15 +8,16 @@ import {
   StepperHeader,
 } from "operational-component-lib";
 import { Box, Grid, Typography } from "@mui/material";
-import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from "../../../utils/constants";
+import {
+  CONVEYOR_TYPE_INVENTORY_TOTE,
+  CONVEYOR_TYPE_ORDER_TOTE,
+} from "../../../utils/constants";
 
 import PackingBox from "./../../../assets/images/packingbox.svg";
 import React from "react";
-import ToteImg from "./../../../assets/images/tote.svg";
-import { display } from "@mui/system";
 
 function ScanPackingBox({
-  header,
+  headerMsg,
   boxtype,
   legends,
   seatMode,
@@ -24,15 +25,14 @@ function ScanPackingBox({
   conveyorBinData,
   conveyorIdle,
   conveyorDisabled,
+  previousDetails, 
+  currentDetails, 
+  palletId, 
   title,
 }) {
-  const cancelscanhandler = () => {
-    alert("cancel scan request sent");
-  };
-
   return (
     <>
-      <StepperHeader stepperObj={header} />
+      <StepperHeader stepperObj={headerMsg} />
       <Grid container alignItems="stretch">
         <Grid
           item
@@ -45,21 +45,15 @@ function ScanPackingBox({
           className="grid-seperator"
         >
           <CurrentlyActiveConveyer
-            title="Scan Active"
-            details={{
-              "IC Slot": "IC Slot",
-              "IC Bin": "IC Bin",
-            }}
+            title="Currently Active"
+            details={currentDetails}
+            mode={seatMode}
           />
           <BinDetails
-            details={{
-              "BIN ID": "BIN ID",
-              "SKU ID": "SKU ID",
-              "SKU Qty": "SKU Qty",
-              "TOTE ID": "TOTE ID",
-            }}
+            details={previousDetails}
             title={`Previous ${seatMode}`}
             height="17.2em"
+            mode={seatMode}
           />
         </Grid>
 
@@ -67,7 +61,7 @@ function ScanPackingBox({
           <Card
             p={0}
             m={0}
-            title="Tote"
+            title={title}
             height={"42.5em"}
             bodySeperator={false}
           >
@@ -105,7 +99,7 @@ function ScanPackingBox({
           <Card
             p={0}
             m={0}
-            title="Place Tote on bin"
+            title="Suggested Packing Box"
             height={"42.5em"}
             bodySeperator={false}
           >

@@ -1,16 +1,17 @@
-import React from "react";
 import {
-  Card,
-  BinMapDetails,
   BinDetails,
+  BinMapDetails,
   Button,
-  StepperHeader,
+  Card,
+  CarouselComp,
   KQ,
-  CarouselComp
+  StepperHeader
 } from "operational-component-lib";
-import { Grid, Box,Typography } from "@mui/material";
-import ToteImg from "./../../../assets/images/tote_2.svg";
+import { Box, Grid, Typography } from "@mui/material";
+
 import Arrow from "./../../../assets/images/arrow_2.svg";
+import React from "react";
+import ToteImg from "./../../../assets/images/tote_2.svg";
 
 const PlaceEntity = ({ headerMsg, 
     previousDetails, 
@@ -19,13 +20,12 @@ const PlaceEntity = ({ headerMsg,
     toteId ,
     qty, 
     totalEntities, 
-    prdtinfo, 
     actualQty, 
     seatMode,
     handleCancelScan,
     productDetails,
     productImages,
-    exceptionhandler,
+    exceptionHandler,
     onChangeQuantityHandler,
     allowedKqDirection
   }) => {
@@ -80,7 +80,7 @@ const PlaceEntity = ({ headerMsg,
             </Box>
             <div className="seprator"></div>
             <Box sx={{ m: 0, p:0 }}>
-              <Button size="large" type="neutral"  label="Exception" onClickHandler={exceptionhandler}  />
+              <Button size="large" type="neutral"  label="Exception" onClickHandler={exceptionHandler}  />
             </Box>
           </Card>
         </Grid>
