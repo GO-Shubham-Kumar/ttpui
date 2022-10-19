@@ -170,7 +170,6 @@ export const setIdleLogoutEvent = (intervalRef) => {
 }
 
 export const clearTimeoutEvent = (intervalRef) => {
-    console.log('intervalRef', intervalRef);
     if (intervalRef.current) return clearTimeout(intervalRef.current);
 }
 

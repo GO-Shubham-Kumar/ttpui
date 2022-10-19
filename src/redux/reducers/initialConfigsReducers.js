@@ -1,4 +1,4 @@
-import { INITIAL_CONFIG_SUCCESS, INITIAL_CONFIG_REQUEST, INITIAL_CONFIG_ERROR, INITIAL_MODE_CONFIG_ERROR, INITIAL_MODE_CONFIG_SUCCESS } from './../actions/actionTypes'
+import { INITIAL_CONFIG_ERROR, INITIAL_CONFIG_REQUEST, INITIAL_CONFIG_SUCCESS, INITIAL_MODE_CONFIG_ERROR, INITIAL_MODE_CONFIG_SUCCESS } from './../actions/actionTypes'
 const initialState = {
     success : false,
     error : false,
@@ -13,10 +13,8 @@ const initialState = {
   // receiving response sent by action according to type of action
   export default function initialConfigsReducers(state = initialState, action) {
       const { payload, type } = action;
-      console.log(action,'action');
     switch (type) {
         case INITIAL_CONFIG_SUCCESS:
-            console.log('config ---', payload)
         return { 
                 ...state,
                 isFetching: false,
@@ -42,7 +40,6 @@ const initialState = {
             };
         break;  
         case INITIAL_MODE_CONFIG_SUCCESS:
-            console.log('--- mode', payload)
         return { 
             ...state,
                 success : true,

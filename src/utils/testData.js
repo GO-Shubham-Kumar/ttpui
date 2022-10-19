@@ -1,6150 +1,4659 @@
-import { PICK_FRONT_WAITING_FOR_MSU, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR } from "./screenIds"
+import { PICK_FRONT_WAITING_FOR_MSU, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR } from './screenIds'
 
 export const SCAN_PALLET_ID_DATA = {
-  "state_data": {
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "time_stamp": "2022-09-12T09:05:21Z",
-    "screen_id": "ud_put_front_tote_scan",
-    "screen_version": "1",
-    "exception_allowed": [],
-    "header_msge_list": [
+  state_data: {
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    time_stamp: '2022-09-12T09:05:21Z',
+    screen_id: 'ud_put_front_tote_scan',
+    screen_version: '1',
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "UdpF.H.001",
-        "level": "info",
-        "description": "Dock Tote",
-        "details": [
-          "tote"
-        ]
-      }
+        code: 'UdpF.H.001',
+        level: 'info',
+        description: 'Dock Tote',
+        details: ['tote'],
+      },
     ],
-    "sub_header_msge_list": [],
-    "notification_list": [],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "put",
-    "pps_profile": "",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": false,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "undefined",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [],
-    "inventory_count_check_limit": 5,
-    "product_info_for_inv_count_check": [],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    sub_header_msge_list: [],
+    notification_list: [],
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'put',
+    pps_profile: '',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: false,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: 'undefined',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 5,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "totes_associated": "false"
-      }
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        totes_associated: 'false',
+      },
     ],
-    "structure": [
-      1,
-      1
-    ],
-    "scan_allowed": true,
-    "send_msu_enabled": true,
-    "`previous_p`ut_details": [
+    structure: [1, 1],
+    scan_allowed: true,
+    send_msu_enabled: true,
+    '`previous_p`ut_details': [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Slot ID",
-              "locale": "en-US"
-            }
+              display_name: 'Slot ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "display_data": [],
-          "bin_station": ""
-        }
-      ]
+          display_data: [],
+          bin_station: '',
+        },
+      ],
     ],
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [],
-    "event": "initialise",
-    "current_put_details": {
-      "sku_type": "Single SKU",
-      "sku_qty": {
-        "total_qty": 1,
-        "put_qty": 0
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'initialise',
+    current_put_details: {
+      sku_type: 'Single SKU',
+      sku_qty: {
+        total_qty: 1,
+        put_qty: 0,
       },
-      "uom_qty": {
-        "total_qty": 1,
-        "put_qty": 0
+      uom_qty: {
+        total_qty: 1,
+        put_qty: 0,
       },
-      "tote_id": "LPN01",
-      "tote_details": {
-        "value": "LPN01",
-        "display_data": [
+      tote_id: 'LPN01',
+      tote_details: {
+        value: 'LPN01',
+        display_data: [
           {
-            "display_name": "Pallet ID",
-            "locale": "en-US"
-          }
-        ]
+            display_name: 'Pallet ID',
+            locale: 'en-US',
+          },
+        ],
       },
-      "rack_details": {
-        "value": "002",
-        "display_data": [
+      rack_details: {
+        value: '002',
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
-        ]
-      }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
+        ],
+      },
     },
-  }
+  },
 }
 
 export const PUT_TOTE_INDUCTION = {
-  "state_data": {
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "time_stamp": "2022-09-12T09:05:21Z",
-    "screen_id": "put_tote_induction",
-    "screen_version": "1",
-    "exception_allowed": [],
-    "header_msge_list": [
+  state_data: {
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    time_stamp: '2022-09-12T09:05:21Z',
+    screen_id: 'put_tote_induction',
+    screen_version: '1',
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "UdpF.H.001",
-        "level": "info",
-        "description": "Dock Tote",
-        "details": [
-          "tote"
-        ]
-      }
+        code: 'UdpF.H.001',
+        level: 'info',
+        description: 'Dock Tote',
+        details: ['tote'],
+      },
     ],
-    "sub_header_msge_list": [],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "UdpF.I.011",
-        "description": "~p close successfully",
-        "details": [
-          "Pallet"
-        ],
-        "level": "info"
-      }
+        code: 'UdpF.I.011',
+        description: '~p close successfully',
+        details: ['Pallet'],
+        level: 'info',
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "put",
-    "pps_profile": "",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": false,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "undefined",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [],
-    "inventory_count_check_limit": 5,
-    "product_info_for_inv_count_check": [],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'put',
+    pps_profile: '',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: false,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: 'undefined',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 5,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "totes_associated": "false"
-      }
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        totes_associated: 'false',
+      },
     ],
-    "structure": [
-      1,
-      1
+    structure: [1, 1],
+    scan_allowed: true,
+    send_msu_enabled: true,
+    previous_put_details: [
+      [
+        {
+          display_data: [
+            {
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
+          ],
+          ql_code: 'dasdasd',
+        },
+      ],
+      [
+        {
+          display_data: [
+            {
+              display_name: 'Slot ID',
+              locale: 'en-US',
+            },
+          ],
+          slot_barcode: [['dasdas']],
+        },
+      ],
+      [
+        {
+          display_data: [
+            {
+              display_name: 'Slosst ID',
+              locale: 'en-US',
+            },
+          ],
+          slot_barcode: [['dasdadas']],
+        },
+      ],
+      [
+        {
+          display_data: [
+            {
+              display_name: 'Slsssot ID',
+              locale: 'en-US',
+            },
+          ],
+          slot_barcode: [['dasdas']],
+        },
+      ],
+      [
+        {
+          display_data: [],
+          bin_station: '',
+        },
+      ],
     ],
-    "scan_allowed": true,
-    "send_msu_enabled": true,
-    "previous_put_details": [
-      [
-        {
-          "display_data": [
-            {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
-          ],
-          "ql_code": "dasdasd"
-        }
-      ],
-      [
-        {
-          "display_data": [
-            {
-              "display_name": "Slot ID",
-              "locale": "en-US"
-            }
-          ],
-          "slot_barcode": [
-            [
-              "dasdas"
-            ]
-          ]
-        }
-      ],
-      [
-        {
-          "display_data": [
-            {
-              "display_name": "Slosst ID",
-              "locale": "en-US"
-            }
-          ],
-          "slot_barcode": [
-            [
-              "dasdadas"
-            ]
-          ]
-        }
-      ],
-      [
-        {
-          "display_data": [
-            {
-              "display_name": "Slsssot ID",
-              "locale": "en-US"
-            }
-          ],
-          "slot_barcode": [
-            [
-              "dasdas"
-            ]
-          ]
-        }
-      ],
-      [
-        {
-          "display_data": [],
-          "bin_station": ""
-        }
-      ]
-    ],
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [],
-    "event": "initialise",
-    "current_put_details": {
-      "sku_type": "Single SKU",
-      "sku_qty": {
-        "total_qty": 1,
-        "put_qty": 0
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'initialise',
+    current_put_details: {
+      sku_type: 'Single SKU',
+      sku_qty: {
+        total_qty: 1,
+        put_qty: 0,
       },
-      "uom_qty": {
-        "total_qty": 1,
-        "put_qty": 0
+      uom_qty: {
+        total_qty: 1,
+        put_qty: 0,
       },
-      "tote_id": "LPN01",
-      "tote_details": {
-        "value": "LPN01",
-        "display_data": [
+      tote_id: 'LPN01',
+      tote_details: {
+        value: 'LPN01',
+        display_data: [
           {
-            "display_name": "Pallet ID",
-            "locale": "en-US"
-          }
-        ]
+            display_name: 'Pallet ID',
+            locale: 'en-US',
+          },
+        ],
       },
-      "rack_details": {
-        "value": "002",
-        "display_data": [
+      rack_details: {
+        value: '002',
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
-        ]
-      }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
+        ],
+      },
     },
-  }
+  },
 }
 
 export const UD_PUT_FRONT_ENTITY_SCAN = {
   state_data: {
-    "item_uid": "69",
-    "entity_location_after_crash": [],
-    "empty_popup_msg": [],
-    "pps_blocked": false,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [],
-    "ppsbin_list": [
+    item_uid: '69',
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          5
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "6",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 5],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '6',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [
           {
-            "load_unit_id": [
-              "1"
-            ],
-            "load_unit_label": "Bin",
-            "product_sku": "item_s5",
-            "quantity": 2,
-            "serial": [],
-            "service_request_id": [
-              "sr0951311111111211111111"
-            ],
-            "type": "Item"
-          }
+            load_unit_id: ['1'],
+            load_unit_label: 'Bin',
+            product_sku: 'item_s5',
+            quantity: 2,
+            serial: [],
+            service_request_id: ['sr0951311111111211111111'],
+            type: 'Item',
+          },
         ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          5
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_count": "1",
-        "ppsbin_id": "1",
-        "ppsbin_state": "staged",
-        "selected_state": true,
-        "totes_associated": "true"
+        breadth: '100',
+        coordinate: [1, 5],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        ppsbin_count: '1',
+        ppsbin_id: '1',
+        ppsbin_state: 'staged',
+        selected_state: true,
+        totes_associated: 'true',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "7",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '7',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "2",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '2',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "8",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '8',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "3",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '3',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "9",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '9',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "4",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '4',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          800,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "10",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [800, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '10',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_3",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          800,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "5",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
-      }
+        back_drawing_start: 'left',
+        back_seat_name: 'back_3',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [800, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '5',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
     ],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-21T13:34:22Z",
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-21T13:34:22Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [
       {
-        "details": [],
-        "event": "physically_damaged",
-        "exception_id": "UdP001",
-        "exception_name": "Damaged Entites"
-      }
+        details: [],
+        event: 'physically_damaged',
+        exception_id: 'UdP001',
+        exception_name: 'Damaged Entites',
+      },
     ],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "UdpF.H.003",
-        "description": "Scan item or tote",
-        "details": [
-          "pallet"
-        ],
-        "level": "info"
-      }
+        code: 'UdpF.H.003',
+        description: 'Scan item or tote',
+        details: ['pallet'],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_3",
-    "event": "initialise",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "is_ud_without_staging": false,
-    "show_current_put_widget": true,
-    "notification_list": [
+    seat_name: 'front_3',
+    event: 'initialise',
+    show_bin_view: true,
+    operator_orientation: '0',
+    is_ud_without_staging: false,
+    show_current_put_widget: true,
+    notification_list: [
       {
-        "code": "PtB.I.001",
-        "description": "Tote scan successful.",
-        "details": [],
-        "level": "info"
-      }
+        code: 'PtB.I.001',
+        description: 'Tote scan successful.',
+        details: [],
+        level: 'info',
+      },
     ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "current_put_details": {
-      "rack_details": {
-        "display_data": [
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    current_put_details: {
+      rack_details: {
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "TOTE1235"
+        value: 'TOTE1235',
       },
-      "sku_qty": {
-        "put_qty": 0,
-        "total_qty": 1
+      sku_qty: {
+        put_qty: 0,
+        total_qty: 1,
       },
-      "sku_type": "Single SKU",
-      "tote_details": {
-        "display_data": [
+      sku_type: 'Single SKU',
+      tote_details: {
+        display_data: [
           {
-            "display_name": "Pallet ID",
-            "locale": "en-US"
-          }
+            display_name: 'Pallet ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "LP2313"
+        value: 'LP2313',
       },
-      "tote_id": "LP2313",
-      "uom_qty": {
-        "put_qty": 0,
-        "total_qty": 1
-      }
+      tote_id: 'LP2313',
+      uom_qty: {
+        put_qty: 0,
+        total_qty: 1,
+      },
     },
-    "selected_seat_for_release_bins_filter": "undefined",
-    "rack_details": {
-      "rack_type": "tsu",
-      "rack_type_rec": [
+    selected_seat_for_release_bins_filter: 'undefined',
+    rack_details: {
+      rack_type: 'tsu',
+      rack_type_rec: [
         {
-          "barcodes": [
-            "A.01"
-          ],
-          "free_space": 96000,
-          "height": 40,
-          "length": 40,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            0
-          ],
-          "prefixed_barcodes": [
-            "A.01"
-          ],
-          "slot_ref": [
-            [
-              84,
-              79,
-              84,
-              69,
-              49,
-              50,
-              51,
-              53,
-              46,
-              48,
-              46,
-              65,
-              46,
-              48,
-              49
-            ]
-          ],
-          "type": "slot"
-        }
+          barcodes: ['A.01'],
+          free_space: 96000,
+          height: 40,
+          length: 40,
+          occupancy_color: '',
+          orig_coordinates: [0, 0],
+          prefixed_barcodes: ['A.01'],
+          slot_ref: [[84, 79, 84, 69, 49, 50, 51, 53, 46, 48, 46, 65, 46, 48, 49]],
+          type: 'slot',
+        },
       ],
-      "rack_width": 40,
-      "slot_type": "slot"
+      rack_width: 40,
+      slot_type: 'slot',
     },
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "put",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": true,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "ud_put_front_entity_scan",
-    "previous_put_details": [
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'put',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: true,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'ud_put_front_entity_scan',
+    previous_put_details: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Slot ID",
-              "locale": "en-US"
-            }
+              display_name: 'Slot ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "bin_station": "",
-          "display_data": []
-        }
-      ]
+          bin_station: '',
+          display_data: [],
+        },
+      ],
     ],
-    "group_info": {
-      "1": "center"
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [],
-    "sub_header_msge_list": [],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "",
-    "current_bin_id": "1",
-    "product_info": [
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: '',
+    current_bin_id: '1',
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
+              display_name: 'Product Barcode',
+              locale: 'en-US',
             },
             {
-              "display_name": "Código de barras del producto",
-              "locale": "es-ES"
-            }
+              display_name: 'Código de barras del producto',
+              locale: 'es-ES',
+            },
           ],
-          "product_barcode": []
-        }
+          product_barcode: [],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
-      ]
+          product_local_image_url: null,
+        },
+      ],
     ],
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "tote_induction": true,
-    "pps_requested_mode": "undefined",
-    "tote_id": "LP2313",
-    "user_loggedin": "admin",
-    "split_pps_info": [],
-    "inventory_count_check_limit": 5,
-    "missing_items": []
-  }
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    tote_induction: true,
+    pps_requested_mode: 'undefined',
+    tote_id: 'LP2313',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 5,
+    missing_items: [],
+  },
 }
 
-
 export const TEST_DATA = {
-  "state_data": {
-    "entity_location_after_crash": [],
-    "empty_popup_msg": [],
-    "pps_blocked": false,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-30T06:13:31Z",
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+  state_data: {
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-30T06:13:31Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "UdpF.H.012",
-        "description": "Scan a Tote to Induct",
-        "details": [],
-        "level": "info"
-      }
+        code: 'UdpF.H.012',
+        description: 'Scan a Tote to Induct',
+        details: [],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_1",
-    "event": "initialise",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "show_current_put_widget": true,
-    "notification_list": [
+    seat_name: 'front_1',
+    event: 'initialise',
+    show_bin_view: true,
+    operator_orientation: '0',
+    show_current_put_widget: true,
+    notification_list: [
       {
-        "code": "UdpF.I.007",
-        "description": "Tote close successful",
-        "details": [],
-        "level": "info"
-      }
+        code: 'UdpF.I.007',
+        description: 'Tote close successful',
+        details: [],
+        level: 'info',
+      },
     ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "current_put_details": {
-      "rack_details": {
-        "display_data": [
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    current_put_details: {
+      rack_details: {
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
-        ]
-      },
-      "sku_qty": {
-        "put_qty": 0,
-        "total_qty": 2
-      },
-      "sku_type": "Multi SKU",
-      "tote_details": {
-        "display_data": [
-          {
-            "display_name": "Tote",
-            "locale": "en-US"
-          }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "TOT0000463"
       },
-      "tote_id": "TOT0000463",
-      "uom_qty": {
-        "put_qty": 0,
-        "total_qty": 20
-      }
+      sku_qty: {
+        put_qty: 0,
+        total_qty: 2,
+      },
+      sku_type: 'Multi SKU',
+      tote_details: {
+        display_data: [
+          {
+            display_name: 'Tote',
+            locale: 'en-US',
+          },
+        ],
+        value: 'TOT0000463',
+      },
+      tote_id: 'TOT0000463',
+      uom_qty: {
+        put_qty: 0,
+        total_qty: 20,
+      },
     },
-    "selected_seat_for_release_bins_filter": "undefined",
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "put",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": false,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "put_tote_induction",
-    "previous_put_details": [
+    selected_seat_for_release_bins_filter: 'undefined',
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'put',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'put_tote_induction',
+    previous_put_details: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Tote ID",
-              "locale": "en-US"
-            }
+              display_name: 'Tote ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU ID",
-              "locale": "en-US"
-            }
+              display_name: 'SKU ID',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
+          value: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU Qty",
-              "locale": "en-US"
-            }
+              display_name: 'SKU Qty',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
-      ]
+          value: '',
+        },
+      ],
     ],
-    "group_info": {
-      "1": "center"
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [],
-    "sub_header_msge_list": [],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "",
-    "current_bin_id": "1",
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "tote_induction": true,
-    "pps_requested_mode": "undefined",
-    "tote_id": "TOT0000463",
-    "user_loggedin": "default_user_name",
-    "split_pps_info": [],
-    "inventory_count_check_limit": 5
-  }
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: '',
+    current_bin_id: '1',
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    tote_induction: true,
+    pps_requested_mode: 'undefined',
+    tote_id: 'TOT0000463',
+    user_loggedin: 'default_user_name',
+    split_pps_info: [],
+    inventory_count_check_limit: 5,
+  },
 }
 
 export const TEST_DATA_2 = {
   state_data: {
-    "entity_location_after_crash": [],
-    "empty_popup_msg": [],
-    "pps_blocked": false,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-21T13:07:41Z",
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-21T13:07:41Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "UdpF.H.012",
-        "description": "Scan a Tote to Induct",
-        "details": [],
-        "level": "info"
-      }
+        code: 'UdpF.H.012',
+        description: 'Scan a Tote to Induct',
+        details: [],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_3",
-    "event": "process_barcode",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "show_current_put_widget": true,
-    "notification_list": [
+    seat_name: 'front_3',
+    event: 'process_barcode',
+    show_bin_view: true,
+    operator_orientation: '0',
+    show_current_put_widget: true,
+    notification_list: [
       {
-        "code": "UdpF.I.001",
-        "description": "Tote scan successful",
-        "details": [
-          "Pallet"
-        ],
-        "level": "info"
-      }
+        code: 'UdpF.I.001',
+        description: 'Tote scan successful',
+        details: ['Pallet'],
+        level: 'info',
+      },
     ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "current_put_details": {
-      "rack_details": {
-        "display_data": [
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    current_put_details: {
+      rack_details: {
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
-        ]
-      },
-      "sku_qty": {
-        "put_qty": 0,
-        "total_qty": 1
-      },
-      "sku_type": "Single SKU",
-      "tote_details": {
-        "display_data": [
-          {
-            "display_name": "Pallet ID",
-            "locale": "en-US"
-          }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "LP2313"
       },
-      "tote_id": "LP2313",
-      "uom_qty": {
-        "put_qty": 0,
-        "total_qty": 1
-      }
+      sku_qty: {
+        put_qty: 0,
+        total_qty: 1,
+      },
+      sku_type: 'Single SKU',
+      tote_details: {
+        display_data: [
+          {
+            display_name: 'Pallet ID',
+            locale: 'en-US',
+          },
+        ],
+        value: 'LP2313',
+      },
+      tote_id: 'LP2313',
+      uom_qty: {
+        put_qty: 0,
+        total_qty: 1,
+      },
     },
-    "selected_seat_for_release_bins_filter": "undefined",
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "put",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": false,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "put_tote_induction",
-    "group_info": {
-      "1": "center"
+    selected_seat_for_release_bins_filter: 'undefined',
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'put',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'put_tote_induction',
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [],
-    "sub_header_msge_list": [],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "",
-    "current_bin_id": "1",
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "tote_induction": true,
-    "pps_requested_mode": "undefined",
-    "user_loggedin": "admin",
-    "split_pps_info": [],
-    "inventory_count_check_limit": 5
-  }
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: '',
+    current_bin_id: '1',
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    tote_induction: true,
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 5,
+  },
 }
 
 export const PLACE_ENTITY_DATA = {
-  "state_data": {
-    "entity_location_after_crash": [],
-    "Possible_Container_Names": [],
-    "empty_popup_msg": [],
-    "pps_blocked": false,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [],
-    "ppsbin_list": [
+  state_data: {
+    entity_location_after_crash: [],
+    Possible_Container_Names: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_2",
-        "bin_info": [
+        back_drawing_start: 'left',
+        back_seat_name: 'back_2',
+        bin_info: [
           {
-            "load_unit_id": [
-              "1"
-            ],
-            "load_unit_label": "Bin",
-            "product_sku": "ttp_item1",
-            "quantity": 8,
-            "serial": [],
-            "service_request_id": [
-              "sr09213111411111111113"
-            ],
-            "type": "Item"
-          }
+            load_unit_id: ['1'],
+            load_unit_label: 'Bin',
+            product_sku: 'ttp_item1',
+            quantity: 8,
+            serial: [],
+            service_request_id: ['sr09213111411111111113'],
+            type: 'Item',
+          },
         ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          1
-        ],
-        "direction": "left",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_count": "4",
-        "ppsbin_id": "1",
-        "ppsbin_state": "staged",
-        "selected_state": true,
-        "totes_associated": "true"
-      }
+        breadth: '100',
+        coordinate: [1, 1],
+        direction: 'left',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        ppsbin_count: '4',
+        ppsbin_id: '1',
+        ppsbin_state: 'staged',
+        selected_state: true,
+        totes_associated: 'true',
+      },
     ],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-27T12:32:02Z",
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-27T12:32:02Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [
       {
-        "details": [],
-        "event": "physically_damaged",
-        "exception_id": "UdP001",
-        "exception_name": "Damaged Entites"
-      }
+        details: [],
+        event: 'physically_damaged',
+        exception_id: 'UdP001',
+        exception_name: 'Damaged Entites',
+      },
     ],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "UdpF.H.004",
-        "description": "Put entity in ~p and scan ~p to confirm",
-        "details": [
-          [
-            "Tote"
-          ],
-          [
-            "Tote"
-          ]
-        ],
-        "level": "info"
-      }
+        code: 'UdpF.H.004',
+        description: 'Put entity in ~p and scan ~p to confirm',
+        details: [['Tote'], ['Tote']],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_2",
-    "event": "process_barcode",
-    "show_bin_view": true,
-    "send_msu_enabled": false,
-    "operator_orientation": "0",
-    "is_ud_without_staging": false,
-    "show_current_put_widget": true,
-    "notification_list": [
+    seat_name: 'front_2',
+    event: 'process_barcode',
+    show_bin_view: true,
+    send_msu_enabled: false,
+    operator_orientation: '0',
+    is_ud_without_staging: false,
+    show_current_put_widget: true,
+    notification_list: [
       {
-        "code": "PkF.W.004",
-        "description": "Wrong barcode scanned",
-        "details": [],
-        "level": "warning"
-      }
+        code: 'PkF.W.004',
+        description: 'Wrong barcode scanned',
+        details: [],
+        level: 'warning',
+      },
     ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "current_put_details": {
-      "rack_details": {
-        "display_data": [
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    current_put_details: {
+      rack_details: {
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "TOTE134"
+        value: 'TOTE134',
       },
-      "sku_qty": {
-        "put_qty": 0,
-        "total_qty": 1
+      sku_qty: {
+        put_qty: 0,
+        total_qty: 1,
       },
-      "sku_type": "Single SKU",
-      "tote_details": {
-        "display_data": [
+      sku_type: 'Single SKU',
+      tote_details: {
+        display_data: [
           {
-            "display_name": "Pallet ID",
-            "locale": "en-US"
-          }
+            display_name: 'Pallet ID',
+            locale: 'en-US',
+          },
         ],
-        "value": "PALLET1111111113"
+        value: 'PALLET1111111113',
       },
-      "tote_id": "PALLET1111111113",
-      "uom_qty": {
-        "put_qty": 0,
-        "total_qty": 4
-      }
+      tote_id: 'PALLET1111111113',
+      uom_qty: {
+        put_qty: 0,
+        total_qty: 4,
+      },
     },
-    "selected_seat_for_release_bins_filter": "undefined",
-    "rack_details": {
-      "rack_type": "tsu",
-      "rack_type_rec": [
+    selected_seat_for_release_bins_filter: 'undefined',
+    rack_details: {
+      rack_type: 'tsu',
+      rack_type_rec: [
         {
-          "barcodes": [
-            "A.01"
-          ],
-          "free_space": 96000,
-          "height": 40,
-          "length": 40,
-          "occupancy_color": "#4CAF50",
-          "orig_coordinates": [
-            0,
-            0
-          ],
-          "preferred_slot": true,
-          "prefixed_barcodes": [
-            "A.01"
-          ],
-          "put_qty": 99,
-          "restrict_slot": false,
-          "slot_ref": [
-            [
-              84,
-              79,
-              84,
-              69,
-              49,
-              51,
-              52,
-              46,
-              48,
-              46,
-              65,
-              46,
-              48,
-              49
-            ]
-          ],
-          "type": "slot"
-        }
+          barcodes: ['A.01'],
+          free_space: 96000,
+          height: 40,
+          length: 40,
+          occupancy_color: '#4CAF50',
+          orig_coordinates: [0, 0],
+          preferred_slot: true,
+          prefixed_barcodes: ['A.01'],
+          put_qty: 99,
+          restrict_slot: false,
+          slot_ref: [[84, 79, 84, 69, 49, 51, 52, 46, 48, 46, 65, 46, 48, 49]],
+          type: 'slot',
+        },
       ],
-      "rack_width": 40,
-      "slot_type": "slot"
+      rack_width: 40,
+      slot_type: 'slot',
     },
-    "scan_details": {
-      "allow_mark_full": false,
-      "current_qty": "4",
-      "kq_allowed": true,
-      "kq_direction": "down",
-      "total_qty": "4"
+    scan_details: {
+      allow_mark_full: false,
+      current_qty: '4',
+      kq_allowed: true,
+      kq_direction: 'down',
+      total_qty: '4',
     },
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "put",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": true,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "item_uid": "1218",
-    "screen_id": "ud_put_front_place_items_in_rack",
-    "previous_put_details": [
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'put',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: true,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    item_uid: '1218',
+    screen_id: 'ud_put_front_place_items_in_rack',
+    previous_put_details: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Tote ID",
-              "locale": "en-US"
-            }
+              display_name: 'Tote ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU ID",
-              "locale": "en-US"
-            }
+              display_name: 'SKU ID',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
+          value: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU Qty",
-              "locale": "en-US"
-            }
+              display_name: 'SKU Qty',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
-      ]
+          value: '',
+        },
+      ],
     ],
-    "group_info": {
-      "1": "left"
+    group_info: {
+      1: 'left',
     },
-    "default_level": "undefined",
-    "selected_level": "undefined",
-    "product_info_for_inv_count_check": [],
-    "enable_kq": true,
-    "sub_header_msge_list": [],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "default2",
-    "current_bin_id": "1",
-    "product_info": [
+    default_level: 'undefined',
+    selected_level: 'undefined',
+    product_info_for_inv_count_check: [],
+    enable_kq: true,
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: 'default2',
+    current_bin_id: '1',
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品SKU",
-              "locale": "ja-JP"
+              display_name: '製品SKU',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product SKU",
-              "locale": "en-US"
-            }
+              display_name: 'Product SKU',
+              locale: 'en-US',
+            },
           ],
-          "product_sku": "ttp_item1"
-        }
+          product_sku: 'ttp_item1',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
+          product_local_image_url: null,
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品バーコード",
-              "locale": "ja-JP"
+              display_name: '製品バーコード',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Barcodes",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcodes',
+              locale: 'en-US',
+            },
           ],
-          "product_barcodes": [
-            "ttp_item1"
-          ]
-        }
+          product_barcodes: ['ttp_item1'],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "UOM",
-              "locale": "en-US"
-            }
+              display_name: 'UOM',
+              locale: 'en-US',
+            },
           ],
-          "uom": "Item"
-        }
+          uom: 'Item',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "商品の寸法",
-              "locale": "ja-JP"
+              display_name: '商品の寸法',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Dimensions",
-              "locale": "en-US"
-            }
+              display_name: 'Product Dimensions',
+              locale: 'en-US',
+            },
           ],
-          "product_dimensions": [
-            2,
-            2,
-            2
-          ]
-        }
-      ]
+          product_dimensions: [2, 2, 2],
+        },
+      ],
     ],
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "tote_induction": true,
-    "pps_requested_mode": "undefined",
-    "user_loggedin": "admin",
-    "split_pps_info": [],
-    "inventory_count_check_limit": 5
-  }
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    tote_induction: true,
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 5,
+  },
 }
 
-
-
-
 export const PLACE_TOTE_AND_CONFIRM = {
-  "state_data": {
-    "entity_location_after_crash": [],
-    "empty_popup_msg": [],
-    "pps_blocked": false,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [],
-    "ppsbin_list": [
+  state_data: {
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "5",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '5',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [
           {
-            "load_unit_id": [
-              "1"
-            ],
-            "load_unit_label": "Bin",
-            "product_sku": "Item1",
-            "quantity": 2,
-            "serial": [],
-            "service_request_id": [
-              "sid0141"
-            ],
-            "type": "Item"
-          }
+            load_unit_id: ['1'],
+            load_unit_label: 'Bin',
+            product_sku: 'Item1',
+            quantity: 2,
+            serial: [],
+            service_request_id: ['sid0141'],
+            type: 'Item',
+          },
         ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_count": "1",
-        "ppsbin_id": "1",
-        "ppsbin_state": "staged",
-        "selected_state": true,
-        "totes_associated": "true"
+        breadth: '100',
+        coordinate: [1, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        ppsbin_count: '1',
+        ppsbin_id: '1',
+        ppsbin_state: 'staged',
+        selected_state: true,
+        totes_associated: 'true',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "6",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '6',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "2",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '2',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "7",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '7',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "3",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '3',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "8",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 200],
+        ppsbin_count: '0',
+        ppsbin_id: '8',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_count": "0",
-        "ppsbin_id": "4",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
-      }
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 0],
+        ppsbin_count: '0',
+        ppsbin_id: '4',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
     ],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-19T10:18:40Z",
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-19T10:18:40Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "UdpF.H.003",
-        "description": "Scan {0} or tote",
-        "details": [
-          "tote"
-        ],
-        "level": "info"
-      }
+        code: 'UdpF.H.003',
+        description: 'Scan {0} or tote',
+        details: ['tote'],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_1",
-    "event": "missing_items",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "is_ud_without_staging": false,
-    "show_current_put_widget": false,
-    "notification_list": [],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "selected_seat_for_release_bins_filter": "undefined",
-    "rack_details": {
-      "rack_type": "msu",
-      "rack_type_rec": [
+    seat_name: 'front_1',
+    event: 'missing_items',
+    show_bin_view: true,
+    operator_orientation: '0',
+    is_ud_without_staging: false,
+    show_current_put_widget: false,
+    notification_list: [],
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    selected_seat_for_release_bins_filter: 'undefined',
+    rack_details: {
+      rack_type: 'msu',
+      rack_type_rec: [
         {
-          "barcodes": [
-            "F.05",
-            "F.06"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            56,
-            165
-          ],
-          "prefixed_barcodes": [
-            "F.06",
-            "F.05"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              70,
-              46,
-              48,
-              53,
-              45,
-              70,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['F.05', 'F.06'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [56, 165],
+          prefixed_barcodes: ['F.06', 'F.05'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 70, 46, 48, 53, 45, 70, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "F.03",
-            "F.04"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            28,
-            165
-          ],
-          "prefixed_barcodes": [
-            "F.04",
-            "F.03"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              70,
-              46,
-              48,
-              51,
-              45,
-              70,
-              46,
-              48,
-              52
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['F.03', 'F.04'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [28, 165],
+          prefixed_barcodes: ['F.04', 'F.03'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 70, 46, 48, 51, 45, 70, 46, 48, 52]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "F.01",
-            "F.02"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            165
-          ],
-          "prefixed_barcodes": [
-            "F.02",
-            "F.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              70,
-              46,
-              48,
-              49,
-              45,
-              70,
-              46,
-              48,
-              50
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['F.01', 'F.02'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [0, 165],
+          prefixed_barcodes: ['F.02', 'F.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 70, 46, 48, 49, 45, 70, 46, 48, 50]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "E.05",
-            "E.06"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            56,
-            125
-          ],
-          "prefixed_barcodes": [
-            "E.06",
-            "E.05"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              69,
-              46,
-              48,
-              53,
-              45,
-              69,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['E.05', 'E.06'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [56, 125],
+          prefixed_barcodes: ['E.06', 'E.05'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 69, 46, 48, 53, 45, 69, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "E.03",
-            "E.04"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            28,
-            125
-          ],
-          "prefixed_barcodes": [
-            "E.04",
-            "E.03"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              69,
-              46,
-              48,
-              51,
-              45,
-              69,
-              46,
-              48,
-              52
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['E.03', 'E.04'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [28, 125],
+          prefixed_barcodes: ['E.04', 'E.03'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 69, 46, 48, 51, 45, 69, 46, 48, 52]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "E.01",
-            "E.02"
-          ],
-          "free_space": 30380,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            125
-          ],
-          "prefixed_barcodes": [
-            "E.02",
-            "E.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              69,
-              46,
-              48,
-              49,
-              45,
-              69,
-              46,
-              48,
-              50
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['E.01', 'E.02'],
+          free_space: 30380,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [0, 125],
+          prefixed_barcodes: ['E.02', 'E.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 69, 46, 48, 49, 45, 69, 46, 48, 50]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "D.05",
-            "D.06"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            60,
-            105
-          ],
-          "prefixed_barcodes": [
-            "D.06",
-            "D.05"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              68,
-              46,
-              48,
-              53,
-              45,
-              68,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['D.05', 'D.06'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [60, 105],
+          prefixed_barcodes: ['D.06', 'D.05'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 68, 46, 48, 53, 45, 68, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "D.04"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            40,
-            105
-          ],
-          "prefixed_barcodes": [
-            "D.04"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              68,
-              46,
-              48,
-              52
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['D.04'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [40, 105],
+          prefixed_barcodes: ['D.04'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 68, 46, 48, 52]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "D.03"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            20,
-            105
-          ],
-          "prefixed_barcodes": [
-            "D.03"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              68,
-              46,
-              48,
-              51
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['D.03'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [20, 105],
+          prefixed_barcodes: ['D.03'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 68, 46, 48, 51]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "D.01",
-            "D.02"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            105
-          ],
-          "prefixed_barcodes": [
-            "D.02",
-            "D.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              68,
-              46,
-              48,
-              49,
-              45,
-              68,
-              46,
-              48,
-              50
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['D.01', 'D.02'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [0, 105],
+          prefixed_barcodes: ['D.02', 'D.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 68, 46, 48, 49, 45, 68, 46, 48, 50]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "C.05",
-            "C.06"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            60,
-            85
-          ],
-          "prefixed_barcodes": [
-            "C.06",
-            "C.05"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              67,
-              46,
-              48,
-              53,
-              45,
-              67,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['C.05', 'C.06'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [60, 85],
+          prefixed_barcodes: ['C.06', 'C.05'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 67, 46, 48, 53, 45, 67, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "C.04"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            40,
-            85
-          ],
-          "prefixed_barcodes": [
-            "C.04"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              67,
-              46,
-              48,
-              52
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['C.04'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [40, 85],
+          prefixed_barcodes: ['C.04'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 67, 46, 48, 52]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "C.03"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            20,
-            85
-          ],
-          "prefixed_barcodes": [
-            "C.03"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              67,
-              46,
-              48,
-              51
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['C.03'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [20, 85],
+          prefixed_barcodes: ['C.03'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 67, 46, 48, 51]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "C.01",
-            "C.02"
-          ],
-          "free_space": 18900,
-          "height": 15,
-          "length": 20,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            85
-          ],
-          "prefixed_barcodes": [
-            "C.02",
-            "C.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              67,
-              46,
-              48,
-              49,
-              45,
-              67,
-              46,
-              48,
-              50
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['C.01', 'C.02'],
+          free_space: 18900,
+          height: 15,
+          length: 20,
+          occupancy_color: '',
+          orig_coordinates: [0, 85],
+          prefixed_barcodes: ['C.02', 'C.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 67, 46, 48, 49, 45, 67, 46, 48, 50]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "B.05",
-            "B.06"
-          ],
-          "free_space": 61740,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            56,
-            45
-          ],
-          "prefixed_barcodes": [
-            "B.06",
-            "B.05"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              66,
-              46,
-              48,
-              53,
-              45,
-              66,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['B.05', 'B.06'],
+          free_space: 61740,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [56, 45],
+          prefixed_barcodes: ['B.06', 'B.05'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 66, 46, 48, 53, 45, 66, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "B.03",
-            "B.04"
-          ],
-          "free_space": 61740,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            28,
-            45
-          ],
-          "prefixed_barcodes": [
-            "B.04",
-            "B.03"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              66,
-              46,
-              48,
-              51,
-              45,
-              66,
-              46,
-              48,
-              52
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['B.03', 'B.04'],
+          free_space: 61740,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [28, 45],
+          prefixed_barcodes: ['B.04', 'B.03'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 66, 46, 48, 51, 45, 66, 46, 48, 52]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "B.01",
-            "B.02"
-          ],
-          "free_space": 61740,
-          "height": 35,
-          "length": 28,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            45
-          ],
-          "prefixed_barcodes": [
-            "B.02",
-            "B.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              66,
-              46,
-              48,
-              49,
-              45,
-              66,
-              46,
-              48,
-              50
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['B.01', 'B.02'],
+          free_space: 61740,
+          height: 35,
+          length: 28,
+          occupancy_color: '',
+          orig_coordinates: [0, 45],
+          prefixed_barcodes: ['B.02', 'B.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 66, 46, 48, 49, 45, 66, 46, 48, 50]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "A.04",
-            "A.05",
-            "A.06"
-          ],
-          "free_space": 97020,
-          "height": 35,
-          "length": 44,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            44,
-            5
-          ],
-          "prefixed_barcodes": [
-            "A.06",
-            "A.05",
-            "A.04"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              65,
-              46,
-              48,
-              52,
-              45,
-              65,
-              46,
-              48,
-              53,
-              45,
-              65,
-              46,
-              48,
-              54
-            ]
-          ],
-          "type": "slot"
+          barcodes: ['A.04', 'A.05', 'A.06'],
+          free_space: 97020,
+          height: 35,
+          length: 44,
+          occupancy_color: '',
+          orig_coordinates: [44, 5],
+          prefixed_barcodes: ['A.06', 'A.05', 'A.04'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 65, 46, 48, 52, 45, 65, 46, 48, 53, 45, 65, 46, 48, 54]],
+          type: 'slot',
         },
         {
-          "barcodes": [
-            "A.01",
-            "A.02",
-            "A.03"
-          ],
-          "free_space": 97020,
-          "height": 35,
-          "length": 44,
-          "occupancy_color": "",
-          "orig_coordinates": [
-            0,
-            5
-          ],
-          "prefixed_barcodes": [
-            "A.03",
-            "A.02",
-            "A.01"
-          ],
-          "slot_ref": [
-            [
-              48,
-              53,
-              56,
-              46,
-              48,
-              46,
-              65,
-              46,
-              48,
-              49,
-              45,
-              65,
-              46,
-              48,
-              50,
-              45,
-              65,
-              46,
-              48,
-              51
-            ]
-          ],
-          "type": "slot"
-        }
+          barcodes: ['A.01', 'A.02', 'A.03'],
+          free_space: 97020,
+          height: 35,
+          length: 44,
+          occupancy_color: '',
+          orig_coordinates: [0, 5],
+          prefixed_barcodes: ['A.03', 'A.02', 'A.01'],
+          slot_ref: [[48, 53, 56, 46, 48, 46, 65, 46, 48, 49, 45, 65, 46, 48, 50, 45, 65, 46, 48, 51]],
+          type: 'slot',
+        },
       ],
-      "rack_width": 96,
-      "slot_type": "slot"
+      rack_width: 96,
+      slot_type: 'slot',
     },
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "put",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": false,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "ud_put_front_missing",
-    "previous_put_details": [
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'put',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'ud_put_front_missing',
+    previous_put_details: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Slot ID",
-              "locale": "en-US"
-            }
+              display_name: 'Slot ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "bin_station": "",
-          "display_data": []
-        }
-      ]
+          bin_station: '',
+          display_data: [],
+        },
+      ],
     ],
-    "group_info": {
-      "1": "center"
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [],
-    "sub_header_msge_list": [],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "",
-    "current_bin_id": "1",
-    "product_info": [
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: '',
+    current_bin_id: '1',
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
+              display_name: 'Product Barcode',
+              locale: 'en-US',
             },
             {
-              "display_name": "Código de barras del producto",
-              "locale": "es-ES"
-            }
+              display_name: 'Código de barras del producto',
+              locale: 'es-ES',
+            },
           ],
-          "product_barcode": []
-        }
+          product_barcode: [],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
-      ]
+          product_local_image_url: null,
+        },
+      ],
     ],
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "pps_requested_mode": "undefined",
-    "tote_id": "sid0141",
-    "user_loggedin": "default_user_name",
-    "split_pps_info": [],
-    "inventory_count_check_limit": 5,
-    "missing_items": [
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    pps_requested_mode: 'undefined',
+    tote_id: 'sid0141',
+    user_loggedin: 'default_user_name',
+    split_pps_info: [],
+    inventory_count_check_limit: 5,
+    missing_items: [
       {
-        "product_barcode": "Item1Barcode2",
-        "product_sku": "Item1",
-        "quantity": 1
-      }
-    ]
-  }
+        product_barcode: 'Item1Barcode2',
+        product_sku: 'Item1',
+        quantity: 1,
+      },
+    ],
+  },
 }
 
 export const PUT_FRONT_MISSING_SCREEN = {
   state_data: {
-    "user_loggedin": "default_user_name",
-    "logout_allowed": false,
-    "time_stamp": "2022-09-29T08:39:02Z",
-    "screen_id": "ud_put_front_missing",
-    "screen_version": "1",
-    "exception_allowed": [],
-    "header_msge_list": [
+    user_loggedin: 'default_user_name',
+    logout_allowed: false,
+    time_stamp: '2022-09-29T08:39:02Z',
+    screen_id: 'ud_put_front_missing',
+    screen_version: '1',
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "UdpF.H.012",
-        "level": "info",
-        "description": "Scan a Tote to Induct",
-        "details": []
-      }
+        code: 'UdpF.H.012',
+        level: 'info',
+        description: 'Scan a Tote to Induct',
+        details: [],
+      },
     ],
-    "sub_header_msge_list": [],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "UdpF.I.001",
-        "level": "info",
-        "description": "Tote scan successful",
-        "details": [
-          "Pallet"
-        ]
-      }
+        code: 'UdpF.I.001',
+        level: 'info',
+        description: 'Tote scan successful',
+        details: ['Pallet'],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "put",
-    "pps_profile": "",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "1",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [],
-    "inventory_count_check_limit": 5,
-    "product_info_for_inv_count_check": [],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [],
-    "is_zerowalk_flow": false,
-    "tote_induction": true,
-    "tote_id": "TOT0000446",
-    "scan_allowed": true,
-    "previous_put_details": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'put',
+    pps_profile: '',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: '1',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 5,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    tote_induction: true,
+    tote_id: 'TOT0000446',
+    scan_allowed: true,
+    previous_put_details: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcode',
+              locale: 'en-US',
+            },
           ],
-          "ql_code": ""
-        }
+          ql_code: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Tote ID",
-              "locale": "en-US"
-            }
+              display_name: 'Tote ID',
+              locale: 'en-US',
+            },
           ],
-          "slot_barcode": [
-            [
-              ""
-            ]
-          ]
-        }
+          slot_barcode: [['']],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU ID",
-              "locale": "en-US"
-            }
+              display_name: 'SKU ID',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
+          value: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "SKU Qty",
-              "locale": "en-US"
-            }
+              display_name: 'SKU Qty',
+              locale: 'en-US',
+            },
           ],
-          "value": ""
-        }
-      ]
+          value: '',
+        },
+      ],
     ],
-    "product_info": [
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Barcode",
-              "locale": "en-US"
+              display_name: 'Product Barcode',
+              locale: 'en-US',
             },
             {
-              "display_name": "Código de barras del producto",
-              "locale": "es-ES"
-            }
+              display_name: 'Código de barras del producto',
+              locale: 'es-ES',
+            },
           ],
-          "product_barcode": []
-        }
+          product_barcode: [],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product SKU",
-              "locale": "en-US"
-            }
+              display_name: 'Product SKU',
+              locale: 'en-US',
+            },
           ],
-          "product_sku": ""
-        }
+          product_sku: '',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "Product Dimensions",
-              "locale": "en-US"
-            }
+              display_name: 'Product Dimensions',
+              locale: 'en-US',
+            },
           ],
-          "product_dimension": []
-        }
+          product_dimension: [],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
-      ]
+          product_local_image_url: null,
+        },
+      ],
     ],
-    "rack_details": [],
-    "rack_id": "12345",
-    "missing_items": [
+    rack_details: [],
+    rack_id: '12345',
+    missing_items: [
       {
-        "product_sku": "item_s5",
-        "product_barcode": "item_s5",
-        "quantity": 5,
-        "type": "Item"
-      }
+        product_sku: 'item_s5',
+        product_barcode: 'item_s5',
+        quantity: 5,
+        type: 'Item',
+      },
     ],
-    "ppsbin_list": [
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "5",
-        "bin_info": [
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '5',
+        bin_info: [
           {
-            "type": "Item",
-            "product_sku": "item_s5",
-            "serial": [],
-            "quantity": 5,
-            "service_request_id": [
-              "TOT0000446"
-            ],
-            "load_unit_label": "Bin",
-            "load_unit_id": [
-              "1"
-            ]
-          }
+            type: 'Item',
+            product_sku: 'item_s5',
+            serial: [],
+            quantity: 5,
+            service_request_id: ['TOT0000446'],
+            load_unit_label: 'Bin',
+            load_unit_id: ['1'],
+          },
         ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "staged",
-        "selected_state": true,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "totes_associated": "true"
-      }
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'staged',
+        selected_state: true,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        totes_associated: 'true',
+      },
     ],
-    "is_ud_without_staging": false,
-    "current_put_details": {
-      "tote_details": {
-        "value": "TOT0000446",
-        "display_data": [
+    is_ud_without_staging: false,
+    current_put_details: {
+      tote_details: {
+        value: 'TOT0000446',
+        display_data: [
           {
-            "display_name": "Tote",
-            "locale": "en-US"
-          }
-        ]
+            display_name: 'Tote',
+            locale: 'en-US',
+          },
+        ],
       },
-      "rack_details": {
-        "display_data": [
+      rack_details: {
+        display_data: [
           {
-            "display_name": "TOTE ID",
-            "locale": "en-US"
-          }
-        ]
+            display_name: 'TOTE ID',
+            locale: 'en-US',
+          },
+        ],
       },
-      "sku_type": "Single SKU",
-      "sku_qty": {
-        "total_qty": 1,
-        "put_qty": 0
+      sku_type: 'Single SKU',
+      sku_qty: {
+        total_qty: 1,
+        put_qty: 0,
       },
-      "uom_qty": {
-        "total_qty": 5,
-        "put_qty": 0
+      uom_qty: {
+        total_qty: 5,
+        put_qty: 0,
       },
-      "tote_id": "TOT0000446"
+      tote_id: 'TOT0000446',
     },
-    "show_current_put_widget": true,
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    show_current_put_widget: true,
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [],
-    "event": "missing_items"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'missing_items',
+  },
 }
-
 
 export const PICK_FRONT_DOCK_TOTE_SCREEN = {
   state_data: {
-    "pps_tote_list_disabled" : true,
-    "is_idle" : true,
-    "pps_tote_list": [
+    pps_tote_list_disabled: true,
+    is_idle: true,
+    pps_tote_list: [
       {
-        "position": 2,
-        "selected": true, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "5", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 2,
+        selected: true, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '5', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 1,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "3", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 1,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '3', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 3,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "6", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 3,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '6', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 4,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "4", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 4,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '4', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 5,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "2", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
-      },],
-    "entity_location_after_crash": [
-
-    ],
-    "empty_popup_msg": [
-
-    ],
-    "pps_blocked": false,
-    "dock_index": 0,
-    "show_inv_count_popup": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "ppsbin_list": [
-      {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "5",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false",
-        "container_de-emphasize" : true
-      },
-      {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "1",
-        "ppsbin_light_color": "blue",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": "true",
-        "totes_associated": "true",
-        "container_de-emphasize" : true
-      },
-      {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "6",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
-      },
-      {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "2",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
-      },
-      {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "7",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        position: 5,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '2', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
     ],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-28T05:22:23Z",
-    "cancel_scan_enabled": true,
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [
-
-    ],
-    "show_bin_full_default_zero": false,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    dock_index: 0,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
       {
-        "code": "PkF.H.048",
-        "description": "Waiting for Tote to be associated in Bin-5 from front",
-        "details": [
-          5
-        ],
-        "level": "info"
-      }
-    ],
-    "seat_name": "front_1",
-    "event": "empty",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "notification_list": [
-
-    ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "dock_actions": [
-      {
-        "code": "Common.A.001",
-        "description": "Scan Tote",
-        "details": [
-          "tote"
-        ],
-        "level": "info"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '5',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+        'container_de-emphasize': true,
       },
       {
-        "code": "Common.A.004",
-        "description": "Put Tote in Bin-5 and scan bin",
-        "details": [
-          5
-        ],
-        "level": "info"
-      }
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '1',
+        ppsbin_light_color: 'blue',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: 'true',
+        totes_associated: 'true',
+        'container_de-emphasize': true,
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '6',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '2',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '7',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
     ],
-    "bin_coordinate_plotting": true,
-    "structure": [
-      2,
-      4
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-28T05:22:23Z',
+    cancel_scan_enabled: true,
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
+      {
+        code: 'PkF.H.048',
+        description: 'Waiting for Tote to be associated in Bin-5 from front',
+        details: [5],
+        level: 'info',
+      },
     ],
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "selected_seat_for_release_bins_filter": "undefined",
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "pick",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": true,
-    "show_empty_popup": false,
-    "is_idle": true,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "pick_front_dock_tote",
-    "group_info": {
-      "1": "center"
+    seat_name: 'front_1',
+    event: 'empty',
+    show_bin_view: true,
+    operator_orientation: '0',
+    notification_list: [],
+    screen_version: '1',
+    current_bin_widget: true,
+    dock_actions: [
+      {
+        code: 'Common.A.001',
+        description: 'Scan Tote',
+        details: ['tote'],
+        level: 'info',
+      },
+      {
+        code: 'Common.A.004',
+        description: 'Put Tote in Bin-5 and scan bin',
+        details: [5],
+        level: 'info',
+      },
+    ],
+    bin_coordinate_plotting: true,
+    structure: [2, 4],
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    selected_seat_for_release_bins_filter: 'undefined',
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'pick',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: true,
+    show_empty_popup: false,
+    is_idle: true,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'pick_front_dock_tote',
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [
-
-    ],
-    "sub_header_msge_list": [
-
-    ],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "default1",
-    "current_bin_id": "undefined",
-    "scan_allowed": true,
-    "entity_location_type_after_crash": "undefined",
-    "pps_requested_mode": "undefined",
-    "user_loggedin": "admin",
-    "split_pps_info": [
-
-    ],
-    "inventory_count_check_limit": 0
-  }
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: 'default1',
+    current_bin_id: 'undefined',
+    scan_allowed: true,
+    entity_location_type_after_crash: 'undefined',
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 0,
+  },
 }
 
 export const PICK_FRONT_WAITING_FOR_MSU_SCREEN = {
   state_data: {
-    "title" : "Wait for Tote",
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "pps_tote_list_disabled" : true,
-    "time_stamp": "2022-09-28T05:44:38Z",
-    "screen_id": PICK_FRONT_WAITING_FOR_MSU,
-    "screen_version": "1",
-    "pps_tote_list" :[],
-    "exception_allowed": [
-    ],
-    "header_msge_list": [
+    title: 'Wait for Tote',
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    pps_tote_list_disabled: true,
+    time_stamp: '2022-09-28T05:44:38Z',
+    screen_id: PICK_FRONT_WAITING_FOR_MSU,
+    screen_version: '1',
+    pps_tote_list: [],
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "PkF.H.049",
-        "level": "info",
-        "description": "Dock Tote in Bin-5",
-        "details": [
-          5
-        ]
-      }
+        code: 'PkF.H.049',
+        level: 'info',
+        description: 'Dock Tote in Bin-5',
+        details: [5],
+      },
     ],
-    "sub_header_msge_list": [
-
-    ],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "PkB.I.008",
-        "level": "info",
-        "description": "Tote scan successful.",
-        "details": [
-          "Tote"
-        ]
-      }
+        code: 'PkB.I.008',
+        level: 'info',
+        description: 'Tote scan successful.',
+        details: ['Tote'],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "pick",
-    "pps_profile": "default1",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [
-
-    ],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "undefined",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [
-
-    ],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "inventory_count_check_limit": 0,
-    "product_info_for_inv_count_check": [
-
-    ],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'pick',
+    pps_profile: 'default1',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: 'undefined',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 0,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_id": "5",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 200],
+        ppsbin_id: '5',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_id": "6",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 200],
+        ppsbin_id: '6',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_id": "2",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 0],
+        ppsbin_id: '2',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_id": "7",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 200],
+        ppsbin_id: '7',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_id": "3",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 0],
+        ppsbin_id: '3',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_id": "8",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [600, 200],
+        ppsbin_id: '8',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_id": "4",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
-      }
+        orig_coordinate: [600, 0],
+        ppsbin_id: '4',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
+      },
     ],
-    "structure": [
-      2,
-      4
-    ],
-    "scan_allowed": true,
-    "dock_actions": [
+    structure: [2, 4],
+    scan_allowed: true,
+    dock_actions: [
       {
-        "code": "Common.A.001",
-        "level": "info",
-        "description": "Scan Tote",
-        "details": [
-          "tote"
-        ]
+        code: 'Common.A.001',
+        level: 'info',
+        description: 'Scan Tote',
+        details: ['tote'],
       },
       {
-        "code": "Common.A.004",
-        "level": "info",
-        "description": "Put Tote in Bin-5 and scan bin",
-        "details": [
-          5
-        ]
-      }
+        code: 'Common.A.004',
+        level: 'info',
+        description: 'Put Tote in Bin-5 and scan bin',
+        details: [5],
+      },
     ],
-    "dock_index": 1,
-    "cancel_scan_enabled": false,
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    dock_index: 1,
+    cancel_scan_enabled: false,
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [
-
-    ],
-    "event": "empty"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'empty',
+  },
 }
 
 export const PICK_FRONT_DOCK_TOTE_BIN_SCREEN = {
   state_data: {
-    "title" : "Wait for Tote",
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "pps_tote_list_disabled" : false,
-    "time_stamp": "2022-09-28T05:44:38Z",
-    "screen_id": "pick_front_dock_tote",
-    "screen_version": "1",
-    "pps_tote_list" :[],
-    "exception_allowed": [
-    ],
-    "header_msge_list": [
+    title: 'Wait for Tote',
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    pps_tote_list_disabled: false,
+    time_stamp: '2022-09-28T05:44:38Z',
+    screen_id: 'pick_front_dock_tote',
+    screen_version: '1',
+    pps_tote_list: [],
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "PkF.H.049",
-        "level": "info",
-        "description": "Dock Tote in Bin-5",
-        "details": [
-          5
-        ]
-      }
+        code: 'PkF.H.049',
+        level: 'info',
+        description: 'Dock Tote in Bin-5',
+        details: [5],
+      },
     ],
-    "sub_header_msge_list": [
-
-    ],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "PkB.I.008",
-        "level": "info",
-        "description": "Tote scan successful.",
-        "details": [
-          "Tote"
-        ]
-      }
+        code: 'PkB.I.008',
+        level: 'info',
+        description: 'Tote scan successful.',
+        details: ['Tote'],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "pick",
-    "pps_profile": "default1",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [
-
-    ],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "undefined",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [
-
-    ],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "inventory_count_check_limit": 0,
-    "product_info_for_inv_count_check": [
-
-    ],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'pick',
+    pps_profile: 'default1',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: 'undefined',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 0,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_id": "5",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 200],
+        ppsbin_id: '5',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_id": "6",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 200],
+        ppsbin_id: '6',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_id": "2",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 0],
+        ppsbin_id: '2',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_id": "7",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 200],
+        ppsbin_id: '7',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_id": "3",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 0],
+        ppsbin_id: '3',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_id": "8",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [600, 200],
+        ppsbin_id: '8',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_id": "4",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
-      }
+        orig_coordinate: [600, 0],
+        ppsbin_id: '4',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
+      },
     ],
-    "structure": [
-      2,
-      4
-    ],
-    "scan_allowed": true,
-    "dock_actions": [
+    structure: [2, 4],
+    scan_allowed: true,
+    dock_actions: [
       {
-        "code": "Common.A.001",
-        "level": "info",
-        "description": "Scan Tote",
-        "details": [
-          "tote"
-        ]
+        code: 'Common.A.001',
+        level: 'info',
+        description: 'Scan Tote',
+        details: ['tote'],
       },
       {
-        "code": "Common.A.004",
-        "level": "info",
-        "description": "Put Tote in Bin-5 and scan bin",
-        "details": [
-          5
-        ]
-      }
+        code: 'Common.A.004',
+        level: 'info',
+        description: 'Put Tote in Bin-5 and scan bin',
+        details: [5],
+      },
     ],
-    "dock_index": 1,
-    "cancel_scan_enabled": true,
-    "is_idle": true,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    dock_index: 1,
+    cancel_scan_enabled: true,
+    is_idle: true,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [
-
-    ],
-    "event": "empty"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'empty',
+  },
 }
-
 
 export const PICK_FRONT_TTP_ITEM_SCAN_SCREEN = {
   state_data: {
-    "ppsbin_list": [
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_id": "5",
-        "ppsbin_count": "1",
-        "bin_info": [
+        orig_coordinate: [0, 200],
+        ppsbin_id: '5',
+        ppsbin_count: '1',
+        bin_info: [
           {
-            "type": "Item",
-            "product_sku": "yash1",
-            "serial": [
-
-            ],
-            "quantity": 1,
-            "service_request_id": [
-              "93"
-            ],
-            "load_unit_label": "Tote",
-            "load_unit_id": [
-              "totefive"
-            ]
-          }
+            type: 'Item',
+            product_sku: 'yash1',
+            serial: [],
+            quantity: 1,
+            service_request_id: ['93'],
+            load_unit_label: 'Tote',
+            load_unit_id: ['totefive'],
+          },
         ],
-        "coordinate": [
-          2,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "IN USE",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "true",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "true",
-        "ppsbin_light_color": "blue"
+        coordinate: [2, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'IN USE',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'true',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'true',
+        ppsbin_light_color: 'blue',
       },
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": true,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "true",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "blue",
-        "pointer" : true
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: true,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'true',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'blue',
+        pointer: true,
       },
       {
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_id": "6",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 200],
+        ppsbin_id: '6',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_id": "2",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "true",
-        "ppsbin_light_color": "blue"
+        orig_coordinate: [200, 0],
+        ppsbin_id: '2',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'true',
+        ppsbin_light_color: 'blue',
       },
       {
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_id": "7",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 200],
+        ppsbin_id: '7',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_id": "3",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 0],
+        ppsbin_id: '3',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_id": "8",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [600, 200],
+        ppsbin_id: '8',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_id": "4",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
-      }
+        orig_coordinate: [600, 0],
+        ppsbin_id: '4',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
+      },
     ],
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "time_stamp": "2022-09-28T06:37:53Z",
-    "screen_id": "pick_front_ttp_item_scan",
-    "screen_version": "1",
-    "exception_allowed": [
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    time_stamp: '2022-09-28T06:37:53Z',
+    screen_id: 'pick_front_ttp_item_scan',
+    screen_version: '1',
+    exception_allowed: [
       {
-        "exception_id": "PkF001",
-        "exception_name": "Item Missing/Bad Barcode",
-        "event": "missing_or_unscannable_damaged_item",
-        "details": [
-          "Item"
-        ]
-      }
+        exception_id: 'PkF001',
+        exception_name: 'Item Missing/Bad Barcode',
+        event: 'missing_or_unscannable_damaged_item',
+        details: ['Item'],
+      },
     ],
-    "header_msge_list": [
+    header_msge_list: [
       {
-        "code": "PkF.H.029",
-        "level": "info",
-        "description": "Scan item or dock Tote",
-        "details": [
-          1,
-          "Item",
-          "tote"
-        ]
-      }
+        code: 'PkF.H.029',
+        level: 'info',
+        description: 'Scan item or dock Tote',
+        details: [1, 'Item', 'tote'],
+      },
     ],
-    "sub_header_msge_list": [
-
-    ],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "PkB.I.005",
-        "level": "info",
-        "description": "Tote docked successfully ",
-        "details": [
-          "Tote"
-        ]
-      }
+        code: 'PkB.I.005',
+        level: 'info',
+        description: 'Tote docked successfully ',
+        details: ['Tote'],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "pick",
-    "pps_profile": "default1",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [
-
-    ],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "5",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": true,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [
-
-    ],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "inventory_count_check_limit": 0,
-    "product_info_for_inv_count_check": [
-
-    ],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "product_info": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'pick',
+    pps_profile: 'default1',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: '5',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: true,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 0,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品SKU",
-              "locale": "ja-JP"
+              display_name: '製品SKU',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product SKU",
-              "locale": "en-US"
-            }
+              display_name: 'Product SKU',
+              locale: 'en-US',
+            },
           ],
-          "product_sku": "yash1"
-        }
+          product_sku: 'yash1',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
+          product_local_image_url: null,
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品バーコード",
-              "locale": "ja-JP"
+              display_name: '製品バーコード',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Barcodes",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcodes',
+              locale: 'en-US',
+            },
           ],
-          "product_barcodes": [
-            "yash1"
-          ]
-        }
+          product_barcodes: ['yash1'],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "UOM",
-              "locale": "en-US"
-            }
+              display_name: 'UOM',
+              locale: 'en-US',
+            },
           ],
-          "uom": "Item"
-        }
+          uom: 'Item',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "商品の寸法",
-              "locale": "ja-JP"
+              display_name: '商品の寸法',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Dimensions",
-              "locale": "en-US"
-            }
+              display_name: 'Product Dimensions',
+              locale: 'en-US',
+            },
           ],
-          "product_dimensions": [
-            4,
-            3,
-            4
-          ]
-        }
-      ]
+          product_dimensions: [4, 3, 4],
+        },
+      ],
     ],
-    "item_uid": "1",
-    "scan_allowed": true,
-    "special_handling": [
-
-    ],
-    "is_heavy": false,
-    "temp_sku_reprint_enabled": false,
-    "pre_pick_list_present": false,
-    "header_steps": [
-      "PkF.S.003",
-      "PkF.S.005"
-    ],
-    "direction_widget_details": [
+    item_uid: '1',
+    scan_allowed: true,
+    special_handling: [],
+    is_heavy: false,
+    temp_sku_reprint_enabled: false,
+    pre_pick_list_present: false,
+    header_steps: ['PkF.S.003', 'PkF.S.005'],
+    direction_widget_details: [
       {
-        "direction": "right",
-        "entity": "tote",
-        "selected": true
+        direction: 'right',
+        entity: 'tote',
+        selected: true,
       },
       {
-        "direction": "left",
-        "entity": "rack",
-        "selected": false
-      }
+        direction: 'left',
+        entity: 'rack',
+        selected: false,
+      },
     ],
-    "pps_tote_list": [
+    pps_tote_list: [
       {
-        "position": 2,
-        "selected": true, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "5", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 2,
+        selected: true, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '5', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 1,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "3", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 1,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '3', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 3,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "6", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 3,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '6', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
       {
-        "position": 4,
-        "selected": false, // show enlarge container
-        "pointer": false, //show arrow up on container
-        "tote_id": "4", // associated/show container based on this, if null or empty dont show
-        "text_over_container": "" // show text on container
+        position: 4,
+        selected: false, // show enlarge container
+        pointer: false, //show arrow up on container
+        tote_id: '4', // associated/show container based on this, if null or empty dont show
+        text_over_container: '', // show text on container
       },
-      
-
     ],
-    "is_idle": true,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    is_idle: true,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [
-
-    ],
-    "event": "first_item_pick"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'first_item_pick',
+  },
 }
-
-
 
 export const PICK_FRONT_MORE_ITEM_SCAN_SCREEN = {
   state_data: {
-    "pps_tote_list" : [],
-    "user_loggedin": "admin",
-    "logout_allowed": false,
-    "time_stamp": "2022-09-29T12:24:36Z",
-    "screen_id": "pick_front_more_item_scan",
-    "screen_version": "1",
-    "exception_allowed": [
+    pps_tote_list: [],
+    user_loggedin: 'admin',
+    logout_allowed: false,
+    time_stamp: '2022-09-29T12:24:36Z',
+    screen_id: 'pick_front_more_item_scan',
+    screen_version: '1',
+    exception_allowed: [
       {
-        "exception_id": "PkF001",
-        "exception_name": "Item Missing/Bad Barcode",
-        "event": "missing_or_unscannable_damaged_item",
-        "details": [
-          "Item"
-        ]
-      }
+        exception_id: 'PkF001',
+        exception_name: 'Item Missing/Bad Barcode',
+        event: 'missing_or_unscannable_damaged_item',
+        details: ['Item'],
+      },
     ],
-    "header_msge_list": [
+    header_msge_list: [
       {
-        "code": "PkF.H.018",
-        "level": "info",
-        "description": "Scan Label and Place in Bin",
-        "details": [
-          "Scan",
-          2,
-          "Item",
-          "5"
-        ]
-      }
+        code: 'PkF.H.018',
+        level: 'info',
+        description: 'Scan Label and Place in Bin',
+        details: ['Scan', 2, 'Item', '5'],
+      },
     ],
-    "sub_header_msge_list": [
-
-    ],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "PkF.I.004",
-        "level": "info",
-        "description": "Item Scan successful",
-        "details": [
-          "Item"
-        ]
-      }
+        code: 'PkF.I.004',
+        level: 'info',
+        description: 'Item Scan successful',
+        details: ['Item'],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "pick",
-    "pps_profile": "default1",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [
-
-    ],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "5",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": false,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [
-
-    ],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "inventory_count_check_limit": 0,
-    "product_info_for_inv_count_check": [
-
-    ],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'pick',
+    pps_profile: 'default1',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: '5',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: false,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 0,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_id": "5",
-        "ppsbin_count": "1",
-        "bin_info": [
+        orig_coordinate: [0, 200],
+        ppsbin_id: '5',
+        ppsbin_count: '1',
+        bin_info: [
           {
-            "type": "Item",
-            "product_sku": "yash1",
-            "serial": [
-
-            ],
-            "quantity": 1,
-            "service_request_id": [
-              "93"
-            ],
-            "load_unit_label": "Tote",
-            "load_unit_id": [
-              "totefive"
-            ]
-          }
+            type: 'Item',
+            product_sku: 'yash1',
+            serial: [],
+            quantity: 1,
+            service_request_id: ['93'],
+            load_unit_label: 'Tote',
+            load_unit_id: ['totefive'],
+          },
         ],
-        "coordinate": [
-          2,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "IN USE",
-        "selected_state": true,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "true",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "true",
-        "ppsbin_light_color": "blue"
+        coordinate: [2, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'IN USE',
+        selected_state: true,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'true',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'true',
+        ppsbin_light_color: 'blue',
       },
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_id": "6",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 200],
+        ppsbin_id: '6',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_id": "2",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "true",
-        "ppsbin_light_color": "blue"
+        orig_coordinate: [200, 0],
+        ppsbin_id: '2',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'true',
+        ppsbin_light_color: 'blue',
       },
       {
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_id": "7",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 200],
+        ppsbin_id: '7',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_id": "3",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 0],
+        ppsbin_id: '3',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_id": "8",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [600, 200],
+        ppsbin_id: '8',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_id": "4",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
-      }
+        orig_coordinate: [600, 0],
+        ppsbin_id: '4',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
+      },
     ],
-    "structure": [
-      2,
-      4
-    ],
-    "scan_details": {
-      "kq_allowed": true,
-      "current_qty": "1",
-      "total_qty": "3"
+    structure: [2, 4],
+    scan_details: {
+      kq_allowed: true,
+      current_qty: '1',
+      total_qty: '3',
     },
-    "product_info": [
+    product_info: [
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品SKU",
-              "locale": "ja-JP"
+              display_name: '製品SKU',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product SKU",
-              "locale": "en-US"
-            }
+              display_name: 'Product SKU',
+              locale: 'en-US',
+            },
           ],
-          "product_sku": "yash1"
-        }
+          product_sku: 'yash1',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "product_local_image_url",
-              "locale": "en-US"
-            }
+              display_name: 'product_local_image_url',
+              locale: 'en-US',
+            },
           ],
-          "product_local_image_url": null
-        }
+          product_local_image_url: null,
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "製品バーコード",
-              "locale": "ja-JP"
+              display_name: '製品バーコード',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Barcodes",
-              "locale": "en-US"
-            }
+              display_name: 'Product Barcodes',
+              locale: 'en-US',
+            },
           ],
-          "product_barcodes": [
-            "yash1"
-          ]
-        }
+          product_barcodes: ['yash1'],
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "UOM",
-              "locale": "en-US"
-            }
+              display_name: 'UOM',
+              locale: 'en-US',
+            },
           ],
-          "uom": "Item"
-        }
+          uom: 'Item',
+        },
       ],
       [
         {
-          "display_data": [
+          display_data: [
             {
-              "display_name": "商品の寸法",
-              "locale": "ja-JP"
+              display_name: '商品の寸法',
+              locale: 'ja-JP',
             },
             {
-              "display_name": "Product Dimensions",
-              "locale": "en-US"
-            }
+              display_name: 'Product Dimensions',
+              locale: 'en-US',
+            },
           ],
-          "product_dimensions": [
-            4,
-            3,
-            4
-          ]
-        }
-      ]
+          product_dimensions: [4, 3, 4],
+        },
+      ],
     ],
-    "rack_details": {
-      "rack_type_rec": [
+    rack_details: {
+      rack_type_rec: [
         {
-          "barcodes": [
-            "A.01 "
-          ],
-          "prefixed_barcodes": [
-            "#GOA.01 "
-          ],
-          "length": 40,
-          "height": 40,
-          "type": "slot",
-          "orig_coordinates": [
-            0,
-            0
-          ],
-          "slot_ref": "0.A.01 "
-        }
+          barcodes: ['A.01 '],
+          prefixed_barcodes: ['#GOA.01 '],
+          length: 40,
+          height: 40,
+          type: 'slot',
+          orig_coordinates: [0, 0],
+          slot_ref: '0.A.01 ',
+        },
       ],
-      "rack_width": 40,
-      "slot_barcodes": [
-        "1.0.A.01 "
-      ],
-      "slot_type": "slot",
-      "rack_type": [
-        48,
-        48,
-        49
-      ],
-      "current_slot": "none"
+      rack_width: 40,
+      slot_barcodes: ['1.0.A.01 '],
+      slot_type: 'slot',
+      rack_type: [48, 48, 49],
+      current_slot: 'none',
     },
-    "item_uid": "1",
-    "scan_allowed": true,
-    "printer_info": {
-      "printer_visible": false,
-      "printer_border_color": "yellow"
+    item_uid: '1',
+    scan_allowed: true,
+    printer_info: {
+      printer_visible: false,
+      printer_border_color: 'yellow',
     },
-    "reprint_button_enabled": false,
-    "temp_sku_reprint_enabled": false,
-    "reprint_popup_enabled": false,
-    "levels": [
-
-    ],
-    "header_steps": [
-      "PkF.S.003",
-      "PkF.S.005"
-    ],
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    reprint_button_enabled: false,
+    temp_sku_reprint_enabled: false,
+    reprint_popup_enabled: false,
+    levels: [],
+    header_steps: ['PkF.S.003', 'PkF.S.005'],
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [
-
-    ],
-    "event": "more_items"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'more_items',
+  },
 }
-
 
 export const PICK_FRONT_PPTL_PRESS_SCREEN = {
   state_data: {
-    "entity_location_after_crash": [
-
-    ],
-    "empty_popup_msg": [
-
-    ],
-    "pps_blocked": false,
-    "temp_sku_reprint_enabled": false,
-    "reprint_popup_enabled": false,
-    "show_inv_count_popup": false,
-    "reprint_button_enabled": false,
-    "reserve_audit": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "ppsbin_list": [
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    temp_sku_reprint_enabled: false,
+    reprint_popup_enabled: false,
+    show_inv_count_popup: false,
+    reprint_button_enabled: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [
           {
-            "load_unit_id": [
-              "toteone"
-            ],
-            "load_unit_label": "Tote",
-            "product_sku": "yash1",
-            "quantity": 1,
-            "serial": [
-
-            ],
-            "service_request_id": [
-              "88"
-            ],
-            "type": "Item"
-          }
+            load_unit_id: ['toteone'],
+            load_unit_label: 'Tote',
+            product_sku: 'yash1',
+            quantity: 1,
+            serial: [],
+            service_request_id: ['88'],
+            type: 'Item',
+          },
         ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "true",
-        "ppsbin_count": "1",
-        "ppsbin_id": "5",
-        "ppsbin_light_color": "blue",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "IN USE",
-        "selected_state": true,
-        "totes_associated": "true"
+        breadth: '100',
+        coordinate: [2, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'true',
+        ppsbin_count: '1',
+        ppsbin_id: '5',
+        ppsbin_light_color: 'blue',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'IN USE',
+        selected_state: true,
+        totes_associated: 'true',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          4
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "1",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '1',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "6",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '6',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          3
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "2",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '2',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "7",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '7',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          2
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "3",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '3',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          2,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "8",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [2, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '8',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
       },
       {
-        "back_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "bin_info": [
-
-        ],
-        "breadth": "100",
-        "coordinate": [
-          1,
-          1
-        ],
-        "direction": "center",
-        "front_drawing_start": "left",
-        "group_id": "1",
-        "height": "100",
-        "length": "200",
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_count": "0",
-        "ppsbin_id": "4",
-        "ppsbin_light_color": "none",
-        "ppsbin_order_age_coloring": "none",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "totes_associated": "false"
-      }
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        coordinate: [1, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '4',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
     ],
-    "auto_sideline_confirm_required": false,
-    "time_stamp": "2022-09-28T05:54:05Z",
-    "cancel_scan_enabled": true,
-    "auto_sideline_crash_type": "none",
-    "exception_allowed": [
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-28T05:54:05Z',
+    cancel_scan_enabled: true,
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [
       {
-        "details": [
-          "Item"
-        ],
-        "event": "missing_or_unscannable_damaged_item",
-        "exception_id": "PkF001",
-        "exception_name": "Item Missing/Bad Barcode"
-      }
+        details: ['Item'],
+        event: 'missing_or_unscannable_damaged_item',
+        exception_id: 'PkF001',
+        exception_name: 'Item Missing/Bad Barcode',
+      },
     ],
-    "is_zerowalk_flow": false,
-    "header_steps": [
-      "PkF.S.003",
-      "PkF.S.005"
-    ],
-    "api_version": "1",
-    "ops_paused": false,
-    "docked": [
-
-    ],
-    "show_bin_full_default_zero": true,
-    "allow_positive_adjustment": true,
-    "header_msge_list": [
+    is_zerowalk_flow: false,
+    header_steps: ['PkF.S.003', 'PkF.S.005'],
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: true,
+    allow_positive_adjustment: true,
+    header_msge_list: [
       {
-        "code": "PkF.H.007",
-        "description": "Press PPTL for Bin to confirm",
-        "details": [
-          "5"
-        ],
-        "level": "info"
-      }
+        code: 'PkF.H.007',
+        description: 'Press PPTL for Bin to confirm',
+        details: ['5'],
+        level: 'info',
+      },
     ],
-    "seat_name": "front_1",
-    "event": "empty",
-    "show_bin_view": true,
-    "operator_orientation": "0",
-    "notification_list": [
+    seat_name: 'front_1',
+    event: 'empty',
+    show_bin_view: true,
+    operator_orientation: '0',
+    notification_list: [
       {
-        "code": "PkF.I.004",
-        "description": "Item Scan successful",
-        "details": [
-          "Item"
-        ],
-        "level": "info"
-      }
+        code: 'PkF.I.004',
+        description: 'Item Scan successful',
+        details: ['Item'],
+        level: 'info',
+      },
     ],
-    "screen_version": "1",
-    "current_bin_widget": true,
-    "bin_coordinate_plotting": true,
-    "structure": [
-      2,
-      4
-    ],
-    "error_popup_disabled": false,
-    "disable_reconcile_screen": false,
-    "selected_seat_for_release_bins_filter": "undefined",
-    "rack_details": {
-      "current_slot": "none",
-      "rack_type": [
-        49,
-        49
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    structure: [2, 4],
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    selected_seat_for_release_bins_filter: 'undefined',
+    rack_details: {
+      current_slot: 'none',
+      rack_type: [49, 49],
+      rack_type_rec: [
+        {
+          barcodes: ['A.01', 'A.02'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [0, 5],
+          prefixed_barcodes: ['#GOA.02', '#GOA.01'],
+          slot_ref: '0.A.01-A.02',
+          type: 'slot',
+        },
+        {
+          barcodes: ['A.03', 'A.04'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [32, 5],
+          prefixed_barcodes: ['#GOA.04', '#GOA.03'],
+          slot_ref: '0.A.03-A.04',
+          type: 'slot',
+        },
+        {
+          barcodes: ['A.05', 'A.06'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [64, 5],
+          prefixed_barcodes: ['#GOA.06', '#GOA.05'],
+          slot_ref: '0.A.05-A.06',
+          type: 'slot',
+        },
+        {
+          barcodes: ['B.01', 'B.02'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [0, 43],
+          prefixed_barcodes: ['#GOB.02', '#GOB.01'],
+          slot_ref: '0.B.01-B.02',
+          type: 'slot',
+        },
+        {
+          barcodes: ['B.03', 'B.04'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [32, 43],
+          prefixed_barcodes: ['#GOB.04', '#GOB.03'],
+          slot_ref: '0.B.03-B.04',
+          type: 'slot',
+        },
+        {
+          barcodes: ['B.05', 'B.06'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [64, 43],
+          prefixed_barcodes: ['#GOB.06', '#GOB.05'],
+          slot_ref: '0.B.05-B.06',
+          type: 'slot',
+        },
+        {
+          barcodes: ['C.01', 'C.02'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [0, 81],
+          prefixed_barcodes: ['#GOC.02', '#GOC.01'],
+          slot_ref: '0.C.01-C.02',
+          type: 'slot',
+        },
+        {
+          barcodes: ['C.03', 'C.04'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [32, 81],
+          prefixed_barcodes: ['#GOC.04', '#GOC.03'],
+          slot_ref: '0.C.03-C.04',
+          type: 'slot',
+        },
+        {
+          barcodes: ['C.05', 'C.06'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [64, 81],
+          prefixed_barcodes: ['#GOC.06', '#GOC.05'],
+          slot_ref: '0.C.05-C.06',
+          type: 'slot',
+        },
+        {
+          barcodes: ['D.01', 'D.02'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [0, 119],
+          prefixed_barcodes: ['#GOD.02', '#GOD.01'],
+          slot_ref: '0.D.01-D.02',
+          type: 'slot',
+        },
+        {
+          barcodes: ['D.03', 'D.04'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [32, 119],
+          prefixed_barcodes: ['#GOD.04', '#GOD.03'],
+          slot_ref: '0.D.03-D.04',
+          type: 'slot',
+        },
+        {
+          barcodes: ['D.05', 'D.06'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [64, 119],
+          prefixed_barcodes: ['#GOD.06', '#GOD.05'],
+          slot_ref: '0.D.05-D.06',
+          type: 'slot',
+        },
+        {
+          barcodes: ['E.01', 'E.02'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [0, 157],
+          prefixed_barcodes: ['#GOE.02', '#GOE.01'],
+          slot_ref: '0.E.01-E.02',
+          type: 'slot',
+        },
+        {
+          barcodes: ['E.03', 'E.04'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [32, 157],
+          prefixed_barcodes: ['#GOE.04', '#GOE.03'],
+          slot_ref: '0.E.03-E.04',
+          type: 'slot',
+        },
+        {
+          barcodes: ['E.05', 'E.06'],
+          height: 33,
+          length: 32,
+          orig_coordinates: [64, 157],
+          prefixed_barcodes: ['#GOE.06', '#GOE.05'],
+          slot_ref: '0.E.05-E.06',
+          type: 'slot',
+        },
       ],
-      "rack_type_rec": [
-        {
-          "barcodes": [
-            "A.01",
-            "A.02"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            0,
-            5
-          ],
-          "prefixed_barcodes": [
-            "#GOA.02",
-            "#GOA.01"
-          ],
-          "slot_ref": "0.A.01-A.02",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "A.03",
-            "A.04"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            32,
-            5
-          ],
-          "prefixed_barcodes": [
-            "#GOA.04",
-            "#GOA.03"
-          ],
-          "slot_ref": "0.A.03-A.04",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "A.05",
-            "A.06"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            64,
-            5
-          ],
-          "prefixed_barcodes": [
-            "#GOA.06",
-            "#GOA.05"
-          ],
-          "slot_ref": "0.A.05-A.06",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "B.01",
-            "B.02"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            0,
-            43
-          ],
-          "prefixed_barcodes": [
-            "#GOB.02",
-            "#GOB.01"
-          ],
-          "slot_ref": "0.B.01-B.02",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "B.03",
-            "B.04"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            32,
-            43
-          ],
-          "prefixed_barcodes": [
-            "#GOB.04",
-            "#GOB.03"
-          ],
-          "slot_ref": "0.B.03-B.04",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "B.05",
-            "B.06"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            64,
-            43
-          ],
-          "prefixed_barcodes": [
-            "#GOB.06",
-            "#GOB.05"
-          ],
-          "slot_ref": "0.B.05-B.06",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "C.01",
-            "C.02"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            0,
-            81
-          ],
-          "prefixed_barcodes": [
-            "#GOC.02",
-            "#GOC.01"
-          ],
-          "slot_ref": "0.C.01-C.02",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "C.03",
-            "C.04"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            32,
-            81
-          ],
-          "prefixed_barcodes": [
-            "#GOC.04",
-            "#GOC.03"
-          ],
-          "slot_ref": "0.C.03-C.04",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "C.05",
-            "C.06"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            64,
-            81
-          ],
-          "prefixed_barcodes": [
-            "#GOC.06",
-            "#GOC.05"
-          ],
-          "slot_ref": "0.C.05-C.06",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "D.01",
-            "D.02"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            0,
-            119
-          ],
-          "prefixed_barcodes": [
-            "#GOD.02",
-            "#GOD.01"
-          ],
-          "slot_ref": "0.D.01-D.02",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "D.03",
-            "D.04"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            32,
-            119
-          ],
-          "prefixed_barcodes": [
-            "#GOD.04",
-            "#GOD.03"
-          ],
-          "slot_ref": "0.D.03-D.04",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "D.05",
-            "D.06"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            64,
-            119
-          ],
-          "prefixed_barcodes": [
-            "#GOD.06",
-            "#GOD.05"
-          ],
-          "slot_ref": "0.D.05-D.06",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "E.01",
-            "E.02"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            0,
-            157
-          ],
-          "prefixed_barcodes": [
-            "#GOE.02",
-            "#GOE.01"
-          ],
-          "slot_ref": "0.E.01-E.02",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "E.03",
-            "E.04"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            32,
-            157
-          ],
-          "prefixed_barcodes": [
-            "#GOE.04",
-            "#GOE.03"
-          ],
-          "slot_ref": "0.E.03-E.04",
-          "type": "slot"
-        },
-        {
-          "barcodes": [
-            "E.05",
-            "E.06"
-          ],
-          "height": 33,
-          "length": 32,
-          "orig_coordinates": [
-            64,
-            157
-          ],
-          "prefixed_barcodes": [
-            "#GOE.06",
-            "#GOE.05"
-          ],
-          "slot_ref": "0.E.05-E.06",
-          "type": "slot"
-        }
-      ],
-      "rack_width": 96,
-      "slot_barcodes": [
-        "031.0.C.05",
-        "031.0.C.06"
-      ],
-      "slot_type": "slot"
+      rack_width: 96,
+      slot_barcodes: ['031.0.C.05', '031.0.C.06'],
+      slot_type: 'slot',
     },
-    "scan_details": {
-      "current_qty": "1",
-      "kq_allowed": true,
-      "total_qty": "1"
+    scan_details: {
+      current_qty: '1',
+      kq_allowed: true,
+      total_qty: '1',
     },
-    "is_only_exception_button_pressed": false,
-    "audit_sideline_popup": false,
-    "maintenance": "undefined",
-    "mode": "pick",
-    "pps_requested_status": "undefined",
-    "early_display": false,
-    "logout_allowed": false,
-    "show_empty_popup": false,
-    "is_idle": false,
-    "bin_plotting": true,
-    "seat_type": "front",
-    "roll_cage_flow": false,
-    "screen_id": "pick_front_pptl_press",
-    "printer_info": {
-      "printer_border_color": "yellow",
-      "printer_visible": false
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'pick',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'pick_front_pptl_press',
+    printer_info: {
+      printer_border_color: 'yellow',
+      printer_visible: false,
     },
-    "group_info": {
-      "1": "center"
+    group_info: {
+      1: 'center',
     },
-    "product_info_for_inv_count_check": [
-
-    ],
-    "sub_header_msge_list": [
-
-    ],
-    "uph_count": 0,
-    "rc_warehouse_full_popup": false,
-    "pps_profile": "default1",
-    "current_bin_id": "5",
-    "scan_allowed": false,
-    "entity_location_type_after_crash": "undefined",
-    "pps_requested_mode": "undefined",
-    "user_loggedin": "admin",
-    "split_pps_info": [
-
-    ],
-    "inventory_count_check_limit": 0
-  }
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: 'default1',
+    current_bin_id: '5',
+    scan_allowed: false,
+    entity_location_type_after_crash: 'undefined',
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 0,
+  },
 }
 
 export const PICK_FRONT_UNDOCK_TOTE_SCREEN = {
   state_data: {
-    "user_loggedin": "admin",
-    "logout_allowed": true,
-    "time_stamp": "2022-09-28T06:09:37Z",
-    "screen_id": "pick_front_undock_tote",
-    "screen_version": "1",
-    "exception_allowed": [
-
-    ],
-    "header_msge_list": [
+    user_loggedin: 'admin',
+    logout_allowed: true,
+    time_stamp: '2022-09-28T06:09:37Z',
+    screen_id: 'pick_front_undock_tote',
+    screen_version: '1',
+    exception_allowed: [],
+    header_msge_list: [
       {
-        "code": "PkF.H.030",
-        "level": "info",
-        "description": "Undock Tote",
-        "details": [
-          "tote"
-        ]
-      }
+        code: 'PkF.H.030',
+        level: 'info',
+        description: 'Undock Tote',
+        details: ['tote'],
+      },
     ],
-    "sub_header_msge_list": [
-
-    ],
-    "notification_list": [
+    sub_header_msge_list: [],
+    notification_list: [
       {
-        "code": "PkF.I.001",
-        "level": "info",
-        "description": "Pick Complete. Waiting for next pick.",
-        "details": [
-
-        ]
-      }
+        code: 'PkF.I.001',
+        level: 'info',
+        description: 'Pick Complete. Waiting for next pick.',
+        details: [],
+      },
     ],
-    "seat_type": "front",
-    "seat_name": "front_1",
-    "mode": "pick",
-    "pps_profile": "default1",
-    "pps_requested_status": "undefined",
-    "pps_requested_mode": "undefined",
-    "api_version": "1",
-    "error_popup_disabled": false,
-    "operator_orientation": "0",
-    "uph_count": 0,
-    "ops_paused": false,
-    "current_bin_widget": true,
-    "show_bin_view": true,
-    "bin_plotting": true,
-    "audit_sideline_popup": false,
-    "allow_positive_adjustment": true,
-    "auto_sideline_confirm_required": false,
-    "auto_sideline_crash_type": "none",
-    "rc_warehouse_full_popup": false,
-    "entity_location_after_crash": [
-
-    ],
-    "entity_location_type_after_crash": "undefined",
-    "is_only_exception_button_pressed": false,
-    "pps_blocked": false,
-    "current_bin_id": "5",
-    "disable_reconcile_screen": false,
-    "show_bin_full_default_zero": true,
-    "reserve_audit": false,
-    "show_empty_popup": false,
-    "empty_popup_msg": [
-
-    ],
-    "maintenance": "undefined",
-    "early_display": false,
-    "show_inv_count_popup": false,
-    "inv_count_popup_msg": [
-
-    ],
-    "inventory_count_check_limit": 0,
-    "product_info_for_inv_count_check": [
-
-    ],
-    "selected_seat_for_release_bins_filter": "undefined",
-    "split_pps_info": [
-
-    ],
-    "is_zerowalk_flow": false,
-    "ppsbin_list": [
+    seat_type: 'front',
+    seat_name: 'front_1',
+    mode: 'pick',
+    pps_profile: 'default1',
+    pps_requested_status: 'undefined',
+    pps_requested_mode: 'undefined',
+    api_version: '1',
+    error_popup_disabled: false,
+    operator_orientation: '0',
+    uph_count: 0,
+    ops_paused: false,
+    current_bin_widget: true,
+    show_bin_view: true,
+    bin_plotting: true,
+    audit_sideline_popup: false,
+    allow_positive_adjustment: true,
+    auto_sideline_confirm_required: false,
+    auto_sideline_crash_type: 'none',
+    rc_warehouse_full_popup: false,
+    entity_location_after_crash: [],
+    entity_location_type_after_crash: 'undefined',
+    is_only_exception_button_pressed: false,
+    pps_blocked: false,
+    current_bin_id: '5',
+    disable_reconcile_screen: false,
+    show_bin_full_default_zero: true,
+    reserve_audit: false,
+    show_empty_popup: false,
+    empty_popup_msg: [],
+    maintenance: 'undefined',
+    early_display: false,
+    show_inv_count_popup: false,
+    inv_count_popup_msg: [],
+    inventory_count_check_limit: 0,
+    product_info_for_inv_count_check: [],
+    selected_seat_for_release_bins_filter: 'undefined',
+    split_pps_info: [],
+    is_zerowalk_flow: false,
+    ppsbin_list: [
       {
-        "orig_coordinate": [
-          0,
-          200
-        ],
-        "ppsbin_id": "5",
-        "ppsbin_count": "1",
-        "bin_info": [
+        orig_coordinate: [0, 200],
+        ppsbin_id: '5',
+        ppsbin_count: '1',
+        bin_info: [
           {
-            "type": "Item",
-            "product_sku": "yash1",
-            "serial": [
-
-            ],
-            "quantity": 1,
-            "service_request_id": [
-              "88"
-            ],
-            "load_unit_label": "Tote",
-            "load_unit_id": [
-              "toteone"
-            ]
-          }
+            type: 'Item',
+            product_sku: 'yash1',
+            serial: [],
+            quantity: 1,
+            service_request_id: ['88'],
+            load_unit_label: 'Tote',
+            load_unit_id: ['toteone'],
+          },
         ],
-        "coordinate": [
-          2,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": true,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "true",
-        "packing_box": "false",
-        "ppsbin_blink_state": true,
-        "ppsbin_blue_state": "true",
-        "ppsbin_light_color": "green"
+        coordinate: [2, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: true,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'true',
+        packing_box: 'false',
+        ppsbin_blink_state: true,
+        ppsbin_blue_state: 'true',
+        ppsbin_light_color: 'green',
       },
       {
-        "orig_coordinate": [
-          0,
-          0
-        ],
-        "ppsbin_id": "1",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          4
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [0, 0],
+        ppsbin_id: '1',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 4],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          200
-        ],
-        "ppsbin_id": "6",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 200],
+        ppsbin_id: '6',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          200,
-          0
-        ],
-        "ppsbin_id": "2",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          3
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [200, 0],
+        ppsbin_id: '2',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 3],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          200
-        ],
-        "ppsbin_id": "7",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 200],
+        ppsbin_id: '7',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          400,
-          0
-        ],
-        "ppsbin_id": "3",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          2
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [400, 0],
+        ppsbin_id: '3',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 2],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          200
-        ],
-        "ppsbin_id": "8",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          2,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
+        orig_coordinate: [600, 200],
+        ppsbin_id: '8',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [2, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
       },
       {
-        "orig_coordinate": [
-          600,
-          0
-        ],
-        "ppsbin_id": "4",
-        "ppsbin_count": "0",
-        "bin_info": [
-
-        ],
-        "coordinate": [
-          1,
-          1
-        ],
-        "group_id": "1",
-        "direction": "center",
-        "length": "200",
-        "breadth": "100",
-        "height": "100",
-        "ppsbin_state": "empty",
-        "selected_state": false,
-        "back_drawing_start": "left",
-        "front_drawing_start": "left",
-        "back_seat_name": "back_1",
-        "ppsbin_order_age_coloring": "none",
-        "totes_associated": "false",
-        "packing_box": "false",
-        "ppsbin_blink_state": false,
-        "ppsbin_blue_state": "false",
-        "ppsbin_light_color": "none"
-      }
+        orig_coordinate: [600, 0],
+        ppsbin_id: '4',
+        ppsbin_count: '0',
+        bin_info: [],
+        coordinate: [1, 1],
+        group_id: '1',
+        direction: 'center',
+        length: '200',
+        breadth: '100',
+        height: '100',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        back_drawing_start: 'left',
+        front_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        ppsbin_order_age_coloring: 'none',
+        totes_associated: 'false',
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_light_color: 'none',
+      },
     ],
-    "structure": [
-      2,
-      4
-    ],
-    "scan_allowed": true,
-    "undock_awaited": {
-      "5": "center"
+    structure: [2, 4],
+    scan_allowed: true,
+    undock_awaited: {
+      5: 'center',
     },
-    "is_idle": false,
-    "roll_cage_flow": false,
-    "group_info": {
-      "1": "center"
+    is_idle: false,
+    roll_cage_flow: false,
+    group_info: {
+      1: 'center',
     },
-    "bin_coordinate_plotting": true,
-    "docked": [
-
-    ],
-    "event": "empty"
-  }
+    bin_coordinate_plotting: true,
+    docked: [],
+    event: 'empty',
+  },
 }
 
 export const PACKING_BOX_SCREEN = {
-    "state_data":{
-        "title": "Scan a Packing Box",
-        "entity_location_after_crash": [],
-        "empty_popup_msg": [],
-        "pps_blocked": false,
-        "show_inv_count_popup": false,
-        "reserve_audit": false,
-        "inv_count_popup_msg": [],
-        "ppsbin_list": [
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [2, 4],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [0, 200],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "5",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "packing_box_required",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [1, 4],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [0, 0],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "1",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [2, 3],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [200, 200],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "6",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [1, 3],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [200, 0],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "2",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [2, 2],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [400, 200],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "7",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [1, 2],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [400, 0],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "3",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [2, 1],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [600, 200],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "8",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          },
-          {
-            "back_drawing_start": "left",
-            "back_seat_name": "back_1",
-            "bin_info": [],
-            "breadth": "100",
-            "carrier_associated": false,
-            "coordinate": [1, 1],
-            "direction": "center",
-            "front_drawing_start": "left",
-            "group_id": "1",
-            "height": "100",
-            "length": "200",
-            "orig_coordinate": [600, 0],
-            "packing_box": "false",
-            "ppsbin_blink_state": false,
-            "ppsbin_blue_state": "false",
-            "ppsbin_count": "0",
-            "ppsbin_id": "4",
-            "ppsbin_light_color": "none",
-            "ppsbin_order_age_coloring": "none",
-            "ppsbin_state": "empty",
-            "selected_state": false,
-            "totes_associated": "false"
-          }
-        ],
-        "pps_tote_list_disabled": true,
-        "auto_sideline_confirm_required": false,
-        "time_stamp": "2022-10-14T07:09:51Z",
-        "auto_sideline_crash_type": "none",
-        "exception_allowed": [],
-        "is_zerowalk_flow": false,
-        "api_version": "1",
-        "ops_paused": false,
-        "docked": [],
-        "show_bin_full_default_zero": false,
-        "allow_positive_adjustment": true,
-        "header_msge_list": [
-          {
-            "code": "PkF.H.056",
-            "description": "Scan a ~p or Wait for inventory Tote",
-            "details": ["Packing Box"],
-            "level": "info"
-          }
-        ],
-        "seat_name": "front_1",
-        "event": "box_scan",
-        "show_bin_view": true,
-        "operator_orientation": "0",
-        "notification_list": [],
-        "screen_version": "1",
-        "current_bin_widget": true,
-        "bin_coordinate_plotting": true,
-        "structure": [2, 4],
-        "error_popup_disabled": false,
-        "disable_reconcile_screen": false,
-        "selected_seat_for_release_bins_filter": "undefined",
-        "legend": [{ "label": "Inventory Totes" }, { "label": "Packing Box" }],
-        "pps_tote_list": [{ "position": 2, "selected": false, "tote_id": [] }],
-        "packing_box_type": "undefined",
-        "is_only_exception_button_pressed": false,
-        "audit_sideline_popup": false,
-        "maintenance": "undefined",
-        "mode": "pick",
-        "pps_requested_status": "undefined",
-        "early_display": false,
-        "logout_allowed": false,
-        "show_empty_popup": false,
-        "is_idle": false,
-        "bin_plotting": true,
-        "seat_type": "front",
-        "roll_cage_flow": false,
-        "screen_id": "pick_front_scan_or_wait_for_container",
-        "group_info": { "1": "center" },
-        "product_info_for_inv_count_check": [],
-        "sub_header_msge_list": [],
-        "uph_count": 0,
-        "rc_warehouse_full_popup": false,
-        "pps_profile": "default1",
-        "current_bin_id": "undefined",
-        "entity_location_type_after_crash": "undefined",
-        "pps_requested_mode": "undefined",
-        "user_loggedin": "admin",
-        "split_pps_info": [],
-        "inventory_count_check_limit": 0
-      }
-      
-  }
-  
+  state_data: {
+    title: 'Scan a Packing Box',
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    ppsbin_list: [
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [2, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '5',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'packing_box_required',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [1, 4],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [0, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '1',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [2, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '6',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [1, 3],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [200, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '2',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [2, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '7',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [1, 2],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [400, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '3',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [2, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 200],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '8',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+      {
+        back_drawing_start: 'left',
+        back_seat_name: 'back_1',
+        bin_info: [],
+        breadth: '100',
+        carrier_associated: false,
+        coordinate: [1, 1],
+        direction: 'center',
+        front_drawing_start: 'left',
+        group_id: '1',
+        height: '100',
+        length: '200',
+        orig_coordinate: [600, 0],
+        packing_box: 'false',
+        ppsbin_blink_state: false,
+        ppsbin_blue_state: 'false',
+        ppsbin_count: '0',
+        ppsbin_id: '4',
+        ppsbin_light_color: 'none',
+        ppsbin_order_age_coloring: 'none',
+        ppsbin_state: 'empty',
+        selected_state: false,
+        totes_associated: 'false',
+      },
+    ],
+    pps_tote_list_disabled: true,
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-10-14T07:09:51Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: false,
+    allow_positive_adjustment: true,
+    header_msge_list: [
+      {
+        code: 'PkF.H.056',
+        description: 'Scan a ~p or Wait for inventory Tote',
+        details: ['Packing Box'],
+        level: 'info',
+      },
+    ],
+    seat_name: 'front_1',
+    event: 'box_scan',
+    show_bin_view: true,
+    operator_orientation: '0',
+    notification_list: [],
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    structure: [2, 4],
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    selected_seat_for_release_bins_filter: 'undefined',
+    legend: [{ label: 'Inventory Totes' }, { label: 'Packing Box' }],
+    pps_tote_list: [{ position: 2, selected: false, tote_id: [] }],
+    packing_box_type: 'undefined',
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    maintenance: 'undefined',
+    mode: 'pick',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'pick_front_scan_or_wait_for_container',
+    group_info: { 1: 'center' },
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: 'default1',
+    current_bin_id: 'undefined',
+    entity_location_type_after_crash: 'undefined',
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 0,
+  },
+}
+
+export const PICK_FRONT_MISSING_OR_UNSCANNABLE_DAMAGED_ITEM = {
+  state_data: {
+    entity_location_after_crash: [],
+    empty_popup_msg: [],
+    pps_blocked: false,
+    show_inv_count_popup: false,
+    reserve_audit: false,
+    inv_count_popup_msg: [],
+    auto_sideline_confirm_required: false,
+    time_stamp: '2022-09-29T10:15:26Z',
+    auto_sideline_crash_type: 'none',
+    exception_allowed: [
+      {
+        details: ['Item'],
+        event: 'missing_or_unscannable_damaged_item',
+        exception_id: 'PkF001',
+        exception_name: 'Item Missing/Bad Barcode',
+      },
+    ],
+    is_zerowalk_flow: false,
+    api_version: '1',
+    ops_paused: false,
+    docked: [],
+    show_bin_full_default_zero: true,
+    allow_positive_adjustment: true,
+    header_msge_list: [
+      {
+        code: 'PkF.H.015',
+        description: 'Enter Quantity',
+        details: [],
+        level: 'info',
+      },
+    ],
+    seat_name: 'front_1',
+    event: 'pick_front_missing_or_unscannable_damaged_item',
+    show_bin_view: true,
+    exception_type: 'missing_or_unscannable_damaged_item',
+    operator_orientation: '0',
+    notification_list: [],
+    screen_version: '1',
+    current_bin_widget: true,
+    bin_coordinate_plotting: true,
+    error_popup_disabled: false,
+    disable_reconcile_screen: false,
+    selected_seat_for_release_bins_filter: 'undefined',
+    is_only_exception_button_pressed: false,
+    audit_sideline_popup: false,
+    pick_quantity: 1,
+    maintenance: 'undefined',
+    mode: 'pick',
+    pps_requested_status: 'undefined',
+    early_display: false,
+    logout_allowed: false,
+    show_empty_popup: false,
+    is_idle: false,
+    bin_plotting: true,
+    seat_type: 'front',
+    roll_cage_flow: false,
+    screen_id: 'pick_front_missing_or_unscannable_damaged_item',
+    good_quantity: 0,
+    group_info: {
+      1: 'center',
+    },
+    product_info_for_inv_count_check: [],
+    sub_header_msge_list: [],
+    uph_count: 0,
+    rc_warehouse_full_popup: false,
+    pps_profile: 'default1',
+    current_bin_id: '5',
+    scan_allowed: false,
+    entity_location_type_after_crash: 'undefined',
+    pps_requested_mode: 'undefined',
+    user_loggedin: 'admin',
+    split_pps_info: [],
+    inventory_count_check_limit: 0,
+  },
+}

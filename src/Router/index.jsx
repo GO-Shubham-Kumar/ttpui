@@ -117,7 +117,7 @@ function App() {
     return () => {
       idleLogoutRef.current && clearTimeoutEvent(idleLogoutRef)
     }
-  },[ loginSuccess, isFetching ]);
+  },[ loginSuccess, isFetching, err ]);
 
   const handleIdleTimeoutEvents = () => {
     const { REACT_APP_IDLE_LOGOUT_TIME } = process.env;

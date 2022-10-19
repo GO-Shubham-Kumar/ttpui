@@ -1,10 +1,11 @@
-import { SERVER_ERROR_TEXT } from '../../utils/constants';
-import { 
-    TRIGGER_NOTIFICATION_SUCCESS, 
-    TRIGGER_NOTIFICATION_REQUEST, 
+import {
+    CLEAR_NOTIFICATION,
     TRIGGER_NOTIFICATION_ERROR,
-    CLEAR_NOTIFICATION,  
+    TRIGGER_NOTIFICATION_REQUEST,
+    TRIGGER_NOTIFICATION_SUCCESS,
 } from './../actions/actionTypes'
+
+import { SERVER_ERROR_TEXT } from '../../utils/constants';
 const initialState = {
     data : {},
     isFetching : false,
@@ -17,7 +18,6 @@ const initialState = {
   // receiving response sent by action according to type of action
   export default function notificationsReducer(state = initialState, action) {
       const { payload, type } = action;
-      console.log(action,'action');    
     switch (type) {
         case TRIGGER_NOTIFICATION_SUCCESS:
             console.log('---')
