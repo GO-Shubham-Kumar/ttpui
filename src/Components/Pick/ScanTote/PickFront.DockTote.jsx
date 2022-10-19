@@ -1,9 +1,9 @@
 import {
   BinDetails,
-  BinMapDetails,
   Button,
   Card,
   Conveyor,
+  CurrentlyActiveConveyer,
   Legend,
   StepperHeader,
 } from "operational-component-lib";
@@ -49,7 +49,7 @@ function PickFrontDockTote({
           pb={0}
           className="grid-seperator"
         >
-          <BinMapDetails title="Scan Active" details={currentDetails} />
+          <CurrentlyActiveConveyer title="Scan Active" details={currentDetails} />
           <BinDetails
             details={currentDetails}
             title={`Previous ${seatMode}`}
