@@ -7,7 +7,7 @@ import BinScanPackingBoxScreen from '../../../Components/Pick/BinScanPackingBox.
 import { mapLegendsData } from '../../../utils/helpers/commonHelpers'
 
 const BinScanPackingBoxContainer = ({ data, ...props }) => {
-  const [boxType, setBoxType] = useState('XXYYYZZZZ')
+  const [boxType, setBoxType] = useState('XXYYZZ')
   const [seatMode, setSeatMode] = useState('Pick')
   const [legends, setLegends] = useState([])
   const dispatch = useDispatch()

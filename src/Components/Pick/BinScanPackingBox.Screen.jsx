@@ -51,7 +51,7 @@ const BinScanPackingBoxScreen = ({
 
         <Grid item xs={12} xl={6} md={6} sm={12} sx={{ p: 3, pb: 0, pr: 0 }}>
           <Card p={0} m={0} title={title} height={'42.5em'} bodySeperator={false}>
-            <Box height={'36em'}>
+            <Box height={'35em'}>
               <Conveyor
                 splitScreen={true}
                 conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
