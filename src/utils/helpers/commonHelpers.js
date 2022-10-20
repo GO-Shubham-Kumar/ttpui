@@ -1,15 +1,21 @@
 import { DEFAULT_LANGUAGE } from "../constants"
 import InventoryToteLegend from './../../assets/images/legend_inventory_tote.svg';
-import { SCREEN_NAVGATIONS } from "../navConfig"
+import { SCREEN_NAVIGATION } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 import { wrappedFetch } from "../fetchFuncs"
 export const getMsgObject = (data) => {
     return data ? data[0] : {}
 }
 
-//to manulupulate the header message comming from the server
-//@data - exptected the header_msg_list array
-export const manupulateServerMessges = (data) => {
+export const isEmpty = value => 
+    value === undefined || 
+    value === null ||
+    (typeof value === 'object' && Object.keys.length === 0) ||
+    (typeof value === 'string' && value.trim().length === 0)
+
+//to manipulate the header message coming from the server
+//@data - expected the header_msg_list array
+export const manipulateServerMessages = (data) => {
     let placeHolder;
     const msgObj = getMsgObject(data);
     const { code, details } = msgObj;
@@ -86,8 +92,8 @@ export const getCurrentDetailsData = (data) => {
 }
 
 export const getNavConfig = (headerMsgs, mode, screenId) => {
-    const { msgData } = manupulateServerMessges(headerMsgs);
-    let data = SCREEN_NAVGATIONS[mode] || [];
+    const { msgData } = manipulateServerMessages(headerMsgs);
+    let data = SCREEN_NAVIGATION[mode] || [];
     data = data[screenId] || [];
     data = data.length > 0 ? data.map((obj, i) => {
         if (obj.active) return { ...obj, description: msgData.value }
@@ -97,7 +103,7 @@ export const getNavConfig = (headerMsgs, mode, screenId) => {
 }
 
 
-// simplify details comming from server
+// simplify details coming from server
 export const fetchDetailsFromData = (data) => {
     const displayData = data || [];
     let i = 0;
@@ -156,7 +162,6 @@ export const fetchClientLogo = () => {
 //get seat number from seat name 
 export const getSeatNumber = (seatName) => {
     let seat_name = seatName || '';
-    console.log('seat_name', seat_name)
     seat_name = seat_name ? seat_name.split("_")[1] : seat_name
     seatName = seat_name.length === 1 ? `0${seat_name}` : seat_name
     return seatName
@@ -179,11 +184,12 @@ export const mapLegendsData = (legends) => {
         'Inventory Totes': InventoryToteLegend,
         'Packing Box': InventoryToteLegend
     }
-    const legendObj = {}
-    const data  = legends.map((l, i ) => {
+    const data  = []
+    legends?.map((l) => {
+        const legendObj = {}
         legendObj['url'] = legendsMap[l.label]
         legendObj['text'] = l.label
-        return legendObj
-    })
+        data.push(legendObj)
+    })    
 return data
 }

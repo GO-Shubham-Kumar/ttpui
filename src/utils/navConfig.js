@@ -1,4 +1,5 @@
 import {
+  PICK_FRONT_BIN_SCAN,
   PICK_FRONT_DOCK_TOTE,
   PICK_FRONT_MORE_ITEM_SCAN,
   PICK_FRONT_PPTL_PRESS,
@@ -16,7 +17,7 @@ import {
 
 import _ from "./helpers/transalations";
 
-export const SCREEN_NAVGATIONS = {
+export const SCREEN_NAVIGATION = {
   put: {
     [UD_PUT_FRONT_TOTE_SCAN]: [
       {
@@ -283,6 +284,22 @@ export const SCREEN_NAVGATIONS = {
         showImage: false,
         active: false,
         description: "Place Entity into the Tote and scan 11 more",
+        label: "Scan Entity and confirm",
+        step: 2,
+      },
+    ],
+    [PICK_FRONT_BIN_SCAN]: [
+      {
+        active: true,
+        description: "",
+        label: "Dock packing Box",
+        step: 1,
+        showImage: false,
+      },
+      {
+        showImage: false,
+        active: false,
+        description: "",
         label: "Scan Entity and confirm",
         step: 2,
       },

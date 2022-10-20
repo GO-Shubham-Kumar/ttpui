@@ -3,7 +3,7 @@ import './../App.css';
 import { APP_SOURCE, EVENT_TYPE_PROCESS_BARCODE, INTIAL_FETCH_ERROR, LOGIN, SEAT_NAME, VALID_URLS } from '../utils/constants';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
-import { capitalizeFirstLetter, clearTimeoutEvent, manupulateServerMessges, setIdleLogoutEvent } from '../utils/helpers/commonHelpers';
+import { capitalizeFirstLetter, clearTimeoutEvent, manipulateServerMessages, setIdleLogoutEvent } from '../utils/helpers/commonHelpers';
 import { fetchInitialConfigsAction, fetchSeatModeAction } from '../redux/actions/initialActions';
 import { handleNotificationClear, triggerNotificationction } from '../redux/actions/notifications';
 import { logOutAction, verifyLoginAction } from '../redux/actions/authActions';
@@ -79,7 +79,7 @@ function App() {
       setLogoutAllowed(logout_allowed||true)
       setScanAllowed(scan_allowed || true)
       if(notification_list.length > 0){
-        const { msgData, msgObj } = manupulateServerMessges(notification_list);
+        const { msgData, msgObj } = manipulateServerMessages(notification_list);
         let notification = { ...msgData, ...msgObj }
         notification['description'] = notification['value']
         dispatch(triggerNotificationction(notification))

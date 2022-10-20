@@ -41,7 +41,7 @@ export const updateStateData = (data) => {
   return (dispatch) => {
     if (data) {
       console.log('state data -- ', data)
-      const dummyData = TEST_DATA.PICK_FRONT_MORE_ITEM_SCAN_SCREEN
+      const dummyData = TEST_DATA.PICK_FRONT_BIN_SCAN_SCREEN
       if (data.state_data) return dispatch(handleUpdateStateDataSuccess(dummyData))
     }
   }

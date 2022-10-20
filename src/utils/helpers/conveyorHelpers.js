@@ -1,19 +1,6 @@
 import { COLORS } from '../constants'
 import { TOTE_DATA } from '../conveyorConstants'
 
-// const abc = {
-//   label: '',
-//   selected: false,
-//   quantity: 2,
-//   isDisabled: false,
-//   selectedColor: '',
-//   isEnlarged: false,
-//   pointer: false,
-//   showImage: false,
-//   containerText: '',
-//   isLoading: false,
-// }
-
 //map data according to the conveyor Bin component in the component library
 export const mapConveyorBinData = (data, cType) => {
   let i = 0
@@ -25,10 +12,8 @@ export const mapConveyorBinData = (data, cType) => {
   for (i; i < 6; i++) {
     conveyorData = { ...TOTE_DATA }
     binData = data[i]
-    console.log('bindata', binData)
     labelText = `${cType}-${i + 1}`
     if (binData) {
-      console.log('bin data ava', binData)
       labelText = `${cType}-${binData['ppsbin_id']}`
       conveyorData['isLoading'] = (binData['is_loading'] && JSON.parse(binData['is_loading'])) || false
       conveyorData['selected'] = (binData['selected_state'] && JSON.parse(binData['selected_state'])) || false
@@ -54,34 +39,22 @@ export const mapConveyorBinData = (data, cType) => {
 }
 
 export const mapConveyorToteData = (data, cType) => {
-  let i = 0
-  let cData = []
-  let labelText = ''
-  let binData = {}
-  let conveyorData
+  const cData = []
   const numbers = []
   data = data.sort((a, b) => Number(a.tote_id) - Number(b.tote_id))
-  for (i; i < 6; i++) {
-    conveyorData = { ...TOTE_DATA }
-    labelText = `${cType}-${i + 1}`
-    for (var j = 0; j < data.length; j++) {
-      binData = data[j]
-      if (i + 1 === Number(data[j].tote_id)) {
-        numbers.push(j)
-        labelText = `${cType}-${binData['tote_id']}`
-        conveyorData['isLoading'] = binData['is_loading'] || false
-        conveyorData['selected'] = binData['selected'] || false
-        conveyorData['isEnlarged'] = binData['selected'] || false
-        conveyorData['pointer'] = binData['pointer'] || false
-        conveyorData['showImage'] = binData['tote_id'] ? true : false
-        conveyorData['containerText'] = binData['text_over_container'] || ''
-        conveyorData['selectedColor'] = binData['selected'] ? '#0390FF' : ''
-        conveyorData['tote_id'] = binData['tote_id'] ? true : false
-      }
-    }
+  data?.map((toteDetails, idx) => {
+    const conveyorData = { ...TOTE_DATA }
+    const labelText = `${cType}-${idx + 1}`
+    conveyorData['isLoading'] = toteDetails['is_loading'] || false
+    conveyorData['selected'] = toteDetails['selected'] || false
+    conveyorData['isEnlarged'] = toteDetails['selected'] || false
+    conveyorData['pointer'] = toteDetails['pointer'] || false
+    conveyorData['showImage'] = toteDetails['tote_id'] ? true : false
+    conveyorData['containerText'] = toteDetails['text_over_container'] || ''
+    conveyorData['selectedColor'] = toteDetails['selected'] ? '#0390FF' : ''
+    conveyorData['tote_id'] = toteDetails['tote_id']
     conveyorData['label'] = labelText
     cData.push(conveyorData)
-    labelText = ''
-  }
+  })
   return cData
 }

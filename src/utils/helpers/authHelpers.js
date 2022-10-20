@@ -1,18 +1,19 @@
-import { 
-  AUTH_TOKEN, 
-  BOI_UI, 
-  CLIENT_ID, 
-  ERROR_INVALID_TOKEN, 
-  LOGIN, 
-  METHOD_POST, 
-  REFRESH_TOKEN, 
-  SEAT_NAME, 
-  SESSION_DATA, 
-  USER_NAME 
-} from "../constants";
-import { wrappedGet, wrappedFetch } from "../fetchFuncs"
 import * as API_URLS from './../api_urls';
+
+import {
+  AUTH_TOKEN,
+  BOI_UI,
+  CLIENT_ID,
+  ERROR_INVALID_TOKEN,
+  LOGIN,
+  METHOD_POST,
+  REFRESH_TOKEN,
+  SEAT_NAME,
+  SESSION_DATA,
+  USER_NAME
+} from "../constants";
 import { removeSessionData, retreiveSessionData, saveSessionData } from "./sessionHelpers";
+import { wrappedFetch, wrappedGet } from "../fetchFuncs"
 const { REACT_APP_PLATFORM_IP } = process.env;
 
 //function to login a user
@@ -81,7 +82,6 @@ export const fetchMode = async (seat_type) => {
 
 //store data to session storage
 export const storeLoginSessionData = (access_token, refresh_token, seat_name, user_name, wsdata) => {
-  console.log('seat_name', seat_name)
   var refreshToken = refresh_token || null
   saveSessionData(REFRESH_TOKEN, refreshToken)
   saveSessionData(USER_NAME, user_name)

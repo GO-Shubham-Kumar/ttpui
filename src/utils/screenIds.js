@@ -19,3 +19,4 @@ export const UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR = 'ud_put_front_place_tote_on_c
 export const PICK_FRONT_WAITING_FOR_MSU = 'pick_front_waiting_for_msu'
 export const PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER = 'pick_front_scan_or_wait_for_container'
 export const PICK_FRONT_MISSING_OR_UNSCANNABLE_DAMAGED_ITEM = 'pick_front_missing_or_unscannable_damaged_item'
+export const PICK_FRONT_BIN_SCAN = 'pick_front_bin_scan'
