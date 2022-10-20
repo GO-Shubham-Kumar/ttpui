@@ -1,5 +1,17 @@
 import { COLORS } from '../constants'
-import { TOTE_DATA } from '../conveyorConstants'
+
+const TOTE_DATA = {
+  label: '',
+  selected: false,
+  quantity: 0,
+  isDisabled: false,
+  selectedColor: '',
+  isEnlarged: false,
+  pointer: false,
+  showImage: false,
+  containerText: '',
+  isLoading: false,
+}
 
 //map data according to the conveyor Bin component in the component library
 export const mapConveyorBinData = (data, cType) => {
