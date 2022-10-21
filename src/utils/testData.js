@@ -4882,8 +4882,8 @@ export const PICK_FRONT_BIN_SCAN_SCREEN = {
     header_msge_list: [
       {
         code: 'PkF.H.058',
-        description: 'Place in Bin ~p and confirm',
-        details: [[53]],
+        description: 'Place in Bin {0} and confirm',
+        details: [5],
         level: 'info',
       },
     ],

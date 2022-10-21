@@ -3,7 +3,19 @@ import InventoryToteLegend from './../../assets/images/legend_inventory_tote.svg
 import PackingBoxLegend from './../../assets/images/packing_box_legend.svg';
 import { SCREEN_NAVIGATION } from "../navConfig"
 import { serverMessages } from "../server_meesages"
-import { wrappedFetch } from "../fetchFuncs"
+
+String.prototype.format = function() {
+    let formatted = this;
+    if (arguments.length && typeof arguments[0] == 'object') {
+        let vars = arguments[0];
+        for (const v in vars) {
+            let regexp = new RegExp('\\{'+v+'\\}', 'gi');
+            formatted = formatted.replace(regexp, vars[v]);
+        }
+    }
+    return formatted;
+}
+
 export const getMsgObject = (data) => {
     return data ? data[0] : {}
 }
@@ -20,29 +32,20 @@ export const isEmpty = (value) => {
 //to manipulate the header message coming from the server
 //@data - expected the header_msg_list array
 export const manipulateServerMessages = (data) => {
-    let placeHolder;
-    const msgObj = getMsgObject(data);
-    const { code, details } = msgObj;
-    console.log('code', code)
-    let msgData = { value: '', key: " " }
-    if (!code) return { msgData }
-    let msg = serverMessages[code];
-    console.log('server msg', msg)
-    if (!msg || details.length === 0) {
-        msgData['value'] = msgObj['description']
-        return { msgData, msgObj }
-    }
-    console.log('server msg 2', msg, details, code)
-    if (code && details && details.length > 0) {
-        console.log('1--', msg)
-        msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
-            placeHolder = everyPlaceholder.match(/\d+/g)
-            console.log('details placeHolder', details, placeHolder, details[placeHolder])
-            return details[placeHolder]
-        })
-    }
-    msgData = { value: msg, key: " " }
+  const msgObj = getMsgObject(data)
+  const { code, details } = msgObj
+  let msgData = { value: '', key: '' }
+  if (!code) return { msgData }
+  let msg = serverMessages[code]
+  if (!msg) {
+    msgData['value'] = msgObj['description'].format(details)
     return { msgData, msgObj }
+  }
+  if (code && details && details.length > 0) {
+    msg = msg.format(details)
+  }
+  msgData = { value: msg, key: '' }
+  return { msgData, msgObj }
 }
 
 
