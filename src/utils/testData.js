@@ -4915,7 +4915,7 @@ export const PICK_FRONT_BIN_SCAN_SCREEN = {
       {
         position: 2,
         selected: false,
-        tote_id: [],
+        tote_id: null,
       },
     ],
     packing_box_type: null,

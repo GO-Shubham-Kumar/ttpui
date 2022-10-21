@@ -7,11 +7,14 @@ export const getMsgObject = (data) => {
     return data ? data[0] : {}
 }
 
-export const isEmpty = value => 
-    value === undefined || 
+export const isEmpty = (value) => {
+  return value === undefined ||
     value === null ||
     (typeof value === 'object' && Object.keys.length === 0) ||
     (typeof value === 'string' && value.trim().length === 0)
+    ? false
+    : true
+}
 
 //to manipulate the header message coming from the server
 //@data - expected the header_msg_list array

@@ -35,6 +35,7 @@ const BinScanPackingBoxScreen = ({
   onCancelScanHandler,
   title,
 }) => {
+
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
@@ -42,7 +43,7 @@ const BinScanPackingBoxScreen = ({
         <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator">
           <CurrentlyActiveConveyer title="Currently Active" details={currentDetails} mode={seatMode} />
           <BinDetails
-            details={!isEmpty(previousDetails) ? emptyPreviousPick : {}}
+            details={isEmpty(previousDetails) ? emptyPreviousPick : {}}
             title={`Previous ${seatMode}`}
             height="17.2em"
             mode={seatMode}

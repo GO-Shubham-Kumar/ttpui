@@ -67,7 +67,13 @@ const PickFront = ({ data, isFetching, success, error }) => {
       setConveyorToteData(ppsToteData)
     }
     if (state_data.hasOwnProperty('pps_tote_list_disabled')) setConveyorDisabled(pps_tote_list_disabled)
-    if (state_data.hasOwnProperty('is_idle')) setConveyorIdle(is_idle)
+    if (
+      state_data.hasOwnProperty('is_idle') &&
+      !state_data.is_idle &&
+      state_data.hasOwnProperty('pps_tote_list') &&
+      Object.keys(state_data.pps_tote_list).length === 0
+    )
+      setConveyorIdle(false)
   }
   
   if (screenId === SCREEN_ID.PICK_FRONT_WAITING_FOR_MSU)
