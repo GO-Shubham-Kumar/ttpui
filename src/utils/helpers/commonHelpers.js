@@ -1,5 +1,6 @@
 import { DEFAULT_LANGUAGE } from "../constants"
 import InventoryToteLegend from './../../assets/images/legend_inventory_tote.svg';
+import PackingBoxLegend from './../../assets/images/packing_box_legend.svg';
 import { SCREEN_NAVIGATION } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 import { wrappedFetch } from "../fetchFuncs"
@@ -185,7 +186,7 @@ export const clearTimeoutEvent = (intervalRef) => {
 export const mapLegendsData = (legends) => {
     const legendsMap = {
         'Inventory Totes': InventoryToteLegend,
-        'Packing Box': InventoryToteLegend
+        'Packing Box': PackingBoxLegend
     }
     const data  = []
     legends?.map((l) => {
