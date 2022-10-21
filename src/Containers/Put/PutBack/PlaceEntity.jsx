@@ -1,12 +1,34 @@
-import { APP_SOURCE, EVENT_TYPE_CANCEL_SCAN } from "../../../utils/constants";
+import {
+  APP_SOURCE,
+  EVENT_ACTION_CONFIRM_IRT_BIN,
+  EVENT_TYPE_BACK,
+  EVENT_TYPE_CANCEL_EXCEPTION,
+  EVENT_TYPE_CANCEL_SCAN,
+  EVENT_TYPE_DAMAGED,
+  EVENT_TYPE_EXCEPTION_PRESS,
+  EVENT_TYPE_EXCEPTION_RESPONSE_FROM_GUI,
+  EVENT_TYPE_PUT_FRONT_EXCEPTION,
+  EVENT_TYPE_QUANTITY_UPDATE_FROM_GUI,
+  EVENT_TYPE_RESET,
+  EVENT_TYPE_UDP_DAMAGE_EXCEPTION,
+  EXCEPTION_TYPE,
+} from "../../../utils/constants";
+import {
+  PUT_FRONT_ITEMS_TO_IRT_BIN,
+  UD_PUT_FRONT_DAMAGED_EXCEPTION,
+} from "../../../utils/screenIds";
+import {
+  fetchDetailsFromData,
+  getDamagedItemsData,
+  getPreviousDetailsData,
+} from "../../../utils/helpers/commonHelpers";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import PlaceEntity from "./../../../Components/Put/PlaceEntity/PlaceEntity";
-import { fetchDetailsFromData } from "../../../utils/helpers/commonHelpers";
 import { triggerEventAction } from "../../../redux/actions/eventActions";
 
-const PlaceEntityContainer = ({ ...props }) => {
+const PlaceEntityContainer = ({ screenId, ...props }) => {
   const dispatch = useDispatch();
   const [skuQty, setSkuQty] = useState("");
   const [productDetails, setProductDetails] = useState({});
@@ -16,18 +38,78 @@ const PlaceEntityContainer = ({ ...props }) => {
   const [totalQty, setTotalQty] = useState(0);
   const [isKqAllowed, setIsKqAllowed] = useState(false);
   const [kqDirection, setKqDirection] = useState(false);
-  const { data: mainData, success, error } = useSelector((state) => state.mainStateReducer);
+  const [isException, setIsException] = useState(false);
+  const {
+    data: mainData,
+    success,
+    error,
+  } = useSelector((state) => state.mainStateReducer);
 
+  const [exceptionEnabled, setExceptionEnabled] = useState(false);
+  const exceptions = [{ key: "damaged", value: "Damaged" }];
+  const [exceptionSelected, setExceptionSelected] = useState("");
+  const [exceptionQty, setExceptionQty] = useState(0);
+  const [damagedItems, setDamagedItems] = useState([]);
+  const [isNextClicked, setNextClicked] = useState(false);
+  const exceptionFinalText =
+    "Ensure all damaged quantity is placed into IRT Bin and press confirm";
+  const TABLE_COLS = [
+    {
+      id: "type",
+      label: "TYPE",
+    },
+    {
+      id: "sku",
+      label: "SKU",
+    },
+    {
+      id: "serial",
+      label: "Serial",
+    },
+    {
+      id: "qty",
+      label: "QTY",
+    },
+  ];
   useEffect(() => {
     if (mainData.state_data) {
       let productInfo = {};
       let productimage = [];
       const { state_data } = mainData;
-      const { product_info, scan_details, rack_details } = state_data;
-      if (rack_details && rack_details.rack_type_rec && rack_details.rack_type_rec[0]) {
-        setSkuQty(rack_details.rack_type_rec[0]["put_qty"]);
+      const {
+        product_info,
+        scan_details,
+        rack_details,
+        is_only_exception_button_pressed,
+        exception_type,
+        damaged_items,
+      } = state_data;
+      let damagedItemsData = [];
+      let is_exception = is_only_exception_button_pressed || false;
+      if (damaged_items && damaged_items.length > 0) {
+        damagedItemsData = getDamagedItemsData(damaged_items);
       }
-
+      if (
+        rack_details &&
+        rack_details.rack_type_rec &&
+        rack_details.rack_type_rec[0]
+        ) {
+          setSkuQty(rack_details.rack_type_rec[0]["put_qty"]);
+        }
+        
+        if (
+          is_exception ||
+          screenId === UD_PUT_FRONT_DAMAGED_EXCEPTION ||
+          screenId === PUT_FRONT_ITEMS_TO_IRT_BIN
+          ){
+            if(screenId === PUT_FRONT_ITEMS_TO_IRT_BIN) setNextClicked(true)
+            is_exception = true;
+          }
+    
+      if (exception_type) {
+        const exceptionType = EXCEPTION_TYPE[exception_type];
+        setExceptionSelected(exceptionType);
+      }
       productInfo = fetchDetailsFromData(product_info || []);
       if (productInfo["product_local_image_url"]) {
         if (Array.isArray(productInfo["product_local_image_url"]))
@@ -42,13 +124,16 @@ const PlaceEntityContainer = ({ ...props }) => {
 
       if (scan_details && Object.keys(scan_details).length > 0) {
         if (scan_details.hasOwnProperty("total_qty")) {
-          const { kq_allowed, current_qty, total_qty, kq_direction } = scan_details;
+          const { kq_allowed, current_qty, total_qty, kq_direction } =
+            scan_details;
           setIsKqAllowed(kq_allowed);
           setQuantity(parseInt(current_qty));
           setTotalQty(total_qty);
           setKqDirection(kq_direction);
         }
       }
+      setDamagedItems(damagedItemsData);
+      setIsException(is_exception);
     }
   }, [mainData]);
   const handleCancelScan = () => {
@@ -65,12 +150,82 @@ const PlaceEntityContainer = ({ ...props }) => {
     dispatch(triggerEventAction(eventData));
   };
 
-  const exceptionHandler = () => {};
+  const exceptionHandler = () => {
+    setExceptionEnabled(true);
+    const eventData = {
+      event_name: EVENT_TYPE_EXCEPTION_PRESS,
+    };
+    dispatch(triggerEventAction(eventData));
+  };
 
-  let prdtinfo = [
-    "https://images.unsplash.com/photo-1546768292-fb12f6c92568?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80",
-  ];
+  const exceptionChangeHandler = (event) => {
+    setExceptionSelected(event.target.value);
+    const eventData = {
+      event_name: "exception",
+      event_data: {
+        event: EVENT_TYPE_DAMAGED, // only for damaged exception
+      },
+      source: "ui",
+    };
+    dispatch(triggerEventAction(eventData));
+  };
+
+  const onResetHandler = (value) => {
+    const eventData = {
+      event_name: EVENT_TYPE_RESET,
+      event_data: {},
+    };
+    dispatch(triggerEventAction(eventData));
+  };
+
+  const cancelExceptionHandler = () => {
+    setExceptionEnabled(false);
+    setExceptionQty(0);
+    const eventData = {
+      event_name: EVENT_TYPE_CANCEL_EXCEPTION,
+      event_data: {},
+    };
+    dispatch(triggerEventAction(eventData));
+  };
+
+  const nextClickHandler = () => {
+    const {
+      state_data: { exception_type },
+    } = mainData;
+    const eventData = {
+      event_name: EVENT_TYPE_UDP_DAMAGE_EXCEPTION,
+      event_data: {
+        action: "confirm_button_press",
+        event: exception_type || EVENT_TYPE_DAMAGED,
+      },
+    };
+    dispatch(triggerEventAction(eventData));
+  };
+
+  const backBtnHandler = () => {
+    const {
+      state_data: { exception_type },
+    } = mainData;
+    const eventData = {
+      event_name: EVENT_TYPE_BACK,
+      event_data: {},
+    };
+    dispatch(triggerEventAction(eventData));
+  };
+
+  const confirmClickHandler = () => {
+    const {
+      state_data: { exception_type },
+    } = mainData;
+    const eventData = {
+      event_name: EVENT_TYPE_PUT_FRONT_EXCEPTION,
+      event_data: {
+        action: EVENT_ACTION_CONFIRM_IRT_BIN,
+        event: exception_type || EVENT_TYPE_DAMAGED,
+      },
+    };
+    dispatch(triggerEventAction(eventData));
+  };
 
   const onChangeQuantityHandler = (qty) => {
     setQuantity(qty);
@@ -78,7 +233,7 @@ const PlaceEntityContainer = ({ ...props }) => {
       state_data: { item_uid },
     } = mainData;
     const eventData = {
-      event_name: "quantity_update_from_gui",
+      event_name: EVENT_TYPE_QUANTITY_UPDATE_FROM_GUI,
       event_data: {
         item_uid: item_uid,
         quantity_updated: qty,
@@ -90,16 +245,32 @@ const PlaceEntityContainer = ({ ...props }) => {
 
   return (
     <PlaceEntity
+      isException={isException}
+      isKqAllowed={isKqAllowed}
       qty={quantity}
       totalEntities={totalQty}
-      prdtinfo={prdtinfo}
       handleCancelScan={handleCancelScan}
       actualQty={skuQty}
       productDetails={productDetails}
       productImages={productImages}
-      exceptionhandler={exceptionHandler}
+      exceptionEnabled={exceptionEnabled}
+      exceptionHandler={exceptionHandler}
+      exceptions={exceptions}
+      exceptionSelected={exceptionSelected}
+      exceptionChangeHandler={exceptionChangeHandler}
+      exceptionFinalText={exceptionFinalText}
+      exceptionQty={exceptionQty}
+      resetHandler={onResetHandler}
+      cancelExceptionHandler={cancelExceptionHandler}
+      isNextClicked={isNextClicked}
+      nextClickHandler={nextClickHandler}
+      backBtnHandler={backBtnHandler}
+      confirmClickHandler={confirmClickHandler}
       onChangeQuantityHandler={onChangeQuantityHandler}
       allowedKqDirection={kqDirection}
+      TABLE_COLS={TABLE_COLS}
+      screenId={screenId}
+      damagedItems={damagedItems}
       {...props}
     />
   );

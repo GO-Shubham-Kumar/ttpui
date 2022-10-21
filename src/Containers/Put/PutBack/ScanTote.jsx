@@ -9,6 +9,7 @@ import { triggerEventAction } from '../../../redux/actions/eventActions';
 
 function ScanToteContainer({currentDetails, ...props}) {
     const [showModal, setShowModal] = useState(false);
+    const [showWarehouseFullModal, setShowWarehouseFullModal] = useState(false);
     const [missingItems, setMissingItemsList] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0);
     const { data } = useSelector( (state) => {
@@ -22,6 +23,11 @@ function ScanToteContainer({currentDetails, ...props}) {
         "By confirming system will mark remaining entity(ies) as missing.",
         "Remaining Entity(ies)",
     ]
+    const warehouseFullModalLabels = [
+        "No space available for new Totes",
+        "Retry after some time",
+        "Tap RETRY to try again to put tote into the warehouse."
+    ]
     const tableColumns = [
         { id: 'type', label: 'Type' },
         { id: 'product_sku', label: 'Product SKU' },
@@ -30,18 +36,22 @@ function ScanToteContainer({currentDetails, ...props}) {
     ];
 
     useEffect(()=>{
-        if(success && !error && !isFetching && showModal) setShowModal(false)
+        if (success && !error && !isFetching && (showModal || showWarehouseFullModal)) {
+            setShowModal(false)
+            setShowWarehouseFullModal(false)
+        }
     },[success, error, isFetching])
 
     useEffect(()=>{
         if(data.state_data){
-            const { state_data : { missing_items, screen_id } } = data;
+            const { state_data: { missing_items, screen_id, warehouse_full } } = data;
             if(missing_items) {
                 setMissingItemsList(missing_items)
                 const totalQuantity = missing_items.reduce((prev, current)=> prev + (current.totalQuantity || 0), 0);
                 setTotalQuantity(totalQuantity);
             }
             if(screen_id === UD_PUT_FRONT_MISSIN) setShowModal(true)
+            if (warehouse_full) setShowWarehouseFullModal(true)
         }
     },[data])
 
@@ -73,12 +83,21 @@ function ScanToteContainer({currentDetails, ...props}) {
         dispatch(triggerEventAction(eventData));
     }
 
+    const handleRetryException = () => {
+        const eventData = {
+            event_name : "warehouse_full_popup_confirm",
+            source: APP_SOURCE
+        }
+        dispatch(triggerEventAction(eventData));
+    }
+
     return (
         <>
         <ScanTote 
             {...props}  
             subHeader={subHeader}
             handleShowModal={() => setShowModal(true)} 
+            handleShowWarehouseFullModal={() => setShowWarehouseFullModal(true)}
             handleCloseTote={handleCloseTote}
             missingItems={missingItems}
             currentDetails = {currentDetails}
@@ -94,7 +113,19 @@ function ScanToteContainer({currentDetails, ...props}) {
             <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
                 {modalLabels[2]}
             </Typography>
-            <Table columns={tableColumns} itemList={missingItems} />
+            <Table columns={tableColumns} rows={missingItems} />
+        </Modal>
+        <Modal showModal={showWarehouseFullModal} modalType='error' title='Warehouse Full'
+                buttonText='Retry' onConfirmHandler={ handleRetryException } >
+            <Typography type='error' variant='h3' style={{ mb: '0.6em' }} >
+                {warehouseFullModalLabels[0]}
+            </Typography>
+            <Typography type='info' variant='h3' style={{ mb: '0.6em' }} >
+                {warehouseFullModalLabels[1]}
+            </Typography>
+                <Typography type='info' variant='h3' style={{ mb: '0.6em', fontWeight: 'bold' }} >
+                {warehouseFullModalLabels[2]}
+            </Typography>
         </Modal>
         </>
             

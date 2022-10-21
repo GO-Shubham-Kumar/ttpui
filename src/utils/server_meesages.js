@@ -606,7 +606,9 @@ export const serverMessages = {
     "UdpF.H.019" : "Resource not found",
     "UdpF.I.011" : "{0} close successfully",
     "UdpF.I.010" : "{0} close cancelled",
-    "UdpF.E.016" : "Rack already exists in system"
+    "UdpF.E.016" : "Rack already exists in system",
+    "PtB.H.013" : "Select Exception Type and Scan Entities",
+    "UdpF.H.014" : "Select exception type and scan entity"
   }
   
   

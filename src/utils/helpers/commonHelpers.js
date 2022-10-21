@@ -1,14 +1,14 @@
 import { DEFAULT_LANGUAGE } from "../constants"
-import { wrappedFetch } from "../fetchFuncs"
 import { SCREEN_NAVGATIONS } from "../navConfig"
 import { serverMessages } from "../server_meesages"
+import { wrappedFetch } from "../fetchFuncs"
 
 export const getMsgObject = (data) => {
     return data ? data[0] : {}
 }
 
-//to manulupulate the header message comming from the server
-//@data - exptected the header_msg_list array
+//to manipulate the header message coming from the server
+//@data - expected the header_msg_list array
 export const manupulateServerMessges = (data) => {
     let placeHolder;
     const msgObj = getMsgObject(data);
@@ -46,18 +46,20 @@ export const getPreviousDetailsData = (data) => {
     for(i;i<displayData.length;i++){
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
-            const dispData=displayData[i][0]; 
-            Object.keys(dispData).map((key, j) =>{
+            const itemData=displayData[i][0]; 
+            Object.keys(itemData).map((key, j) =>{
                 if(key === 'display_data'){
-                    dataObj = dispData[key][0];
+                    dataObj = itemData[key][0];
                     console.log('dataObj', dataObj)
                     val = dataObj['display_name']
                     previousData[val] = ''
                 }else{
-                    console.log('--previous',previousData, val, dispData[key])
-                    previousData[val] = dispData[key]
+                    console.log('--previous',previousData, val, itemData[key])
+                    previousData[val] = itemData[key]
                 }
             })
+        }else{
+            console.log('display data', displayData[i])
         }
     }
     return previousData
@@ -97,7 +99,7 @@ export const getNavConfig = (headerMsgs, mode, screenId) => {
 }
 
 
-// simplify details comming from server
+// simplify details coming from server
 export const fetchDetailsFromData = (data) => {
     const displayData = data || [];
     let i=0;
@@ -106,10 +108,10 @@ export const fetchDetailsFromData = (data) => {
     for(i;i<displayData.length;i++){
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
-            const dispData=displayData[i][0];  //array always contains one record as an object
-            Object.keys(dispData).map((key, j) =>{  //loop through the object
+            const itemData=displayData[i][0];  //array always contains one record as an object
+            Object.keys(itemData).map((key, j) =>{  //loop through the object
                 if(key === 'display_data'){ //display_data consist of the key details
-                    dataObj = dispData[key];
+                    dataObj = itemData[key];
                     dataObj = dataObj.filter((d, i) => {
                         return d['locale'] === DEFAULT_LANGUAGE
                     })
@@ -118,11 +120,11 @@ export const fetchDetailsFromData = (data) => {
                     previousData[val] = ''
                 }else{ //get value from the other key
                     let dataVal= ''
-                    if(typeof dispData[key] === 'string' ) dataVal = dispData[key]
-                    else if(Array.isArray(dispData[key])){
-                        if(Array.isArray(dispData[key][0])) dataVal = dispData[key][0].toString()
+                    if(typeof itemData[key] === 'string' ) dataVal = itemData[key]
+                    else if(Array.isArray(itemData[key])){
+                        if(Array.isArray(itemData[key][0])) dataVal = itemData[key][0].toString()
                         else {
-                            dataVal = key.toLowerCase().includes('dimension') ? dispData[key].join(' x ') : dispData[key].toString()
+                            dataVal = key.toLowerCase().includes('dimension') ? itemData[key].join(' x ') : itemData[key].toString()
                         }
                     } 
                     previousData[val] = dataVal
@@ -163,12 +165,61 @@ export const getSeatNumber = (seatName) => {
 }
 
 export const setIdleLogoutEvent = (intervalRef) => {
-    if(intervalRef) return clearInterval(intervalRef);
+    if(intervalRef) return clearTimeout(intervalRef);
     const idleLogout  = setTimeout(()=>{
     },3000)
     return idleLogout;
 }
 
 export const clearTimeoutEvent = (intervalRef) => {
-    if(intervalRef.current) return clearInterval(intervalRef.current);
+    if(intervalRef.current) return clearTimeout(intervalRef.current);
 }
+
+
+//manipulate damaged_items array to pass the data to the table .
+export const getDamagedItemsData = (damagedItems) => {
+    var i =0;
+    const damagedItemList = []
+    let damagedItemData = {};
+    // console.log('data',fetchDetailsFromData(damagedItems))
+    let itemData;
+    for(i;i<damagedItems.length;i++){
+        itemData = damagedItems[i]
+        Object.keys(itemData).map((key, j) =>{
+            let damagedItem = itemData[key];
+            if(Array.isArray(damagedItem)) {
+                if(Array.isArray(damagedItem[0])){
+                    let details  = fetchDetailsFromData(damagedItem)
+                    damagedItemData= {...details, ...damagedItemData }
+                }else{
+                    damagedItemData[key] = ellipseMiddleText(damagedItem.join(''))
+                } 
+            }
+            else damagedItemData[key] = damagedItem
+        })
+        if(damagedItemData['Product SKU']){
+            damagedItemData['sku'] = ellipseEndText(damagedItemData['Product SKU'])
+        }
+        damagedItemList.push(damagedItemData)
+    }
+    console.log('damagedItemList', damagedItemList);
+    return damagedItemList
+}
+
+//add ellipses (...) in the middle of the string
+export const ellipseMiddleText = (text) => {
+    let ellipsesText = text
+    if (text.length > 11) {
+      ellipsesText = `${text.substring(0, 5)}...${text.substring(text.length - 5, text.length)}`
+    }
+    return ellipsesText
+}
+
+//add ellipses (...) at the end of the string
+export const ellipseEndText = (text) => {
+    let ellipsesText = text
+    if (text.length > 11) {
+      ellipsesText = `${text.substring(0, 10)}...`
+    }
+    return ellipsesText
+  }

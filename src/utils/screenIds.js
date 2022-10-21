@@ -10,5 +10,6 @@ export const SCREEN_ID_MAPPING = {
 
 }
 export const UD_PUT_FRONT_MISSIN = 'ud_put_front_missing';
+export const UD_PUT_FRONT_DAMAGED_EXCEPTION = 'ud_put_front_damaged_exception';
+export const PUT_FRONT_ITEMS_TO_IRT_BIN = 'put_front_items_to_irt_bin';
 export const UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR = 'ud_put_front_place_tote_on_conveyor';
-

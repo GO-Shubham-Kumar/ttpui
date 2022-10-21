@@ -1,11 +1,12 @@
-import { TRIGGER_EVENTS_SUCCESS, 
-    TRIGGER_EVENTS_REQUEST, 
-    TRIGGER_EVENTS_ERROR, 
+import {
+    TRIGGER_EVENTS_ERROR,
+    TRIGGER_EVENTS_REQUEST,
+    TRIGGER_EVENTS_SUCCESS,
 } from './actionTypes';
+
 import { SERVER_ERROR_TEXT } from '../../utils/constants';
 import { triggerEvent } from '../../utils/helpers/eventsHelpers';
 import { verifyLoginAction } from './authActions';
-
 
 export let handleEventSuccess = (data) => {
   console.log('res from config actions', data)

@@ -1,5 +1,7 @@
+import { PUT_FRONT_ITEMS_TO_IRT_BIN, UD_PUT_FRONT_DAMAGED_EXCEPTION, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from './screenIds'
+
 import _ from './helpers/transalations'
-import { UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from './screenIds'
+
 export const SCREEN_NAVGATIONS = {
     'put' : {
         [UD_PUT_FRONT_TOTE_SCAN] : [
@@ -142,6 +144,26 @@ export const SCREEN_NAVGATIONS = {
                 "step": 3,
                 "active" : true
             }
+        ],
+        [UD_PUT_FRONT_DAMAGED_EXCEPTION] : [
+            {
+                "code": "Common.000",
+                "label": _("Scan Exception Types"),
+                "description": _("Scan Entity"),
+                "showImage": false,
+                "step": 1,
+                "active": true
+            },
+        ],
+        [PUT_FRONT_ITEMS_TO_IRT_BIN] : [
+            {
+                "code": "Common.000",
+                "label": _("Scan Tote"),
+                "description": _("Scan Entity"),
+                "showImage": false,
+                "step": 1,
+                "active": true
+            },
         ],
     }
 }
