@@ -121,7 +121,6 @@ function App() {
 
   const handleIdleTimeoutEvents = () => {
     const { REACT_APP_IDLE_LOGOUT_TIME } = process.env;
-    console.log('events called')
       clearTimeoutEvent(idleLogoutRef)
       let timeoutRef = setTimeout(
         ()=>{
