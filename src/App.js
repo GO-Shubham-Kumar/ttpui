@@ -1,10 +1,12 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Router from './Router';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import './App.css';
 import './assets/css/app.css'
+import './assets/css/fonts.css'
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import React from 'react';
+import Router from './Router';
+import store from './redux/store';
 
 function App() {
   return (

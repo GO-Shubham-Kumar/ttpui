@@ -58,7 +58,7 @@ function App() {
 
   useEffect(()=>{
   
-    if(!isLoggedIn && pathname !== `/login`)dispatch(verifyLoginAction());
+    dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
   }, []);
 
@@ -180,7 +180,7 @@ function App() {
         {renderRoutes()}
       </Routes>
       {/* )}  */}
-      {!validRoute && <Navigate to="/" />}
+      {!validRoute && <Navigate to={`${mode || '/login'}`} />}
     </Layout>
   );
 }
