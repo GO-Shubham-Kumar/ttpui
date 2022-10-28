@@ -46,13 +46,16 @@ const PlaceEntityContainer = ({ screenId, ...props }) => {
   } = useSelector((state) => state.mainStateReducer);
 
   const [exceptionEnabled, setExceptionEnabled] = useState(false);
-  const exceptions = [{ key: "damaged", value: "Damaged" }];
+  const exceptions = [{ key: "Damaged", value: "damaged" }];
   const [exceptionSelected, setExceptionSelected] = useState("");
   const [exceptionQty, setExceptionQty] = useState(0);
   const [damagedItems, setDamagedItems] = useState([]);
   const [isNextClicked, setNextClicked] = useState(false);
+  const [isIRTScanEnabled, setIsIRTScanEnabled] = useState(false);
   const exceptionFinalText =
-    "Ensure all damaged quantity is placed into IRT Bin and press confirm";
+    "Put exception entity in exception area and press confirm";
+  const irtEnabledText =
+    "Put exception entity in exception area and scan IRT bin to confirm";
   const TABLE_COLS = [
     {
       id: "type",
@@ -83,6 +86,7 @@ const PlaceEntityContainer = ({ screenId, ...props }) => {
         is_only_exception_button_pressed,
         exception_type,
         damaged_items,
+        irt_scan_enabled
       } = state_data;
       let damagedItemsData = [];
       let is_exception = is_only_exception_button_pressed || false;
@@ -103,6 +107,7 @@ const PlaceEntityContainer = ({ screenId, ...props }) => {
           screenId === PUT_FRONT_ITEMS_TO_IRT_BIN
           ){
             if(screenId === PUT_FRONT_ITEMS_TO_IRT_BIN) setNextClicked(true)
+            else setNextClicked(false)
             is_exception = true;
           }
     
@@ -134,6 +139,7 @@ const PlaceEntityContainer = ({ screenId, ...props }) => {
       }
       setDamagedItems(damagedItemsData);
       setIsException(is_exception);
+      if(irt_scan_enabled) setIsIRTScanEnabled(irt_scan_enabled)
     }
   }, [mainData]);
   const handleCancelScan = () => {
@@ -271,6 +277,8 @@ const PlaceEntityContainer = ({ screenId, ...props }) => {
       TABLE_COLS={TABLE_COLS}
       screenId={screenId}
       damagedItems={damagedItems}
+      isIRTScanEnabled={isIRTScanEnabled}
+      irtEnabledText={irtEnabledText}
       {...props}
     />
   );

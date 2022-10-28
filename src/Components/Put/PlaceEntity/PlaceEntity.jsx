@@ -49,7 +49,9 @@ const PlaceEntity = ({ headerMsg,
     allowedKqDirection,
     screenId,
     TABLE_COLS,
-    damagedItems
+    damagedItems,
+    isIRTScanEnabled,
+    irtEnabledText
   }) => {
     const disabledClass = isException && 'disabled-container';
   return (
@@ -127,7 +129,7 @@ const PlaceEntity = ({ headerMsg,
               cancelExceptionHandler={cancelExceptionHandler} 
               nextClickHandler={nextClickHandler}
               backBtnHandler={backBtnHandler} 
-              confirmClickHandler={confirmClickHandler}
+              confirmClickHandler={isIRTScanEnabled ? undefined : confirmClickHandler}
               height={'37.4em'}
             >
               {screenId === UD_PUT_FRONT_DAMAGED_EXCEPTION && (
@@ -142,13 +144,16 @@ const PlaceEntity = ({ headerMsg,
                 </>
               )}
               {screenId === PUT_FRONT_ITEMS_TO_IRT_BIN && (
+                <>
                 <Box className="center-align" width='14em'>
-                  <Typography mb={6}>{exceptionFinalText}</Typography>
+                  <Typography mb={6}>{isIRTScanEnabled ? irtEnabledText : exceptionFinalText}</Typography>
                   <div width='1em'>
                     <img src={ArrowSmall} alt="arrow" />
                   </div>
                   <img src={IRTbin} alt="IRT bin" />
                 </Box>
+                {isIRTScanEnabled && <Typography sx={{ mt:'10em', textAlign : 'center' }} variant={'h3'} mb={6}>Scan IRT bin to confirm</Typography>}
+                </>
               )}
             </ExceptionDetails>
           </Grid>
