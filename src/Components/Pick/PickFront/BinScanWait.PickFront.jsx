@@ -33,6 +33,7 @@ const BinScanWaitScreen = ({
   previousDetails,
   currentDetails,
   onCancelScanHandler,
+  carrierType,
   title,
 }) => {
 
@@ -62,7 +63,7 @@ const BinScanWaitScreen = ({
               />
               <Conveyor
                 splitScreen={true}
-                conveyorType={CONVEYOR_TYPE_PACKING_BOX}
+                conveyorType={carrierType}
                 conveyorDisabled={false}
                 conveyorIdle={true}
                 conveyorData={conveyorBinData}

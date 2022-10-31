@@ -28,6 +28,7 @@ function WaitingForMSU({
   conveyorBinData,
   conveyorIdle,
   conveyorDisabled,
+  carrierType,
   title,
   ...props
 }) {
@@ -80,7 +81,7 @@ function WaitingForMSU({
                 conveyorData={conveyorToteData}
               />
               <Conveyor
-                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorType={carrierType}
                 conveyorDisabled={false}
                 conveyorIdle={true}
                 conveyorData={conveyorBinData}

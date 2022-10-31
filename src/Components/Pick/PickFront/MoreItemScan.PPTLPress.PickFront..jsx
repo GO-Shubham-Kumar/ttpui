@@ -38,6 +38,7 @@ const MoreItemScanPPTLPressPickFront = ({
   title,
   isExceptionScreen,
   exceptionScreen,
+  carrierType,
   ...props
 }) => {
   return (
@@ -81,7 +82,7 @@ const MoreItemScanPPTLPressPickFront = ({
               />
               <Conveyor
                 splitScreen={true}
-                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorType={carrierType}
                 conveyorDisabled={false}
                 converyorIdle={true}
                 conveyorData={conveyorBinData}

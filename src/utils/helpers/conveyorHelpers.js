@@ -1,4 +1,4 @@
-import { COLORS } from '../constants'
+import { COLORS, CONVEYOR_CARRIER_TYPE_TOTE } from '../constants'
 
 const TOTE_DATA = {
   label: '',
@@ -14,7 +14,7 @@ const TOTE_DATA = {
 }
 
 //map data according to the conveyor Bin component in the component library
-export const mapConveyorBinData = (data, cType) => {
+export const mapConveyorBinData = (data, cType, carrierType=CONVEYOR_CARRIER_TYPE_TOTE) => {
   let i = 0
   const cData = []
   let labelText = ''
@@ -34,8 +34,15 @@ export const mapConveyorBinData = (data, cType) => {
       conveyorData['isEnlarged'] =
         (binData['container_selected'] && JSON.parse(binData['container_selected'])) || false
       conveyorData['pointer'] = (binData['pointer'] && JSON.parse(binData['pointer'])) || false
-      conveyorData['showImage'] =
-        (binData['totes_associated'] && JSON.parse(binData['totes_associated'])) || false
+      console.log('packing box', CONVEYOR_CARRIER_TYPE_TOTE, binData['ppsbin_id'], JSON.parse(binData['packing_box']))
+      conveyorData['showImage'] =(
+        (carrierType === CONVEYOR_CARRIER_TYPE_TOTE ? (
+          binData['totes_associated'] && JSON.parse(binData['totes_associated']) || false
+          ) : (
+            binData['packing_box'] && JSON.parse(binData['packing_box']) || false
+            )
+          )
+      )
       conveyorData['quantity'] = binData['ppsbin_count'] || 0
       conveyorData['containerText'] = binData['text_over_container'] || ''
       conveyorData['selectedColor'] = binData['ppsbin_light_color']
@@ -53,10 +60,10 @@ export const mapConveyorBinData = (data, cType) => {
 export const mapConveyorToteData = (data, cType) => {
   const cData = []
   const numbers = []
-  data = data.sort((a, b) => Number(a.tote_id) - Number(b.tote_id))
+  data = data.sort((a, b) => Number(a?.position) - Number(b?.position))
   data?.map((toteDetails, idx) => {
     const conveyorData = { ...TOTE_DATA }
-    const labelText = `${cType}-${idx + 1}`
+    const labelText = `${cType}-${toteDetails.position}`
     conveyorData['isLoading'] = toteDetails['is_loading'] || false
     conveyorData['selected'] = toteDetails['selected'] || false
     conveyorData['isEnlarged'] = toteDetails['selected'] || false

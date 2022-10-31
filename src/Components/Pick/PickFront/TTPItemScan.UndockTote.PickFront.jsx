@@ -9,7 +9,7 @@ import {
   StepperHeader,
 } from 'operational-component-lib'
 import { Box, Grid } from '@mui/material'
-import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from '../../../utils/constants'
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE, CONVEYOR_TYPE_PACKING_BOX } from '../../../utils/constants'
 
 import React from 'react'
 
@@ -27,9 +27,12 @@ const TTPItemScanUndockTotePickFront = ({
   conveyorIdle,
   conveyorDisabled,
   title,
+  screenId,
   onExceptionHandler,
-  ...props
+  carrierType
 }) => {
+  console.log('conveyorBinData', conveyorBinData);
+  console.log('carrierType', carrierType);
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
@@ -51,9 +54,9 @@ const TTPItemScanUndockTotePickFront = ({
               />
               <Conveyor
                 splitScreen={true}
-                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorType={carrierType}
                 conveyorDisabled={false}
-                converyorIdle={true}
+                conveyorIdle={true}
                 conveyorData={conveyorBinData}
               />
             </Box>

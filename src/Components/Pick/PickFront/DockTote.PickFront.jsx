@@ -25,6 +25,7 @@ const DockTotePickFront = ({
   conveyorBinData,
   conveyorIdle,
   conveyorDisabled,
+  carrierType,
   title,
   ...props
 }) => {
@@ -48,7 +49,7 @@ const DockTotePickFront = ({
                 conveyorData={conveyorToteData}
               />
               <Conveyor
-                conveyorType={CONVEYOR_TYPE_ORDER_TOTE}
+                conveyorType={carrierType}
                 splitScreen
                 conveyorDisabled={false}
                 conveyorIdle={true}

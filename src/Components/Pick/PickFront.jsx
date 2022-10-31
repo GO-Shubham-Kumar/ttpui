@@ -1,6 +1,15 @@
 import * as SCREEN_ID from '../../utils/screenIds'
 
-import { BIN, PICK_VALID_SCREEN_ID, TOTE, VALID_SCREEN_ID } from '../../utils/constants'
+import {
+  BIN,
+  CONVEYOR_CARRIER_TYPE_PACKING_BOX,
+  CONVEYOR_CARRIER_TYPE_TOTE,
+  CONVEYOR_TYPE_ORDER_TOTE,
+  CONVEYOR_TYPE_PACKING_BOX,
+  PICK_VALID_SCREEN_ID,
+  TOTE,
+  VALID_SCREEN_ID,
+} from '../../utils/constants'
 import {
   capitalizeFirstLetter,
   fetchDetailsFromData,
@@ -28,13 +37,24 @@ const PickFront = ({ data, isFetching, success, error }) => {
   const [conveyorBinData, setConveyorBinData] = useState([])
   const [conveyorIdle, setConveyorIdle] = useState(true)
   const [conveyorDisabled, setConveyorDisabled] = useState(false)
+  const [carrierType, setCarrierType] = useState(CONVEYOR_TYPE_ORDER_TOTE)
   const [title, setTitle] = useState('Wait for Tote')
 
   useEffect(() => {
     if (!isFetching && success && data.state_data) {
       const {
-        state_data: { header_msge_list, screen_id, previous_put_details, current_put_details, mode },
+        state_data: {
+          header_msge_list,
+          screen_id,
+          previous_put_details,
+          current_put_details,
+          mode,
+          carrier_type,
+        },
       } = data
+      let cType = CONVEYOR_TYPE_ORDER_TOTE
+      if (carrier_type == CONVEYOR_CARRIER_TYPE_PACKING_BOX) cType = CONVEYOR_TYPE_PACKING_BOX
+      
       setScreenId(screen_id)
       setSeatMode(capitalizeFirstLetter(mode))
       const previousDetailsData = fetchDetailsFromData(previous_put_details)
@@ -45,20 +65,29 @@ const PickFront = ({ data, isFetching, success, error }) => {
       setHeaderMsg(msgObj)
       setCurrentDetails(currentDetailsData)
       setPreviousDetails(previousDetailsData)
-      setConveyorData(data)
+      setConveyorData(data, cType)
+      setCarrierType(cType)
+     
     }
   }, [isFetching, success, error, data])
 
   //fetch conveyor data and create data for to component
-  const setConveyorData = (data) => {
+  const setConveyorData = (data, cType) => {
     const {
       state_data,
-      state_data: { title, cancel_scan_enabled, ppsbin_list, pps_tote_list, pps_tote_list_disabled, is_idle },
+      state_data: {
+        title,
+        cancel_scan_enabled,
+        ppsbin_list,
+        pps_tote_list,
+        pps_tote_list_disabled,
+        is_idle,
+      },
     } = data
     if (title) setTitle(title)
     if (ppsbin_list && ppsbin_list.length > 0) {
       let ppsData = [...ppsbin_list]
-      ppsData = mapConveyorBinData(ppsData, BIN)
+      ppsData = mapConveyorBinData(ppsData, BIN, cType)
       setConveyorBinData(ppsData)
     }
     if (pps_tote_list) {
@@ -70,11 +99,11 @@ const PickFront = ({ data, isFetching, success, error }) => {
     if (
       state_data.hasOwnProperty('is_idle') &&
       !state_data.is_idle &&
-      state_data?.pps_tote_list.every(i => i?.tote_id === null)
+      state_data?.pps_tote_list.every((i) => i?.tote_id === null)
     )
       setConveyorIdle(false)
   }
-  
+
   if (screenId === SCREEN_ID.PICK_FRONT_WAITING_FOR_MSU)
     return (
       <WaitingForMSUPickFrontContainer
@@ -88,6 +117,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
         conveyorIdle={conveyorIdle}
         conveyorDisabled={conveyorDisabled}
         title={title}
+        carrierType={carrierType}
       />
     )
 
@@ -104,6 +134,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
         conveyorIdle={conveyorIdle}
         conveyorDisabled={conveyorDisabled}
         title={title}
+        carrierType={carrierType}
       />
     )
 
@@ -120,6 +151,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
         conveyorIdle={conveyorIdle}
         conveyorDisabled={conveyorDisabled}
         title={title}
+        carrierType={carrierType}
       />
     )
   if (
@@ -139,9 +171,13 @@ const PickFront = ({ data, isFetching, success, error }) => {
         conveyorDisabled={conveyorDisabled}
         title={title}
         screenId={screenId}
+        carrierType={carrierType}
       />
     )
-  if (screenId === SCREEN_ID.PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER || screenId === SCREEN_ID.PICK_FRONT_BIN_SCAN)
+  if (
+    screenId === SCREEN_ID.PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER ||
+    screenId === SCREEN_ID.PICK_FRONT_BIN_SCAN
+  )
     return (
       <BinScanWaitContainer
         headerMsg={headerMsg}
@@ -154,6 +190,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
         conveyorIdle={conveyorIdle}
         conveyorDisabled={conveyorDisabled}
         title={title}
+        carrierType={carrierType}
       />
     )
 
