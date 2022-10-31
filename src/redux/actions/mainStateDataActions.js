@@ -10,6 +10,7 @@ import {
 import { SERVER_ERROR_TEXT } from '../../utils/constants'
 
 export let handleUpdateStateDataSuccess = (data) => {
+  console.log('res from loginactions', data)
   return {
     type: UPDATE_STATE_DATA_SUCCESS,
     payload: {
@@ -28,6 +29,16 @@ export function handleUpdateStateDataRequest() {
   }
 }
 
+// to handle error
+export function handleUpdateStateDataError(err) {
+  return {
+    type: UPDATE_STATE_DATA_ERROR,
+    payload: {
+      message: err || SERVER_ERROR_TEXT,
+    },
+  }
+}
+
 export function handleUpdateStateDataClear(err) {
   return {
     type: UPDATE_STATE_DATA_CLEAR,
@@ -40,9 +51,9 @@ export function handleUpdateStateDataClear(err) {
 export const updateStateData = (data) => {
   return (dispatch) => {
     if (data) {
-      console.log('state data -- ', data)
-      const dummyData = TEST_DATA.PICK_FRONT_BIN_SCAN_SCREEN
-      if (data.state_data) return dispatch(handleUpdateStateDataSuccess(dummyData))
+      console.log('state data --', data)
+      const dummyData = TEST_DATA.PUT_EXCEPTION_SCREEN_1
+      if (data.state_data) return dispatch(handleUpdateStateDataSuccess(data))
     }
   }
 }

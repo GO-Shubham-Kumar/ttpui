@@ -40,7 +40,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
             <Box sx={{ textAlign: "center", mb: '6.7em'  }}>
               <img alt="pallet" src={PalletImg} />
             </Box>
-            <div className="seprator"></div>
+            <div className="separator"></div>
             <Box sx={{ m:1, ml:0, mt:1, mb:1  }}>
               <Button size="large" variant="outlined" label="Cancel Scan" onClickHandler={handleCancelScan}  />
             </Box>

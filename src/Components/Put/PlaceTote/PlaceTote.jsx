@@ -28,7 +28,7 @@ function ScanTote({ headerMsg,
                         <Box sx={{ p: 4, pt: 0, pb: 0, textAlign: 'center', height:"38.2em", display : 'flex' }}>
                             <img alt="tote" src={ToteImg} className="img-responsive m-auto" />
                         </Box>
-                        <Box className="seprator" sx={{mr:0, ml:0}}></Box>
+                        <Box className="separator" sx={{mr:0, ml:0}}></Box>
                         <Button 
                             label="Send Tote" 
                             variant="contained" 

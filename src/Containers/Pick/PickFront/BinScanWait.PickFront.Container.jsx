@@ -1,10 +1,10 @@
 import * as Constant from '../../../utils/constants'
 
-import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 import BinScanWaitScreen from '../../../Components/Pick/PickFront/BinScanWait.PickFront'
 import { mapLegendsData } from '../../../utils/helpers/commonHelpers'
+import { useDispatch } from 'react-redux'
 
 /*
   Screen IDs.

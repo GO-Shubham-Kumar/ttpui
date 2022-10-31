@@ -1,5 +1,5 @@
-import { SCREEN_ID_MAPPING, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "../../utils/screenIds";
-import { capitalizeFirstLetter, fetchDetailsFromData, getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manipulateServerMessages } from "../../utils/helpers/commonHelpers";
+import { PUT_FRONT_ITEMS_TO_IRT_BIN, SCREEN_ID_MAPPING, UD_PUT_FRONT_DAMAGED_EXCEPTION, UD_PUT_FRONT_ENTITY_SCAN, UD_PUT_FRONT_MISSIN, UD_PUT_FRONT_PLACE_ITEMS_IN_RACK, UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR, UD_PUT_FRONT_TOTE_SCAN, UD_PUT_TOTE_INDUCTION } from "../../utils/screenIds";
+import { capitalizeFirstLetter, fetchDetailsFromData, getCurrentDetailsData, getNavConfig, getPreviousDetailsData, manupulateServerMessges } from "../../utils/helpers/commonHelpers";
 import { useEffect, useState } from "react";
 
 import InvalidScreen from "../Common/InvalidScreen";
@@ -68,13 +68,14 @@ const PutBack  =({ data, isFetching, success, error }) => {
             seatMode={seatMode}
         />
     )
-    if(screenId === UD_PUT_FRONT_PLACE_ITEMS_IN_RACK) return (
+    if (screenId === UD_PUT_FRONT_PLACE_ITEMS_IN_RACK || screenId === UD_PUT_FRONT_DAMAGED_EXCEPTION || screenId === PUT_FRONT_ITEMS_TO_IRT_BIN) return (
         <PlaceEntityContainer 
             headerMsg={headerMsg} 
             previousDetails={previousDetails} 
             data={data}
             currentDetails={currentDetails}
             seatMode={seatMode}
+            screenId={screenId}
         />
     )
     if(screenId === UD_PUT_FRONT_PLACE_TOTE_ON_CONVEYOR) return (

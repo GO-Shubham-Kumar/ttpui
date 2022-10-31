@@ -868,110 +868,345 @@ export const TEST_DATA = {
   },
 }
 
-export const TEST_DATA_2 = {
-  state_data: {
-    entity_location_after_crash: [],
-    empty_popup_msg: [],
-    pps_blocked: false,
-    show_inv_count_popup: false,
-    reserve_audit: false,
-    inv_count_popup_msg: [],
-    auto_sideline_confirm_required: false,
-    time_stamp: '2022-09-21T13:07:41Z',
-    auto_sideline_crash_type: 'none',
-    exception_allowed: [],
-    is_zerowalk_flow: false,
-    api_version: '1',
-    ops_paused: false,
-    docked: [],
-    show_bin_full_default_zero: false,
-    allow_positive_adjustment: true,
-    header_msge_list: [
-      {
-        code: 'UdpF.H.012',
-        description: 'Scan a Tote to Induct',
-        details: [],
-        level: 'info',
-      },
-    ],
-    seat_name: 'front_3',
-    event: 'process_barcode',
-    show_bin_view: true,
-    operator_orientation: '0',
-    show_current_put_widget: true,
-    notification_list: [
-      {
-        code: 'UdpF.I.001',
-        description: 'Tote scan successful',
-        details: ['Pallet'],
-        level: 'info',
-      },
-    ],
-    screen_version: '1',
-    current_bin_widget: true,
-    bin_coordinate_plotting: true,
-    error_popup_disabled: false,
-    disable_reconcile_screen: false,
-    current_put_details: {
-      rack_details: {
-        display_data: [
-          {
-            display_name: 'TOTE ID',
-            locale: 'en-US',
-          },
+export const TEST_DATA_2={
+    state_data : {
+        "user_loggedin": "admin",
+        "logout_allowed": true,
+        "time_stamp": "2022-10-20T11:15:19Z",
+        "screen_id": "ud_put_front_place_items_in_rack",
+        "screen_version": "1",
+        "exception_allowed": [
+            {
+                "exception_id": "UdP001",
+                "exception_name": "Damaged",
+                "event": "physically_damaged",
+                "details": []
+            }
         ],
-      },
-      sku_qty: {
-        put_qty: 0,
-        total_qty: 1,
-      },
-      sku_type: 'Single SKU',
-      tote_details: {
-        display_data: [
-          {
-            display_name: 'Pallet ID',
-            locale: 'en-US',
-          },
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.004",
+                "level": "info",
+                "description": "Put Entity in ~p and scan ~p to confirm",
+                "details": [
+                    "Tote",
+                    "Tote"
+                ]
+            }
         ],
-        value: 'LP2313',
-      },
-      tote_id: 'LP2313',
-      uom_qty: {
-        put_qty: 0,
-        total_qty: 1,
-      },
-    },
-    selected_seat_for_release_bins_filter: 'undefined',
-    is_only_exception_button_pressed: false,
-    audit_sideline_popup: false,
-    maintenance: 'undefined',
-    mode: 'put',
-    pps_requested_status: 'undefined',
-    early_display: false,
-    logout_allowed: false,
-    show_empty_popup: false,
-    is_idle: false,
-    bin_plotting: true,
-    seat_type: 'front',
-    roll_cage_flow: false,
-    screen_id: 'put_tote_induction',
-    group_info: {
-      1: 'center',
-    },
-    product_info_for_inv_count_check: [],
-    sub_header_msge_list: [],
-    uph_count: 0,
-    rc_warehouse_full_popup: false,
-    pps_profile: '',
-    current_bin_id: '1',
-    scan_allowed: true,
-    entity_location_type_after_crash: 'undefined',
-    tote_induction: true,
-    pps_requested_mode: 'undefined',
-    user_loggedin: 'admin',
-    split_pps_info: [],
-    inventory_count_check_limit: 5,
-  },
+        "sub_header_msge_list": [],
+        "notification_list": [
+            {
+                "code": "UdpF.I.002",
+                "level": "info",
+                "description": "Entity scan successful",
+                "details": []
+            }
+        ],
+        "seat_type": "front",
+        "seat_name": "front_3",
+        "mode": "put",
+        "pps_profile": "default1",
+        "pps_requested_status": "undefined",
+        "pps_requested_mode": "undefined",
+        "api_version": "1",
+        "error_popup_disabled": false,
+        "operator_orientation": "0",
+        "uph_count": 0,
+        "ops_paused": false,
+        "current_bin_widget": true,
+        "show_bin_view": true,
+        "bin_plotting": true,
+        "audit_sideline_popup": false,
+        "allow_positive_adjustment": true,
+        "auto_sideline_confirm_required": false,
+        "auto_sideline_crash_type": "none",
+        "rc_warehouse_full_popup": false,
+        "entity_location_after_crash": [],
+        "entity_location_type_after_crash": "undefined",
+        "is_only_exception_button_pressed": false,
+        "pps_blocked": false,
+        "current_bin_id": "1",
+        "disable_reconcile_screen": false,
+        "show_bin_full_default_zero": false,
+        "reserve_audit": false,
+        "show_empty_popup": false,
+        "empty_popup_msg": [],
+        "maintenance": "undefined",
+        "early_display": false,
+        "show_inv_count_popup": false,
+        "inv_count_popup_msg": [],
+        "inventory_count_check_limit": 5,
+        "product_info_for_inv_count_check": [],
+        "selected_seat_for_release_bins_filter": "undefined",
+        "split_pps_info": [],
+        "is_zerowalk_flow": false,
+        "tote_induction": true,
+        "previous_put_details": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "ql_code": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Tote ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "slot_barcode": [
+                        [
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU Qty",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ]
+        ],
+        "rack_details": {
+            "rack_type_rec": [
+                {
+                    "barcodes": [
+                        "A.01"
+                    ],
+                    "prefixed_barcodes": [
+                        "#GOA.01"
+                    ],
+                    "length": 40,
+                    "height": 40,
+                    "type": "slot",
+                    "orig_coordinates": [
+                        0,
+                        0
+                    ],
+                    "slot_ref": [
+                        [
+                            82,
+                            97,
+                            99,
+                            107,
+                            48,
+                            49,
+                            50,
+                            46,
+                            48,
+                            46,
+                            65,
+                            46,
+                            48,
+                            49
+                        ]
+                    ],
+                    "occupancy_color": "#4CAF50",
+                    "free_space": 96000,
+                    "put_qty": 44,
+                    "preferred_slot": true,
+                    "restrict_slot": false
+                }
+            ],
+            "rack_width": 40,
+            "slot_type": "slot",
+            "rack_type": "tsu"
+        },
+        "product_info": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "製品SKU",
+                            "locale": "ja-JP"
+                        },
+                        {
+                            "display_name": "Product SKU",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_sku": "28Sept_harsh_item4"
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "product_local_image_url",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_local_image_url": null
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "製品バーコード",
+                            "locale": "ja-JP"
+                        },
+                        {
+                            "display_name": "Product Barcodes",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_barcodes": [
+                        "28Sept_harsh_item4"
+                    ]
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "UOM",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "uom": "Item"
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "商品の寸法",
+                            "locale": "ja-JP"
+                        },
+                        {
+                            "display_name": "Product Dimensions",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "product_dimensions": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            ]
+        ],
+        "Possible_Container_Names": [],
+        "default_level": "undefined",
+        "selected_level": "undefined",
+        "scan_details": {
+            "kq_allowed": true,
+            "kq_direction": "both",
+            "current_qty": "1",
+            "total_qty": "5",
+            "allow_mark_full": true
+        },
+        "ppsbin_list": [
+            {
+                "orig_coordinate": [
+                    0,
+                    0
+                ],
+                "ppsbin_id": "1",
+                "ppsbin_count": "5",
+                "bin_info": [
+                    {
+                        "type": "Item",
+                        "product_sku": "28Sept_harsh_item4",
+                        "serial": [],
+                        "quantity": 6,
+                        "service_request_id": [
+                            "TOT0000711"
+                        ],
+                        "load_unit_label": "Bin",
+                        "load_unit_id": [
+                            "1"
+                        ]
+                    }
+                ],
+                "coordinate": [
+                    1,
+                    1
+                ],
+                "group_id": "1",
+                "direction": "center",
+                "length": "96.5",
+                "breadth": "58.5",
+                "height": "150",
+                "ppsbin_state": "staged",
+                "selected_state": true,
+                "back_drawing_start": "left",
+                "front_drawing_start": "left",
+                "back_seat_name": "back_3",
+                "totes_associated": "true"
+            }
+        ],
+        "scan_allowed": true,
+        "item_uid": "1512",
+        "is_ud_without_staging": false,
+        "enable_kq": true,
+        "send_msu_enabled": false,
+        "current_put_details": {
+            "tote_details": {
+                "value": "TOT0000711",
+                "display_data": [
+                    {
+                        "display_name": "Tote",
+                        "locale": "en-US"
+                    }
+                ]
+            },
+            "rack_details": {
+                "value": "Rack012",
+                "display_data": [
+                    {
+                        "display_name": "TOTE ID",
+                        "locale": "en-US"
+                    }
+                ]
+            },
+            "sku_type": "Single SKU",
+            "sku_qty": {
+                "total_qty": 1,
+                "put_qty": 0
+            },
+            "uom_qty": {
+                "total_qty": 5,
+                "put_qty": 0
+            },
+            "tote_id": "TOT0000711"
+        },
+        "show_current_put_widget": true,
+        "is_idle": false,
+        "roll_cage_flow": false,
+        "group_info": {
+            "1": "center"
+        },
+        "bin_coordinate_plotting": true,
+        "docked": [],
+        "event": "initialise"
+    }
 }
 
 export const PLACE_ENTITY_DATA = {
@@ -1265,7 +1500,7 @@ export const PLACE_ENTITY_DATA = {
     user_loggedin: 'admin',
     split_pps_info: [],
     inventory_count_check_limit: 5,
-  },
+  }
 }
 
 export const PLACE_TOTE_AND_CONFIRM = {
@@ -4948,3 +5183,487 @@ export const PICK_FRONT_BIN_SCAN_SCREEN = {
     inventory_count_check_limit: 0,
   },
 }
+export const PUT_EXCEPTION_SCREEN_2={
+    state_data :{
+        "entity_location_after_crash": [],
+        "empty_popup_msg": [],
+        "pps_blocked": false,
+        "show_inv_count_popup": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-10-27T06:26:05Z",
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [
+            {
+                "details": [],
+                "event": "physically_damaged",
+                "exception_id": "UdP001",
+                "exception_name": "Damaged"
+            }
+        ],
+        "is_zerowalk_flow": false,
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [],
+        "show_bin_full_default_zero": false,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.014",
+                "description": "Select exception type and scan Entity",
+                "details": [],
+                "level": "info"
+            }
+        ],
+        "seat_name": "front_3",
+        "event": "transfer_items_to_irt_bin",
+        "show_bin_view": true,
+        "exception_type": "physically_damaged",
+        "operator_orientation": "0",
+        "show_current_put_widget": true,
+        "notification_list": [],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "bin_coordinate_plotting": true,
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "current_put_details": {
+            "rack_details": {
+                "display_data": [
+                    {
+                        "display_name": "TOTE ID",
+                        "locale": "en-US"
+                    }
+                ],
+                "value": "Rack015"
+            },
+            "sku_qty": {
+                "put_qty": 0,
+                "total_qty": 1
+            },
+            "sku_type": "Single SKU",
+            "tote_details": {
+                "display_data": [
+                    {
+                        "display_name": "Tote",
+                        "locale": "en-US"
+                    }
+                ],
+                "value": "TOT0000714"
+            },
+            "tote_id": "TOT0000714",
+            "uom_qty": {
+                "put_qty": 0,
+                "total_qty": 1
+            }
+        },
+        "selected_seat_for_release_bins_filter": "undefined",
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "put",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": false,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "damaged_items": [
+            {
+                "product_info": [
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "製品SKU",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product SKU",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_sku": "28Sept_harsh_item4"
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "product_local_image_url",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_local_image_url": null
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "製品バーコード",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product Barcodes",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_barcodes": [
+                                "28Sept_harsh_item4"
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "UOM",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "uom": "Item"
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "商品の寸法",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product Dimensions",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_dimensions": [
+                                1,
+                                1,
+                                1
+                            ]
+                        }
+                    ]
+                ],
+                "qty": 1,
+                "serial": [],
+                "type": "Item"
+            }
+        ],
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "put_front_items_to_irt_bin",
+        "previous_put_details": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "ql_code": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Tote ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "slot_barcode": [
+                        [
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU Qty",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ]
+        ],
+        "group_info": {
+            "1": "center"
+        },
+        "product_info_for_inv_count_check": [],
+        "sub_header_msge_list": [],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "default1",
+        "current_bin_id": "1",
+        "irt_scan_enabled": true,
+        "scan_allowed": true,
+        "entity_location_type_after_crash": "undefined",
+        "tote_induction": true,
+        "pps_requested_mode": "undefined",
+        "tote_id": "TOT0000714",
+        "user_loggedin": "admin",
+        "split_pps_info": [],
+        "inventory_count_check_limit": 5
+    }
+    
+}
+
+export const PUT_EXCEPTION_SCREEN_1 = {
+    state_data :{
+        "entity_location_after_crash": [],
+        "empty_popup_msg": [],
+        "pps_blocked": false,
+        "show_inv_count_popup": false,
+        "reserve_audit": false,
+        "inv_count_popup_msg": [],
+        "auto_sideline_confirm_required": false,
+        "time_stamp": "2022-10-27T07:36:44Z",
+        "auto_sideline_crash_type": "none",
+        "exception_allowed": [
+            {
+                "details": [],
+                "event": "physically_damaged",
+                "exception_id": "UdP001",
+                "exception_name": "Damaged"
+            }
+        ],
+        "is_zerowalk_flow": false,
+        "api_version": "1",
+        "ops_paused": false,
+        "docked": [],
+        "show_bin_full_default_zero": false,
+        "allow_positive_adjustment": true,
+        "header_msge_list": [
+            {
+                "code": "UdpF.H.014",
+                "description": "Select exception type and scan Entity",
+                "details": [],
+                "level": "info"
+            }
+        ],
+        "seat_name": "front_3",
+        "event": "process_barcode",
+        "show_bin_view": true,
+        "exception_type": "physically_damaged",
+        "operator_orientation": "0",
+        "show_current_put_widget": true,
+        "notification_list": [],
+        "screen_version": "1",
+        "current_bin_widget": true,
+        "bin_coordinate_plotting": true,
+        "error_popup_disabled": false,
+        "disable_reconcile_screen": false,
+        "current_put_details": {
+            "rack_details": {
+                "display_data": [
+                    {
+                        "display_name": "TOTE ID",
+                        "locale": "en-US"
+                    }
+                ],
+                "value": "Rack016"
+            },
+            "sku_qty": {
+                "put_qty": 0,
+                "total_qty": 1
+            },
+            "sku_type": "Single SKU",
+            "tote_details": {
+                "display_data": [
+                    {
+                        "display_name": "Tote",
+                        "locale": "en-US"
+                    }
+                ],
+                "value": "TOT0000715"
+            },
+            "tote_id": "TOT0000715",
+            "uom_qty": {
+                "put_qty": 0,
+                "total_qty": 5
+            }
+        },
+        "selected_seat_for_release_bins_filter": "undefined",
+        "is_only_exception_button_pressed": false,
+        "audit_sideline_popup": false,
+        "maintenance": "undefined",
+        "mode": "put",
+        "pps_requested_status": "undefined",
+        "early_display": false,
+        "logout_allowed": false,
+        "show_empty_popup": false,
+        "is_idle": false,
+        "bin_plotting": true,
+        "damaged_items": [
+            {
+                "product_info": [
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "製品SKU",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product SKU",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_sku": "28Sept_harsh_item4"
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "product_local_image_url",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_local_image_url": null
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "製品バーコード",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product Barcodes",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_barcodes": [
+                                "28Sept_harsh_item4"
+                            ]
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "UOM",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "uom": "Item"
+                        }
+                    ],
+                    [
+                        {
+                            "display_data": [
+                                {
+                                    "display_name": "商品の寸法",
+                                    "locale": "ja-JP"
+                                },
+                                {
+                                    "display_name": "Product Dimensions",
+                                    "locale": "en-US"
+                                }
+                            ],
+                            "product_dimensions": [
+                                1,
+                                1,
+                                1
+                            ]
+                        }
+                    ]
+                ],
+                "qty": 1,
+                "serial": [],
+                "type": "Item"
+            }
+        ],
+        "seat_type": "front",
+        "roll_cage_flow": false,
+        "screen_id": "ud_put_front_damaged_exception",
+        "previous_put_details": [
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Product Barcode",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "ql_code": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "Tote ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "slot_barcode": [
+                        [
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU ID",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ],
+            [
+                {
+                    "display_data": [
+                        {
+                            "display_name": "SKU Qty",
+                            "locale": "en-US"
+                        }
+                    ],
+                    "value": ""
+                }
+            ]
+        ],
+        "group_info": {
+            "1": "center"
+        },
+        "product_info_for_inv_count_check": [],
+        "sub_header_msge_list": [],
+        "uph_count": 0,
+        "rc_warehouse_full_popup": false,
+        "pps_profile": "default1",
+        "current_bin_id": "1",
+        "entity_location_type_after_crash": "undefined",
+        "tote_induction": true,
+        "pps_requested_mode": "undefined",
+        "tote_id": "TOT0000715",
+        "user_loggedin": "admin",
+        "split_pps_info": [],
+        "inventory_count_check_limit": 5
+    }
+    
+}
+

@@ -29,12 +29,12 @@
     margin: auto;
 }
 
-.seprator{
+.separator{
     margin: 1em -1em;
     border: 1px solid #E8E8E8;
 }
 
-.totequantity{
+.tote-quantity{
     display: flex;
     justify-content: center;
 }
@@ -62,3 +62,13 @@
     max-height: 1080px;
     position: relative;
 }
+.center-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
+.disabled-container {
+    opacity: 0.5; 
+} 
