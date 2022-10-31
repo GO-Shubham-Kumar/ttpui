@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import WaitingForMSU from '../../../Components/Pick/PickFront/WaitingForMSU'
+import WaitingForMSU from '../../../Components/Pick/PickFront/WaitingForMSU.PickFront'
 import { useSelector } from 'react-redux'
 
 /*

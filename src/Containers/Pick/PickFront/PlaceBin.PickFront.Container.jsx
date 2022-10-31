@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import PlaceBinPickFront from "../../../Components/Pick/PickFront/PlaceBin";
+import PlaceBinPickFront from "../../../Components/Pick/PickFront/PlaceBin.PickFront";
 
 /*
   Screen IDs.
