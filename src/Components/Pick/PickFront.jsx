@@ -99,7 +99,7 @@ const PickFront = ({ data, isFetching, success, error }) => {
     if (
       state_data.hasOwnProperty('is_idle') &&
       !state_data.is_idle &&
-      state_data?.pps_tote_list.every((i) => i?.tote_id === null)
+      state_data?.pps_tote_list?.every((i) => i?.tote_id === null)
     )
       setConveyorIdle(false)
   }
