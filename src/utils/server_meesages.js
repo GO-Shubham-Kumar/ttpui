@@ -546,6 +546,7 @@ export const serverMessages = {
       textToDisplay: "Location",
       screen_id: "",
     },
+    "PkF.H.058": 'Place in Bin {0} and confirm',
     //packing_box
     "PkF.S.002": {
       textToDisplay: "Place Box",

@@ -1,9 +1,14 @@
-import PlaceBin from "../../../Components/Pick/PlaceBin/PlaceBin";
-import { Modal, Typography, Table } from "operational-component-lib";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-function PlaceBinContainer({ ...props }) {
+import PlaceBinPickFront from "../../../Components/Pick/PickFront/PlaceBin";
+
+/*
+  Screen IDs.
+  
+*/
+
+const PlaceBinPickFrontContainer = ({ ...props }) => {
   const [showModal, setShowModal] = useState(false);
   const { data } = useSelector((state) => state.mainStateReducer);
   const dispatch = useDispatch();
@@ -24,11 +29,10 @@ function PlaceBinContainer({ ...props }) {
   ];
 
   const onConfirmHandler = () => {
-    alert("ss");
     setShowModal(true);
   };
 
-  return <PlaceBin header={header} />;
+  return <PlaceBinPickFront header={header} />;
 }
 
-export default PlaceBinContainer;
+export default PlaceBinPickFrontContainer;

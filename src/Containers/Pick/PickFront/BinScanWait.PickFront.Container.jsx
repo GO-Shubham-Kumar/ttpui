@@ -3,10 +3,16 @@ import * as Constant from '../../../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
-import BinScanPackingBoxScreen from '../../../Components/Pick/BinScanPackingBox.Screen'
+import BinScanWaitScreen from '../../../Components/Pick/PickFront/BinScanWait.PickFront'
 import { mapLegendsData } from '../../../utils/helpers/commonHelpers'
 
-const BinScanPackingBoxContainer = ({ data, ...props }) => {
+/*
+  Screen IDs.
+  PICK_FRONT_SCAN_OR_WAIT_FOR_CONTAINER: pick_front_scan_or_wait_for_container
+  PICK_FRONT_BIN_SCAN: pick_front_bin_scan
+*/
+
+const BinScanWaitContainer = ({ data, ...props }) => {
   const [boxType, setBoxType] = useState('XXYYZZ')
   const [seatMode, setSeatMode] = useState('Pick')
   const [legends, setLegends] = useState([])
@@ -38,7 +44,7 @@ const BinScanPackingBoxContainer = ({ data, ...props }) => {
   }
   
   return (
-    <BinScanPackingBoxScreen
+    <BinScanWaitScreen
       boxType={boxType}
       legends={legends}
       seatMode={seatMode}
@@ -48,4 +54,4 @@ const BinScanPackingBoxContainer = ({ data, ...props }) => {
   )
 }
 
-export default BinScanPackingBoxContainer
+export default BinScanWaitContainer

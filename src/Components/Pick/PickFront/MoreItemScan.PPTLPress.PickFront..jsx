@@ -14,7 +14,7 @@ import { Box, Divider, Grid, Typography } from '@mui/material'
 import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from '../../../utils/constants'
 import React, { useState } from 'react'
 
-const PickFrontMoreItemScan = ({
+const MoreItemScanPPTLPressPickFront = ({
   headerMsg,
   legends,
   seatMode,
@@ -147,4 +147,4 @@ const PickFrontMoreItemScan = ({
   )
 }
 
-export default PickFrontMoreItemScan
+export default MoreItemScanPPTLPressPickFront

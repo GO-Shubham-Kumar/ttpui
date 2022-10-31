@@ -12,9 +12,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import PickFrontDockTote from "../../../Components/Pick/ScanTote/PickFront.DockTote";
+import DockTotePickFront from "../../../Components/Pick/PickFront/DockTote.PickFront";
 
-function PickFrontDockToteContainer({ data, ...props }) {
+/*
+  Screen IDs.
+  PICK_FRONT_DOCK_TOTE: pick_front_dock_tote
+*/
+
+function DockTotePickFrontContainer({ data, ...props }) {
   const [cancelButtonEnable, setCancelButtonEnable] = useState(false);
   const { success, error, isFetching } = useSelector(
     (state) => state.serverEvents
@@ -48,7 +53,7 @@ function PickFrontDockToteContainer({ data, ...props }) {
   ];
 
   return (
-    <PickFrontDockTote
+    <DockTotePickFront
       subHeader={subHeader}
       legends={legends}
       cancelButtonEnable={cancelButtonEnable}
@@ -57,4 +62,4 @@ function PickFrontDockToteContainer({ data, ...props }) {
   );
 }
 
-export default PickFrontDockToteContainer;
+export default DockTotePickFrontContainer;

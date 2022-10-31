@@ -8,11 +8,11 @@ import {
   StepperHeader,
 } from 'operational-component-lib'
 import { Box, Divider, Grid, Typography } from '@mui/material'
-import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_PACKING_BOX } from '../../utils/constants'
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_PACKING_BOX } from '../../../utils/constants'
 
-import PackingBox from '../../assets/images/packing_box.svg'
+import PackingBox from '../../../assets/images/packing_box.svg'
 import React from 'react'
-import { isEmpty } from '../../utils/helpers/commonHelpers'
+import { isEmpty } from '../../../utils/helpers/commonHelpers'
 
 const emptyPreviousPick = {
   'SKU ID': '--',
@@ -21,7 +21,7 @@ const emptyPreviousPick = {
   'Bin ID': '--',
 }
 
-const BinScanPackingBoxScreen = ({
+const BinScanWaitScreen = ({
   headerMsg,
   boxType,
   legends,
@@ -106,4 +106,4 @@ const BinScanPackingBoxScreen = ({
   )
 }
 
-export default BinScanPackingBoxScreen
+export default BinScanWaitScreen

@@ -4,14 +4,20 @@ import {
   EVENT_TYPE_TOTE_FULL,
   EXCEPTION_BUTTON_PRESS,
 } from '../../../utils/constants'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
 
-import ExceptionPickFront from './Exception.PickFront'
+import ExceptionPickFrontContainer from './Exception.PickFront.Container'
+import MoreItemScanPPTLPressPickFront from '../../../Components/Pick/PickFront/MoreItemScan.PPTLPress.PickFront.'
 import { PICK_FRONT_MISSING_OR_UNSCANNABLE_DAMAGED_ITEM } from '../../../utils/screenIds'
-import PickFrontMoreItemScan from '../../../Components/Pick/PlaceEntity/PickFront.MoreItemScan.PptlPress'
 
-function PickFrontMoreItemScanContainer({ ...props }) {
+/*
+  Screen IDs.
+  PICK_FRONT_MORE_ITEM_SCAN: pick_front_more_item_scan
+  PICK_FRONT_PPTL_PRESS: pick_front_pptl_press
+*/
+
+const MoreItemScanPPTLPressPickFrontContainer = ({ ...props }) => {
   const [showModal, setShowModal] = useState(false)
   const { data } = useSelector((state) => state.mainStateReducer)
   const dispatch = useDispatch()
@@ -106,11 +112,11 @@ function PickFrontMoreItemScanContainer({ ...props }) {
   }
 
   const getExceptionScreen = () => {
-    return <ExceptionPickFront data={data.state_data} />
+    return <ExceptionPickFrontContainer data={data.state_data} />
   }
 
   return (
-    <PickFrontMoreItemScan
+    <MoreItemScanPPTLPressPickFront
       legends={legends}
       productDetails={prdtdetails}
       prdtinfo={prdtinfo}
@@ -129,4 +135,4 @@ function PickFrontMoreItemScanContainer({ ...props }) {
   )
 }
 
-export default PickFrontMoreItemScanContainer
+export default MoreItemScanPPTLPressPickFrontContainer

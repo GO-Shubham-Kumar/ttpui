@@ -63,11 +63,9 @@ export const getPreviousDetailsData = (data) => {
             Object.keys(dispData).map((key, j) => {
                 if (key === 'display_data') {
                     dataObj = dispData[key][0];
-                    console.log('dataObj', dataObj)
                     val = dataObj['display_name']
                     previousData[val] = ''
                 } else {
-                    console.log('--previous', previousData, val, dispData[key])
                     previousData[val] = dispData[key]
                 }
             })

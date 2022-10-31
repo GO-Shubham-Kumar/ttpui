@@ -6,18 +6,13 @@ import {
   CurrentlyActiveConveyer,
   Legend,
   StepperHeader,
-} from "operational-component-lib";
-import { Box, Grid } from "@mui/material";
-import {
-  CONVEYOR_TYPE_INVENTORY_TOTE,
-  CONVEYOR_TYPE_ORDER_TOTE,
-} from "../../../utils/constants";
+} from 'operational-component-lib'
+import { Box, Grid } from '@mui/material'
+import { CONVEYOR_TYPE_INVENTORY_TOTE, CONVEYOR_TYPE_ORDER_TOTE } from '../../../utils/constants'
 
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React from 'react'
 
-function PickFrontDockTote({
+const DockTotePickFront = ({
   headerMsg,
   previousDetails,
   currentDetails,
@@ -32,49 +27,19 @@ function PickFrontDockTote({
   conveyorDisabled,
   title,
   ...props
-}) {
-  console.log("conveyorIdle", conveyorIdle);
-
+}) => {
   return (
     <>
       <StepperHeader stepperObj={headerMsg} subHeaderText={subHeader} />
       <Grid container alignItems="stretch">
-        <Grid
-          item
-          xs={12}
-          xl={3}
-          md={3}
-          sm={12}
-          p={3}
-          pb={0}
-          className="grid-seperator"
-        >
+        <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator">
           <CurrentlyActiveConveyer title="Scan Active" details={currentDetails} />
-          <BinDetails
-            details={currentDetails}
-            title={`Previous ${seatMode}`}
-            height="17.2em"
-          />
+          <BinDetails details={currentDetails} title={`Previous ${seatMode}`} height="17.2em" />
         </Grid>
 
-        <Grid
-          item
-          xs={12}
-          xl={9}
-          md={9}
-          sm={12}
-          p={3}
-          pb={0}
-          className="grid-seperator"
-        >
-          <Card
-            p={0}
-            m={0}
-            title={title}
-            height={"42.5em"}
-            bodySeperator={false}
-          >
-            <Box height={"36em"}>
+        <Grid item xs={12} xl={9} md={9} sm={12} p={3} pb={0} className="grid-seperator">
+          <Card p={0} m={0} title={title} height={'42.5em'} bodySeperator={false}>
+            <Box height={'36em'}>
               <Conveyor
                 conveyorType={CONVEYOR_TYPE_INVENTORY_TOTE}
                 splitScreen
@@ -106,7 +71,7 @@ function PickFrontDockTote({
         </Grid>
       </Grid>
     </>
-  );
+  )
 }
 
-export default PickFrontDockTote;
+export default DockTotePickFront

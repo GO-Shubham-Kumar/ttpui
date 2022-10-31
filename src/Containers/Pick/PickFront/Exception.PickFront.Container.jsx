@@ -3,7 +3,12 @@ import React, { useMemo, useState } from 'react'
 
 import { Typography } from '@mui/material'
 
-const ExceptionPickFront = ({ data }) => {
+/*
+  Screen IDs.
+  PICK_FRONT_MISSING_OR_UNSCANNABLE_DAMAGED_ITEM: pick_front_missing_or_unscannable_damaged_item
+*/
+
+const ExceptionPickFrontContainer = ({ data }) => {
   const [exceptedQty, ] = useState(data?.pick_quantity)
 
   const [damagedQty, setDamagedQty] = useState(0)
@@ -94,4 +99,4 @@ const ExceptionPickFront = ({ data }) => {
   )
 }
 
-export default ExceptionPickFront
+export default ExceptionPickFrontContainer
