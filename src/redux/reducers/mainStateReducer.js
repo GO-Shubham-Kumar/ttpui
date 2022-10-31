@@ -1,5 +1,7 @@
-import { SERVER_ERROR_TEXT } from '../../utils/constants';
 import { UPDATE_STATE_DATA_CLEAR, UPDATE_STATE_DATA_ERROR, UPDATE_STATE_DATA_REQUEST, UPDATE_STATE_DATA_SUCCESS } from './../actions/actionTypes'
+
+import { SERVER_ERROR_TEXT } from '../../utils/constants';
+
 const initialState = {
     success : false,
     isFetching : false,
@@ -12,11 +14,9 @@ const initialState = {
 
   // receiving response sent by action according to type of action
   export default function initialConfigsReducers(state = initialState, action) {
-      const { payload, type } = action;
-      console.log(action,'action');    
+      const { payload, type } = action;  
     switch (type) {
         case UPDATE_STATE_DATA_SUCCESS:
-            console.log('---')
         return { 
                 ...state,
                 isFetching: false,

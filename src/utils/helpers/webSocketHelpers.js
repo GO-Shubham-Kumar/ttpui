@@ -1,7 +1,8 @@
 import { handleLoginError, logOutAction } from '../../redux/actions/authActions';
-import { updateStateData } from '../../redux/actions/mainStateDataActions';
+
 import { WEBSOCKET_ERROR } from '../constants';
 import store from './../../redux/store';
+import { updateStateData } from '../../redux/actions/mainStateDataActions';
 
 const { REACT_APP_WEBSOCKET_IP } = process.env;
 let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
@@ -24,17 +25,12 @@ let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
 
 export const sendDataToWebSocket =  (data) => {
     webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP)
-        console.log('websocket conn', webSocket)
-        console.log('store -- ', store)
         webSocket.onopen = () => {
-            console.log('connected2 -- ', data)
             webSocket.send(JSON.stringify(data))
 
             webSocket.onmessage = (event) => {
-                console.log('event in 1',  event.data)
                 if(event.data){
                     const stateData = JSON.parse(event.data);
-                    console.log('event in 21', stateData);
                     if(stateData.state_data) store.dispatch(updateStateData(stateData))
                 }
             }
@@ -44,7 +40,7 @@ export const sendDataToWebSocket =  (data) => {
 
         }
         webSocket.onerror = (event) => {
-            console.log('socket error', event)
+            console.error('socket error', event)
             // store.dispatch(logOutAction({message : WEBSOCKET_ERROR }))
         }
 }

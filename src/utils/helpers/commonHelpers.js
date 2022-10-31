@@ -1,38 +1,52 @@
 import { DEFAULT_LANGUAGE } from "../constants"
-import { SCREEN_NAVGATIONS } from "../navConfig"
+import InventoryToteLegend from './../../assets/images/legend_inventory_tote.svg';
+import PackingBoxLegend from './../../assets/images/packing_box_legend.svg';
+import { SCREEN_NAVIGATION } from "../navConfig"
 import { serverMessages } from "../server_meesages"
 import { wrappedFetch } from "../fetchFuncs"
+
+String.prototype.format = function() {
+    let formatted = this;
+    if (arguments.length && typeof arguments[0] == 'object') {
+        let vars = arguments[0];
+        for (const v in vars) {
+            let regexp = new RegExp('\\{'+v+'\\}', 'gi');
+            formatted = formatted.replace(regexp, vars[v]);
+        }
+    }
+    return formatted;
+}
 
 export const getMsgObject = (data) => {
     return data ? data[0] : {}
 }
 
+export const isEmpty = (value) => {
+  return value === undefined ||
+    value === null ||
+    (typeof value === 'object' && Object.keys.length === 0) ||
+    (typeof value === 'string' && value.trim().length === 0)
+    ? false
+    : true
+}
+
 //to manipulate the header message coming from the server
 //@data - expected the header_msg_list array
-export const manupulateServerMessges = (data) => {
-    let placeHolder;
-    const msgObj = getMsgObject(data);
-    const { code, details } = msgObj;
-    console.log('code', code)
-    let msgData = { value: '', key: " "  }
-    if(!code) return { msgData }
-    let msg = serverMessages[code];
-    console.log('server msg', msg)
-    if(!msg || details.length === 0){
-        msgData['value'] = msgObj['description']
-        return { msgData, msgObj }
-    } 
-    console.log('server msg 2', msg, details, code )
-    if( code && details && details.length > 0 ){
-        console.log('1--', msg)
-        msg = msg.replace(/{\w+}/g, function (everyPlaceholder) {
-            placeHolder = everyPlaceholder.match(/\d+/g)
-            console.log('details placeHolder', details, placeHolder, details[placeHolder] )
-            return details[placeHolder]
-        })
-    } 
-    msgData = { value: msg, key: " "  }
+export const manipulateServerMessages = (data) => {
+  const msgObj = getMsgObject(data)
+  const { code, details } = msgObj
+  let msgData = { value: '', key: '' }
+  if (!code) return { msgData }
+  let msg = serverMessages[code]
+  if (!msg) {
+    msgData['value'] = msgObj['description'].format(details)
     return { msgData, msgObj }
+  }
+  if (code && details && details.length > 0) {
+    msg = msg.format(details)
+  }
+  msgData = { value: msg, key: '' }
+  return { msgData, msgObj }
 }
 
 
@@ -40,10 +54,10 @@ export const manupulateServerMessges = (data) => {
 //simplify previous put details
 export const getPreviousDetailsData = (data) => {
     const displayData = data || [];
-    let i=0;
+    let i = 0;
     let previousData = {};
     let dataObj = {}
-    for(i;i<displayData.length;i++){
+    for (i; i < displayData.length; i++) {
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
             const itemData=displayData[i][0]; 
@@ -68,18 +82,18 @@ export const getPreviousDetailsData = (data) => {
 //simplify current put details
 export const getCurrentDetailsData = (data) => {
     const displayData = data && Object.keys(data).length > 0 ? data : {};
-    let i=0;
+    let i = 0;
     let currentData = {};
     let dataObj = {};
     let val = ''
-    Object.keys(displayData).map((d,i)=>{
+    Object.keys(displayData).map((d, i) => {
         // if(typeof displayData[d] === "string") currentData[d] = displayData[d]
-        if(typeof displayData[d] === "object" ) {
-            if(displayData[d].hasOwnProperty('total_qty')) {
-            //     currentData[d] = displayData[d] = `${displayData[d]['put_qty']}/${displayData[d]['total_qty']}`
-            }else{
+        if (typeof displayData[d] === "object") {
+            if (displayData[d].hasOwnProperty('total_qty')) {
+                //     currentData[d] = displayData[d] = `${displayData[d]['put_qty']}/${displayData[d]['total_qty']}`
+            } else {
                 val = displayData[d]['display_data'][0]['display_name']
-                currentData[val]= displayData[d]['value'] || "---"
+                currentData[val] = displayData[d]['value'] || "---"
 
             }
         }
@@ -88,11 +102,11 @@ export const getCurrentDetailsData = (data) => {
 }
 
 export const getNavConfig = (headerMsgs, mode, screenId) => {
-    const { msgData } = manupulateServerMessges(headerMsgs);
-    let data = SCREEN_NAVGATIONS[mode] || [];
+    const { msgData } = manipulateServerMessages(headerMsgs);
+    let data = SCREEN_NAVIGATION[mode] || [];
     data = data[screenId] || [];
     data = data.length > 0 ? data.map((obj, i) => {
-        if(obj.active) return {...obj, description : msgData.value }
+        if (obj.active) return { ...obj, description: msgData.value }
         return obj
     }) : data
     return data
@@ -102,10 +116,10 @@ export const getNavConfig = (headerMsgs, mode, screenId) => {
 // simplify details coming from server
 export const fetchDetailsFromData = (data) => {
     const displayData = data || [];
-    let i=0;
+    let i = 0;
     let previousData = {};
     let dataObj = {}
-    for(i;i<displayData.length;i++){
+    for (i; i < displayData.length; i++) {
         let val = ''
         if( displayData[i] && displayData[i][0] && displayData[i][0]['display_data'].length > 0){
             const itemData=displayData[i][0];  //array always contains one record as an object
@@ -126,7 +140,7 @@ export const fetchDetailsFromData = (data) => {
                         else {
                             dataVal = key.toLowerCase().includes('dimension') ? itemData[key].join(' x ') : itemData[key].toString()
                         }
-                    } 
+                    }
                     previousData[val] = dataVal
                 }
             })
@@ -135,16 +149,16 @@ export const fetchDetailsFromData = (data) => {
     return previousData
 }
 
-export const capitalizeFirstLetter = (string)  => {
+export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-  
+}
 
-export const createNotificationObject = (text, level) =>{
-    return { 
-        description : text,
+
+export const createNotificationObject = (text, level) => {
+    return {
+        description: text,
         level
-     }
+    }
 }
 
 export const fetchClientLogo = () => {
@@ -158,7 +172,6 @@ export const fetchClientLogo = () => {
 //get seat number from seat name 
 export const getSeatNumber = (seatName) => {
     let seat_name = seatName || '';
-    console.log('seat_name', seat_name)
     seat_name = seat_name ? seat_name.split("_")[1] : seat_name
     seatName = seat_name.length === 1 ? `0${seat_name}` : seat_name
     return seatName
@@ -223,3 +236,19 @@ export const ellipseEndText = (text) => {
     }
     return ellipsesText
   }
+
+  //map legends data and app images to the legends 
+export const mapLegendsData = (legends) => {
+    const legendsMap = {
+        'Inventory Totes': InventoryToteLegend,
+        'Packing Box': PackingBoxLegend
+    }
+    const data  = []
+    legends?.map((l) => {
+        const legendObj = {}
+        legendObj['url'] = legendsMap[l.label]
+        legendObj['text'] = l.label
+        data.push(legendObj)
+    })    
+return data
+}

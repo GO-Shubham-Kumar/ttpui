@@ -1,9 +1,10 @@
-import { SERVER_ERROR_TEXT } from '../../utils/constants';
-import { 
-    TRIGGER_EVENTS_ERROR, 
-    TRIGGER_EVENTS_REQUEST, 
+import {
+    TRIGGER_EVENTS_ERROR,
+    TRIGGER_EVENTS_REQUEST,
     TRIGGER_EVENTS_SUCCESS,
 } from './../actions/actionTypes'
+
+import { SERVER_ERROR_TEXT } from '../../utils/constants';
 const initialState = {
     data : {},
     isFetching : false,
@@ -15,8 +16,7 @@ const initialState = {
 
   // receiving response sent by action according to type of action
   export default function eventsReducer(state = initialState, action) {
-      const { payload, type } = action;
-      console.log(action,'action');    
+      const { payload, type } = action;   
     switch (type) {
         case TRIGGER_EVENTS_SUCCESS:
             console.log('---')
