@@ -7,7 +7,7 @@ touch globalConfig/env-config.js
 
 echo "window['globalConfigs'] = {" >> globalConfig/env-config.js
 
-export | grep UI_REACT_APP_ | awk '{print $3}' | sed -e 's/^.\{,13\}//' -e 's/\"//g' > .env
+export | grep UI_TTP_ | awk '{print $3}' | sed -e 's/^.\{,13\}//' -e 's/\"//g' > .env
 
 # Read .env file (key-value pairs)
 while read -r line || [[ -n "$line" ]];
