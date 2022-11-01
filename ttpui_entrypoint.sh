@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /usr/share/nginx/html/
+cd /usr/share/nginx/html/ttp-ui
 mkdir -p globalConfig
 rm -f globalConfig/env-config.js
 touch globalConfig/env-config.js
