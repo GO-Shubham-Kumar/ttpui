@@ -4,8 +4,9 @@ import { WEBSOCKET_ERROR } from '../constants';
 import store from './../../redux/store';
 import { updateStateData } from '../../redux/actions/mainStateDataActions';
 
-const { REACT_APP_WEBSOCKET_IP } = process.env;
-let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
+console.log('window', window)
+const { WEBSOCKET_IP } = window.globalConfigs;
+let webSocket = new WebSocket(WEBSOCKET_IP);
 // const dispatch = useDispatch();
 // export const initialseWSConn = () => {
 //     webSocket = new WebSocket('wss://192.168.9.159/wssresui');
@@ -24,7 +25,7 @@ let webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP);
 // }
 
 export const sendDataToWebSocket =  (data) => {
-    webSocket = new WebSocket(REACT_APP_WEBSOCKET_IP)
+    webSocket = new WebSocket(WEBSOCKET_IP)
         webSocket.onopen = () => {
             webSocket.send(JSON.stringify(data))
 

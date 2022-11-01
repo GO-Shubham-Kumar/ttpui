@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /usr/share/nginx/html/ttp-ui
+cd ./public
 mkdir -p globalConfig
 rm -f globalConfig/env-config.js
 touch globalConfig/env-config.js
@@ -8,7 +8,6 @@ touch globalConfig/env-config.js
 echo "window['globalConfigs'] = {" >> globalConfig/env-config.js
 
 # export | grep UI_TTP_ | awk '{print $3}' | sed -e 's/^.\{,7\}//' -e 's/\"//g' > .env
-
 # Read .env file (key-value pairs)
 while read -r line || [[ -n "$line" ]];
 do
@@ -34,6 +33,6 @@ do
   
   # Append to JS file
   echo "  $varname: \"$value\"," >> globalConfig/env-config.js
-done < .env
+done < ../.env
 
 echo "}" >> globalConfig/env-config.js

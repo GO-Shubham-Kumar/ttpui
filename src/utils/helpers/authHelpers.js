@@ -14,7 +14,8 @@ import {
 } from "../constants";
 import { removeSessionData, retreiveSessionData, saveSessionData } from "./sessionHelpers";
 import { wrappedFetch, wrappedGet } from "../fetchFuncs"
-const { REACT_APP_PLATFORM_IP } = process.env;
+
+const { PLATFORM_IP } = window.globalConfigs;
 
 //function to login a user
 export const loginUser = async ( username, password, seat_name, role, barcode ) => {
@@ -52,7 +53,7 @@ export const loginUser = async ( username, password, seat_name, role, barcode ) 
                   }
                 }
               }
-            const url = `${REACT_APP_PLATFORM_IP}${API_URLS.AUTH_URL}`;
+            const url = `${PLATFORM_IP}${API_URLS.AUTH_URL}`;
             console.log('url', url)
             const login = await wrappedFetch(url, 'POST', bodyParams) 
             resolve(login)
@@ -75,8 +76,8 @@ export const loginUser = async ( username, password, seat_name, role, barcode ) 
 
 //get the mode type from the server
 export const fetchMode = async (seat_type) => {
-  const { REACT_APP_CORE_IP } = process.env;
-  const url = `${REACT_APP_CORE_IP}/${API_URLS.PPS_MODE_API_URL}/${seat_type}/mode`;
+  const { CORE_IP } = window.globalConfigs;
+  const url = `${CORE_IP}/${API_URLS.PPS_MODE_API_URL}/${seat_type}/mode`;
   return await wrappedGet(url);
 }
 
@@ -121,14 +122,14 @@ export const verifyLogin = () => {
 export const validateLogin = () =>{
   return new Promise(async (resolve, reject) => {
     try{
-        const {REACT_APP_PLATFORM_IP} = process.env
+        const {PLATFORM_IP} = window.globalConfigs
         const auth_token = retreiveSessionData(AUTH_TOKEN)
         const username = retreiveSessionData(USER_NAME)
         const refresh_token = retreiveSessionData(REFRESH_TOKEN)
         const seat_name = retreiveSessionData(SEAT_NAME)
         console.log('refresh_token', refresh_token)
         if(auth_token === null || username === null || refresh_token === null) throw new Error({error : true, message : 'Invalid Token'})
-        const url = `${REACT_APP_PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
+        const url = `${PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
         const data = await wrappedGet(url);
         console.log('data valid', data);
         resolve({ auth_token, username, refresh_token, seat_name });
@@ -142,13 +143,13 @@ export const validateLogin = () =>{
 export const fetchNewToken = () =>{
   return new Promise(async (resolve, reject) => {
     try{
-      const {REACT_APP_PLATFORM_IP} = process.env;
+      const {PLATFORM_IP} = window.globalConfigs;
       const refreshToken = retreiveSessionData(REFRESH_TOKEN);
       if(refreshToken === null) return reject({message: ERROR_INVALID_TOKEN})
       const key_cloak_login = retreiveSessionData('keyCloakLogin');
       const seat_name = retreiveSessionData(SEAT_NAME);
       const username = retreiveSessionData(USER_NAME);
-      const URL= `${REACT_APP_PLATFORM_IP}${API_URLS.RETREIVE_NEW_TOKEN_URL}`
+      const URL= `${PLATFORM_IP}${API_URLS.RETREIVE_NEW_TOKEN_URL}`
       const reqestBody = {
         grant_type: REFRESH_TOKEN,
         username: username,
@@ -173,8 +174,8 @@ export const fetchNewToken = () =>{
 }
 
 export const logout = async (logoutData) => {
-  const { REACT_APP_PLATFORM_IP } = process.env;
-  const URL = `${REACT_APP_PLATFORM_IP}${API_URLS.PLATFORM_LOGOUT_URL}`
+  const { PLATFORM_IP } = window.globalConfigs;
+  const URL = `${PLATFORM_IP}${API_URLS.PLATFORM_LOGOUT_URL}`
   console.log('URL', URL)
   return await wrappedFetch(URL, METHOD_POST, logoutData);
 }

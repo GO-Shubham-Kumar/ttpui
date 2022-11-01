@@ -162,8 +162,8 @@ export const createNotificationObject = (text, level) => {
 }
 
 export const fetchClientLogo = () => {
-    const { REACT_APP_CUSTOMER_LOGO } = process.env;
-    return REACT_APP_CUSTOMER_LOGO || ''
+    const { CUSTOMER_LOGO } = window.globalConfigs;
+    return CUSTOMER_LOGO || ''
 }
 // export const parseNotificationsList () => {
 

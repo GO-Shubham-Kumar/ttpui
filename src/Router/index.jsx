@@ -57,7 +57,6 @@ function App() {
   };
 
   useEffect(()=>{
-  
     dispatch(verifyLoginAction());
     dispatch(fetchInitialConfigsAction());
   }, []);
@@ -120,12 +119,12 @@ function App() {
   },[ loginSuccess, isFetching, err ]);
 
   const handleIdleTimeoutEvents = () => {
-    const { REACT_APP_IDLE_LOGOUT_TIME } = process.env;
+    const { IDLE_LOGOUT_TIME } = window.globalConfigs;
       clearTimeoutEvent(idleLogoutRef)
       let timeoutRef = setTimeout(
         ()=>{
           dispatch(logOutAction())
-        },REACT_APP_IDLE_LOGOUT_TIME)
+        },IDLE_LOGOUT_TIME)
       idleLogoutRef.current = timeoutRef
   }
   const renderRoutes = () => {
