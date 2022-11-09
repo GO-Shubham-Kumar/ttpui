@@ -13,8 +13,8 @@ import {
 import {
   capitalizeFirstLetter,
   fetchDetailsFromData,
-  getCurrentDetailsData,
   getNavConfig,
+  getTTPPickCurrentDetails,
 } from '../../utils/helpers/commonHelpers'
 import { mapConveyorBinData, mapConveyorToteData } from '../../utils/helpers/conveyorHelpers'
 import { useEffect, useState } from 'react'
@@ -47,18 +47,17 @@ const PickFront = ({ data, isFetching, success, error }) => {
           header_msge_list,
           screen_id,
           previous_put_details,
-          current_put_details,
           mode,
           carrier_type,
+          current_pick_details
         },
       } = data
       let cType = CONVEYOR_TYPE_ORDER_TOTE
       if (carrier_type == CONVEYOR_CARRIER_TYPE_PACKING_BOX) cType = CONVEYOR_TYPE_PACKING_BOX
-      
       setScreenId(screen_id)
       setSeatMode(capitalizeFirstLetter(mode))
       const previousDetailsData = fetchDetailsFromData(previous_put_details)
-      const currentDetailsData = getCurrentDetailsData(current_put_details)
+      const currentDetailsData = getTTPPickCurrentDetails(current_pick_details)
       let msgObj = ''
       msgObj = getNavConfig(header_msge_list, mode, screen_id)
       if (msgObj.length === 1) msgObj = msgObj[0].description

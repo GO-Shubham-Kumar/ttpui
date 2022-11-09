@@ -18,11 +18,12 @@ const MoreItemScanPPTLPressPickFront = ({
   headerMsg,
   legends,
   seatMode,
-  prdtinfo,
+  productImages,
   productDetails,
   qty,
   totalEntities,
   allowedKqDirection,
+  isKqAllowed,
   onChangeQuantityHandler,
   previousDetails,
   currentDetails,
@@ -39,7 +40,8 @@ const MoreItemScanPPTLPressPickFront = ({
   isExceptionScreen,
   exceptionScreen,
   carrierType,
-  ...props
+  showEntityDetails,
+  isToteBtnEnabled
 }) => {
   return (
     <>
@@ -66,12 +68,16 @@ const MoreItemScanPPTLPressPickFront = ({
         <Grid
           item
           xs={12}
-          xl={isExceptionScreen ? 4 : 6}
-          md={isExceptionScreen ? 4 : 6}
+          xl={isExceptionScreen ? 4 : showEntityDetails ? 6 : 9}
+          md={isExceptionScreen ? 4 : showEntityDetails ? 6 : 9}
           sm={12}
           p={3}
           sx={isExceptionScreen ? { position: 'relative', opacity: '50%' } : { position: 'relative' }}>
-          <Card p={0} m={0} title={title} sx={{ display: 'flex', alignItems: 'center', height: '44.5em' }}>
+          <Card
+            p={0}
+            m={0}
+            title={title}
+            sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '44.5em' }}>
             <Box height={'36em'} sx={isExceptionScreen ? { zoom: '80%' } : null}>
               <Conveyor
                 splitScreen={true}
@@ -99,7 +105,7 @@ const MoreItemScanPPTLPressPickFront = ({
                 onClickHandler={onCancelScanHandler}
                 sx={{ ml: 2, mr: 2 }}
               />
-              <Button size="large" label="Tote Full" type="neutral" onClickHandler={onToteFullHandler} />
+              <Button disabled={!isToteBtnEnabled} size="large" label="Tote Full" type="neutral" onClickHandler={onToteFullHandler} />
             </Box>
           </Card>
         </Grid>
@@ -108,40 +114,43 @@ const MoreItemScanPPTLPressPickFront = ({
             {exceptionScreen}
           </Grid>
         ) : (
-          <Grid item xs={12} xl={3} md={3} sm={12} p={3} className="grid-seperator">
-            <Card p={0} m={0} title={title} height={'42.5em'} bodySeperator={false}>
-              <Box height={'22em'}>
-                <CarouselComp prdtinfo={prdtinfo} productDetails={productDetails} />
-              </Box>
-              <Divider sx={{ borderWidth: '0.8px', mt: 2, mb: 2 }} light />
-              <Box sx={{ mb: '5em' }} className="kq">
-                <p>Key in quantity</p>
-                <KQ
-                  quantity={qty}
-                  label={'Scan Entity'}
-                  totalQuantities={totalEntities}
-                  onQuantityChangeHandler={onChangeQuantityHandler}
-                  operationalMode={allowedKqDirection}
-                />
-              </Box>
-              <Divider sx={{ borderWidth: '0.8px', mt: 2, mb: 2 }} light />
-              <Box
-                sx={{
-                  m: 0,
-                  p: 0,
-                  display: 'flex',
-                  justifyContent: 'space-around',
-                }}>
-                <Button
-                  size="medium"
-                  type="neutral"
-                  label="Exception"
-                  onClickHandler={onExceptionClickHandler}
-                />
-                <Button size="medium" label="Mark Full" onClickHandler={onMarkFullHandler} />
-              </Box>
-            </Card>
-          </Grid>
+          showEntityDetails && (
+            <Grid item xs={12} xl={3} md={3} sm={12} p={3} className="grid-seperator">
+              <Card p={0} m={0} title={'Entity Details'} height={'42.5em'} bodySeperator={false}>
+                <Box height={'22em'}>
+                  <CarouselComp prdtinfo={productImages} productDetails={productDetails} />
+                </Box>
+                <Divider sx={{ borderWidth: '0.8px', mt: 2, mb: 2 }} light />
+                <Box sx={{ mb: '5em' }} className="kq">
+                  <p>Key in quantity</p>
+                  <KQ
+                    isChangeAllowed={isKqAllowed}
+                    quantity={qty}
+                    label={'Scan Entity'}
+                    totalQuantities={totalEntities}
+                    onQuantityChangeHandler={onChangeQuantityHandler}
+                    operationalMode={allowedKqDirection}
+                  />
+                </Box>
+                <Divider sx={{ borderWidth: '0.8px', mt: 2, mb: 2 }} light />
+                <Box
+                  sx={{
+                    m: 0,
+                    p: 0,
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                  }}>
+                  <Button
+                    size="medium"
+                    type="neutral"
+                    label="Exception"
+                    onClickHandler={onExceptionClickHandler}
+                  />
+                  <Button size="medium" label="Mark Full" onClickHandler={onMarkFullHandler} />
+                </Box>
+              </Card>
+            </Grid>
+          )
         )}
       </Grid>
     </>

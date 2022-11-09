@@ -30,7 +30,6 @@ function WaitingForMSU({
   conveyorDisabled,
   carrierType,
   title,
-  ...props
 }) {
   console.log("conveyorIdle", conveyorIdle);
 
@@ -48,9 +47,9 @@ function WaitingForMSU({
           pb={0}
           className="grid-seperator"
         >
-          <CurrentlyActiveConveyer title="Scan Active" details={currentDetails} />
+          <CurrentlyActiveConveyer title="Currently Active" details={currentDetails} />
           <BinDetails
-            details={currentDetails}
+            details={previousDetails}
             title={`Previous ${seatMode}`}
             height="17.2em"
           />

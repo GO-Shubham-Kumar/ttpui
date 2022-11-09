@@ -131,7 +131,6 @@ export const validateLogin = () =>{
         if(auth_token === null || username === null || refresh_token === null) throw new Error({error : true, message : 'Invalid Token'})
         const url = `${PLATFORM_IP}${API_URLS.VALIDATE_AUTH_URL}`;
         const data = await wrappedGet(url);
-        console.log('data valid', data);
         resolve({ auth_token, username, refresh_token, seat_name });
     }catch(err){
       console.log('error validating token',err);

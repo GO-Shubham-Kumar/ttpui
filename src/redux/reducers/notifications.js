@@ -6,6 +6,7 @@ import {
 } from './../actions/actionTypes'
 
 import { SERVER_ERROR_TEXT } from '../../utils/constants';
+
 const initialState = {
     data : {},
     isFetching : false,
@@ -20,7 +21,6 @@ const initialState = {
       const { payload, type } = action;
     switch (type) {
         case TRIGGER_NOTIFICATION_SUCCESS:
-            console.log('---')
         return { 
                 ...state,
                 isFetching: false,

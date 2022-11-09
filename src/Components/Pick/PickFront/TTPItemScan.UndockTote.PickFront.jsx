@@ -31,14 +31,13 @@ const TTPItemScanUndockTotePickFront = ({
   onExceptionHandler,
   carrierType
 }) => {
-  console.log('conveyorBinData', conveyorBinData);
-  console.log('carrierType', carrierType);
+
   return (
     <>
       <StepperHeader stepperObj={headerMsg} />
       <Grid container alignItems="stretch">
         <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0} className="grid-seperator">
-          <CurrentlyActiveConveyer title="Scan Active" details={currentDetails} />
+          <CurrentlyActiveConveyer title="Currently Active" details={currentDetails} />
           <BinDetails details={previousDetails} title={`Previous ${seatMode}`} height="17.2em" />
         </Grid>
 

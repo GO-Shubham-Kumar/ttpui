@@ -1,5 +1,6 @@
 import { DEFAULT_LANGUAGE } from "../constants"
 import InventoryToteLegend from './../../assets/images/legend_inventory_tote.svg';
+import OrderTotesLegend from './../../assets/images/order_totes_legend.svg';
 import PackingBoxLegend from './../../assets/images/packing_box_legend.svg';
 import { SCREEN_NAVIGATION } from "../navConfig"
 import { serverMessages } from "../server_meesages"
@@ -99,6 +100,20 @@ export const getCurrentDetailsData = (data) => {
         }
     })
     return currentData
+}
+
+export const getTTPPickCurrentDetails = (currentDetails) => {
+    let defaultCurrentDetails = {
+        'IC Slot': '--',
+        'OC Bin': '--'
+    }
+
+    if(currentDetails && Object.keys(currentDetails).length > 0){
+        Object.keys(defaultCurrentDetails).forEach((item, idx) => {
+            defaultCurrentDetails[item] = currentDetails[item.toLowerCase().replace(' ', '_')]
+        })
+    }
+    return defaultCurrentDetails
 }
 
 export const getNavConfig = (headerMsgs, mode, screenId) => {
@@ -241,7 +256,8 @@ export const ellipseEndText = (text) => {
 export const mapLegendsData = (legends) => {
     const legendsMap = {
         'Inventory Totes': InventoryToteLegend,
-        'Packing Box': PackingBoxLegend
+        'Packing Box': PackingBoxLegend,
+        'Order Totes': OrderTotesLegend
     }
     const data  = []
     legends?.map((l) => {

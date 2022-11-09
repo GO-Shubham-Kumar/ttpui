@@ -1,12 +1,11 @@
-import { TRIGGER_NOTIFICATION_SUCCESS, 
-    TRIGGER_NOTIFICATION_REQUEST, 
+import {
+    CLEAR_NOTIFICATION,
     TRIGGER_NOTIFICATION_ERROR,
-    CLEAR_NOTIFICATION, 
+    TRIGGER_NOTIFICATION_REQUEST,
+    TRIGGER_NOTIFICATION_SUCCESS,
 } from './actionTypes';
 
-
 export let handleEventSuccess = (data) => {
-  console.log('res from notification actions', data)
   return {
     type: TRIGGER_NOTIFICATION_SUCCESS,
     payload: {

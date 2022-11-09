@@ -546,7 +546,7 @@ export const serverMessages = {
       textToDisplay: "Location",
       screen_id: "",
     },
-    "PkF.H.058": 'Place in Bin {0} and confirm',
+    "PkF.H.058": 'Place in Bin-{0} and confirm',
     //packing_box
     "PkF.S.002": {
       textToDisplay: "Place Box",
@@ -611,7 +611,8 @@ export const serverMessages = {
     "PkF.H.055": "Wait for MSU/TOTE",
     "PkF.H.056" : "Scan a {0} or Wait for inventory Tote",
     "PtB.H.013" : "Select Exception Type and Scan Entities",
-    "UdpF.H.014" : "Select exception type and scan entity"
+    "UdpF.H.014" : "Select exception type and scan entity",
+    'PkF.H.059': 'Scan {0} {1} from Tote-{2} and place in Bin-{3}',
   }
   
   

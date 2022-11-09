@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="23px" viewBox="0 0 40 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>B65779B3-F3E9-4B57-86C8-7B20A8C9D826</title>
+    <defs>
+        <rect id="path-1" x="2" y="2" width="30" height="14"></rect>
+        <filter x="-21.7%" y="-39.3%" width="143.3%" height="192.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="1" y="0" width="32" height="14"></rect>
+        <filter x="-15.6%" y="-28.6%" width="131.2%" height="171.4%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-5" x="0" y="0" width="34" height="2"></rect>
+        <filter x="-14.7%" y="-200.0%" width="129.4%" height="600.0%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="TTP-pick" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="TTP_Pick_5.4" transform="translate(-598.000000, -924.000000)">
+            <g id="Group-2" transform="translate(424.000000, 272.000000)">
+                <g id="Legents" transform="translate(16.000000, 652.000000)">
+                    <g id="Group-5" transform="translate(161.000000, 0.000000)">
+                        <g id="Group-3" transform="translate(0.000000, 2.000000)">
+                            <g id="Rectangle-Copy">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#477383" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <g id="Rectangle-Copy-2">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                                <use fill="#7BAABA" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            </g>
+                            <g id="Rectangle-Copy-4">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                                <use fill="#7BAABA" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            </g>
+                            <rect id="Rectangle" fill="#699AAE" x="10" y="0" width="13" height="6"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

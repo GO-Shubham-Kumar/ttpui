@@ -71,7 +71,6 @@ function App() {
 
 
   useEffect(()=>{
-    console.log('-- state data', stateData)
     if(stateData && stateData.state_data && stateSuccess){
       const { state_data : { notification_list, seat_name, logout_allowed, scan_allowed } } = stateData;
       setSeatName(seat_name)

@@ -10,7 +10,6 @@ import {
 import { SERVER_ERROR_TEXT } from '../../utils/constants'
 
 export let handleUpdateStateDataSuccess = (data) => {
-  console.log('res from loginactions', data)
   return {
     type: UPDATE_STATE_DATA_SUCCESS,
     payload: {
@@ -52,7 +51,7 @@ export const updateStateData = (data) => {
   return (dispatch) => {
     if (data) {
       console.log('state data --', data)
-      const dummyData = TEST_DATA.PICK_FRONT_TTP_ITEM_SCAN_SCREEN
+      const dummyData = TEST_DATA.PICK_FRONT_PPTL_PRESS_SCREEN
       if (data.state_data) return dispatch(handleUpdateStateDataSuccess(data))
     }
   }

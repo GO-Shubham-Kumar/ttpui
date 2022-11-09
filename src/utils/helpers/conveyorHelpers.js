@@ -34,7 +34,6 @@ export const mapConveyorBinData = (data, cType, carrierType=CONVEYOR_CARRIER_TYP
       conveyorData['isEnlarged'] =
         (binData['container_selected'] && JSON.parse(binData['container_selected'])) || false
       conveyorData['pointer'] = (binData['pointer'] && JSON.parse(binData['pointer'])) || false
-      console.log('packing box', CONVEYOR_CARRIER_TYPE_TOTE, binData['ppsbin_id'], JSON.parse(binData['packing_box']))
       conveyorData['showImage'] =(
         (carrierType === CONVEYOR_CARRIER_TYPE_TOTE ? (
           binData['totes_associated'] && JSON.parse(binData['totes_associated']) || false

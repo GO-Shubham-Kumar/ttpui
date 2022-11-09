@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import BinScanWaitScreen from '../../../Components/Pick/PickFront/BinScanWait.PickFront'
 import { mapLegendsData } from '../../../utils/helpers/commonHelpers'
+import { triggerEventAction } from '../../../redux/actions/eventActions'
 import { useDispatch } from 'react-redux'
 
 /*
@@ -30,19 +31,13 @@ const BinScanWaitContainer = ({ data, ...props }) => {
   }, [data])
 
   const onCancelScanHandler = () => {
-    const {
-      state_data: { rack_id },
-    } = data
     const eventData = {
-      event_name: Constant.EVENT_TYPE_CANCEL_SCAN,
-      event_data: {
-        barcode: rack_id,
-      },
+      event_name: Constant.EVENT_TYPE_CANCEL_SCAN_ALL,
       source: Constant.APP_SOURCE,
     }
-    // dispatch(triggerEventAction(eventData))
+    dispatch(triggerEventAction(eventData))
   }
-  
+
   return (
     <BinScanWaitScreen
       boxType={boxType}
