@@ -95,7 +95,7 @@ const PlaceEntity = ({ headerMsg,
         {!isException ?
         (
           <Grid item xs={12} xl={3} md={3} sm={12} p={3} pb={0}>
-            <Card  p={0} m={0} title="Item Details"  height={'42.5em'} bodySeperator={false} >
+            <Card  p={0} m={0} title="Entity Details"  height={'42.5em'} bodySeperator={false} >
               <Box sx={{mb:'3em', minHeight : '10em'}}>
                 <CarouselComp prdtImages={productImages} productDetails={productDetails} />
               </Box>
