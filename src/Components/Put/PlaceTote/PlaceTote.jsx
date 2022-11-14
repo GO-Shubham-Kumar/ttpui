@@ -2,7 +2,7 @@ import { BinDetails, BinMapDetails, Button, Card, StepperHeader } from 'operatio
 import { Box, Grid } from '@mui/material';
 
 import React from 'react';
-import ToteImg from './../../../assets/images/tote.svg';
+import ToteImg from './../../../assets/images/tote_without_barcode.svg';
 
 function ScanTote({ headerMsg, 
         previousDetails, 
@@ -23,7 +23,7 @@ function ScanTote({ headerMsg,
                     <BinDetails title={`Previous ${seatMode}`} details={previousDetails} height="17.2em" />
                 </Grid>
                 <Grid item xs={12} md={9} p={3} pb={0}>
-                    <Card title="Scan Tote"sx={{p:0}}>
+                    <Card title="Push Tote"sx={{p:0}}>
 
                         <Box sx={{ p: 4, pt: 0, pb: 0, textAlign: 'center', height:"38.2em", display : 'flex' }}>
                             <img alt="tote" src={ToteImg} className="img-responsive m-auto" />
