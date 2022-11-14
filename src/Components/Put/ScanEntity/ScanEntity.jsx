@@ -21,7 +21,7 @@ function ScanTote({ headerMsg, previousDetails, currentDetails, details, seatMod
         <Grid item xs={12} md={3} p={3} pb={0} className="grid-seperator">
           <BinMapDetails
             details ={currentDetails}
-            title="Scan Active"
+            title="Currently Active"
           />
           <BinDetails details={previousDetails} title={`Previous ${seatMode}`} height="17.2em"/>
         </Grid>
