@@ -1,0 +1,136 @@
+name: PRA
+
+on:
+  pull_request:
+    types:
+    - opened
+    - reopened
+    - edited            # Title, body, or base was edited
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+
+  pr-automations:
+    name: Automations
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    steps:
+
+    - name: PR Labels
+      uses: fuxingloh/multi-labeler@v1
+
+    - name: Check JIRA Commit Policy
+      id: bcp
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: ${{ secrets.BCP_VERIFICATION_ENDPOINT }}
+        method: 'POST'
+        username: ${{ secrets.JIRA_JENKINS_USERNAME }}
+        password: ${{ secrets.JIRA_JENKINS_PASSWORD }}
+        customHeaders: '{"Content-Type": "application/json"}'
+        data: |
+          {
+            "vcs": "git",
+            "hookScriptVersion": "6.1.0",
+            "commits": [
+              {
+                "id": "${{ github.sha }}",
+                "branch": "${{ github.event.pull_request.base.ref }}",
+                "isMerge": false,
+                "isExisting": false,
+                "userName": "${{ github.event.pull_request.user.login }}",
+                "message": "${{ github.event.pull_request.title }}"
+              }
+            ]
+          }
+
+    - name: Parse BCP results
+      id: bcp-results
+      run: |
+        if [ "${{ fromJson(steps.bcp.outputs.response).ok }}" = "true" ]; then
+          echo "#### Better Commit Policy for Jira PASSED :heavy_check_mark:" > bcp-message.txt
+          echo "state=success" >> $GITHUB_OUTPUT
+        else
+          rejection_message=$(cat <<EOF
+          ${{ fromJson(steps.bcp.outputs.response).rejectionMessageFormatted }}
+        EOF
+          )
+          summary=$(echo "${rejection_message}" | tail -n+7 | sed '/-----/Q')
+          details=$(echo "${rejection_message}" | sed -e '1,/-----/d' | sed '/=====/Q' | cut -d] -f3-| sed 's/[<>]/`/g')
+          echo "comment=" >> $GITHUB_OUTPUT
+          echo -e "#### Better Commit Policy for Jira FAILED :x:\n${summary}\n\n${details}" > bcp-message.txt
+          echo -e "\n\n_Edit the PR title or description to re-trigger this check_" >> bcp-message.txt
+          echo "state=failure" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Add, Update or Dismiss review
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const comment = fs.readFileSync("bcp-message.txt", "utf8")
+          const pullRequest = context.issue;
+
+          const reviews = await github.rest.pulls.listReviews({
+            owner: pullRequest.owner,
+            repo: pullRequest.repo,
+            pull_number: pullRequest.number,
+          });
+          const existingReviews = reviews.data.filter(review =>
+            review.user != null &&
+            review.user.login === "github-actions[bot]" &&
+            review.state === "CHANGES_REQUESTED",
+          );
+
+          if("${{ steps.bcp-results.outputs.state }}" == "success") {
+            await dismissReview(comment, pullRequest, existingReviews);
+          } else {
+            await createOrUpdateReview(comment, pullRequest, existingReviews);
+          }
+
+          async function createOrUpdateReview(comment, pullRequest, existingReviews) {
+            if (existingReviews.length == 0) {
+              github.rest.pulls.createReview({
+                owner: pullRequest.owner,
+                repo: pullRequest.repo,
+                pull_number: pullRequest.number,
+                body: comment,
+                event: "REQUEST_CHANGES",
+              });
+            }
+            else {
+              github.rest.pulls.updateReview({
+                owner: pullRequest.owner,
+                repo: pullRequest.repo,
+                pull_number: pullRequest.number,
+                review_id: existingReviews.at(-1).id,
+                body: comment,
+              });
+            }
+          }
+
+          async function dismissReview(comment, pullRequest, existingReviews) {
+            if (existingReviews.length == 0) {
+              github.rest.pulls.createReview({
+                owner: pullRequest.owner,
+                repo: pullRequest.repo,
+                pull_number: pullRequest.number,
+                body: comment,
+                event: "COMMENT"
+              });
+            }
+            else {
+              existingReviews.forEach((review) => {
+                  github.rest.pulls.dismissReview({
+                    owner: pullRequest.owner,
+                    repo: pullRequest.repo,
+                    pull_number: pullRequest.number,
+                    review_id: review.id,
+                    message: comment,
+                  });
+                }
+              );
+            }
+          }

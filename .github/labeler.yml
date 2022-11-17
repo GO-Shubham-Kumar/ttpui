@@ -1,0 +1,22 @@
+version: v1
+labels:
+
+- label: "WIP"
+  matcher:
+    title: ".*WIP.*"
+
+- label: "feature"
+  matcher:
+    branch: "^feature[-/].*"
+
+- label: "bugfix"
+  matcher:
+    branch: "^bugfix[-/].*"
+
+- label: "develop"
+  matcher:
+    baseBranch: "develop"
+
+- label: "release"
+  matcher:
+    baseBranch: "^release-.*"

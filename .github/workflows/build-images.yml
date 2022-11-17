@@ -1,0 +1,98 @@
+name: Build Images
+
+on:
+  workflow_call:
+    inputs:
+      cache_get_registry:
+        required: false
+        type: string
+        default: us-docker.pkg.dev/greymatter-development/apps/
+        description: Registry to use to fetch cache
+      push_registry:
+        required: false
+        type: string
+        default: localhost:5000/
+        description: Registry to push to
+      extra_tag:
+        required: false
+        type: string
+        description: Extra tags for the built image
+      target_branch:
+        required: false
+        type: string
+        default: ""
+        description: The branch to checkout and build
+    outputs:
+      image_tags:
+        description: "Pushed image tags"
+        value: ${{ jobs.build.outputs.image_tags }}
+
+jobs:
+  build:
+    name: Build images
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    outputs:
+      image_tags: ${{ steps.meta.outputs.tags }}
+    services:
+      registry:
+        image: registry:2
+        ports:
+          - 5000:5000
+    steps:
+    - uses: actions/checkout@v3
+    - name: Unshallow and checkout
+      run: |
+        git fetch -q --prune --unshallow
+        if [ "${{ inputs.target_branch }}" != "" ]; then
+          git checkout ${{ inputs.target_branch }}
+        fi
+    - name: Docker meta for image
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: |
+          name=${{ inputs.push_registry }}butlerui
+        tags: |
+          type=ref,event=pr
+          type=ref,event=tag
+          type=raw,value=${{ inputs.extra_tag }},enable=${{ inputs.extra_tag != '' }}
+          type=raw,value=${{ inputs.target_branch }},enable=${{ inputs.target_branch != '' }}
+        flavor: latest=false
+        labels: |
+          org.opencontainers.image.title=butlerui
+          org.opencontainers.image.authors=GreyOrange <support@greyorange.com>
+          org.opencontainers.image.vendor=GreyOrange
+
+    # - name: Docker meta for cache-to
+    #   id: meta-cache-to
+    #   run: |
+    #     if [[ "${{ inputs.push_registry }}" != "localhost:5000/" ]]; then
+    #       echo "::set-output name=cache::type=registry,mode=max,ref=${{ inputs.push_registry }}butlerui:buildcache"
+    #     else
+    #       echo "::set-output name=cache::"
+    #     fi
+
+    - id: auth
+      name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v0
+      with:
+        workload_identity_provider: projects/1094715745642/locations/global/workloadIdentityPools/default-pool/providers/github-provider
+        service_account: github-actions-repo-writer@greymatter-development.iam.gserviceaccount.com
+        token_format: access_token
+    - uses: docker/login-action@v2
+      with:
+        registry: us-docker.pkg.dev
+        username: oauth2accesstoken
+        password: ${{ steps.auth.outputs.access_token }}
+
+    - name: Build image for butlerui
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        # cache-from: |
+        #   ${{ steps.meta.outputs.tags }}
+        #   ${{ inputs.cache_get_registry }}butlerui:buildcache
+        # cache-to: ${{ steps.meta-cache-to.outputs.cache }}

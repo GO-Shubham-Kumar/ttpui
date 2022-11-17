@@ -1,0 +1,156 @@
+name: Create Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      target-branch:
+        description: Target branch
+        required: true
+      no-translations:
+        description: Don't pull translations
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+  actions: read
+
+jobs:
+
+  zanata-pull:
+    name: Zanata Pull
+    if: inputs.no-translations != true
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.target-branch }}
+        token: ${{ secrets.GH_PUSH_PAT }}
+
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '8'
+    - name: Setup zanata-cli
+      run: |
+        wget --tries 2 --timeout 30 -nv https://repo1.maven.org/maven2/org/zanata/zanata-cli/4.4.3/zanata-cli-4.4.3-dist.tar.gz
+        tar -xzf zanata-cli-4.4.3-dist.tar.gz
+        sudo ln -s --relative zanata-cli-4.4.3/bin/zanata-cli /usr/local/bin/zanata-cli
+    - name: Setup zanata auth
+      run: |
+        cat <<EOT > ~/.config/zanata.ini
+        [servers]
+        172_104_62_224.url=http://172.104.62.224:8080/zanata/
+        172_104_62_224.username=${{ secrets.ZANATA_USERNAME }}
+        172_104_62_224.key=${{ secrets.ZANATA_KEY }}
+        EOT
+
+    - name: Use Node.js 8
+      uses: actions/setup-node@v3
+      with:
+        node-version: 8
+        cache: 'npm'
+    - name: Pull from zanata and convert
+      run: |
+        zanata-cli -B pull
+        npm install gettext-parser
+        node translationUtils/po2json2js.js
+    - id: auto-commit
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "BSS-6765 Update translations"
+        file_pattern: src/assets/js/serverMessages/*
+        skip_fetch: true
+        skip_checkout: true
+        branch: ${{ inputs.target-branch }}
+
+
+  build:
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    needs: zanata-pull
+    if: always() && (needs.zanata-pull.result == 'success' || needs.zanata-pull.result == 'skipped')
+    outputs:
+      build-vsn: ${{ steps.get-version.outputs.build-vsn }}
+      uploaded: ${{ steps.gcs-upload.outputs.uploaded }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ inputs.target-branch }}
+    - name: Get version
+      id: get-version
+      run: |
+        git fetch --prune --unshallow
+        echo "build-vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
+    - name: Use Node.js 8
+      uses: actions/setup-node@v3
+      with:
+        node-version: 8
+        cache: 'npm'
+    - name: npm install
+      run: |
+        npm install
+        npm prune
+    - name: Build package
+      run: |
+        node node_modules/.bin/gulp --production
+        cd dist
+        ./package.sh run
+
+    - id: auth
+      name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v0
+      with:
+        workload_identity_provider: projects/1094715745642/locations/global/workloadIdentityPools/default-pool/providers/github-provider
+        service_account: github-actions-repo-writer@greymatter-development.iam.gserviceaccount.com
+    - name: Upload package to GCS
+      uses: google-github-actions/upload-cloud-storage@v0
+      id: gcs-upload
+      with:
+        path: 'dist'
+        glob: 'butler_ui-*.deb'
+        parent: false
+        destination: 'greymatter-build-artifacts/butlerui/manual-builds'
+
+  build-images:
+    name: Build images
+    needs: build
+    if: always() && needs.build.result == 'success'
+    uses: ./.github/workflows/build-images.yml
+    with:
+      push_registry: us-docker.pkg.dev/greymatter-development/apps/
+      extra_tag: ${{ needs.build.outputs.build-vsn }}
+      target_branch: ${{ inputs.target-branch }}
+
+  publish-results:
+    name: Publish Results
+    needs: [build, build-images]
+    if: always()
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    steps:
+    - uses: technote-space/workflow-conclusion-action@v3
+      if: always()
+    - name: Add job summary
+      run: |
+        echo "## Build status: ${{ env.WORKFLOW_CONCLUSION }} ${{ env.WORKFLOW_CONCLUSION == 'success' && ':heavy_check_mark:' || ':x:' }}" >> $GITHUB_STEP_SUMMARY
+        echo "Target branch: ${{ inputs.target-branch }}" >> $GITHUB_STEP_SUMMARY
+        echo "Deb package: https://console.cloud.google.com/storage/browser/_details/greymatter-build-artifacts/${{ needs.build.outputs.uploaded }}" >> $GITHUB_STEP_SUMMARY
+        echo "Image tags: ${{ needs.build-images.outputs.image_tags }}" >> $GITHUB_STEP_SUMMARY
+    - name: Notify zulip
+      if: always()
+      uses: zulip/github-actions-zulip/send-message@v1
+      with:
+        api-key: ${{ secrets.ZULIP_API_KEY }}
+        email: github-bot@z.labs.greyorange.com
+        organization-url: https://z.labs.greyorange.com
+        to: CI Builds
+        type: stream
+        topic: butlerui / builds
+        content: |
+          # Build status: ${{ env.WORKFLOW_CONCLUSION }} ${{ env.WORKFLOW_CONCLUSION == 'success' && ':check:' || ':cross_mark:' }}
+          Triggered by: `${{ github.event.sender.login }}`
+          Target branch: ${{ inputs.target-branch }}
+          Run URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Deb package: https://console.cloud.google.com/storage/browser/_details/greymatter-build-artifacts/${{ needs.build.outputs.uploaded }}
+          Image tags: ${{ needs.build-images.outputs.image_tags }}
