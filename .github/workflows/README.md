@@ -18,11 +18,3 @@ This workflow is run when a push is made to `develop` branch.
 It builds the debian package and the docker image (but does not push them anywhere).
 
 If build is successful, then it calls `build-images`.
-
-## create-build
-
-This is a manually-triggered workflow. It takes branch name as input.
-
-It will only build the latest commit from passed branch or the passed commit id.
-
-It creates a docker image and pushes to https://us-docker.pkg.dev/greymatter-development/apps/ttpui
