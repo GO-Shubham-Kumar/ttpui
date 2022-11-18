@@ -15,7 +15,7 @@ jobs:
 
   pr-automations:
     name: Automations
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2004
     steps:
 
     - name: PR Labels

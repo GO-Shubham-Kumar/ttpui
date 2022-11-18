@@ -30,7 +30,7 @@ on:
 jobs:
   build:
     name: Build images
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2004
     outputs:
       image_tags: ${{ steps.meta.outputs.tags }}
     services:

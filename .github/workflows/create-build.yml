@@ -15,7 +15,7 @@ permissions:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2004
     if: always() && (needs.zanata-pull.result == 'success' || needs.zanata-pull.result == 'skipped')
     outputs:
       build-vsn: ${{ steps.get-version.outputs.build-vsn }}
@@ -57,7 +57,7 @@ jobs:
     name: Publish Results
     needs: [build, build-images]
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2004
     steps:
     - uses: technote-space/workflow-conclusion-action@v3
       if: always()
