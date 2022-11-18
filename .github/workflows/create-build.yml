@@ -30,9 +30,9 @@ jobs:
         git fetch --prune --unshallow
         echo "build-vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
         # Update .npmrc to access gor npm packages
-        echo //us-npm.pkg.dev/greymatter-development/npm/:_password=${{ secrets.NPM_PASSWORD }}
-        echo //us-npm.pkg.dev/greymatter-development/npm/:username=${{ secrets.NPM_USERNAME }}
-        echo //us-npm.pkg.dev/greymatter-development/npm/:email=${{ secrets.NPM_EMAIL }}
+        echo //us-npm.pkg.dev/greymatter-development/npm/:_password=${{ secrets.NPM_PASSWORD }} >> .npmrc
+        echo //us-npm.pkg.dev/greymatter-development/npm/:username=${{ secrets.NPM_USERNAME }} >>.npmrc
+        echo //us-npm.pkg.dev/greymatter-development/npm/:email=${{ secrets.NPM_EMAIL }} >> .npmrc
     - name: Use Node.js 8
       uses: actions/setup-node@v3
       with:
