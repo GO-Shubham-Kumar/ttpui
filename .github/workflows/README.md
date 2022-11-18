@@ -1,4 +1,4 @@
-# GitHub Workflows for butlerui
+# GitHub Workflows for ttpui
 
 ## on-pull-request
 
@@ -33,4 +33,4 @@ If "Don't pull Translations" checkbox is ticked, then it will only build the lat
 
 Then, it creates a debian package and pushes to https://console.cloud.google.com/storage/browser/greymatter-build-artifacts
 
-It also creates a docker image and pushes to https://us-docker.pkg.dev/greymatter-development/apps/butlerui
+It also creates a docker image and pushes to https://us-docker.pkg.dev/greymatter-development/apps/ttpui

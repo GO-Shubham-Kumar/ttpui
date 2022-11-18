@@ -51,7 +51,7 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: |
-          name=${{ inputs.push_registry }}butlerui
+          name=${{ inputs.push_registry }}ttpui
         tags: |
           type=ref,event=pr
           type=ref,event=tag
@@ -59,7 +59,7 @@ jobs:
           type=raw,value=${{ inputs.target_branch }},enable=${{ inputs.target_branch != '' }}
         flavor: latest=false
         labels: |
-          org.opencontainers.image.title=butlerui
+          org.opencontainers.image.title=ttpui
           org.opencontainers.image.authors=GreyOrange <support@greyorange.com>
           org.opencontainers.image.vendor=GreyOrange
 
@@ -67,7 +67,7 @@ jobs:
     #   id: meta-cache-to
     #   run: |
     #     if [[ "${{ inputs.push_registry }}" != "localhost:5000/" ]]; then
-    #       echo "::set-output name=cache::type=registry,mode=max,ref=${{ inputs.push_registry }}butlerui:buildcache"
+    #       echo "::set-output name=cache::type=registry,mode=max,ref=${{ inputs.push_registry }}ttpui:buildcache"
     #     else
     #       echo "::set-output name=cache::"
     #     fi
@@ -85,7 +85,7 @@ jobs:
         username: oauth2accesstoken
         password: ${{ steps.auth.outputs.access_token }}
 
-    - name: Build image for butlerui
+    - name: Build image for ttpui
       uses: docker/build-push-action@v3
       with:
         context: .
@@ -94,5 +94,5 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         # cache-from: |
         #   ${{ steps.meta.outputs.tags }}
-        #   ${{ inputs.cache_get_registry }}butlerui:buildcache
+        #   ${{ inputs.cache_get_registry }}ttpui:buildcache
         # cache-to: ${{ steps.meta-cache-to.outputs.cache }}

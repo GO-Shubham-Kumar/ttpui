@@ -32,11 +32,6 @@ jobs:
       run: |
         npm install
         npm prune
-    - name: Build package
-      run: |
-        node node_modules/.bin/gulp --production
-        cd dist
-        ./package.sh run
 
   build-images:
     name: Build images
@@ -44,29 +39,3 @@ jobs:
     uses: ./.github/workflows/build-images.yml
     with:
       extra_tag: ${{ needs.build.outputs.build-vsn }}
-
-  zanata-push:
-    name: Zanata Push
-    needs: build
-    runs-on: buildjet-2vcpu-ubuntu-2004
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '8'
-    - name: Setup zanata-cli
-      run: |
-        wget --tries 2 --timeout 30 -nv https://repo1.maven.org/maven2/org/zanata/zanata-cli/4.4.3/zanata-cli-4.4.3-dist.tar.gz
-        tar -xzf zanata-cli-4.4.3-dist.tar.gz
-        sudo ln -s --relative zanata-cli-4.4.3/bin/zanata-cli /usr/local/bin/zanata-cli
-    - name: Setup zanata auth
-      run: |
-        cat <<EOT > ~/.config/zanata.ini
-        [servers]
-        172_104_62_224.url=http://172.104.62.224:8080/zanata/
-        172_104_62_224.username=${{ secrets.ZANATA_USERNAME }}
-        172_104_62_224.key=${{ secrets.ZANATA_KEY }}
-        EOT
-    - name: Push source text to zanata
-      run: zanata-cli -B push
