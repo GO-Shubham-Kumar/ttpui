@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: buildjet-2vcpu-ubuntu-2004
+    runs-on: ubuntu-latest
     outputs:
       build-vsn: ${{ steps.get-version.outputs.build-vsn }}
     steps:
