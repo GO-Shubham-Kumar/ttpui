@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: buildjet-2vcpu-ubuntu-2004
+    runs-on: ubuntu-latest
     outputs:
       build-vsn: ${{ steps.get-version.outputs.build-vsn }}
     steps:
@@ -21,8 +21,13 @@ jobs:
     - name: Get version
       id: get-version
       run: |
+        ls -a
         git fetch --prune --unshallow
         echo "build-vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
+    - name: Use .npmrc
+      uses: bduff9/use-npmrc@v1.1
+      with:
+        dot-npmrc: ${{ secrets.DOT_NPMRC }}
     - name: Use Node.js 8
       uses: actions/setup-node@v3
       with:
