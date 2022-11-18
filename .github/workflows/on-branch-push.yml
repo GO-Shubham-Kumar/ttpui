@@ -8,9 +8,6 @@ permissions:
   contents: read
   id-token: write
 
-# Build package, build docker image, but don't push
-# Also, push translation source to Zanata
-
 jobs:
   build:
     runs-on: buildjet-2vcpu-ubuntu-2004

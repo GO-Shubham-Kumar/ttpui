@@ -16,7 +16,6 @@ jobs:
 
   build:
     runs-on: buildjet-2vcpu-ubuntu-2004
-    if: always() && (needs.zanata-pull.result == 'success' || needs.zanata-pull.result == 'skipped')
     outputs:
       build-vsn: ${{ steps.get-version.outputs.build-vsn }}
       uploaded: ${{ steps.gcs-upload.outputs.uploaded }}
