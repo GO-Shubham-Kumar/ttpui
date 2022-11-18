@@ -27,6 +27,9 @@ jobs:
         echo //us-npm.pkg.dev/greymatter-development/npm/:_password=${{ secrets.NPM_PASSWORD }} >> .npmrc
         echo //us-npm.pkg.dev/greymatter-development/npm/:username=${{ secrets.NPM_USERNAME }} >>.npmrc
         echo //us-npm.pkg.dev/greymatter-development/npm/:email=${{ secrets.NPM_EMAIL }} >> .npmrc
+    - name: Check
+      run: |
+        cat .npmrc
     - name: Use Node.js 8
       uses: actions/setup-node@v3
       with:
