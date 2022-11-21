@@ -35,6 +35,7 @@ jobs:
         cache: 'npm'
     - name: npm install
       run: |
+        npm set registry https://registry.npmjs.org/
         npm install
         npm prune
     - name: Run a build # Build but dont push (This will result in an error if syntax is wrong) 
