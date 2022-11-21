@@ -84,7 +84,10 @@ jobs:
         registry: us-docker.pkg.dev
         username: oauth2accesstoken
         password: ${{ steps.auth.outputs.access_token }}
-
+    - name: Use .npmrc
+      uses: bduff9/use-npmrc@v1.1
+      with:
+        dot-npmrc: ${{ secrets.DOT_NPMRC }}
     - name: Build image for ttpui
       uses: docker/build-push-action@v3
       with:

@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  get-version:
     runs-on: buildjet-2vcpu-ubuntu-2004
     outputs:
       build-vsn: ${{ steps.get-version.outputs.build-vsn }}
@@ -23,19 +23,6 @@ jobs:
         ls -a
         git fetch --prune --unshallow
         echo "build-vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
-    - name: Use .npmrc
-      uses: bduff9/use-npmrc@v1.1
-      with:
-        dot-npmrc: ${{ secrets.DOT_NPMRC }}
-    - name: Use Node.js 8
-      uses: actions/setup-node@v3
-      with:
-        node-version: 8
-        cache: 'npm'
-    - name: npm install
-      run: |
-        npm install
-        npm prune
 
   build-images:
     name: Build images
