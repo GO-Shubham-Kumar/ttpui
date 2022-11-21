@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
   test:
-    runs-on: buildjet-2vcpu-ubuntu-2004
+    runs-on: ubuntu-latest
     name: Test Artifacts
     steps: 
     - uses: actions/checkout@v3
