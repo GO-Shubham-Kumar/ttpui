@@ -2,6 +2,8 @@ name: Branch Push
 
 on:
   push:
+    tags:
+      - '**'
     branches: 
       - develop
       - 'release-**'
