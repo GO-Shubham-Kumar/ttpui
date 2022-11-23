@@ -1,0 +1,53 @@
+name: Publish Pub/Sub
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  id-token: write
+  actions: read
+
+jobs:
+  download:
+    runs-on: [self-hosted, Linux, X64, ubuntu-2004, 1vcpu]
+    steps:
+    - name: 'Download artifact'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.payload.workflow_run.id,
+          });
+          let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
+            return artifact.name == "workflow-results"
+          })[0];
+          let download = await github.rest.actions.downloadArtifact({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              artifact_id: matchArtifact.id,
+              archive_format: 'zip',
+          });
+          let fs = require('fs');
+          fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/workflow-results.zip`, Buffer.from(download.data));
+    - name: 'Unzip artifact'
+      run: unzip workflow-results.zip
+
+    - name: Authenticate to Google Cloud Pub/Sub SA
+      uses: google-github-actions/auth@v0
+      with:
+        workload_identity_provider: projects/1094715745642/locations/global/workloadIdentityPools/default-pool/providers/github-provider
+        service_account: github-actions-pubsub@greymatter-development.iam.gserviceaccount.com
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+    - name: Publish results to Pub/Sub
+      run: |
+        jq -c '.conclusion="${{ github.event.workflow_run.conclusion }}"|.run_url="${{ github.event.workflow_run.html_url }}"' workflow-results.json > results.json
+        gcloud pubsub topics publish projects/greymatter-development/topics/github-actions-events \
+            --attribute=repo=ttpui \
+            --message="$(cat results.json)"

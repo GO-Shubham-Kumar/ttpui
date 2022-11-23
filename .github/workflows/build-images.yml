@@ -12,6 +12,11 @@ on:
         required: false
         type: string
         description: Extra tags for the built image
+      pr_number:
+        required: false
+        type: number
+        default: 0
+        description: If passed, this is used to checkout the PR branch and calculate build version
     outputs:
       image_tags:
         description: "Pushed image tags"
@@ -95,3 +100,35 @@ jobs:
         #   ${{ steps.meta.outputs.tags }}
         #   ${{ inputs.cache_get_registry }}ttpui:buildcache
         # cache-to: ${{ steps.meta-cache-to.outputs.cache }}
+
+  report:
+    name: Report
+    needs: [ build ]
+    runs-on: buildjet-2vcpu-ubuntu-2004
+    steps:
+    - name: Add job summary
+      run: |
+        if [[ "${{ github.ref_type }}" == "branch" ]]; then
+          echo 'Branch: `${{ github.ref_name }}`' >> $GITHUB_STEP_SUMMARY
+        fi
+        echo 'Docker image tag: `${{ needs.build.outputs.build_vsn }}`' >> $GITHUB_STEP_SUMMARY
+        cat > workflow-results.json <<- EndOfMessage
+        {
+            "repo": "ttpui",
+            "ref_type": "${{ github.ref_type }}",
+            "ref_name": "${{ github.ref_name }}",
+            "pr_number": "${{ inputs.pr_number }}",
+            "build_vsn": "${{ needs.build.outputs.build_vsn }}",
+            "container_tags": [ "${{ needs.build.outputs.build_vsn }}" ],
+            "packages": [
+                {
+                    "package_type": "container",
+                    "package_url": "us-docker.pkg.dev/greymatter-development/apps/ttpui"
+                }
+            ]
+        }
+        EndOfMessage
+    - uses: actions/upload-artifact@v3
+      with:
+        name: workflow-results
+        path: workflow-results.json
