@@ -1,0 +1,18 @@
+name: PR Comment Build
+
+on:
+  issue_comment:
+    types: [ created ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    if: contains(github.event.comment.body, '@greyorangebot build')
+    uses: ./.github/workflows/build-images.yml
+    secrets: inherit
+    with:
+      pr_number: ${{ github.event.issue.number  }}

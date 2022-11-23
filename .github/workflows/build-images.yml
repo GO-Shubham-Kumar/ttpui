@@ -39,7 +39,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        if [[ "${{ github.ref_type }}" == "tag" ]]; then
+        if [ "${{ inputs.pr_number }}" -ne "0" ]; then
+          # PR
+          git fetch --prune --unshallow
+          branch=$(gh pr view ${{ inputs.pr_number }} --json headRefName --jq '.headRefName')
+          git checkout $branch
+          echo "build_vsn=pr-${{ inputs.pr_number }}-g$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.ref_type }}" == "tag" ]]; then
           echo "build_vsn=${{ github.ref_name }}" >> $GITHUB_OUTPUT
         else
           git fetch --prune --unshallow
