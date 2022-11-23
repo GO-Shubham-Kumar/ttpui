@@ -3,11 +3,6 @@ name: Build Images
 on:
   workflow_call:
     inputs:
-      cache_get_registry:
-        required: false
-        type: string
-        default: us-docker.pkg.dev/greymatter-development/apps/
-        description: Registry to use to fetch cache
       push_registry:
         required: false
         type: string
@@ -17,15 +12,13 @@ on:
         required: false
         type: string
         description: Extra tags for the built image
-      target_branch:
-        required: false
-        type: string
-        default: ""
-        description: The branch to checkout and build
     outputs:
       image_tags:
         description: "Pushed image tags"
         value: ${{ jobs.build.outputs.image_tags }}
+      build_vsn:
+        description: This is the calculated build version
+        value: ${{ jobs.get }}
 
 jobs:
   build:
@@ -33,6 +26,7 @@ jobs:
     runs-on: buildjet-2vcpu-ubuntu-2004
     outputs:
       image_tags: ${{ steps.meta.outputs.tags }}
+      build_vsn: ${{ steps.get_version.outputs.build_vsn }}
     services:
       registry:
         image: registry:2
@@ -40,11 +34,16 @@ jobs:
           - 5000:5000
     steps:
     - uses: actions/checkout@v3
-    - name: Unshallow and checkout
+    - name: Get version
+      id: get_version
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git fetch -q --prune --unshallow
-        if [ "${{ inputs.target_branch }}" != "" ]; then
-          git checkout ${{ inputs.target_branch }}
+        if [[ "${{ github.ref_type }}" == "tag" ]]; then
+          echo "build_vsn=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+        else
+          git fetch --prune --unshallow
+          echo "build_vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
         fi
     - name: Docker meta for image
       id: meta
@@ -56,21 +55,12 @@ jobs:
           type=ref,event=pr
           type=ref,event=tag
           type=raw,value=${{ inputs.extra_tag }},enable=${{ inputs.extra_tag != '' }}
-          type=raw,value=${{ inputs.target_branch }},enable=${{ inputs.target_branch != '' }}
+          type=raw,value=${{ steps.get_version.outputs.build_vsn }},enable=${{ steps.get_version.outputs.build_vsn != '' }}
         flavor: latest=false
         labels: |
           org.opencontainers.image.title=ttpui
           org.opencontainers.image.authors=GreyOrange <support@greyorange.com>
           org.opencontainers.image.vendor=GreyOrange
-
-    # - name: Docker meta for cache-to
-    #   id: meta-cache-to
-    #   run: |
-    #     if [[ "${{ inputs.push_registry }}" != "localhost:5000/" ]]; then
-    #       echo "::set-output name=cache::type=registry,mode=max,ref=${{ inputs.push_registry }}ttpui:buildcache"
-    #     else
-    #       echo "::set-output name=cache::"
-    #     fi
 
     - id: auth
       name: Authenticate to Google Cloud

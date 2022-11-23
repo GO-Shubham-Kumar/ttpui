@@ -11,23 +11,8 @@ permissions:
   id-token: write
 
 jobs:
-  get-version:
-    runs-on: buildjet-2vcpu-ubuntu-2004
-    outputs:
-      build-vsn: ${{ steps.get-version.outputs.build-vsn }}
-    steps:
-    - uses: actions/checkout@v3
-    - name: Get version
-      id: get-version
-      run: |
-        ls -a
-        git fetch --prune --unshallow
-        echo "build-vsn=$(git describe --dirty --abbrev=7 --tags --always --first-parent)" >> $GITHUB_OUTPUT
-
   build-images:
     name: Build images
-    needs: get-version
     uses: ./.github/workflows/build-images.yml
     with:
-      extra_tag: ${{ needs.build.outputs.build-vsn }}
-      push_registry: us-docker.pkg.dev/greymatter-development/apps/ttpui
+      push_registry: us-docker.pkg.dev/greymatter-development/apps/
