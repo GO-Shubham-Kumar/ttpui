@@ -9,6 +9,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  reply-ack:
+    name: Reply with Run URL
+    runs-on: [self-hosted, Linux, X64, ubuntu-2004, 1vcpu]
+    if: contains(github.event.comment.body, '@greyorangebot build')
+    steps:
+    - name: Update comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        comment-id: ${{ github.event.comment.id }}
+        reactions: eyes
+        token: ${{ secrets.GH_PUSH_PAT }}
+        body: |
+          Build triggered: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
   build:
     name: Build
     if: contains(github.event.comment.body, '@greyorangebot build')
@@ -16,3 +30,19 @@ jobs:
     secrets: inherit
     with:
       pr_number: ${{ github.event.issue.number  }}
+  reply-comment:
+    name: Reply with build details
+    runs-on: [self-hosted, Linux, X64, ubuntu-2004, 1vcpu]
+    if: always() && contains(github.event.comment.body, '@greyorangebot build')
+    needs: build
+    steps:
+    - name: Update comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: ${{ github.event.issue.number }}
+        comment-id: ${{ github.event.comment.id }}
+        reactions: rocket
+        token: ${{ secrets.GH_PUSH_PAT }}
+        body: |
+          Build status: ${{ needs.build.result }}
+          Docker image tag: `${{ needs.build.outputs.build_vsn }}`
