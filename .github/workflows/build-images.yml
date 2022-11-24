@@ -28,7 +28,7 @@ on:
 jobs:
   build:
     name: Build images
-    runs-on: buildjet-2vcpu-ubuntu-2004
+    runs-on: ubuntu-latest
     outputs:
       image_tags: ${{ steps.meta.outputs.tags }}
       build_vsn: ${{ steps.get_version.outputs.build_vsn }}
@@ -107,7 +107,7 @@ jobs:
   report:
     name: Report
     needs: [ build ]
-    runs-on: buildjet-2vcpu-ubuntu-2004
+    runs-on: ubuntu-latest
     steps:
     - name: Add job summary
       run: |
