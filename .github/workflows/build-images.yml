@@ -73,18 +73,18 @@ jobs:
           org.opencontainers.image.authors=GreyOrange <support@greyorange.com>
           org.opencontainers.image.vendor=GreyOrange
 
-    - id: auth
-      name: Authenticate to Google Cloud
-      uses: google-github-actions/auth@v0
-      with:
-        workload_identity_provider: projects/1094715745642/locations/global/workloadIdentityPools/default-pool/providers/github-provider
-        service_account: github-actions-repo-writer@greymatter-development.iam.gserviceaccount.com
-        token_format: access_token
-    - uses: docker/login-action@v2
-      with:
-        registry: us-docker.pkg.dev
-        username: oauth2accesstoken
-        password: ${{ steps.auth.outputs.access_token }}
+    # - id: auth
+    #   name: Authenticate to Google Cloud
+    #   uses: google-github-actions/auth@v0
+    #   with:
+    #     workload_identity_provider: projects/1094715745642/locations/global/workloadIdentityPools/default-pool/providers/github-provider
+    #     service_account: github-actions-repo-writer@greymatter-development.iam.gserviceaccount.com
+    #     token_format: access_token
+    # - uses: docker/login-action@v2
+    #   with:
+    #     registry: us-docker.pkg.dev
+    #     username: oauth2accesstoken
+    #     password: ${{ steps.auth.outputs.access_token }}
     - name: Use .npmrc
       uses: bduff9/use-npmrc@v1.1
       with:
