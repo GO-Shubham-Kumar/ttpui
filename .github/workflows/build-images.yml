@@ -89,6 +89,9 @@ jobs:
       uses: bduff9/use-npmrc@v1.1
       with:
         dot-npmrc: ${{ secrets.DOT_NPMRC }}
+    - name: Load local configurations
+      run: |
+        bash ttpui_entrypoint_local.sh
     - name: Build image for ttpui
       uses: docker/build-push-action@v3
       with:
