@@ -20,7 +20,7 @@ jobs:
         issue-number: ${{ github.event.issue.number }}
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
-        token: ${{ secrets.GH_PUSH_PAT }}
+        # token: ${{ secrets.GH_PUSH_PAT }}
         body: |
           Build triggered: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
   build:
@@ -42,7 +42,7 @@ jobs:
         issue-number: ${{ github.event.issue.number }}
         comment-id: ${{ github.event.comment.id }}
         reactions: rocket
-        token: ${{ secrets.GH_PUSH_PAT }}
+        # token: ${{ secrets.GH_PUSH_PAT }}
         body: |
           Build status: ${{ needs.build.result }}
           Docker image tag: `${{ needs.build.outputs.build_vsn }}`
