@@ -12,7 +12,7 @@ jobs:
   reply-ack:
     name: Reply with Run URL
     runs-on: ubuntu-latest
-    if: contains(github.event.comment.body, '@greyorangebot build')
+    if: contains(github.event.comment.body, 'build')
     steps:
     - name: Update comment
       uses: peter-evans/create-or-update-comment@v2
@@ -25,7 +25,7 @@ jobs:
           Build triggered: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
   build:
     name: Build
-    if: contains(github.event.comment.body, '@greyorangebot build')
+    if: contains(github.event.comment.body, 'build')
     uses: ./.github/workflows/build-images.yml
     secrets: inherit
     with:
@@ -33,7 +33,7 @@ jobs:
   reply-comment:
     name: Reply with build details
     runs-on: ubuntu-latest
-    if: always() && contains(github.event.comment.body, '@greyorangebot build')
+    if: always() && contains(github.event.comment.body, 'build')
     needs: build
     steps:
     - name: Update comment
